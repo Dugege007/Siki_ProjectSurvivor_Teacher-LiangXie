@@ -18,20 +18,12 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: SpriteRenderer
-      PathToRoot: Sprite
-      MemberName: Sprite
-    - TypeName: CircleCollider2D
-      PathToRoot: HurtBox
-      MemberName: HurtBox
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: Player
+    BindInfos: []
+    ScriptsFolder: Assets/Scenes
+    ClassName: TestMaxPowerUpCount
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class Player : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class TestMaxPowerUpCount : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:45efbfa2-6c2e-496a-93b2-cf224b6b6d6d\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class Player\r\n\t{\r\n\r\n\t\tpublic
-      SpriteRenderer Sprite;\r\n\r\n\t\tpublic CircleCollider2D HurtBox;\r\n\r\n\t\tpublic
-      UnityEngine.Rigidbody2D SelfRigidbody2D;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:a472af68-76e8-447a-a128-19b084496e5b\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class TestMaxPowerUpCount\r\n\t{\r\n\r\n\t}\r\n}\r\n"
