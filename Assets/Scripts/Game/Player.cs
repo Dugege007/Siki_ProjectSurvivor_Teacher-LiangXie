@@ -22,8 +22,6 @@ namespace ProjectSurvivor
                 // 销毁玩家
                 this.DestroyGameObjGracefully();
 
-                // 先执行一次 ResKit.Init() 以确保 ResKit 初始化才能使用 UIKit.OpenPanel<>()
-                ResKit.Init();
                 // 打开 游戏结束面板
                 UIKit.OpenPanel<UIGameOverPanel>();
 
