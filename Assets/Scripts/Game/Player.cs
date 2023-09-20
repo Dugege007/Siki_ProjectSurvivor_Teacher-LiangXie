@@ -7,6 +7,7 @@ namespace ProjectSurvivor
 	{
 		private void Start()
 		{
+			// QFramework 形式的打印
 			"Hello QFramework!".LogInfo();
 		}
 	}
