@@ -83,13 +83,13 @@ namespace QFramework
 		{
 			if (string.IsNullOrEmpty(path))
 			{
-				Log.W("SerializeBinary Without Valid Path.");
+                LogKit.W("SerializeBinary Without Valid Path.");
 				return false;
 			}
 
 			if (obj == null)
 			{
-				Log.W("SerializeBinary obj is Null.");
+                LogKit.W("SerializeBinary obj is Null.");
 				return false;
 			}
 
@@ -105,7 +105,7 @@ namespace QFramework
 		{
 			if (string.IsNullOrEmpty(path))
 			{
-				Log.W("DeserializeBinary Without Valid Path.");
+                LogKit.W("DeserializeBinary Without Valid Path.");
 				return null;
 			}
 
@@ -122,7 +122,7 @@ namespace QFramework
 				}
 			}
 
-			Log.W("DeserializeBinary Failed:" + path);
+			LogKit.W("DeserializeBinary Failed:" + path);
 			return null;
 		}
 	}

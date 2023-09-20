@@ -240,8 +240,8 @@ namespace QFramework
                     ResKitAssetsMenu.MarkAB(panelPrefabPath);
                     
                     var tester = new GameObject("Test{0}".FillFormat(panelName));
-                    var uiPanelTester = tester.AddComponent<ResKitUIPanelTester>();
-                    uiPanelTester.PanelName = panelName;
+                    //var uiPanelTester = tester.AddComponent<ResKitUIPanelTester>();
+                    //uiPanelTester.PanelName = panelName;
 
                     // 开始生成代码
                     UICodeGenerator.DoCreateCode(new[] { prefab });

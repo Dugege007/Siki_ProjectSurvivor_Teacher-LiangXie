@@ -13,5 +13,6 @@ namespace QFramework
     /// <remarks> Enums with this attribute are not detected by EditorGui.ChangeCheck due to waiting before executing </remarks>
     public class GUIGraphEnumAttribute : PropertyAttribute
     {
+
     }
 }
