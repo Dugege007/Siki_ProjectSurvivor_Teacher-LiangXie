@@ -9,11 +9,14 @@ namespace ProjectSurvivor
 
         private void Update()
         {
-            Player player = FindObjectOfType<Player>();
+            if (Player.Default)
+            {
+                // 设置方向朝玩家
+                Vector3 direction = (Player.Default.transform.position - transform.position).normalized;
 
-            Vector3 direction = (player.transform.position - transform.position).normalized;
-
-            transform.Translate(direction * MovementSpeed * Time.deltaTime);
+                // 移动
+                transform.Translate(direction * MovementSpeed * Time.deltaTime);
+            }
         }
     }
 }

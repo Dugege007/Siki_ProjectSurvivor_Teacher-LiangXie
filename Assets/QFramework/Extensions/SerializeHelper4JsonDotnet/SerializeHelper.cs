@@ -34,7 +34,7 @@ namespace QFramework
 	
 	// 为了防止进行 clrbidning
 
-    public static class SerializeHelper
+	public static class SerializeHelper
 	{
 		public static IQFrameworkContainer SerializeContainer = new QFrameworkContainer();
 
@@ -83,13 +83,13 @@ namespace QFramework
 		{
 			if (string.IsNullOrEmpty(path))
 			{
-                LogKit.W("SerializeBinary Without Valid Path.");
+				LogKit.W("SerializeBinary Without Valid Path.");
 				return false;
 			}
 
 			if (obj == null)
 			{
-                LogKit.W("SerializeBinary obj is Null.");
+				LogKit.W("SerializeBinary obj is Null.");
 				return false;
 			}
 
@@ -105,7 +105,7 @@ namespace QFramework
 		{
 			if (string.IsNullOrEmpty(path))
 			{
-                LogKit.W("DeserializeBinary Without Valid Path.");
+				LogKit.W("DeserializeBinary Without Valid Path.");
 				return null;
 			}
 
