@@ -15,6 +15,7 @@ namespace ProjectSurvivor
             mData = uiData as UIGameOverPanelData ?? new UIGameOverPanelData();
             // please add init code here
 
+            // ActionKit 动作序列工具（时序异步）
             // 获得全局的 Update 周期
             ActionKit.OnUpdate.Register(() =>
             {

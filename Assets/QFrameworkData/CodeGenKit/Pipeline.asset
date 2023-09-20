@@ -19,11 +19,11 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos: []
-    ScriptsFolder: Assets/Scenes
-    ClassName: TestMaxPowerUpCount
+    ScriptsFolder: Assets/Scripts/Game/Ability
+    ClassName: SimpleAbility
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class TestMaxPowerUpCount : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class SimpleAbility : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:a472af68-76e8-447a-a128-19b084496e5b\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class TestMaxPowerUpCount\r\n\t{\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:071456c0-ebbd-4897-bd72-1b49b7646d5e\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class SimpleAbility\r\n\t{\r\n\r\n\t}\r\n}\r\n"
