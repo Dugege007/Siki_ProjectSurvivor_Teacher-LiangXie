@@ -31,6 +31,8 @@ namespace ProjectSurvivor
                         // 延时执行
                         ActionKit.Delay(0.3f, () =>
                         {
+                            // 减血
+                            enemyRefCache.HP--;
                             // 变回白色
                             enemy.Sprite.color = Color.white;
 

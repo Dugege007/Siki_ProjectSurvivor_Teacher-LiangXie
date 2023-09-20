@@ -5,6 +5,8 @@ namespace ProjectSurvivor
 {
     public partial class Enemy : ViewController
     {
+        public float HP = 3;
+
         public float MovementSpeed = 2f;
 
         private void Update()
@@ -16,6 +18,14 @@ namespace ProjectSurvivor
 
                 // 移动
                 transform.Translate(direction * MovementSpeed * Time.deltaTime);
+            }
+
+            if (HP <= 0)
+            {
+                // 销毁自己
+                this.DestroyGameObjGracefully();
+
+                UIKit.OpenPanel<UIGamePassPanel>();
             }
         }
     }
