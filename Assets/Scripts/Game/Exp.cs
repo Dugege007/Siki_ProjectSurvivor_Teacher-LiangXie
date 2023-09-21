@@ -7,10 +7,12 @@ namespace ProjectSurvivor
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.GetComponent<CollectableArea>() != null)
+            if (collision.GetComponent<CollectableArea>())
             {
+                // 经验增加
                 Global.Exp.Value++;
-                this.DestroySelfGracefully();
+                // 销毁自身
+                this.DestroyGameObjGracefully();
             }
         }
     }

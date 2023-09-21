@@ -1,7 +1,5 @@
 using UnityEngine;
 using QFramework;
-using System;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace ProjectSurvivor
 {
@@ -29,10 +27,10 @@ namespace ProjectSurvivor
 
             if (HP <= 0)
             {
+                // 掉落道具
+                Global.GeneratePowerUp(gameObject);
                 // 销毁自己
                 this.DestroyGameObjGracefully();
-
-                //TODO 经验值调用
             }
         }
 

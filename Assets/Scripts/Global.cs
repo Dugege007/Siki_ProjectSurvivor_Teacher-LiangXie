@@ -1,3 +1,4 @@
+using UnityEngine;
 using QFramework;
 
 namespace ProjectSurvivor
@@ -45,6 +46,23 @@ namespace ProjectSurvivor
         public static int ExpToNextLevel()
         {
             return Level.Value * 5;
+        }
+
+        /// <summary>
+        /// 生成掉落物品
+        /// </summary>
+        /// <param name="gameObject">掉落物品的主体</param>
+        public static void GeneratePowerUp(GameObject gameObject)
+        {
+            // 90% 掉落经验值
+            float random = Random.Range(0, 100f);
+            if (random <= 90)
+            {
+                // 掉落经验值
+                PowerUpManager.Default.Exp.Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+            }
         }
     }
 }
