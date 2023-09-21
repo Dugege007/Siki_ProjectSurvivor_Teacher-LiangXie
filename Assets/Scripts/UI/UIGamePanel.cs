@@ -14,6 +14,13 @@ namespace ProjectSurvivor
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
             // please add init code here
 
+            // 更新敌人数量UI
+            EnemyGenerator.EnemyCount.RegisterWithInitValue(enemyCount =>
+            {
+                EnemyCountText.text = enemyCount.ToString();
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
             // 更新当前时间UI
             Global.CurrentSeconds.RegisterWithInitValue(currentSeconds =>
             {
@@ -79,7 +86,9 @@ namespace ProjectSurvivor
             {
                 Global.CurrentSeconds.Value += Time.deltaTime;
 
-                if (Global.CurrentSeconds.Value > 60 && enemyGenerator.IsLastWave && FindObjectOfType<Enemy>(false))    // FindObjectOfType<Enemy>(false) false 表示不包含隐藏的
+                if (enemyGenerator.IsLastWave &&
+                    enemyGenerator.CurrentWave == null &&
+                    EnemyGenerator.EnemyCount.Value == 0)
                 {
                     UIKit.OpenPanel<UIGamePassPanel>();
                 }

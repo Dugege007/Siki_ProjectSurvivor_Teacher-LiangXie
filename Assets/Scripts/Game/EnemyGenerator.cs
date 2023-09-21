@@ -26,17 +26,18 @@ namespace ProjectSurvivor
         private float mCurrentGenerateSeconds = 0;
         private float mCurrentWaveSeconds = 0;
 
+        public static BindableProperty<int> EnemyCount = new BindableProperty<int>(0);
+
         /// <summary>
         /// ≤®¥Œ¡–±Ì
         /// </summary>
         public List<EnemyWave> EnemyWaves = new List<EnemyWave>();
-
         private Queue<EnemyWave> mEnemyWavesQueue = new Queue<EnemyWave>();
 
         private EnemyWave mCurrentWave = null;
-
         public int WaveCount = 0;
         public bool IsLastWave => WaveCount == EnemyWaves.Count;
+        public EnemyWave CurrentWave => mCurrentWave;
 
         private void Start()
         {

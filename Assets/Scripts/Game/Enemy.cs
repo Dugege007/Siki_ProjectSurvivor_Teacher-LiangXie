@@ -9,6 +9,11 @@ namespace ProjectSurvivor
 
         public float MovementSpeed = 2f;
 
+        private void Start()
+        {
+            EnemyGenerator.EnemyCount.Value++;
+        }
+
         private void Update()
         {
             if (Player.Default)
@@ -26,6 +31,11 @@ namespace ProjectSurvivor
                 this.DestroyGameObjGracefully();
                 Global.Exp.Value++;
             }
+        }
+
+        private void OnDestroy()
+        {
+            EnemyGenerator.EnemyCount.Value--;
         }
     }
 }
