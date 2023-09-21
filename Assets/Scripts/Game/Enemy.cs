@@ -24,6 +24,7 @@ namespace ProjectSurvivor
             {
                 // Ïú»Ù×Ô¼º
                 this.DestroyGameObjGracefully();
+                Global.Exp.Value++;
 
                 UIKit.OpenPanel<UIGamePassPanel>();
             }
