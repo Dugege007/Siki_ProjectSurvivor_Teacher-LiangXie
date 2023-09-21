@@ -14,6 +14,21 @@ namespace ProjectSurvivor
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
             // please add init code here
 
+            // 更新当前时间UI
+            Global.CurrentSeconds.RegisterWithInitValue(currentSeconds =>
+            {
+                // 每 20 帧更新一次
+                if (Time.frameCount % 20 == 0)
+                {
+                    int currentSecondsInt = Mathf.FloorToInt(currentSeconds);
+                    int seconds = currentSecondsInt % 60;
+                    int minutes = currentSecondsInt / 60;
+
+                    TimeText.text = $"{minutes:00}:{seconds:00}";
+                }
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
             // 更新经验值UI
             Global.Exp.RegisterWithInitValue(exp =>
             {
@@ -47,13 +62,23 @@ namespace ProjectSurvivor
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
+            // 注册按钮事件
             UpgradeBtn.onClick.AddListener(() =>
             {
                 Time.timeScale = 1;
+                Global.SimpleAbilityDamage.Value *= 1.5f;
                 UpgradeBtn.Hide();
             });
 
+            // 隐藏按钮
             UpgradeBtn.Hide();
+
+            // 在全局的 Update 中注册时间增加的任务
+            ActionKit.OnUpdate.Register(() =>
+            {
+                Global.CurrentSeconds.Value += Time.deltaTime;
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
         
         protected override void OnOpen(IUIData uiData = null)

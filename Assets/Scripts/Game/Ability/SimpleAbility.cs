@@ -32,7 +32,7 @@ namespace ProjectSurvivor
                         ActionKit.Delay(0.3f, () =>
                         {
                             // ¼õÑª
-                            enemyRefCache.HP--;
+                            enemyRefCache.HP -= Global.SimpleAbilityDamage.Value;
                             // ±ä»Ø°×É«
                             enemy.Sprite.color = Color.white;
 
