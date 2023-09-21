@@ -22,12 +22,15 @@ MonoBehaviour:
     - TypeName: ProjectSurvivor.Exp
       PathToRoot: Exp
       MemberName: Exp
+    - TypeName: ProjectSurvivor.Coin
+      PathToRoot: Coin
+      MemberName: Coin
     ScriptsFolder: Assets/Scripts/Game
     ClassName: PowerUpManager
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
       partial class PowerUpManager : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:bc26a66e-eb13-4407-bd4e-52678dde4763\r\nusing UnityEngine;\r\n\r\nnamespace
+    DesignerCode: "// Generate Id:9105029f-101c-42fa-9c90-675bd4d44c94\r\nusing UnityEngine;\r\n\r\nnamespace
       ProjectSurvivor\r\n{\r\n\tpublic partial class PowerUpManager\r\n\t{\r\n\r\n\t\tpublic
-      ProjectSurvivor.Exp Exp;\r\n\r\n\t}\r\n}\r\n"
+      ProjectSurvivor.Exp Exp;\r\n\r\n\t\tpublic ProjectSurvivor.Coin Coin;\r\n\r\n\t}\r\n}\r\n"

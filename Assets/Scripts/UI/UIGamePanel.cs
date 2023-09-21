@@ -101,6 +101,19 @@ namespace ProjectSurvivor
                 }
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            // 简单的存储功能
+            // 读取金币数据
+            Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin), 0);
+
+            // 保存金币数据
+            Global.Coin.RegisterWithInitValue(coin =>
+            {
+                PlayerPrefs.SetInt(nameof(Coin), coin);
+
+                CoinText.text = coin.ToString();
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
         protected override void OnOpen(IUIData uiData = null)

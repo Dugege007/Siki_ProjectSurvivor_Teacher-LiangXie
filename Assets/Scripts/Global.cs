@@ -11,6 +11,11 @@ namespace ProjectSurvivor
         public static BindableProperty<int> Exp = new BindableProperty<int>(0);
 
         /// <summary>
+        /// 金币
+        /// </summary>
+        public static BindableProperty<int> Coin = new BindableProperty<int>(0);
+
+        /// <summary>
         /// 等级
         /// </summary>
         public static BindableProperty<int> Level = new BindableProperty<int>(1);
@@ -54,12 +59,18 @@ namespace ProjectSurvivor
         /// <param name="gameObject">掉落物品的主体</param>
         public static void GeneratePowerUp(GameObject gameObject)
         {
-            // 90% 掉落经验值
             float random = Random.Range(0, 100f);
             if (random <= 90)
             {
-                // 掉落经验值
+                // 90% 掉落经验值
                 PowerUpManager.Default.Exp.Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+            }
+            else
+            {
+                // 掉落金币
+                PowerUpManager.Default.Coin.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
             }
