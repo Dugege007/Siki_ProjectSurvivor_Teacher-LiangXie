@@ -16,19 +16,23 @@ namespace ProjectSurvivor
                 mCurrentSeconds = 0;
 
                 Player player = Player.Default;
-                // 随机角度
-                float randomAngle = Random.Range(0, 360f);
-                // 获取弧度
-                float randomRadius = randomAngle * Mathf.Deg2Rad;
-                // 计算方向
-                Vector3 direction = new Vector3(Mathf.Cos(randomRadius), Mathf.Sin(randomRadius));
-                //
-                Vector3 generatePos = player.transform.position + direction * 10;
 
-                // 生成敌人
-                Enemy.Instantiate()
-                    .Position(generatePos)
-                    .Show();
+                if (player != null )
+                {
+                    // 随机角度
+                    float randomAngle = Random.Range(0, 360f);
+                    // 获取弧度
+                    float randomRadius = randomAngle * Mathf.Deg2Rad;
+                    // 计算方向
+                    Vector3 direction = new Vector3(Mathf.Cos(randomRadius), Mathf.Sin(randomRadius));
+                    // 设置生成点位置
+                    Vector3 generatePos = player.transform.position + direction * 10;
+
+                    // 生成敌人
+                    Enemy.Instantiate()
+                        .Position(generatePos)
+                        .Show();
+                }
             }
         }
     }

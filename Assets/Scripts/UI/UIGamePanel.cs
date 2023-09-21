@@ -14,9 +14,28 @@ namespace ProjectSurvivor
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
 			// please add init code here
 
+			// 更新经验值UI
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
 				ExpText.text = exp.ToString();
+
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+			// 更新等级UI
+			Global.Level.RegisterWithInitValue(level =>
+			{
+				LevelText.text = level.ToString();
+
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+			// 升级机制
+			Global.Exp.RegisterWithInitValue(exp =>
+			{
+				if (exp >= 5)
+				{
+					Global.Exp.Value -= 5;
+					Global.Level.Value++;
+				}
 
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
