@@ -73,12 +73,13 @@ namespace ProjectSurvivor
             // 隐藏按钮
             UpgradeBtn.Hide();
 
+            EnemyGenerator enemyGenerator = FindObjectOfType<EnemyGenerator>();
             // 在全局的 Update 中注册时间增加的任务
             ActionKit.OnUpdate.Register(() =>
             {
                 Global.CurrentSeconds.Value += Time.deltaTime;
 
-                if (Global.CurrentSeconds.Value > 30)
+                if (Global.CurrentSeconds.Value > 60 && enemyGenerator.IsLastWave && FindObjectOfType<Enemy>(false))    // FindObjectOfType<Enemy>(false) false 表示不包含隐藏的
                 {
                     UIKit.OpenPanel<UIGamePassPanel>();
                 }

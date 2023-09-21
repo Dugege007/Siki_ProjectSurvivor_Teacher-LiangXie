@@ -1367,6 +1367,15 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  EnemyWaves:
+  - GenerateDuration: 1
+    EnemyPrefab: {fileID: 1600428095}
+  - GenerateDuration: 0.8
+    EnemyPrefab: {fileID: 1600428095}
+  - GenerateDuration: 0.6
+    EnemyPrefab: {fileID: 1600428095}
+  - GenerateDuration: 0.4
+    EnemyPrefab: {fileID: 1600428095}
   Enemy: {fileID: 1600428097}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
