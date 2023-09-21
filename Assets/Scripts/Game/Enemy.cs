@@ -31,7 +31,8 @@ namespace ProjectSurvivor
             {
                 // 销毁自己
                 this.DestroyGameObjGracefully();
-                Global.Exp.Value++;
+
+                //TODO 经验值调用
             }
         }
 
