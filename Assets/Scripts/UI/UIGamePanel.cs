@@ -54,7 +54,7 @@ namespace ProjectSurvivor
             Global.Level.Register(level =>
             {
                 Time.timeScale = 0;
-                UpgradeBtn.Show();
+                UpgradeRoot.Show();
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
@@ -74,11 +74,18 @@ namespace ProjectSurvivor
             {
                 Time.timeScale = 1;
                 Global.SimpleAbilityDamage.Value *= 1.5f;
-                UpgradeBtn.Hide();
+                UpgradeRoot.Hide();
             });
 
-            // 隐藏按钮
-            UpgradeBtn.Hide();
+            SimpleDurationUpgradeBtn.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1;
+                Global.SimpleAbilityDuration.Value *= 0.8f;
+                UpgradeRoot.Hide();
+            });
+
+            // 隐藏按钮组
+            UpgradeRoot.Hide();
 
             EnemyGenerator enemyGenerator = FindObjectOfType<EnemyGenerator>();
             // 在全局的 Update 中注册时间增加的任务

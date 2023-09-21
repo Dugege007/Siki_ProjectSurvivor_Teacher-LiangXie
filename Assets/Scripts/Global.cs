@@ -25,6 +25,11 @@ namespace ProjectSurvivor
         public static BindableProperty<float> SimpleAbilityDamage = new BindableProperty<float>(1);
 
         /// <summary>
+        /// 简单能力的攻击间隔
+        /// </summary>
+        public static BindableProperty<float> SimpleAbilityDuration = new BindableProperty<float>(1.5f);
+
+        /// <summary>
         /// 重置数据
         /// </summary>
         public static void ResetData()
@@ -33,6 +38,7 @@ namespace ProjectSurvivor
             Level.Value = 1;
             CurrentSeconds.Value = 0;
             SimpleAbilityDamage.Value = 1;
+            SimpleAbilityDuration.Value = 1.5f;
             EnemyGenerator.EnemyCount.Value = 0;
         }
     }

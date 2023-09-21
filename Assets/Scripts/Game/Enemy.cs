@@ -1,13 +1,15 @@
 using UnityEngine;
 using QFramework;
+using System;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace ProjectSurvivor
 {
     public partial class Enemy : ViewController
     {
         public float HP = 3;
-
         public float MovementSpeed = 2f;
+        private bool mIgnoreHurt = false;
 
         private void Start()
         {
@@ -31,6 +33,28 @@ namespace ProjectSurvivor
                 this.DestroyGameObjGracefully();
                 Global.Exp.Value++;
             }
+        }
+
+        public void Hurt(float value)
+        {
+            if (mIgnoreHurt) return;
+
+            // 忽略伤害
+            mIgnoreHurt = true;
+            // 变为红色
+            Sprite.color = Color.red;
+
+            // 延时执行
+            ActionKit.Delay(0.2f, () =>
+            {
+                // 减血
+                HP -= value;
+                // 变回白色
+                Sprite.color = Color.white;
+                // 在受伤期间不再受到伤害，避免冲突
+                mIgnoreHurt = false;
+
+            }).Start(this);   // 自身执行
         }
 
         private void OnDestroy()
