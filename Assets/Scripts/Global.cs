@@ -14,11 +14,25 @@ namespace ProjectSurvivor
         /// </summary>
         public static BindableProperty<int> Level = new BindableProperty<int>(1);
 
+        /// <summary>
+        /// 当前时间
+        /// </summary>
         public static BindableProperty<float> CurrentSeconds = new BindableProperty<float>(0);
 
         /// <summary>
         /// 简单能力的攻击力
         /// </summary>
         public static BindableProperty<float> SimpleAbilityDamage = new BindableProperty<float>(1);
+
+        /// <summary>
+        /// 重置数据
+        /// </summary>
+        public static void ResetData()
+        {
+            Exp.Value = 0;
+            Level.Value = 1;
+            CurrentSeconds.Value = 0;
+            SimpleAbilityDamage.Value = 1;
+        }
     }
 }

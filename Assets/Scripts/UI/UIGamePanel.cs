@@ -78,21 +78,26 @@ namespace ProjectSurvivor
             {
                 Global.CurrentSeconds.Value += Time.deltaTime;
 
+                if (Global.CurrentSeconds.Value > 30)
+                {
+                    UIKit.OpenPanel<UIGamePassPanel>();
+                }
+
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
-        
+
         protected override void OnOpen(IUIData uiData = null)
         {
         }
-        
+
         protected override void OnShow()
         {
         }
-        
+
         protected override void OnHide()
         {
         }
-        
+
         protected override void OnClose()
         {
         }

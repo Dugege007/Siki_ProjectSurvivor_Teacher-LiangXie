@@ -23,6 +23,8 @@ namespace ProjectSurvivor
                 {
                     // 关掉当前面板
                     this.CloseSelf();
+                    // 重置数据
+                    Global.ResetData();
                     // 加载游戏场景
                     SceneManager.LoadScene("SampleScene");
                 }
