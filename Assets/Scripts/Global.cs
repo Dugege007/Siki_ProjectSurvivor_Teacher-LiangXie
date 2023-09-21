@@ -41,5 +41,10 @@ namespace ProjectSurvivor
             SimpleAbilityDuration.Value = 1.5f;
             EnemyGenerator.EnemyCount.Value = 0;
         }
+
+        public static int ExpToNextLevel()
+        {
+            return Level.Value * 5;
+        }
     }
 }
