@@ -478,6 +478,18 @@ MonoBehaviour:
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
     IsHidden: 0
+  - Type: 1
+    Name: PowerUpManager
+    GameObject: {fileID: 0}
+    Ordinal: 23
+    Priority: 0
+    IconType: 117500
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
 --- !u!4 &19250927
 Transform:
   m_ObjectHideFlags: 1
@@ -871,7 +883,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1857,7 +1869,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 14388119}
+  - {fileID: 228316400}
   - {fileID: 1452891369}
   - {fileID: 19250927}
   - {fileID: 2136824041}
-  - {fileID: 228316400}

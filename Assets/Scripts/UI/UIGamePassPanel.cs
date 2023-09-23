@@ -28,10 +28,24 @@ namespace ProjectSurvivor
                     // 重置数据
                     Global.ResetData();
                     // 加载游戏场景
-                    SceneManager.LoadScene("SampleScene");
+                    SceneManager.LoadScene("Game");
                 }
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            BackToStartBtn.onClick.AddListener(() =>
+            {
+                this.CloseSelf();
+                Global.ResetData();
+                SceneManager.LoadScene("GameStart");
+            });
+
+            RestartGameBtn.onClick.AddListener(() =>
+            {
+                this.CloseSelf();
+                Global.ResetData();
+                SceneManager.LoadScene("Game");
+            });
         }
 
         protected override void OnOpen(IUIData uiData = null)

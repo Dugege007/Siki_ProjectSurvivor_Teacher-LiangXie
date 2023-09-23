@@ -36,6 +36,47 @@ namespace ProjectSurvivor
         public static BindableProperty<float> SimpleAbilityDuration = new BindableProperty<float>(1.5f);
 
         /// <summary>
+        /// 经验掉率
+        /// </summary>
+        public static BindableProperty<float> ExpPercent = new BindableProperty<float>(0.4f);
+
+        /// <summary>
+        /// 金币掉率
+        /// </summary>
+        public static BindableProperty<float> CoinPercent = new BindableProperty<float>(0.05f);
+
+        /// <summary>
+        /// 自动初始化
+        /// </summary>
+        /// <remark>该方法在运行时自动调用一次</remark>
+        [RuntimeInitializeOnLoadMethod]
+        public static void AutoInit()
+        {
+            // 简单的存储功能
+            // 读取金币数据
+            Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin), 0);
+            Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.1f);
+            Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
+
+            // 保存金币数据
+            Global.Coin.Register(coin =>
+            {
+                PlayerPrefs.SetInt(nameof(Coin), coin);
+
+            }); // 暂时不考虑注销
+
+            Global.CoinPercent.Register(coinPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(CoinPercent), coinPercent);
+            });
+
+            Global.ExpPercent.Register(expPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(ExpPercent), expPercent);
+            });
+        }
+
+        /// <summary>
         /// 重置数据
         /// </summary>
         public static void ResetData()
@@ -59,15 +100,17 @@ namespace ProjectSurvivor
         /// <param name="gameObject">掉落物品的主体</param>
         public static void GeneratePowerUp(GameObject gameObject)
         {
-            float random = Random.Range(0, 100f);
-            if (random <= 90)
+            float percent = Random.Range(0, 1f);
+            if (percent <= ExpPercent)
             {
                 // 90% 掉落经验值
                 PowerUpManager.Default.Exp.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
             }
-            else
+
+            percent = Random.Range(0, 1f);
+            if (percent <= CoinPercent)
             {
                 // 掉落金币
                 PowerUpManager.Default.Coin.Instantiate()
