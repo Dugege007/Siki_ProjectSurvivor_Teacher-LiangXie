@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3924918741176565214}
   - component: {fileID: 1460807463970047877}
   - component: {fileID: 7044869862248502011}
+  - component: {fileID: 5614129741385058663}
   m_Layer: 0
   m_Name: LevelText
   m_TagString: Untagged
@@ -96,6 +97,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &5614129741385058663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040850437372624882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &4762645543783141102
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +123,7 @@ GameObject:
   - component: {fileID: 2782021474937621063}
   - component: {fileID: 3149573638750494447}
   - component: {fileID: 8072407360310081420}
+  - component: {fileID: 5395938327613056750}
   m_Layer: 0
   m_Name: LevelTitle
   m_TagString: Untagged
@@ -176,6 +193,21 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u7B49\u7EA7\uFF1A"
+--- !u!114 &5395938327613056750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762645543783141102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &4812045582137683056
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +220,7 @@ GameObject:
   - component: {fileID: 3226756616475437455}
   - component: {fileID: 4564622172454866650}
   - component: {fileID: 7110499186463995933}
+  - component: {fileID: 6469356052943389219}
   m_Layer: 0
   m_Name: TimeText
   m_TagString: Untagged
@@ -272,6 +305,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &6469356052943389219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812045582137683056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5063711824148028942
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +331,7 @@ GameObject:
   - component: {fileID: 2966538777775057227}
   - component: {fileID: 7223851446217493941}
   - component: {fileID: 1350600416297801345}
+  - component: {fileID: 2753921600076270568}
   m_Layer: 0
   m_Name: ExpTitle
   m_TagString: Untagged
@@ -352,6 +401,21 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u7ECF\u9A8C\u503C\uFF1A"
+--- !u!114 &2753921600076270568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5063711824148028942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5414983502818674887
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +508,7 @@ GameObject:
   - component: {fileID: 7998299082719715459}
   - component: {fileID: 3927911698786970395}
   - component: {fileID: 1762440601725160086}
+  - component: {fileID: 9191917568333979419}
   m_Layer: 0
   m_Name: EnemyCountText
   m_TagString: Untagged
@@ -528,6 +593,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &9191917568333979419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292622612805280238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6324029023600460396
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +685,7 @@ GameObject:
   - component: {fileID: 5132085109730006901}
   - component: {fileID: 7005476154798418845}
   - component: {fileID: 4080923036877233535}
+  - component: {fileID: 7333504244009558209}
   m_Layer: 0
   m_Name: TimeTitle
   m_TagString: Untagged
@@ -674,6 +755,21 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u65F6\u95F4\uFF1A"
+--- !u!114 &7333504244009558209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330526995866762822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6376546697462178864
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +782,7 @@ GameObject:
   - component: {fileID: 5431462962107080305}
   - component: {fileID: 2666822006082686080}
   - component: {fileID: 4778453638127756328}
+  - component: {fileID: 5385486676701485330}
   m_Layer: 0
   m_Name: ExpText
   m_TagString: Untagged
@@ -770,6 +867,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &5385486676701485330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376546697462178864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6902488591022934276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1503,7 @@ GameObject:
   - component: {fileID: 2738649399607989610}
   - component: {fileID: 8966263265451843976}
   - component: {fileID: 7554335074925344780}
+  - component: {fileID: 3655138628641984234}
   m_Layer: 0
   m_Name: EnemyCountTitle
   m_TagString: Untagged
@@ -1460,6 +1573,21 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u654C\u4EBA\u6570\u91CF\uFF1A"
+--- !u!114 &3655138628641984234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047259861304087409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &9096974902787813717
 GameObject:
   m_ObjectHideFlags: 0

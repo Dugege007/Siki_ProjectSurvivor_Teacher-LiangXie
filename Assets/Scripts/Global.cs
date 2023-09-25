@@ -52,6 +52,8 @@ namespace ProjectSurvivor
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
         {
+            UIKit.Root.SetResolution(1920, 1080, 0.5f);
+
             // 简单的存储功能
             // 读取金币数据
             Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin), 0);
