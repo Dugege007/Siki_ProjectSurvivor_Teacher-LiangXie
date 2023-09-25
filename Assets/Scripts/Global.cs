@@ -13,9 +13,14 @@ namespace ProjectSurvivor
 
         #region Model
         /// <summary>
-        /// 玩家血量
+        /// 玩家生命值
         /// </summary>
         public static BindableProperty<int> HP = new BindableProperty<int>(3);
+
+        /// <summary>
+        /// 玩家最大生命值
+        /// </summary>
+        public static BindableProperty<int> MaxHP = new BindableProperty<int>(3);
 
         /// <summary>
         /// 经验值
@@ -55,7 +60,12 @@ namespace ProjectSurvivor
         /// <summary>
         /// 金币掉率
         /// </summary>
-        public static BindableProperty<float> CoinPercent = new BindableProperty<float>(0.05f);
+        public static BindableProperty<float> CoinPercent = new BindableProperty<float>(0.1f);
+
+        /// <summary>
+        /// 生命值掉率
+        /// </summary>
+        public static BindableProperty<float> HPPercent = new BindableProperty<float>(0.05f);
         #endregion
 
         /// <summary>
@@ -67,11 +77,15 @@ namespace ProjectSurvivor
         {
             UIKit.Root.SetResolution(1920, 1080, 0.5f);
 
+            Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(MaxHP), 3);
+            HP.Value = MaxHP.Value;
+
             // 简单的存储功能
             // 读取金币数据
             Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin), 0);
             Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.1f);
             Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
+            Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.05f);
 
             // 保存金币数据
             Global.Coin.Register(coin =>
@@ -89,6 +103,16 @@ namespace ProjectSurvivor
             {
                 PlayerPrefs.SetFloat(nameof(ExpPercent), expPercent);
             });
+
+            Global.HPPercent.Register(hpPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(HPPercent), hpPercent);
+            });
+
+            Global.MaxHP.Register(maxHp =>
+            {
+                PlayerPrefs.SetInt(nameof(MaxHP), maxHp);
+            });
         }
 
         /// <summary>
@@ -96,7 +120,7 @@ namespace ProjectSurvivor
         /// </summary>
         public static void ResetData()
         {
-            HP.Value = 3;
+            HP.Value = MaxHP.Value;
             Exp.Value = 0;
             Level.Value = 1;
             CurrentSeconds.Value = 0;
@@ -123,6 +147,8 @@ namespace ProjectSurvivor
                 PowerUpManager.Default.Exp.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
+
+                return;
             }
 
             percent = Random.Range(0, 1f);
@@ -130,6 +156,17 @@ namespace ProjectSurvivor
             {
                 // 掉落金币
                 PowerUpManager.Default.Coin.Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+
+                return;
+            }
+
+            percent = Random.Range(0, 1f);
+            if (percent <= HPPercent)
+            {
+                // 掉落生命值
+                PowerUpManager.Default.HP.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
             }

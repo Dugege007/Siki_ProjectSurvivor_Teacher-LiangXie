@@ -17,7 +17,13 @@ namespace ProjectSurvivor
             // 更新玩家生命值
             Global.HP.RegisterWithInitValue(hp =>
             {
-                HPText.text = hp.ToString();
+                HPText.text = hp + "/" + Global.MaxHP.Value;
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            Global.MaxHP.RegisterWithInitValue(maxHp =>
+            {
+                HPText.text = Global.HP.Value + "/" + maxHp;
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
