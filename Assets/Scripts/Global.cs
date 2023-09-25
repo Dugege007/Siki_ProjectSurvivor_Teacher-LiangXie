@@ -3,8 +3,15 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-    public class Global
+    public class Global : Architecture<Global>
     {
+        protected override void Init()
+        {
+            // 注册模块
+
+        }
+
+        #region Model
         /// <summary>
         /// 经验值
         /// </summary>
@@ -44,6 +51,7 @@ namespace ProjectSurvivor
         /// 金币掉率
         /// </summary>
         public static BindableProperty<float> CoinPercent = new BindableProperty<float>(0.05f);
+        #endregion
 
         /// <summary>
         /// 自动初始化
