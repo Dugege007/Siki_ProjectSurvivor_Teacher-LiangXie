@@ -14,7 +14,7 @@ namespace ProjectSurvivor
             EnemyGenerator.EnemyCount.Value++;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (Player.Default)
             {
@@ -22,9 +22,16 @@ namespace ProjectSurvivor
                 Vector3 direction = (Player.Default.transform.position - transform.position).normalized;
 
                 // ÒÆ¶¯
-                transform.Translate(direction * MovementSpeed * Time.deltaTime);
+                SelfRigidbody2D.velocity = direction * MovementSpeed;
             }
+            else
+            {
+                SelfRigidbody2D.velocity = Vector3.zero;
+            }
+        }
 
+        private void Update()
+        {
             if (HP <= 0)
             {
                 // µôÂäµÀ¾ß

@@ -10214,6 +10214,8 @@ GameObject:
   - component: {fileID: 1600428096}
   - component: {fileID: 1600428097}
   - component: {fileID: 1600428098}
+  - component: {fileID: 1600428099}
+  - component: {fileID: 1600428100}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -10258,6 +10260,7 @@ MonoBehaviour:
   HP: 3
   MovementSpeed: 1.5
   Sprite: {fileID: 101180701}
+  SelfRigidbody2D: {fileID: 1600428099}
 --- !u!114 &1600428098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10274,6 +10277,48 @@ MonoBehaviour:
   CustomComponentName: Enemy
   CustomComment: 
   mComponentName: ProjectSurvivor.Enemy
+--- !u!50 &1600428099
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600428095}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1600428100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600428095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfRigidbody2D
+    Object: {fileID: 1600428099}
 --- !u!1 &1770796701
 GameObject:
   m_ObjectHideFlags: 0

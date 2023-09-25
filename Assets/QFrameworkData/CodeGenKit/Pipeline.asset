@@ -18,12 +18,16 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: SpriteRenderer
+      PathToRoot: Sprite
+      MemberName: Sprite
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: GameStartController
+    ClassName: Enemy
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class GameStartController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Enemy : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:6f25cd15-57a6-4c7e-be29-6a24b440afb2\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class GameStartController\r\n\t{\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:5e53fc1a-f14b-4d94-96cc-bc017e9818b2\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class Enemy\r\n\t{\r\n\r\n\t\tpublic
+      SpriteRenderer Sprite;\r\n\r\n\t\tpublic UnityEngine.Rigidbody2D SelfRigidbody2D;\r\n\r\n\t}\r\n}\r\n"

@@ -13,6 +13,11 @@ namespace ProjectSurvivor
 
         #region Model
         /// <summary>
+        /// 玩家血量
+        /// </summary>
+        public static BindableProperty<int> HP = new BindableProperty<int>(3);
+
+        /// <summary>
         /// 经验值
         /// </summary>
         public static BindableProperty<int> Exp = new BindableProperty<int>(0);
@@ -91,6 +96,7 @@ namespace ProjectSurvivor
         /// </summary>
         public static void ResetData()
         {
+            HP.Value = 3;
             Exp.Value = 0;
             Level.Value = 1;
             CurrentSeconds.Value = 0;

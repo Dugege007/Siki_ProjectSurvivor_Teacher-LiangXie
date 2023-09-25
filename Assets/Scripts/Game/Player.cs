@@ -24,11 +24,20 @@ namespace ProjectSurvivor
                 {
                     if (hitBox.Owner.CompareTag("Enemy"))
                     {
-                        AudioKit.PlaySound("Hurt");
-                        // 销毁玩家
-                        this.DestroyGameObjGracefully();
-                        // 打开 游戏结束面板
-                        UIKit.OpenPanel<UIGameOverPanel>();
+                        Global.HP.Value--;
+                        if (Global.HP.Value<=0)
+                        {
+                            AudioKit.PlaySound("Die");
+                            // 销毁玩家
+                            this.DestroyGameObjGracefully();
+
+                            // 打开 游戏结束面板
+                            UIKit.OpenPanel<UIGameOverPanel>();
+                        }
+                        else
+                        {
+                            AudioKit.PlaySound("Hurt");
+                        }
                     }
                 }
 

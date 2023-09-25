@@ -14,6 +14,13 @@ namespace ProjectSurvivor
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
             // please add init code here
 
+            // 更新玩家生命值
+            Global.HP.RegisterWithInitValue(hp =>
+            {
+                HPText.text = hp.ToString();
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
             // 更新敌人数量UI
             EnemyGenerator.EnemyCount.RegisterWithInitValue(enemyCount =>
             {
