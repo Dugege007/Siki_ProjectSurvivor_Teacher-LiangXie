@@ -9,6 +9,7 @@ namespace ProjectSurvivor
         {
             if (collision.GetComponent<CollectableArea>())
             {
+                AudioKit.PlaySound("Exp");
                 // 经验增加
                 Global.Exp.Value++;
                 // 销毁自身

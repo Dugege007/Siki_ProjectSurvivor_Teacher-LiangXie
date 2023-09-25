@@ -8,6 +8,7 @@ namespace ProjectSurvivor
     public class UIGamePassPanelData : UIPanelData
     {
     }
+
     public partial class UIGamePassPanel : UIPanel
     {
         protected override void OnInit(IUIData uiData = null)
@@ -46,6 +47,8 @@ namespace ProjectSurvivor
                 Global.ResetData();
                 SceneManager.LoadScene("Game");
             });
+
+            AudioKit.PlaySound("GamePass");
         }
 
         protected override void OnOpen(IUIData uiData = null)

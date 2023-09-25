@@ -24,6 +24,7 @@ namespace ProjectSurvivor
                 {
                     if (hitBox.Owner.CompareTag("Enemy"))
                     {
+                        AudioKit.PlaySound("Hurt");
                         // 销毁玩家
                         this.DestroyGameObjGracefully();
                         // 打开 游戏结束面板

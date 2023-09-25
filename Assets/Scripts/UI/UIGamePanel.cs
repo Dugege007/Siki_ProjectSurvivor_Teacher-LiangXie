@@ -55,6 +55,7 @@ namespace ProjectSurvivor
             {
                 Time.timeScale = 0;
                 UpgradeRoot.Show();
+                AudioKit.PlaySound("LevelUp");
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 

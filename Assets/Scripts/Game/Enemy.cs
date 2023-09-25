@@ -42,6 +42,7 @@ namespace ProjectSurvivor
             mIgnoreHurt = true;
             // 变为红色
             Sprite.color = Color.red;
+            AudioKit.PlaySound("Hit");
 
             // 延时执行
             ActionKit.Delay(0.2f, () =>
