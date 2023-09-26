@@ -11,7 +11,7 @@ namespace ProjectSurvivor
             {
                 if (Global.HP.Value == Global.MaxHP.Value) return;
 
-                AudioKit.PlaySound("Coin");
+                AudioKit.PlaySound("HP");
                 // 生命值增加
                 Global.HP.Value++;
                 // 销毁自身

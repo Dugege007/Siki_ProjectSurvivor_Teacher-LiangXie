@@ -64,6 +64,14 @@ namespace ProjectSurvivor
                 AudioKit.PlaySound("AbilityLevelUp");
             });
 
+            MaxHPUpgradeBtn.onClick.AddListener(() =>
+            {
+                Global.MaxHP.Value++;
+                Global.Coin.Value -= 30;
+
+                AudioKit.PlaySound("AbilityLevelUp");
+            });
+
             // ¼àÌý¹Ø±Õ°´Å¥
             CloseBtn.onClick.AddListener(() =>
             {
