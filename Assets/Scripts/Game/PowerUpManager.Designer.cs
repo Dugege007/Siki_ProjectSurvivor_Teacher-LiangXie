@@ -1,4 +1,4 @@
-// Generate Id:0f1e4dd3-4638-4520-be89-f87c482bf414
+// Generate Id:43a0e88a-75e1-4612-bbfb-7de9be838056
 using UnityEngine;
 
 namespace ProjectSurvivor
@@ -11,6 +11,8 @@ namespace ProjectSurvivor
 		public ProjectSurvivor.Coin Coin;
 
 		public ProjectSurvivor.HP HP;
+
+		public ProjectSurvivor.Bomb Bomb;
 
 	}
 }

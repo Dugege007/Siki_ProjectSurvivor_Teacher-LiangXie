@@ -41,9 +41,14 @@ namespace ProjectSurvivor
             }
         }
 
-        public void Hurt(float value)
+        /// <summary>
+        /// 敌人受到伤害
+        /// </summary>
+        /// <param name="value">伤害值</param>
+        /// <param name="force">是否强制</param>
+        public void Hurt(float value, bool force = false)
         {
-            if (mIgnoreHurt) return;
+            if (mIgnoreHurt && !force) return;
 
             // 忽略伤害
             mIgnoreHurt = true;

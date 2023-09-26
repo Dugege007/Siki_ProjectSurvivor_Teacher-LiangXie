@@ -28,13 +28,16 @@ MonoBehaviour:
     - TypeName: ProjectSurvivor.HP
       PathToRoot: HP
       MemberName: HP
+    - TypeName: ProjectSurvivor.Bomb
+      PathToRoot: Bomb
+      MemberName: Bomb
     ScriptsFolder: Assets/Scripts/Game
     ClassName: PowerUpManager
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
       partial class PowerUpManager : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:0f1e4dd3-4638-4520-be89-f87c482bf414\r\nusing UnityEngine;\r\n\r\nnamespace
+    DesignerCode: "// Generate Id:43a0e88a-75e1-4612-bbfb-7de9be838056\r\nusing UnityEngine;\r\n\r\nnamespace
       ProjectSurvivor\r\n{\r\n\tpublic partial class PowerUpManager\r\n\t{\r\n\r\n\t\tpublic
       ProjectSurvivor.Exp Exp;\r\n\r\n\t\tpublic ProjectSurvivor.Coin Coin;\r\n\r\n\t\tpublic
-      ProjectSurvivor.HP HP;\r\n\r\n\t}\r\n}\r\n"
+      ProjectSurvivor.HP HP;\r\n\r\n\t\tpublic ProjectSurvivor.Bomb Bomb;\r\n\r\n\t}\r\n}\r\n"

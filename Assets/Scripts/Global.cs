@@ -66,6 +66,11 @@ namespace ProjectSurvivor
         /// 生命值掉率
         /// </summary>
         public static BindableProperty<float> HPPercent = new BindableProperty<float>(0.05f);
+
+        /// <summary>
+        /// 炸弹掉率
+        /// </summary>
+        public static BindableProperty<float> BombPercent = new BindableProperty<float>(0.1f);
         #endregion
 
         /// <summary>
@@ -86,6 +91,7 @@ namespace ProjectSurvivor
             Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.1f);
             Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
             Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.05f);
+            Global.BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.05f);
 
             // 保存金币数据
             Global.Coin.Register(coin =>
@@ -107,6 +113,11 @@ namespace ProjectSurvivor
             Global.HPPercent.Register(hpPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(HPPercent), hpPercent);
+            });
+
+            Global.BombPercent.Register(bombPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(BombPercent), bombPercent);
             });
 
             Global.MaxHP.Register(maxHp =>
@@ -167,6 +178,15 @@ namespace ProjectSurvivor
             {
                 // 掉落生命值
                 PowerUpManager.Default.HP.Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+            }
+
+            percent = Random.Range(0, 1f);
+            if (percent <= BombPercent)
+            {
+                // 掉落炸弹
+                PowerUpManager.Default.Bomb.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
             }
