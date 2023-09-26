@@ -46,11 +46,11 @@ namespace ProjectSurvivor
 
         private void Update()
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-            Vector2 direction = new Vector2(horizontal, vertical).normalized;
+            float horizontal = Input.GetAxisRaw("Horizontal");  // Input.GetAxisRaw() 比较生硬的变换
+            float vertical = Input.GetAxisRaw("Vertical");
+            Vector2 targetVelocity = new Vector2(horizontal, vertical).normalized * MovementSpeed;
 
-            SelfRigidbody2D.velocity = direction * MovementSpeed;
+            SelfRigidbody2D.velocity = Vector2.Lerp(SelfRigidbody2D.velocity, targetVelocity, 1 - Mathf.Exp(-Time.deltaTime * 5));
         }
 
         private void OnDestroy()

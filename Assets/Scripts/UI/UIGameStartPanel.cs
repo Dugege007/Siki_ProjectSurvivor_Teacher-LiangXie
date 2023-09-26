@@ -64,6 +64,7 @@ namespace ProjectSurvivor
                 AudioKit.PlaySound("AbilityLevelUp");
             });
 
+            // 监听生命值升级按钮
             MaxHPUpgradeBtn.onClick.AddListener(() =>
             {
                 Global.MaxHP.Value++;
