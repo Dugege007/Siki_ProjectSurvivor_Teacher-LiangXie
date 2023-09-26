@@ -51,6 +51,8 @@ namespace ProjectSurvivor
             {
                 Global.CoinPercent.Value += 0.1f;
                 Global.Coin.Value -= 5;
+
+                AudioKit.PlaySound("AbilityLevelUp");
             });
 
             // 监听经验掉率升级按钮
@@ -58,6 +60,8 @@ namespace ProjectSurvivor
             {
                 Global.ExpPercent.Value += 0.1f;
                 Global.Coin.Value -= 5;
+
+                AudioKit.PlaySound("AbilityLevelUp");
             });
 
             // 监听关闭按钮

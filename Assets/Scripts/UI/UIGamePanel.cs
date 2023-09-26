@@ -89,6 +89,8 @@ namespace ProjectSurvivor
                 Time.timeScale = 1;
                 Global.SimpleAbilityDamage.Value *= 1.5f;
                 UpgradeRoot.Hide();
+
+                AudioKit.PlaySound("AbilityLevelUp");
             });
 
             SimpleDurationUpgradeBtn.onClick.AddListener(() =>
@@ -96,6 +98,8 @@ namespace ProjectSurvivor
                 Time.timeScale = 1;
                 Global.SimpleAbilityDuration.Value *= 0.8f;
                 UpgradeRoot.Hide();
+
+                AudioKit.PlaySound("AbilityLevelUp");
             });
 
             // Òþ²Ø°´Å¥×é
@@ -111,6 +115,7 @@ namespace ProjectSurvivor
                     enemyGenerator.CurrentWave == null &&
                     EnemyGenerator.EnemyCount.Value == 0)
                 {
+                    this.CloseSelf();
                     UIKit.OpenPanel<UIGamePassPanel>();
                 }
 

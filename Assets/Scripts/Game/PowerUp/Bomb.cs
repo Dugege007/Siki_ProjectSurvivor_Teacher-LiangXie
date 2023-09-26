@@ -19,6 +19,8 @@ namespace ProjectSurvivor
                     }
                 }
 
+                AudioKit.PlaySound("Bomb");
+
                 // оЗ╩ывтиМ
                 this.DestroyGameObjGracefully();
             }

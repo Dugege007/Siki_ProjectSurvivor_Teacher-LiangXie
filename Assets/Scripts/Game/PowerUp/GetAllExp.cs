@@ -34,6 +34,8 @@ namespace ProjectSurvivor
                     }
                 }
 
+                AudioKit.PlaySound("GetAllExp");
+
                 // оЗ╩ывтиМ
                 this.DestroyGameObjGracefully();
             }
