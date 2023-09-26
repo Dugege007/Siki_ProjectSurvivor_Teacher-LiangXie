@@ -44,9 +44,9 @@ namespace ProjectSurvivor
         /// <summary>
         /// 敌人受到伤害
         /// </summary>
-        /// <param name="value">伤害值</param>
+        /// <param name="hurtValue">伤害值</param>
         /// <param name="force">是否强制</param>
-        public void Hurt(float value, bool force = false)
+        public void Hurt(float hurtValue, bool force = false)
         {
             if (mIgnoreHurt && !force) return;
 
@@ -54,13 +54,16 @@ namespace ProjectSurvivor
             mIgnoreHurt = true;
             // 变为红色
             Sprite.color = Color.red;
+            // 伤害飘字
+            FloatingTextController.Play(transform.position + Vector3.up * 0.4f, hurtValue.ToString());
+            // 播放音效
             AudioKit.PlaySound("Hit");
 
             // 延时执行
             ActionKit.Delay(0.2f, () =>
             {
                 // 减血
-                HP -= value;
+                HP -= hurtValue;
                 // 变回白色
                 Sprite.color = Color.white;
                 // 在受伤期间不再受到伤害，避免冲突
