@@ -8,7 +8,7 @@ namespace ProjectSurvivor
         protected override void Init()
         {
             // ×¢²áÄ£¿é
-
+            this.RegisterSystem(new CoinUpGradeSystem());
         }
 
         #region Model

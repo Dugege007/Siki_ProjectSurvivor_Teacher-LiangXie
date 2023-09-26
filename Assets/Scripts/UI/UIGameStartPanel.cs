@@ -8,7 +8,8 @@ namespace ProjectSurvivor
     public class UIGameStartPanelData : UIPanelData
     {
     }
-    public partial class UIGameStartPanel : UIPanel
+
+    public partial class UIGameStartPanel : UIPanel, IController
     {
         protected override void OnInit(IUIData uiData = null)
         {
@@ -78,6 +79,8 @@ namespace ProjectSurvivor
             {
                 CoinUpgradePanel.Hide();
             });
+
+            this.GetSystem<CoinUpGradeSystem>().Say();
         }
         
         protected override void OnOpen(IUIData uiData = null)
@@ -94,6 +97,11 @@ namespace ProjectSurvivor
         
         protected override void OnClose()
         {
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
         }
     }
 }
