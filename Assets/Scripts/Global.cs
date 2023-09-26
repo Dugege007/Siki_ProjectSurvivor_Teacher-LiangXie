@@ -191,6 +191,8 @@ namespace ProjectSurvivor
                 PowerUpManager.Default.HP.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
+
+                return;
             }
 
             percent = Random.Range(0, 1f);
@@ -200,6 +202,8 @@ namespace ProjectSurvivor
                 PowerUpManager.Default.Bomb.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
+
+                return;
             }
 
             percent = Random.Range(0, 1f);
@@ -209,6 +213,8 @@ namespace ProjectSurvivor
                 PowerUpManager.Default.GetAllExp.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
+
+                return;
             }
         }
     }
