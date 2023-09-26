@@ -31,13 +31,17 @@ MonoBehaviour:
     - TypeName: ProjectSurvivor.Bomb
       PathToRoot: Bomb
       MemberName: Bomb
+    - TypeName: ProjectSurvivor.GetAllExp
+      PathToRoot: GetAllExp
+      MemberName: GetAllExp
     ScriptsFolder: Assets/Scripts/Game
     ClassName: PowerUpManager
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
       partial class PowerUpManager : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:43a0e88a-75e1-4612-bbfb-7de9be838056\r\nusing UnityEngine;\r\n\r\nnamespace
+    DesignerCode: "// Generate Id:079166b4-0db3-49f1-b766-1959f36486e3\r\nusing UnityEngine;\r\n\r\nnamespace
       ProjectSurvivor\r\n{\r\n\tpublic partial class PowerUpManager\r\n\t{\r\n\r\n\t\tpublic
       ProjectSurvivor.Exp Exp;\r\n\r\n\t\tpublic ProjectSurvivor.Coin Coin;\r\n\r\n\t\tpublic
-      ProjectSurvivor.HP HP;\r\n\r\n\t\tpublic ProjectSurvivor.Bomb Bomb;\r\n\r\n\t}\r\n}\r\n"
+      ProjectSurvivor.HP HP;\r\n\r\n\t\tpublic ProjectSurvivor.Bomb Bomb;\r\n\r\n\t\tpublic
+      ProjectSurvivor.GetAllExp GetAllExp;\r\n\r\n\t}\r\n}\r\n"

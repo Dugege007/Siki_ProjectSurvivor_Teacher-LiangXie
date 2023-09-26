@@ -15,62 +15,67 @@ namespace ProjectSurvivor
         /// <summary>
         /// 玩家生命值
         /// </summary>
-        public static BindableProperty<int> HP = new BindableProperty<int>(3);
+        public static BindableProperty<int> HP = new(3);
 
         /// <summary>
         /// 玩家最大生命值
         /// </summary>
-        public static BindableProperty<int> MaxHP = new BindableProperty<int>(3);
+        public static BindableProperty<int> MaxHP = new(3);
 
         /// <summary>
         /// 经验值
         /// </summary>
-        public static BindableProperty<int> Exp = new BindableProperty<int>(0);
+        public static BindableProperty<int> Exp = new(0);
 
         /// <summary>
         /// 金币
         /// </summary>
-        public static BindableProperty<int> Coin = new BindableProperty<int>(0);
+        public static BindableProperty<int> Coin = new(0);
 
         /// <summary>
         /// 等级
         /// </summary>
-        public static BindableProperty<int> Level = new BindableProperty<int>(1);
+        public static BindableProperty<int> Level = new(1);
 
         /// <summary>
         /// 当前时间
         /// </summary>
-        public static BindableProperty<float> CurrentSeconds = new BindableProperty<float>(0);
+        public static BindableProperty<float> CurrentSeconds = new(0);
 
         /// <summary>
         /// 简单能力的攻击力
         /// </summary>
-        public static BindableProperty<float> SimpleAbilityDamage = new BindableProperty<float>(1);
+        public static BindableProperty<float> SimpleAbilityDamage = new(1);
 
         /// <summary>
         /// 简单能力的攻击间隔
         /// </summary>
-        public static BindableProperty<float> SimpleAbilityDuration = new BindableProperty<float>(1.5f);
+        public static BindableProperty<float> SimpleAbilityDuration = new(1.5f);
 
         /// <summary>
         /// 经验掉率
         /// </summary>
-        public static BindableProperty<float> ExpPercent = new BindableProperty<float>(0.4f);
+        public static BindableProperty<float> ExpPercent = new(0.4f);
 
         /// <summary>
         /// 金币掉率
         /// </summary>
-        public static BindableProperty<float> CoinPercent = new BindableProperty<float>(0.1f);
+        public static BindableProperty<float> CoinPercent = new(0.1f);
 
         /// <summary>
         /// 生命值掉率
         /// </summary>
-        public static BindableProperty<float> HPPercent = new BindableProperty<float>(0.05f);
+        public static BindableProperty<float> HPPercent = new(0.05f);
 
         /// <summary>
         /// 炸弹掉率
         /// </summary>
-        public static BindableProperty<float> BombPercent = new BindableProperty<float>(0.1f);
+        public static BindableProperty<float> BombPercent = new(0.1f);
+
+        /// <summary>
+        /// 炸弹掉率
+        /// </summary>
+        public static BindableProperty<float> GetAllExpPercent = new(0.1f);
         #endregion
 
         /// <summary>
@@ -91,7 +96,8 @@ namespace ProjectSurvivor
             Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.1f);
             Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
             Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.05f);
-            Global.BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.05f);
+            Global.BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.1f);
+            Global.GetAllExpPercent.Value = PlayerPrefs.GetFloat(nameof(GetAllExpPercent), 0.05f);
 
             // 保存金币数据
             Global.Coin.Register(coin =>
@@ -118,6 +124,11 @@ namespace ProjectSurvivor
             Global.BombPercent.Register(bombPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(BombPercent), bombPercent);
+            });
+
+            Global.GetAllExpPercent.Register(getAllExpPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(GetAllExpPercent), getAllExpPercent);
             });
 
             Global.MaxHP.Register(maxHp =>
@@ -187,6 +198,15 @@ namespace ProjectSurvivor
             {
                 // 掉落炸弹
                 PowerUpManager.Default.Bomb.Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+            }
+
+            percent = Random.Range(0, 1f);
+            if (percent <= GetAllExpPercent)
+            {
+                // 掉落吸收经验
+                PowerUpManager.Default.GetAllExp.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
             }
