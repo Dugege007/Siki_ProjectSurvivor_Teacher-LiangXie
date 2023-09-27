@@ -1,10 +1,3 @@
-/****************************************************************************
- * 2023.9 MSI
- ****************************************************************************/
-
-using System;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using System.Linq;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ProjectSurvivor
 {
-    public class CoinUpgradeSystem : AbstractSystem
+    public class CoinUpgradeSystem : AbstractSystem, ICanSave
     {
         public static EasyEvent OnCoinUpgradeSystemChanged = new EasyEvent();
 
@@ -12,15 +12,6 @@ namespace ProjectSurvivor
 
         protected override void OnInit()
         {
-            //Items.Add(new CoinUpgradeItem()
-            //    .WithKey("AAA")
-            //    .WithDescription("BBB")
-            //    .WithPrice(333)
-            //    .OnUpgrade(item =>
-            //    {
-            //        Debug.Log("CCC");
-            //    }));
-
             CoinUpgradeItem coinPercentLv1 = Add(new CoinUpgradeItem()
                 .WithKey("coin_percent_lv1")
                 .WithDescription("½ð±ÒµôÂä¸ÅÂÊÌáÉý LV1")
@@ -72,6 +63,13 @@ namespace ProjectSurvivor
                     Global.MaxHP.Value++;
                     Global.Coin.Value -= item.Price;
                 }));
+
+            Load();
+
+            OnCoinUpgradeSystemChanged.Register(() =>
+            {
+                Save();
+            });
         }
 
         /// <summary>
@@ -86,9 +84,20 @@ namespace ProjectSurvivor
             return item;
         }
 
-        //public void Say()
-        //{
-        //    Debug.Log("Hello CoinUpGradeSystem!");
-        //}
+        public void Save()
+        {
+            foreach (var coinUpgradeItem in Items)
+            {
+                PlayerPrefs.SetInt(coinUpgradeItem.Key, coinUpgradeItem.UpgradeFinish ? 1 : 0);
+            }
+        }
+
+        public void Load()
+        {
+            foreach (var coinUpgradeItem in Items)
+            {
+                coinUpgradeItem.UpgradeFinish = PlayerPrefs.GetInt(coinUpgradeItem.Key, 1) == 1;
+            }
+        }
     }
 }

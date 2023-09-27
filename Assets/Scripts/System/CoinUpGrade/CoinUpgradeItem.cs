@@ -4,7 +4,7 @@ namespace ProjectSurvivor
 {
     public class CoinUpgradeItem
     {
-        public bool UpgradeFinish { get; private set; } = false;
+        public bool UpgradeFinish { get; set; } = false;
         public string Key { get; private set; }
         public string Desctiption { get; private set; }
         public int Price { get; private set; }
