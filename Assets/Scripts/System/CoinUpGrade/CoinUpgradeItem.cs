@@ -1,9 +1,12 @@
-﻿using System;
+﻿using QFramework;
+using System;
 
 namespace ProjectSurvivor
 {
     public class CoinUpgradeItem
     {
+        public EasyEvent OnChanged = new EasyEvent();
+
         public bool UpgradeFinish { get; set; } = false;
         public string Key { get; private set; }
         public string Desctiption { get; private set; }
@@ -16,6 +19,7 @@ namespace ProjectSurvivor
         {
             mOnUpgrade?.Invoke(this);
             UpgradeFinish = true;
+            OnChanged.Trigger();
             CoinUpgradeSystem.OnCoinUpgradeSystemChanged.Trigger(); // .Trigger() 触发一下这个事件
         }
 

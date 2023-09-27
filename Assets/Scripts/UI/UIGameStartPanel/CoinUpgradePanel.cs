@@ -10,26 +10,7 @@ namespace ProjectSurvivor
         {
             CoinUpgradeItemTemplete.Hide();
 
-            CoinUpgradeSystem.OnCoinUpgradeSystemChanged.Register(() =>
-            {
-                Refresh();
-
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
-
-            Refresh();
-
-            // ¼àÌý¹Ø±Õ°´Å¥
-            CloseBtn.onClick.AddListener(() =>
-            {
-                this.Hide();
-            });
-        }
-
-        private void Refresh()
-        {
-            CoinUpgradeItemRoot.DestroyChildren();
-
-            foreach (CoinUpgradeItem coinUpgradeItem in this.GetSystem<CoinUpgradeSystem>().Items.Where(item => item.ConditionCheck()))
+            foreach (CoinUpgradeItem coinUpgradeItem in this.GetSystem<CoinUpgradeSystem>().Items.Where(item => item.UpgradeFinish == false))
             {
                 CoinUpgradeItemTemplete.InstantiateWithParent(CoinUpgradeItemRoot)
                     .Self(self =>
@@ -43,6 +24,20 @@ namespace ProjectSurvivor
                         });
 
                         Button selfCache = self;
+                        coinUpgradeItem.OnChanged.Register(() =>
+                        {
+                            if (itemCache.ConditionCheck())
+                                selfCache.Show();
+                            else
+                                selfCache.Hide();
+
+                        }).UnRegisterWhenGameObjectDestroyed(selfCache);
+
+                        if (itemCache.ConditionCheck())
+                            selfCache.Show();
+                        else
+                            selfCache.Hide();
+
                         // ×¢²á¼àÌý½ð±Ò±ä¸ü
                         Global.Coin.RegisterWithInitValue(coin =>
                         {
@@ -58,9 +53,14 @@ namespace ProjectSurvivor
                             }
 
                         }).UnRegisterWhenGameObjectDestroyed(self);
-
-                    }).Show();
+                    });
             }
+
+            // ¼àÌý¹Ø±Õ°´Å¥
+            CloseBtn.onClick.AddListener(() =>
+            {
+                this.Hide();
+            });
         }
 
         protected override void OnBeforeDestroy()

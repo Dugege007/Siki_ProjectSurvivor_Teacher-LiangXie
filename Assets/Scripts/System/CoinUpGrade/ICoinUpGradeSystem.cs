@@ -33,6 +33,11 @@ namespace ProjectSurvivor
                     Global.Coin.Value -= item.Price;
                 }));
 
+            coinPercentLv1.OnChanged.Register(() =>
+            {
+                coinPercentLv2.OnChanged.Trigger();
+            });
+
             CoinUpgradeItem coinPercentLv3 = Add(new CoinUpgradeItem()
                 .WithKey("coin_percent_lv3")
                 .WithDescription("½ð±ÒµôÂä¸ÅÂÊÌáÉý LV3")
@@ -43,6 +48,11 @@ namespace ProjectSurvivor
                     Global.CoinPercent.Value += 0.1f;
                     Global.Coin.Value -= item.Price;
                 }));
+
+            coinPercentLv2.OnChanged.Register(() =>
+            {
+                coinPercentLv3.OnChanged.Trigger();
+            });
 
             Items.Add(new CoinUpgradeItem()
                 .WithKey("exp_percent")
