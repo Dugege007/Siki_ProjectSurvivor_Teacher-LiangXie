@@ -21,6 +21,8 @@ namespace ProjectSurvivor
             StartGameBtn.onClick.AddListener(() =>
             {
                 this.CloseSelf();
+                // жижУЪ§Он
+                Global.ResetData();
                 SceneManager.LoadScene("Game");
             });
 

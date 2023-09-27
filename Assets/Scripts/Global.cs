@@ -93,7 +93,7 @@ namespace ProjectSurvivor
             // 简单的存储功能
             // 读取金币数据
             Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin), 0);
-            Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.1f);
+            Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(CoinPercent), 0.1f);
             Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
             Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.05f);
             Global.BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.1f);
@@ -145,10 +145,10 @@ namespace ProjectSurvivor
             HP.Value = MaxHP.Value;
             Exp.Value = 0;
             Level.Value = 1;
+            EnemyGenerator.EnemyCount.Value = 0;
             CurrentSeconds.Value = 0;
             SimpleAbilityDamage.Value = 1;
             SimpleAbilityDuration.Value = 1.5f;
-            EnemyGenerator.EnemyCount.Value = 0;
         }
 
         public static int ExpToNextLevel()

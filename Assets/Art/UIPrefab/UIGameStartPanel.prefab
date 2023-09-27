@@ -94,14 +94,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5140273577380345434}
+  m_Children: []
   m_Father: {fileID: 7776261723691822194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 800}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 35}
+  m_SizeDelta: {x: 0, y: -230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8600036980989980178
 MonoBehaviour:
@@ -118,8 +117,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 50
-    m_Bottom: 120
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 40
   m_ChildForceExpandWidth: 0
@@ -446,9 +445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc869aa48d4fbe04ba64938599937e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinUpgradeItemTemplete: {fileID: 5058574337289211128}
   CoinUpgradeItemRoot: {fileID: 5862828701260931353}
   CoinText: {fileID: 27365659876047004}
+  CoinUpgradeItemTemplete: {fileID: 5058574337289211128}
   CloseBtn: {fileID: 2462416965132410826}
 --- !u!1 &2213203886810660822
 GameObject:
@@ -635,16 +634,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3257196852887528451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5862828701260931353}
+  m_Father: {fileID: 7776261723691822194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -65}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2778463980325203754
@@ -890,6 +889,7 @@ RectTransform:
   m_Children:
   - {fileID: 5862828701260931353}
   - {fileID: 8268189850064834385}
+  - {fileID: 5140273577380345434}
   - {fileID: 6147158504305531180}
   m_Father: {fileID: 3520166474982025145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8268189850064834385
 RectTransform:
   m_ObjectHideFlags: 0
