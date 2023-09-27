@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using System.Linq;
 
 namespace ProjectSurvivor
 {
@@ -14,13 +15,34 @@ namespace ProjectSurvivor
     {
         private void Awake()
         {
-            this.GetSystem<CoinUpgradeSystem>().Items.ForEach(coinUpgradeItem =>
+            CoinUpgradeItemTemplete.Hide();
+
+            CoinUpgradeSystem.OnCoinUpgradeSystemChanged.Register(() =>
+            {
+                Refresh();
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            Refresh();
+
+            // ¼àÌý¹Ø±Õ°´Å¥
+            CloseBtn.onClick.AddListener(() =>
+            {
+                this.Hide();
+            });
+        }
+
+        private void Refresh()
+        {
+            CoinUpgradeItemRoot.DestroyChildren();
+
+            foreach (CoinUpgradeItem coinUpgradeItem in this.GetSystem<CoinUpgradeSystem>().Items.Where(item => item.ConditionCheck()))
             {
                 CoinUpgradeItemTemplete.InstantiateWithParent(CoinUpgradeItemRoot)
                     .Self(self =>
                     {
                         CoinUpgradeItem itemCache = coinUpgradeItem;
-                        self.GetComponentInChildren<Text>().text = coinUpgradeItem.Desctiption + " " + coinUpgradeItem.Price + " ½ð±Ò";
+                        self.GetComponentInChildren<Text>().text = coinUpgradeItem.Desctiption + $" {coinUpgradeItem.Price} ½ð±Ò";
                         self.onClick.AddListener(() =>
                         {
                             itemCache.Upgrade();
@@ -45,15 +67,7 @@ namespace ProjectSurvivor
                         }).UnRegisterWhenGameObjectDestroyed(self);
 
                     }).Show();
-            });
-
-
-
-            // ¼àÌý¹Ø±Õ°´Å¥
-            CloseBtn.onClick.AddListener(() =>
-            {
-                this.Hide();
-            });
+            }
         }
 
         protected override void OnBeforeDestroy()
