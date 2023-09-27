@@ -1,9 +1,9 @@
-// Generate Id:2ab2dd05-f4f6-4961-9ea7-9019ac036db0
+// Generate Id:aeb669f9-d667-44d0-90b3-489f2a45025a
 using UnityEngine;
 
 namespace ProjectSurvivor
 {
-	public partial class Enemy
+	public partial class EnemyFly
 	{
 
 		public SpriteRenderer Sprite;
