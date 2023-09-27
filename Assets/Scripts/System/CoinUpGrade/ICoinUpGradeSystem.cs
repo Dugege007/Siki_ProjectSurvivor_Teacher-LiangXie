@@ -86,17 +86,21 @@ namespace ProjectSurvivor
 
         public void Save()
         {
+            SaveSystem saveSystem = this.GetSystem<SaveSystem>();
+
             foreach (var coinUpgradeItem in Items)
             {
-                PlayerPrefs.SetInt(coinUpgradeItem.Key, coinUpgradeItem.UpgradeFinish ? 1 : 0);
+                saveSystem.SaveBool(coinUpgradeItem.Key, coinUpgradeItem.UpgradeFinish);
             }
         }
 
         public void Load()
         {
+            SaveSystem saveSystem = this.GetSystem<SaveSystem>();
+
             foreach (var coinUpgradeItem in Items)
             {
-                coinUpgradeItem.UpgradeFinish = PlayerPrefs.GetInt(coinUpgradeItem.Key, 1) == 1;
+                coinUpgradeItem.UpgradeFinish = saveSystem.LoadBool(coinUpgradeItem.Key, false);
             }
         }
     }
