@@ -29,58 +29,8 @@ namespace ProjectSurvivor
                 CoinUpgradePanel.Show();
             });
 
-            // 监听金币变更
-            Global.Coin.RegisterWithInitValue(coin =>
-            {
-                CoinText.text = "金币：" + coin;
 
-                if (coin>=5)
-                {
-                    CoinPercentUpgradeBtn.Show();
-                    ExpPercentUpgradeBtn.Show();
-                }
-                else
-                {
-                    CoinPercentUpgradeBtn.Hide();
-                    ExpPercentUpgradeBtn.Hide();
-                }
-
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
-
-            // 监听金币掉率升级按钮
-            CoinPercentUpgradeBtn.onClick.AddListener(() =>
-            {
-                Global.CoinPercent.Value += 0.1f;
-                Global.Coin.Value -= 5;
-
-                AudioKit.PlaySound("AbilityLevelUp");
-            });
-
-            // 监听经验掉率升级按钮
-            ExpPercentUpgradeBtn.onClick.AddListener(() =>
-            {
-                Global.ExpPercent.Value += 0.1f;
-                Global.Coin.Value -= 5;
-
-                AudioKit.PlaySound("AbilityLevelUp");
-            });
-
-            // 监听生命值升级按钮
-            MaxHPUpgradeBtn.onClick.AddListener(() =>
-            {
-                Global.MaxHP.Value++;
-                Global.Coin.Value -= 30;
-
-                AudioKit.PlaySound("AbilityLevelUp");
-            });
-
-            // 监听关闭按钮
-            CloseBtn.onClick.AddListener(() =>
-            {
-                CoinUpgradePanel.Hide();
-            });
-
-            this.GetSystem<CoinUpGradeSystem>().Say();
+            this.GetSystem<CoinUpgradeSystem>().Say();
         }
         
         protected override void OnOpen(IUIData uiData = null)
