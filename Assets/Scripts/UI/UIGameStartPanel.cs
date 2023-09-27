@@ -29,8 +29,7 @@ namespace ProjectSurvivor
                 CoinUpgradePanel.Show();
             });
 
-
-            this.GetSystem<CoinUpgradeSystem>().Say();
+            //this.GetSystem<CoinUpgradeSystem>().Say();
         }
         
         protected override void OnOpen(IUIData uiData = null)

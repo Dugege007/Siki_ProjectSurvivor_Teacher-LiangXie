@@ -20,64 +20,34 @@ namespace ProjectSurvivor
                     .Self(self =>
                     {
                         CoinUpgradeItem itemCache = coinUpgradeItem;
-
-                        self.GetComponentInChildren<Text>().text = coinUpgradeItem.Desctiption;
+                        self.GetComponentInChildren<Text>().text = coinUpgradeItem.Desctiption + " " + coinUpgradeItem.Price + " 金币";
                         self.onClick.AddListener(() =>
                         {
                             itemCache.Upgrade();
                             AudioKit.PlaySound("AbilityLevelUp");
                         });
-                    })
-                    .Show();
+
+                        Button selfCache = self;
+                        // 注册监听金币变更
+                        Global.Coin.RegisterWithInitValue(coin =>
+                        {
+                            CoinText.text = "金币：" + coin;
+
+                            if (coin >= itemCache.Price)
+                            {
+                                selfCache.interactable = true;
+                            }
+                            else
+                            {
+                                selfCache.interactable = false;
+                            }
+
+                        }).UnRegisterWhenGameObjectDestroyed(self);
+
+                    }).Show();
             });
 
-            CoinPercentUpgradeBtn.Hide();
-            ExpPercentUpgradeBtn.Hide();
-            MaxHPUpgradeBtn.Hide();
 
-
-            // 监听金币变更
-            Global.Coin.RegisterWithInitValue(coin =>
-            {
-                CoinText.text = "金币：" + coin;
-
-                //if (coin >= 5)
-                //{
-                //    CoinPercentUpgradeBtn.Show();
-                //    ExpPercentUpgradeBtn.Show();
-                //}
-                //else
-                //{
-                //    CoinPercentUpgradeBtn.Hide();
-                //    ExpPercentUpgradeBtn.Hide();
-                //}
-
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
-
-            // 监听金币掉率升级按钮
-            CoinPercentUpgradeBtn.onClick.AddListener(() =>
-            {
-
-                AudioKit.PlaySound("AbilityLevelUp");
-            });
-
-            // 监听经验掉率升级按钮
-            ExpPercentUpgradeBtn.onClick.AddListener(() =>
-            {
-                Global.ExpPercent.Value += 0.1f;
-                Global.Coin.Value -= 5;
-
-                AudioKit.PlaySound("AbilityLevelUp");
-            });
-
-            // 监听生命值升级按钮
-            MaxHPUpgradeBtn.onClick.AddListener(() =>
-            {
-                Global.MaxHP.Value++;
-                Global.Coin.Value -= 30;
-
-                AudioKit.PlaySound("AbilityLevelUp");
-            });
 
             // 监听关闭按钮
             CloseBtn.onClick.AddListener(() =>
