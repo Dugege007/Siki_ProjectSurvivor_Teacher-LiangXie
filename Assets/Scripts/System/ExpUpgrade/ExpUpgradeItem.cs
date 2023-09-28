@@ -3,7 +3,7 @@ using System;
 
 namespace ProjectSurvivor
 {
-    public class CoinUpgradeItem
+    public class ExpUpgradeItem
     {
         public EasyEvent OnChanged = new EasyEvent();
 
@@ -12,15 +12,15 @@ namespace ProjectSurvivor
         public string Description { get; private set; }
         public int Price { get; private set; }
 
-        private Action<CoinUpgradeItem> mOnUpgrade;
-        private Func<CoinUpgradeItem, bool> mCondition;
+        private Action<ExpUpgradeItem> mOnUpgrade;
+        private Func<ExpUpgradeItem, bool> mCondition;
 
         public void Upgrade()
         {
             mOnUpgrade?.Invoke(this);
             UpgradeFinish = true;
             OnChanged.Trigger();
-            CoinUpgradeSystem.OnCoinUpgradeSystemChanged.Trigger(); // .Trigger() 触发一下这个事件
+            ExpUpgradeSystem.OnCoinUpgradeSystemChanged.Trigger(); // .Trigger() 触发一下这个事件
         }
 
         /// <summary>
@@ -35,25 +35,25 @@ namespace ProjectSurvivor
             return !UpgradeFinish;
         }
 
-        public CoinUpgradeItem WithKey(string key)
+        public ExpUpgradeItem WithKey(string key)
         {
             Key = key;
             return this;
         }
 
-        public CoinUpgradeItem WithDescription(string description)
+        public ExpUpgradeItem WithDescription(string description)
         {
             Description = description;
             return this;
         }
 
-        public CoinUpgradeItem WithPrice(int price)
+        public ExpUpgradeItem WithPrice(int price)
         {
             Price = price;
             return this;
         }
 
-        public CoinUpgradeItem OnUpgrade(Action<CoinUpgradeItem> onUpgrade)
+        public ExpUpgradeItem OnUpgrade(Action<ExpUpgradeItem> onUpgrade)
         {
             mOnUpgrade = onUpgrade;
             return this;
@@ -64,7 +64,7 @@ namespace ProjectSurvivor
         /// </summary>
         /// <param name="condition"></param>
         /// <returns></returns>
-        public CoinUpgradeItem Condition(Func<CoinUpgradeItem, bool> condition)
+        public ExpUpgradeItem Condition(Func<ExpUpgradeItem, bool> condition)
         {
             mCondition = condition;
             return this;

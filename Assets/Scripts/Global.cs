@@ -10,6 +10,7 @@ namespace ProjectSurvivor
             // ×¢²áÄ£¿é
             this.RegisterSystem(new SaveSystem());
             this.RegisterSystem(new CoinUpgradeSystem());
+            this.RegisterSystem(new ExpUpgradeSystem());
         }
 
         #region Model

@@ -16,7 +16,7 @@ namespace ProjectSurvivor
                     .Self(self =>
                     {
                         CoinUpgradeItem itemCache = coinUpgradeItem;
-                        self.GetComponentInChildren<Text>().text = coinUpgradeItem.Desctiption + $" {coinUpgradeItem.Price} ½ð±Ò";
+                        self.GetComponentInChildren<Text>().text = coinUpgradeItem.Description + $" {coinUpgradeItem.Price} ½ð±Ò";
                         self.onClick.AddListener(() =>
                         {
                             itemCache.Upgrade();
