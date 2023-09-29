@@ -13,28 +13,7 @@ namespace ProjectSurvivor
 
         protected override void OnInit()
         {
-            ExpUpgradeItem simpleDamage = Add(new ExpUpgradeItem()
-                .WithKey("simple_damage")
-                .WithDescription("简单能力攻击力")
-                .WithMaxLevel(10)
-                .OnUpgrade((_, level) =>
-                {
-                    if (level == 1)
-                    {
-                    }
-                    Global.SimpleAbilityDamage.Value *= 1.5f;
-                }));
-
-            ExpUpgradeItem simpleDuration = Add(new ExpUpgradeItem()
-                .WithKey("simple_duration")
-                .WithDescription("简单能力攻击速度")
-                .OnUpgrade((_, level) =>
-                {
-                    if (level == 1)
-                    {
-                    }
-                    Global.SimpleAbilityDuration.Value *= 0.8f;
-                }));
+            ResetData();
 
             Global.Level.Register(_ =>
             {
@@ -48,6 +27,34 @@ namespace ProjectSurvivor
             return item;
         }
 
+        public void ResetData()
+        {
+            Items.Clear();
+
+            ExpUpgradeItem simpleDamage = Add(new ExpUpgradeItem()
+                .WithKey("simple_damage")
+                .WithDescription(lv => $"简单能力攻击力 Lv{lv}")
+                .WithMaxLevel(10)
+                .OnUpgrade((_, level) =>
+                {
+                    if (level == 1)
+                    {
+                    }
+                    Global.SimpleAbilityDamage.Value *= 1.5f;
+                }));
+
+            ExpUpgradeItem simpleDuration = Add(new ExpUpgradeItem()
+                .WithKey("simple_duration")
+                .WithDescription(lv => $"简单能力攻击速度 Lv{lv}")
+                .OnUpgrade((_, level) =>
+                {
+                    if (level == 1)
+                    {
+                    }
+                    Global.SimpleAbilityDuration.Value *= 0.8f;
+                }));
+        }
+
         public void Roll()
         {
             foreach (ExpUpgradeItem expUpgradeItem in Items)
@@ -58,6 +65,8 @@ namespace ProjectSurvivor
             ExpUpgradeItem item = Items.Where(item => item.UpgradeFinish == false)
                 .ToList()
                 .GetRandomItem();   // 获取随机的单位
+
+            Debug.Log(item.Key);
 
             if (item == null)
             {

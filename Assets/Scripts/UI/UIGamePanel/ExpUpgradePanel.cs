@@ -22,7 +22,6 @@ namespace ProjectSurvivor
                     .Self(self =>
                     {
                         ExpUpgradeItem itemCache = expUpgradeItem;
-                        self.GetComponentInChildren<Text>().text = expUpgradeItem.Description;
                         self.onClick.AddListener(() =>
                         {
                             Time.timeScale = 1.0f;
@@ -40,6 +39,12 @@ namespace ProjectSurvivor
                                 selfCache.Show();
                             else
                                 selfCache.Hide();
+
+                        }).UnRegisterWhenGameObjectDestroyed(selfCache);
+
+                        itemCache.CurrentLevel.RegisterWithInitValue(lv =>
+                        {
+                            selfCache.GetComponentInChildren<Text>().text = expUpgradeItem.Description;
 
                         }).UnRegisterWhenGameObjectDestroyed(selfCache);
                     });

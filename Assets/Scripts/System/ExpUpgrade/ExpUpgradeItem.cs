@@ -5,28 +5,25 @@ namespace ProjectSurvivor
 {
     public class ExpUpgradeItem
     {
-        public EasyEvent OnChanged = new EasyEvent();
-
         public bool UpgradeFinish { get; set; } = false;
         public string Key { get; private set; }
-        public string Description { get; private set; }
+        public string Description => mDescriptionFactory(CurrentLevel);
 
         public int MaxLevel { get; private set; }
-        public int CurrentLevel { get; private set; } = 0;
+        public BindableProperty<int> CurrentLevel = new(1);
 
         public BindableProperty<bool> Visible = new(false);
 
         private Action<ExpUpgradeItem, int> mOnUpgrade;
+        private Func<int, string> mDescriptionFactory;
 
         public void Upgrade()
         {
-            CurrentLevel++;
+            CurrentLevel.Value++;
             mOnUpgrade?.Invoke(this, CurrentLevel);
 
-            if (CurrentLevel >= MaxLevel)
+            if (CurrentLevel > MaxLevel)
                 UpgradeFinish = true;
-
-            OnChanged.Trigger();
         }
 
         public ExpUpgradeItem WithKey(string key)
@@ -35,9 +32,9 @@ namespace ProjectSurvivor
             return this;
         }
 
-        public ExpUpgradeItem WithDescription(string description)
+        public ExpUpgradeItem WithDescription(Func<int, string> descriptionFactory)
         {
-            Description = description;
+            mDescriptionFactory = descriptionFactory;
             return this;
         }
 

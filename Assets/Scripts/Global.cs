@@ -147,10 +147,12 @@ namespace ProjectSurvivor
             HP.Value = MaxHP.Value;
             Exp.Value = 0;
             Level.Value = 1;
-            EnemyGenerator.EnemyCount.Value = 0;
             CurrentSeconds.Value = 0;
             SimpleAbilityDamage.Value = 1;
             SimpleAbilityDuration.Value = 1.5f;
+            EnemyGenerator.EnemyCount.Value = 0;
+
+            Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }
 
         public static int ExpToNextLevel()
