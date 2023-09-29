@@ -19,15 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: Collider
-      PathToRoot: Axe
-      MemberName: Axe
+    - TypeName: CircleCollider2D
+      PathToRoot: Knife
+      MemberName: Knife
     ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: SimpleAxe
+    ClassName: SimpleKnife
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class SimpleAxe : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class SimpleKnife : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:f9de90ee-0834-4630-8d51-031b4840b1d2\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class SimpleAxe\r\n\t{\r\n\r\n\t\tpublic
-      Collider Axe;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:833ea900-ac12-4629-8f5c-2ec36db97f0c\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class SimpleKnife\r\n\t{\r\n\r\n\t\tpublic
+      CircleCollider2D Knife;\r\n\r\n\t}\r\n}\r\n"
