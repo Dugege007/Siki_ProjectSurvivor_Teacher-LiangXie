@@ -20,7 +20,7 @@ namespace ProjectSurvivor
             mOnUpgrade?.Invoke(this);
             UpgradeFinish = true;
             OnChanged.Trigger();
-            ExpUpgradeSystem.OnCoinUpgradeSystemChanged.Trigger(); // .Trigger() 触发一下这个事件
+            //ExpUpgradeSystem.OnCoinUpgradeSystemChanged.Trigger(); // .Trigger() 触发一下这个事件
         }
 
         /// <summary>

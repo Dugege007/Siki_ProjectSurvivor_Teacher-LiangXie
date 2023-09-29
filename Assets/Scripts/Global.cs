@@ -167,12 +167,10 @@ namespace ProjectSurvivor
             float percent = Random.Range(0, 1f);
             if (percent <= ExpPercent)
             {
-                // 90% 掉落经验值
+                // 掉落经验值
                 PowerUpManager.Default.Exp.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
-
-                return;
             }
 
             percent = Random.Range(0, 1f);
