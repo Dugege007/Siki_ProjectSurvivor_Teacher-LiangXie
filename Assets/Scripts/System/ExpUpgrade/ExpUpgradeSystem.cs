@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using QFramework;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectSurvivor
 {
@@ -12,84 +13,59 @@ namespace ProjectSurvivor
 
         protected override void OnInit()
         {
-            ExpUpgradeItem simpleDamageLv1 = Add(new ExpUpgradeItem()
-                .WithKey("simple_damage_lv1")
-                .WithDescription("简单能力攻击力LV1")
-                .OnUpgrade(_ =>
+            ExpUpgradeItem simpleDamage = Add(new ExpUpgradeItem()
+                .WithKey("simple_damage")
+                .WithDescription("简单能力攻击力")
+                .WithMaxLevel(10)
+                .OnUpgrade((_, level) =>
                 {
+                    if (level == 1)
+                    {
+                    }
                     Global.SimpleAbilityDamage.Value *= 1.5f;
                 }));
 
-            ExpUpgradeItem simpleDamageLv2 = Add(new ExpUpgradeItem()
-                .WithKey("simple_damage_lv2")
-                .WithDescription("简单能力攻击力LV2")
-                .Condition(item => simpleDamageLv1.UpgradeFinish)
-                .OnUpgrade(_ =>
+            ExpUpgradeItem simpleDuration = Add(new ExpUpgradeItem()
+                .WithKey("simple_duration")
+                .WithDescription("简单能力攻击速度")
+                .OnUpgrade((_, level) =>
                 {
-                    Global.SimpleAbilityDamage.Value *= 1.5f;
-                }));
-
-            ExpUpgradeItem simpleDamageLv3 = Add(new ExpUpgradeItem()
-                .WithKey("simple_damage_lv3")
-                .WithDescription("简单能力攻击力LV3")
-                .Condition(item => simpleDamageLv2.UpgradeFinish)
-                .OnUpgrade(_ =>
-                {
-                    Global.SimpleAbilityDamage.Value *= 1.5f;
-                }));
-
-            ExpUpgradeItem simpleDurationLv1 = Add(new ExpUpgradeItem()
-                .WithKey("simple_duration_lv1")
-                .WithDescription("简单能力攻击速度LV1")
-                .OnUpgrade(_ =>
-                {
+                    if (level == 1)
+                    {
+                    }
                     Global.SimpleAbilityDuration.Value *= 0.8f;
                 }));
 
-            ExpUpgradeItem simpleDurationLv2 = Add(new ExpUpgradeItem()
-                .WithKey("simple_duration_lv2")
-                .WithDescription("简单能力攻击速度LV2")
-                .Condition(item => simpleDurationLv1.UpgradeFinish)
-                .OnUpgrade(_ =>
-                {
-                    Global.SimpleAbilityDuration.Value *= 0.8f;
-                }));
-
-            ExpUpgradeItem simpleDurationLv3 = Add(new ExpUpgradeItem()
-                .WithKey("simple_duration_lv3")
-                .WithDescription("简单能力攻击速度LV3")
-                .Condition(item => simpleDurationLv2.UpgradeFinish)
-                .OnUpgrade(_ =>
-                {
-                    Global.SimpleAbilityDuration.Value *= 0.8f;
-                }));
-
-            simpleDamageLv1.OnChanged.Register(() =>
+            Global.Level.Register(_ =>
             {
-                simpleDamageLv2.OnChanged.Trigger();
+                Roll();
             });
-
-            simpleDamageLv2.OnChanged.Register(() =>
-            {
-                simpleDamageLv3.OnChanged.Trigger();
-            });
-
-            simpleDurationLv1.OnChanged.Register(() =>
-            {
-                simpleDurationLv2.OnChanged.Trigger();
-            });
-
-            simpleDurationLv2.OnChanged.Register(() =>
-            {
-                simpleDurationLv3.OnChanged.Trigger();
-            });
-            // 上面的代码有些冗长，后续需要改进
         }
 
         public ExpUpgradeItem Add(ExpUpgradeItem item)
         {
             Items.Add(item);
             return item;
+        }
+
+        public void Roll()
+        {
+            foreach (ExpUpgradeItem expUpgradeItem in Items)
+            {
+                expUpgradeItem.Visible.Value = false;
+            }
+
+            ExpUpgradeItem item = Items.Where(item => item.UpgradeFinish == false)
+                .ToList()
+                .GetRandomItem();   // 获取随机的单位
+
+            if (item == null)
+            {
+                Debug.LogError("没有可用的升级项");
+                return;
+            }
+
+            item.Visible.Value = true;
         }
     }
 }

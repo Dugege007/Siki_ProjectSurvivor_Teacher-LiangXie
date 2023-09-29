@@ -22,7 +22,7 @@ namespace ProjectSurvivor
                     .Self(self =>
                     {
                         ExpUpgradeItem itemCache = expUpgradeItem;
-                        self.GetComponentInChildren<Text>().text = expUpgradeItem.Description + $" {expUpgradeItem.Price} О­бщ";
+                        self.GetComponentInChildren<Text>().text = expUpgradeItem.Description;
                         self.onClick.AddListener(() =>
                         {
                             Time.timeScale = 1.0f;
@@ -32,19 +32,16 @@ namespace ProjectSurvivor
                         });
 
                         Button selfCache = self;
-                        expUpgradeItem.OnChanged.Register(() =>
+                        selfCache.Hide();
+
+                        itemCache.Visible.RegisterWithInitValue(visible =>
                         {
-                            if (itemCache.ConditionCheck())
+                            if (visible)
                                 selfCache.Show();
                             else
                                 selfCache.Hide();
 
                         }).UnRegisterWhenGameObjectDestroyed(selfCache);
-
-                        if (itemCache.ConditionCheck())
-                            selfCache.Show();
-                        else
-                            selfCache.Hide();
                     });
             }
 
