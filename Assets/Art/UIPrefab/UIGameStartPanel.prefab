@@ -446,8 +446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinUpgradeItemRoot: {fileID: 5862828701260931353}
+  CoinUpgradeItemTempleteBtn: {fileID: 5058574337289211128}
   CoinText: {fileID: 27365659876047004}
-  CoinUpgradeItemTemplete: {fileID: 5058574337289211128}
   CloseBtn: {fileID: 2462416965132410826}
 --- !u!1 &2213203886810660822
 GameObject:
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 5058574337289211128}
   - component: {fileID: 3960250659340654824}
   m_Layer: 0
-  m_Name: CoinUpgradeItemTemplete
+  m_Name: CoinUpgradeItemTempleteBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

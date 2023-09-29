@@ -63,11 +63,12 @@ namespace ProjectSurvivor
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
+            ExpUpgradePanel.Hide();
             // 更新等级UI
             Global.Level.Register(level =>
             {
                 Time.timeScale = 0;
-                UpgradeRoot.Show();
+                ExpUpgradePanel.Show();
                 AudioKit.PlaySound("LevelUp");
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
@@ -83,27 +84,6 @@ namespace ProjectSurvivor
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-            // 注册按钮事件
-            UpgradeBtn.onClick.AddListener(() =>
-            {
-                Time.timeScale = 1;
-                Global.SimpleAbilityDamage.Value *= 1.5f;
-                UpgradeRoot.Hide();
-
-                AudioKit.PlaySound("AbilityLevelUp");
-            });
-
-            SimpleDurationUpgradeBtn.onClick.AddListener(() =>
-            {
-                Time.timeScale = 1;
-                Global.SimpleAbilityDuration.Value *= 0.8f;
-                UpgradeRoot.Hide();
-
-                AudioKit.PlaySound("AbilityLevelUp");
-            });
-
-            // 隐藏按钮组
-            UpgradeRoot.Hide();
 
             EnemyGenerator enemyGenerator = FindObjectOfType<EnemyGenerator>();
             // 在全局的 Update 中注册时间增加的任务

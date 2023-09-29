@@ -8,11 +8,11 @@ namespace ProjectSurvivor
     {
         private void Awake()
         {
-            CoinUpgradeItemTemplete.Hide();
+            CoinUpgradeItemTempleteBtn.Hide();
 
             foreach (CoinUpgradeItem coinUpgradeItem in this.GetSystem<CoinUpgradeSystem>().Items.Where(item => item.UpgradeFinish == false))
             {
-                CoinUpgradeItemTemplete.InstantiateWithParent(CoinUpgradeItemRoot)
+                CoinUpgradeItemTempleteBtn.InstantiateWithParent(CoinUpgradeItemRoot)
                     .Self(self =>
                     {
                         CoinUpgradeItem itemCache = coinUpgradeItem;
