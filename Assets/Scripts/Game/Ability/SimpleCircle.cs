@@ -17,7 +17,6 @@ namespace ProjectSurvivor
                     {
                         hurtBox.Owner.GetComponent<Enemy>().Hurt(2);
                     }
-
                 }
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);

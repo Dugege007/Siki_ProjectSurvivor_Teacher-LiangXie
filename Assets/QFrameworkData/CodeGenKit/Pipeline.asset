@@ -18,12 +18,16 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: HurtBox
+    BindInfos:
+    - TypeName: Collider
+      PathToRoot: Axe
+      MemberName: Axe
+    ScriptsFolder: Assets/Scripts/Game/Ability
+    ClassName: SimpleAxe
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class HurtBox : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class SimpleAxe : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:7e47641b-fd78-4ce8-af35-56b6b75d459e\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class HurtBox\r\n\t{\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:f9de90ee-0834-4630-8d51-031b4840b1d2\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class SimpleAxe\r\n\t{\r\n\r\n\t\tpublic
+      Collider Axe;\r\n\r\n\t}\r\n}\r\n"
