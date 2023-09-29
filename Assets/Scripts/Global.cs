@@ -137,6 +137,9 @@ namespace ProjectSurvivor
             {
                 PlayerPrefs.SetInt(nameof(MaxHP), maxHp);
             });
+
+            // 主动初始化
+            IArchitecture _ = Interface;
         }
 
         /// <summary>
