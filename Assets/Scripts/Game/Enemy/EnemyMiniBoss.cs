@@ -10,6 +10,7 @@ namespace ProjectSurvivor
             FollowingPlayer,    // 跟随玩家
             Warning,            // 警戒
             Dash,               // 冲向玩家
+            Wait                // 等待
         }
 
         // QF 提供了状态机的操作方式
@@ -55,10 +56,20 @@ namespace ProjectSurvivor
                 })
                 .OnUpdate(() =>
                 {
-                    if (FSM.FrameCountOfCurrentState >= 60 * 2)
-                    {
+                    // 21 ~ 3
+                    long frames = 3 + (60 * 3 - FSM.FrameCountOfCurrentState) / 10;
+
+                    if (FSM.FrameCountOfCurrentState/frames%2==0)
+                        Sprite.color = Color.yellow;
+                    else
+                        Sprite.color = Color.white;
+
+                    if (FSM.FrameCountOfCurrentState >= 60 * 3)
                         FSM.ChangeState(States.Dash);
-                    }
+                })
+                .OnExit(() =>
+                {
+                    Sprite.color = Color.white;
                 });
 
             Vector3 dashStartPos = Vector3.zero;
@@ -69,7 +80,7 @@ namespace ProjectSurvivor
                 .OnEnter(() =>
                 {
                     Vector3 direction = (Player.Default.Position() - transform.Position()).normalized;
-                    SelfRigidbody2D.velocity = direction * 20f;
+                    SelfRigidbody2D.velocity = direction * 10f;
                     dashStartPos = transform.Position();
                     dashStartDistanceToPlayer = Vector3.Distance(Player.Default.Position(), transform.Position());
                 })
@@ -84,6 +95,19 @@ namespace ProjectSurvivor
                 });
 
             FSM.StartState(States.FollowingPlayer);
+
+            FSM.State(States.Wait)
+                .OnEnter(() =>
+                {
+                    SelfRigidbody2D.velocity = Vector2.zero;
+                })
+                .OnUpdate(() =>
+                {
+                    if (FSM.FrameCountOfCurrentState >= 60)
+                    {
+                        FSM.ChangeState(States.FollowingPlayer);
+                    }
+                });
         }
 
         private void Update()
