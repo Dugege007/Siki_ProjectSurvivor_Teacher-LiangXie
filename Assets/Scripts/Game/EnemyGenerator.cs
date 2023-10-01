@@ -4,46 +4,36 @@ using System.Collections.Generic;
 
 namespace ProjectSurvivor
 {
-    [System.Serializable]
-    public class EnemyWave
-    {
-        /// <summary>
-        /// 生成时间间隔
-        /// </summary>
-        public float GenerateDuration = 1;
-        /// <summary>
-        /// 敌人预制体
-        /// </summary>
-        public GameObject EnemyPrefab;
-        /// <summary>
-        /// 波次轮换时间
-        /// </summary>
-        public int WaveDuration = 10;
-    }
 
     public partial class EnemyGenerator : ViewController
     {
+        [SerializeField]
+        public LevelConfig LevelConfig;
+
         private float mCurrentGenerateSeconds = 0;
         private float mCurrentWaveSeconds = 0;
 
         public static BindableProperty<int> EnemyCount = new BindableProperty<int>(0);
 
-        /// <summary>
-        /// 波次列表
-        /// </summary>
-        public List<EnemyWave> EnemyWaves = new List<EnemyWave>();
         private Queue<EnemyWave> mEnemyWavesQueue = new Queue<EnemyWave>();
 
         private EnemyWave mCurrentWave = null;
         public int WaveCount = 0;
-        public bool IsLastWave => WaveCount == EnemyWaves.Count;
+
+        private int mTotalCount = 0;
+        public bool IsLastWave => WaveCount == mTotalCount;
+
         public EnemyWave CurrentWave => mCurrentWave;
 
         private void Start()
         {
-            foreach (var enemyWave in EnemyWaves)
+            foreach (var group in LevelConfig.EnemyWaveGroups)
             {
-                mEnemyWavesQueue.Enqueue(enemyWave);
+                foreach (var wave in group.Waves)
+                {
+                    mEnemyWavesQueue.Enqueue(wave);
+                    mTotalCount++;
+                }
             }
         }
 
@@ -89,10 +79,10 @@ namespace ProjectSurvivor
                     }
                 }
 
-                if (mCurrentWaveSeconds > mCurrentWave.WaveDuration)
-                {
-                    mCurrentWave = null;
-                }
+                //if (mCurrentWaveSeconds > mCurrentWave.WaveDuration)
+                //{
+                //    mCurrentWave = null;
+                //}
             }
         }
     }

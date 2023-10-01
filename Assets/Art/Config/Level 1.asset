@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd4174e70b0f5c4bb332791da72d6a5, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  EnemyWaveGroups:
+  - Name: "\u7B2C\u4E00\u6CE2 \u5E7D\u7075"
+    Description: 
+    Waves:
+    - Name: "\u5E7D\u7075"
+      Active: 1
+      GenerateDuration: 0.8
+      EnemyPrefab: {fileID: 3864509263847720790, guid: dba2b07082cc71e4f98e30015ddc88bf, type: 3}
+      WaveDurationSeconds: 15
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5E7D\u7075"
+      Active: 1
+      GenerateDuration: 0.5
+      EnemyPrefab: {fileID: 3864509263847720790, guid: dba2b07082cc71e4f98e30015ddc88bf, type: 3}
+      WaveDurationSeconds: 25
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5C0FBoss"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 3704042959404468966, guid: e56382c401c3c3340ad3634e8721206a, type: 3}
+      WaveDurationSeconds: 15
+      HPScale: 1
+      SpeedScale: 1
