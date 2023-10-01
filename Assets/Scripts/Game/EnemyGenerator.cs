@@ -79,10 +79,10 @@ namespace ProjectSurvivor
                     }
                 }
 
-                //if (mCurrentWaveSeconds > mCurrentWave.WaveDuration)
-                //{
-                //    mCurrentWave = null;
-                //}
+                if (mCurrentWaveSeconds > mCurrentWave.WaveDurationSeconds)
+                {
+                    mCurrentWave = null;
+                }
             }
         }
     }

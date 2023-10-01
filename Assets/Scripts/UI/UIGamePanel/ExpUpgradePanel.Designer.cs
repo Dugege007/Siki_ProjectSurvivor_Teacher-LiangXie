@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * 2023.9 MSI
+ * 2023.10 MSI
  ****************************************************************************/
 
 using UnityEngine;
@@ -12,15 +12,11 @@ namespace ProjectSurvivor
 	{
 		[SerializeField] public UnityEngine.UI.Button ExpUpgradeItemTempleteBtn;
 		[SerializeField] public RectTransform UpgradeRoot;
-		[SerializeField] public UnityEngine.UI.Button UpgradeBtn;
-		[SerializeField] public UnityEngine.UI.Button SimpleDurationUpgradeBtn;
 
 		public void Clear()
 		{
 			ExpUpgradeItemTempleteBtn = null;
 			UpgradeRoot = null;
-			UpgradeBtn = null;
-			SimpleDurationUpgradeBtn = null;
 		}
 
 		public override string ComponentName

@@ -34,6 +34,273 @@ MonoBehaviour:
       Active: 1
       GenerateDuration: 5
       EnemyPrefab: {fileID: 3704042959404468966, guid: e56382c401c3c3340ad3634e8721206a, type: 3}
-      WaveDurationSeconds: 15
+      WaveDurationSeconds: 6
       HPScale: 1
       SpeedScale: 1
+    - Name: "\u5E7D\u7075"
+      Active: 1
+      GenerateDuration: 0.3
+      EnemyPrefab: {fileID: 3864509263847720790, guid: dba2b07082cc71e4f98e30015ddc88bf, type: 3}
+      WaveDurationSeconds: 40
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5C0FBoss"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 3513140867290155287, guid: a50e088fe6adac449bfb087b964f2cd3, type: 3}
+      WaveDurationSeconds: 6
+      HPScale: 1
+      SpeedScale: 1
+  - Name: "\u7B2C\u4E8C\u6CE2 \u8718\u86DB"
+    Description: 
+    Waves:
+    - Name: "\u8718\u86DB"
+      Active: 1
+      GenerateDuration: 0.8
+      EnemyPrefab: {fileID: 4102536248795001508, guid: ef0945f1cd2b1d74d8f00e72ff9ad020, type: 3}
+      WaveDurationSeconds: 20
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8718\u86DB"
+      Active: 1
+      GenerateDuration: 0.5
+      EnemyPrefab: {fileID: 4102536248795001508, guid: ef0945f1cd2b1d74d8f00e72ff9ad020, type: 3}
+      WaveDurationSeconds: 35
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5C0FBoss*2"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 6851758175298725138, guid: 44cf57dca8fabf64b89727ffba9bf352, type: 3}
+      WaveDurationSeconds: 11
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8718\u86DB"
+      Active: 1
+      GenerateDuration: 0.3
+      EnemyPrefab: {fileID: 3864509263847720790, guid: dba2b07082cc71e4f98e30015ddc88bf, type: 3}
+      WaveDurationSeconds: 50
+      HPScale: 1.5
+      SpeedScale: 1.2
+    - Name: "\u5C0FBoss*2"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 3704042959404468966, guid: e56382c401c3c3340ad3634e8721206a, type: 3}
+      WaveDurationSeconds: 11
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8718\u86DB"
+      Active: 1
+      GenerateDuration: 0.15
+      EnemyPrefab: {fileID: 4102536248795001508, guid: ef0945f1cd2b1d74d8f00e72ff9ad020, type: 3}
+      WaveDurationSeconds: 30
+      HPScale: 2
+      SpeedScale: 1.5
+    - Name: "\u5C0FBoss*3"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 7796156463793404055, guid: c8e916a74beeff3408ccba27445fb1ad, type: 3}
+      WaveDurationSeconds: 16
+      HPScale: 1.5
+      SpeedScale: 1.2
+  - Name: "\u7B2C\u4E09\u6CE2 \u8759\u8760"
+    Description: 
+    Waves:
+    - Name: "\u8759\u8760"
+      Active: 1
+      GenerateDuration: 0.6
+      EnemyPrefab: {fileID: 4793438364732288617, guid: 1a4a51924b0f2d04ba5d3957a2f86aa4, type: 3}
+      WaveDurationSeconds: 15
+      HPScale: 2
+      SpeedScale: 1.1
+    - Name: "\u8759\u8760"
+      Active: 1
+      GenerateDuration: 0.3
+      EnemyPrefab: {fileID: 4793438364732288617, guid: 1a4a51924b0f2d04ba5d3957a2f86aa4, type: 3}
+      WaveDurationSeconds: 15
+      HPScale: 2.5
+      SpeedScale: 1.2
+    - Name: "\u8759\u8760"
+      Active: 1
+      GenerateDuration: 0.15
+      EnemyPrefab: {fileID: 4793438364732288617, guid: 1a4a51924b0f2d04ba5d3957a2f86aa4, type: 3}
+      WaveDurationSeconds: 20
+      HPScale: 3
+      SpeedScale: 1.3
+    - Name: "\u8759\u8760"
+      Active: 1
+      GenerateDuration: 0.1
+      EnemyPrefab: {fileID: 4793438364732288617, guid: 1a4a51924b0f2d04ba5d3957a2f86aa4, type: 3}
+      WaveDurationSeconds: 30
+      HPScale: 4
+      SpeedScale: 1.5
+    - Name: "\u5C0FBoss"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 5548805585496006334, guid: 27c7dee8a2d24bb43bf970e214f0b58b, type: 3}
+      WaveDurationSeconds: 6
+      HPScale: 4
+      SpeedScale: 1.5
+    - Name: "\u8759\u8760"
+      Active: 1
+      GenerateDuration: 0.075
+      EnemyPrefab: {fileID: 4793438364732288617, guid: 1a4a51924b0f2d04ba5d3957a2f86aa4, type: 3}
+      WaveDurationSeconds: 30
+      HPScale: 4
+      SpeedScale: 1.5
+    - Name: "\u5C0FBoss*2"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 8331545780025238137, guid: 853edf3bb005b42409b86965487114bb, type: 3}
+      WaveDurationSeconds: 11
+      HPScale: 4
+      SpeedScale: 1.8
+    - Name: "\u5C0FBoss*3"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 8331545780025238137, guid: 853edf3bb005b42409b86965487114bb, type: 3}
+      WaveDurationSeconds: 16
+      HPScale: 5
+      SpeedScale: 2
+  - Name: "\u7B2C\u56DB\u6CE2 \u72EC\u773C\u602A"
+    Description: 
+    Waves:
+    - Name: "\u72EC\u773C\u602A"
+      Active: 1
+      GenerateDuration: 0.5
+      EnemyPrefab: {fileID: 2352741985746306137, guid: 4bb940986ed105c40a9454e1376e26f9, type: 3}
+      WaveDurationSeconds: 20
+      HPScale: 5
+      SpeedScale: 1.5
+    - Name: "\u72EC\u773C\u602A"
+      Active: 1
+      GenerateDuration: 0.4
+      EnemyPrefab: {fileID: 2352741985746306137, guid: 4bb940986ed105c40a9454e1376e26f9, type: 3}
+      WaveDurationSeconds: 25
+      HPScale: 5
+      SpeedScale: 1.6
+    - Name: "\u5C0FBoss"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 6823676833696887657, guid: d6949aab1869c3c46bb55ea67cc8787b, type: 3}
+      WaveDurationSeconds: 6
+      HPScale: 4
+      SpeedScale: 1.5
+    - Name: "\u72EC\u773C\u602A"
+      Active: 1
+      GenerateDuration: 0.3
+      EnemyPrefab: {fileID: 2352741985746306137, guid: 4bb940986ed105c40a9454e1376e26f9, type: 3}
+      WaveDurationSeconds: 30
+      HPScale: 5.5
+      SpeedScale: 1.7
+    - Name: "\u5C0FBoss*2"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 6823676833696887657, guid: d6949aab1869c3c46bb55ea67cc8787b, type: 3}
+      WaveDurationSeconds: 11
+      HPScale: 6
+      SpeedScale: 1.8
+    - Name: "\u72EC\u773C\u602A"
+      Active: 1
+      GenerateDuration: 0.075
+      EnemyPrefab: {fileID: 2352741985746306137, guid: 4bb940986ed105c40a9454e1376e26f9, type: 3}
+      WaveDurationSeconds: 35
+      HPScale: 6
+      SpeedScale: 1.8
+    - Name: "\u5C0FBoss*3"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 4163207359431448021, guid: 575aed63b9635164f8f93d17d9dd2859, type: 3}
+      WaveDurationSeconds: 16
+      HPScale: 6
+      SpeedScale: 2
+  - Name: "\u7B2C\u4E94\u6CE2 \u5976\u916A\u602A"
+    Description: 
+    Waves:
+    - Name: "\u666E\u901A\u5976\u916A"
+      Active: 1
+      GenerateDuration: 0.3
+      EnemyPrefab: {fileID: 5434455103977329623, guid: b93a76accc6f63f489a5f33531924433, type: 3}
+      WaveDurationSeconds: 30
+      HPScale: 6
+      SpeedScale: 1.8
+    - Name: "\u666E\u901A\u5976\u916A"
+      Active: 1
+      GenerateDuration: 0.25
+      EnemyPrefab: {fileID: 5434455103977329623, guid: b93a76accc6f63f489a5f33531924433, type: 3}
+      WaveDurationSeconds: 35
+      HPScale: 6
+      SpeedScale: 1.8
+    - Name: "\u5C0FBoss"
+      Active: 1
+      GenerateDuration: 10
+      EnemyPrefab: {fileID: 7386916486682996018, guid: 0276496ce506d654d8e02c22cad822c4, type: 3}
+      WaveDurationSeconds: 11
+      HPScale: 6
+      SpeedScale: 2
+    - Name: "\u666E\u901A\u5976\u916A"
+      Active: 1
+      GenerateDuration: 0.2
+      EnemyPrefab: {fileID: 5434455103977329623, guid: b93a76accc6f63f489a5f33531924433, type: 3}
+      WaveDurationSeconds: 40
+      HPScale: 6
+      SpeedScale: 2
+    - Name: "\u666E\u901A\u5976\u916A"
+      Active: 1
+      GenerateDuration: 0.15
+      EnemyPrefab: {fileID: 5434455103977329623, guid: b93a76accc6f63f489a5f33531924433, type: 3}
+      WaveDurationSeconds: 50
+      HPScale: 6
+      SpeedScale: 2
+    - Name: "\u5C0FBoss*3"
+      Active: 1
+      GenerateDuration: 5
+      EnemyPrefab: {fileID: 4163207359431448021, guid: 575aed63b9635164f8f93d17d9dd2859, type: 3}
+      WaveDurationSeconds: 16
+      HPScale: 6
+      SpeedScale: 2
+  - Name: "\u7B2C\u516D\u6CE2 \u6CD5\u5E08"
+    Description: 
+    Waves:
+    - Name: "\u6CD5\u5E08"
+      Active: 1
+      GenerateDuration: 0.2
+      EnemyPrefab: {fileID: 4261614077615595937, guid: c8d374c716d35a0498ed1a577b89579b, type: 3}
+      WaveDurationSeconds: 30
+      HPScale: 6
+      SpeedScale: 2.4
+    - Name: "\u6CD5\u5E08"
+      Active: 1
+      GenerateDuration: 0.15
+      EnemyPrefab: {fileID: 4261614077615595937, guid: c8d374c716d35a0498ed1a577b89579b, type: 3}
+      WaveDurationSeconds: 35
+      HPScale: 6
+      SpeedScale: 2.5
+    - Name: "\u5C0FBoss"
+      Active: 1
+      GenerateDuration: 10
+      EnemyPrefab: {fileID: 2751278260530269439, guid: 5103326076a32a244b225b300b0a3dca, type: 3}
+      WaveDurationSeconds: 11
+      HPScale: 6
+      SpeedScale: 2
+    - Name: "\u6CD5\u5E08"
+      Active: 1
+      GenerateDuration: 0.1
+      EnemyPrefab: {fileID: 4261614077615595937, guid: c8d374c716d35a0498ed1a577b89579b, type: 3}
+      WaveDurationSeconds: 40
+      HPScale: 6
+      SpeedScale: 2.7
+    - Name: "\u6CD5\u5E08"
+      Active: 1
+      GenerateDuration: 0.08
+      EnemyPrefab: {fileID: 4261614077615595937, guid: c8d374c716d35a0498ed1a577b89579b, type: 3}
+      WaveDurationSeconds: 50
+      HPScale: 6
+      SpeedScale: 2.8
+    - Name: "\u5C0FBoss*3"
+      Active: 1
+      GenerateDuration: 15
+      EnemyPrefab: {fileID: 7449156600938659350, guid: 58be839d436fb9143a4a4531c03fb453, type: 3}
+      WaveDurationSeconds: 46
+      HPScale: 6
+      SpeedScale: 3

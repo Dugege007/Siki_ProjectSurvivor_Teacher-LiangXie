@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 namespace ProjectSurvivor
 {
@@ -9,7 +10,7 @@ namespace ProjectSurvivor
     {
     }
 
-    public partial class UIGameStartPanel : UIPanel, IController
+    public partial class UIGameStartPanel : UIPanel, IController, ICanSave
     {
         protected override void OnInit(IUIData uiData = null)
         {
@@ -31,7 +32,11 @@ namespace ProjectSurvivor
                 CoinUpgradePanel.Show();
             });
 
-            //this.GetSystem<CoinUpgradeSystem>().Say();
+            ResetUpgradeBtn.onClick.AddListener(() =>
+            {
+                // 重置已升级的数据
+                ResetUpgrade();
+            });
         }
         
         protected override void OnOpen(IUIData uiData = null)
@@ -53,6 +58,34 @@ namespace ProjectSurvivor
         public IArchitecture GetArchitecture()
         {
             return Global.Interface;
+        }
+
+        public void Save()
+        {
+
+        }
+
+        public void ResetUpgrade()
+        {
+            SaveSystem saveSystem = this.GetSystem<SaveSystem>();
+
+            saveSystem.SaveFloat(nameof(Global.CoinPercent), 0.1f);
+            saveSystem.SaveFloat(nameof(Global.ExpPercent), 0.4f);
+            saveSystem.SaveFloat(nameof(Global.HPPercent), 0.05f);
+            saveSystem.SaveFloat(nameof(Global.BombPercent), 0.1f);
+            saveSystem.SaveFloat(nameof(Global.GetAllExpPercent), 0.05f);
+
+            CoinUpgradeSystem coinUpgradeSystem = this.GetSystem<CoinUpgradeSystem>();
+
+            foreach (var coinUpgradeItem in coinUpgradeSystem.Items)
+            {
+                saveSystem.SaveBool(coinUpgradeItem.Key, false);
+            }
+        }
+
+        public void Load()
+        {
+            
         }
     }
 }

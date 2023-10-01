@@ -18,7 +18,7 @@ namespace ProjectSurvivor
                 .WithPrice(5)
                 .OnUpgrade(item =>
                 {
-                    Global.CoinPercent.Value += 0.1f;
+                    Global.CoinPercent.Value *= 0.1f;
                     Global.Coin.Value -= item.Price;
                 }));
 
@@ -29,7 +29,7 @@ namespace ProjectSurvivor
                 .Condition((_) => coinPercentLv1.UpgradeFinish)
                 .OnUpgrade(item =>
                 {
-                    Global.CoinPercent.Value += 0.1f;
+                    Global.CoinPercent.Value *= 0.1f;
                     Global.Coin.Value -= item.Price;
                 }));
 
@@ -45,7 +45,7 @@ namespace ProjectSurvivor
                 .Condition((_) => coinPercentLv2.UpgradeFinish)
                 .OnUpgrade(item =>
                 {
-                    Global.CoinPercent.Value += 0.1f;
+                    Global.CoinPercent.Value *= 0.1f;
                     Global.Coin.Value -= item.Price;
                 }));
 
@@ -60,7 +60,7 @@ namespace ProjectSurvivor
                 .WithPrice(5)
                 .OnUpgrade(item =>
                 {
-                    Global.ExpPercent.Value += 0.1f;
+                    Global.ExpPercent.Value *= 0.1f;
                     Global.Coin.Value -= item.Price;
                 }));
 
