@@ -1536,6 +1536,8 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  LB: {fileID: 743523336}
+  RT: {fileID: 1779185883}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,7 +1721,7 @@ MonoBehaviour:
   MarkType: 0
   CustomComponentName: RT
   CustomComment: 
-  mComponentName: 
+  mComponentName: Transform
 --- !u!1 &773171027
 GameObject:
   m_ObjectHideFlags: 0
