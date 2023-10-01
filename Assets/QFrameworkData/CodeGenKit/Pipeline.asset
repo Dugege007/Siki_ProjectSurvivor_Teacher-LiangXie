@@ -19,18 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: Transform
-      PathToRoot: LB
-      MemberName: LB
-    - TypeName: Transform
-      PathToRoot: RT
-      MemberName: RT
+    - TypeName: SpriteRenderer
+      PathToRoot: EnemyDieFx
+      MemberName: EnemyDieFx
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: CameraController
+    ClassName: FxController
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class CameraController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class FxController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:5426ee28-bbb9-4875-b7ab-ef962ab53522\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class CameraController\r\n\t{\r\n\r\n\t\tpublic
-      Transform LB;\r\n\r\n\t\tpublic Transform RT;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:2411c958-8ebf-4668-a8ec-527f2521643e\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class FxController\r\n\t{\r\n\r\n\t\tpublic
+      SpriteRenderer EnemyDieFx;\r\n\r\n\t}\r\n}\r\n"

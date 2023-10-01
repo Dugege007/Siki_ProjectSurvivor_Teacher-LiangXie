@@ -9,6 +9,8 @@ namespace ProjectSurvivor
         public float MovementSpeed = 2f;
         private bool mIgnoreHurt = false;
 
+        public Color DissolveColor = Color.yellow;
+
         private void Start()
         {
             EnemyGenerator.EnemyCount.Value++;
@@ -36,6 +38,7 @@ namespace ProjectSurvivor
             {
                 // 掉落道具
                 Global.GeneratePowerUp(gameObject);
+                FxController.Play(Sprite, DissolveColor);
                 // 销毁自己
                 this.DestroyGameObjGracefully();
             }
