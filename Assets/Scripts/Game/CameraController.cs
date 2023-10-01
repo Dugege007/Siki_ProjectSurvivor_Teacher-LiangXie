@@ -6,6 +6,8 @@ namespace ProjectSurvivor
     public partial class CameraController : ViewController
     {
         private static CameraController mDefault = null;
+        public static Transform LBTrans => mDefault.LB;
+        public static Transform RTTrans => mDefault.RT;
 
         private Vector2 mTargetPosition = Vector2.zero;
         private Vector3 mCurrentCameraPos;

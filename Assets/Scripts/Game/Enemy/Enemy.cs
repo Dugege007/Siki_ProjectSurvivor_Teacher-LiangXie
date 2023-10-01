@@ -3,7 +3,7 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-    public partial class Enemy : ViewController
+    public partial class Enemy : ViewController, IEnemy
     {
         public float HP = 3;
         public float MovementSpeed = 2f;
@@ -70,6 +70,16 @@ namespace ProjectSurvivor
                 mIgnoreHurt = false;
 
             }).Start(this);   // ◊‘…Ì÷¥––
+        }
+
+        public void SetSpeedScale(float speedScale)
+        {
+            MovementSpeed *= speedScale;
+        }
+
+        public void SetHPScale(float hpScale)
+        {
+            HP *= hpScale;
         }
 
         private void OnDestroy()

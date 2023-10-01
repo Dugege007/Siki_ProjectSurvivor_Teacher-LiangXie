@@ -63,18 +63,29 @@ namespace ProjectSurvivor
                     Player player = Player.Default;
                     if (player != null)
                     {
-                        // 随机角度
-                        float randomAngle = Random.Range(0, 360f);
-                        // 获取弧度
-                        float randomRadius = randomAngle * Mathf.Deg2Rad;
-                        // 计算方向
-                        Vector3 direction = new Vector3(Mathf.Cos(randomRadius), Mathf.Sin(randomRadius));
-                        // 设置生成点位置
-                        Vector3 generatePos = player.transform.position + direction * 10;
+                        // 获取屏幕边缘之外的随机位置
+                        int xOry = RandomUtility.Choose(-1, 1);
+                        Vector2 pos = Vector2.zero;
+                        if (xOry == -1)
+                        {
+                            pos.x = RandomUtility.Choose(CameraController.LBTrans.position.x, CameraController.RTTrans.position.x);
+                            pos.y = Random.Range(CameraController.LBTrans.position.y, CameraController.RTTrans.position.y);
+                        }
+                        else
+                        {
+                            pos.x = Random.Range(CameraController.LBTrans.position.x, CameraController.RTTrans.position.x);
+                            pos.y = RandomUtility.Choose(CameraController.LBTrans.position.y, CameraController.RTTrans.position.y);
+                        }
 
                         // 生成敌人
                         mCurrentWave.EnemyPrefab.Instantiate()
-                            .Position(generatePos)
+                            .Position(pos)
+                            .Self(self =>
+                            {
+                                Enemy enemy = self.GetComponent<Enemy>();
+                                enemy.SetSpeedScale(mCurrentWave.SpeedScale);
+                                enemy.SetHPScale(mCurrentWave.HPScale);
+                            })
                             .Show();
                     }
                 }

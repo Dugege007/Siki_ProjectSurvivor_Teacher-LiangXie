@@ -156,6 +156,16 @@ namespace ProjectSurvivor
             }).Start(this);   // ◊‘…Ì÷¥––
         }
 
+        public void SetSpeedScale(float speedScale)
+        {
+            MovementSpeed *= speedScale;
+        }
+
+        public void SetHPScale(float hpScale)
+        {
+            HP *= hpScale;
+        }
+
         private void OnDestroy()
         {
             EnemyGenerator.EnemyCount.Value--;
