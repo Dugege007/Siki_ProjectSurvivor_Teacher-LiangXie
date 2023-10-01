@@ -28,7 +28,7 @@ MonoBehaviour:
       GenerateDuration: 0.5
       EnemyPrefab: {fileID: 3864509263847720790, guid: dba2b07082cc71e4f98e30015ddc88bf, type: 3}
       WaveDurationSeconds: 25
-      HPScale: 1
+      HPScale: 1.5
       SpeedScale: 1
     - Name: "\u5C0FBoss"
       Active: 1
@@ -42,7 +42,7 @@ MonoBehaviour:
       GenerateDuration: 0.3
       EnemyPrefab: {fileID: 3864509263847720790, guid: dba2b07082cc71e4f98e30015ddc88bf, type: 3}
       WaveDurationSeconds: 40
-      HPScale: 1
+      HPScale: 2
       SpeedScale: 1
     - Name: "\u5C0FBoss"
       Active: 1

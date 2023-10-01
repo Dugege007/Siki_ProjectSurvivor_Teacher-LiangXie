@@ -244,6 +244,7 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   HP: 50
   MovementSpeed: 0.8
+  DissolveColor: {r: 0.95294124, g: 1, b: 0, a: 1}
   Sprite: {fileID: 9109180256856650675}
   SelfRigidbody2D: {fileID: 3826148762487262321}
 --- !u!50 &3826148762487262321

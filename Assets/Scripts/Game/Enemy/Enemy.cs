@@ -1,5 +1,6 @@
 using UnityEngine;
 using QFramework;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -38,6 +39,9 @@ namespace ProjectSurvivor
             {
                 // 掉落道具
                 Global.GeneratePowerUp(gameObject);
+                // 播放音效
+                AudioKit.PlaySound(Sfx.ENEMYDIE);
+                // 播放溶解特效
                 FxController.Play(Sprite, DissolveColor);
                 // 销毁自己
                 this.DestroyGameObjGracefully();
