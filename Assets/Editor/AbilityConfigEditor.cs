@@ -27,7 +27,7 @@ namespace ProjectSurvivor
             }
 
             // 标题
-            EditorGUILayout.LabelField("数值调整", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("升级值（调整数值）", EditorStyles.boldLabel);
 
             // 遍历Powers列表
             for (int i = 0; i < config.Powers.Count; i++)

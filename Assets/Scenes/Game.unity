@@ -1187,13 +1187,14 @@ GameObject:
   m_Component:
   - component: {fileID: 264842492}
   - component: {fileID: 264842493}
+  - component: {fileID: 264842494}
   m_Layer: 0
   m_Name: RotateSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &264842492
 Transform:
   m_ObjectHideFlags: 0
@@ -1228,6 +1229,22 @@ MonoBehaviour:
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   BigSword: {fileID: 34843579}
+--- !u!114 &264842494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264842491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: BasketballAbility
+  CustomComment: 
+  mComponentName: ProjectSurvivor.RotateSword
 --- !u!1 &283071698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,8 +1254,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283071699}
+  - component: {fileID: 283071700}
   m_Layer: 0
-  m_Name: Abilities
+  m_Name: AbilitiesController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1264,6 +1282,27 @@ Transform:
   - {fileID: 1958345237}
   m_Father: {fileID: 1452891369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283071700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283071698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0e5bbf09241fc42895f0f298306bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: ProjectSurvivor
+  ScriptName: AbilitiesController
+  ScriptsFolder: Assets/Scripts/Game/Ability
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  SimpleSword: {fileID: 627989856}
+  RotateSword: {fileID: 264842493}
+  SimpleKnife: {fileID: 2112546098}
+  BasketballAbility: {fileID: 1958345238}
 --- !u!1 &286925312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,13 +1929,14 @@ GameObject:
   m_Component:
   - component: {fileID: 627989855}
   - component: {fileID: 627989856}
+  - component: {fileID: 627989857}
   m_Layer: 0
   m_Name: SimpleSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &627989855
 Transform:
   m_ObjectHideFlags: 0
@@ -1931,6 +1971,22 @@ MonoBehaviour:
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   Sword: {fileID: 1629885917}
+--- !u!114 &627989857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627989854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: BasketballAbility
+  CustomComment: 
+  mComponentName: ProjectSurvivor.SimpleSword
 --- !u!4 &719772822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3266713123511298260, guid: ef0945f1cd2b1d74d8f00e72ff9ad020, type: 3}
@@ -12562,13 +12618,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1958345237}
   - component: {fileID: 1958345238}
+  - component: {fileID: 1958345239}
   m_Layer: 0
   m_Name: BasketballAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1958345237
 Transform:
   m_ObjectHideFlags: 0
@@ -12603,6 +12660,22 @@ MonoBehaviour:
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   Basketball: {fileID: 137060745}
+--- !u!114 &1958345239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958345236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: BasketballAbility
+  CustomComment: 
+  mComponentName: ProjectSurvivor.BasketballAbility
 --- !u!1 &1976571138
 GameObject:
   m_ObjectHideFlags: 0
@@ -12749,13 +12822,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2112546097}
   - component: {fileID: 2112546098}
+  - component: {fileID: 2112546099}
   m_Layer: 0
   m_Name: SimpleKnife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2112546097
 Transform:
   m_ObjectHideFlags: 0
@@ -12790,6 +12864,22 @@ MonoBehaviour:
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   Knife: {fileID: 146317663}
+--- !u!114 &2112546099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112546096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: BasketballAbility
+  CustomComment: 
+  mComponentName: ProjectSurvivor.SimpleKnife
 --- !u!1 &2114890530
 GameObject:
   m_ObjectHideFlags: 0

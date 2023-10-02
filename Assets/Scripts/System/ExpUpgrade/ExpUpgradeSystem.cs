@@ -107,7 +107,21 @@ namespace ProjectSurvivor
 
         private void UpgradePowerValue(int lv, AbilityConfig abilityConfig)
         {
-            for (int i = 1; i < abilityConfig.Powers.Count + 1; i++)
+            // 解锁
+            if (lv == 1)
+            {
+                if (abilityConfig.Name == mSimpleSwordConfig.Name)
+                    Global.SimpleSwordUnlocked.Value = true;
+                else if (abilityConfig.Name == mSimpleKnifeConfig.Name)
+                    Global.SimpleKnifeUnlocked.Value = true;
+                else if (abilityConfig.Name == mRotateSwordConfig.Name)
+                    Global.RotateSwordUnlocked.Value = true;
+                else if (abilityConfig.Name == mBasketballConfig.Name)
+                    Global.BasketballUnlocked.Value = true;
+            }
+
+            // 升级
+            for (int i = 2; i < abilityConfig.Powers.Count + 1; i++)
             {
                 if (lv == i)
                 {

@@ -40,24 +40,28 @@ namespace ProjectSurvivor
         public static BindableProperty<float> CurrentSeconds = new(0);
 
         // ¼òµ¥½£
+        public static BindableProperty<bool> SimpleSwordUnlocked = new(false);
         public static BindableProperty<float> SimpleSwordDamage = new(Player.Default.SimpleSwordConfig.InitDamage);
         public static BindableProperty<float> SimpleSwordDuration = new(Player.Default.SimpleSwordConfig.InitDuration);
         public static BindableProperty<float> SimpleSwordRange = new(Player.Default.SimpleSwordConfig.InitRange);
         public static BindableProperty<int> SimpleSwordCount = new(Player.Default.SimpleSwordConfig.InitCount);
 
         // Ðý×ª½£
+        public static BindableProperty<bool> RotateSwordUnlocked = new(false);
         public static BindableProperty<float> RotateSwordDamage = new(Player.Default.RotateSwordConfig.InitDamage);
         public static BindableProperty<float> RotateSwordSpeed = new(Player.Default.RotateSwordConfig.InitSpeed);
         public static BindableProperty<float> RotateSwordRange = new(Player.Default.RotateSwordConfig.InitRange);
         public static BindableProperty<int> RotateSwordCount = new(Player.Default.RotateSwordConfig.InitCount);
 
         // ·Éµ¶
+        public static BindableProperty<bool> SimpleKnifeUnlocked = new(false);
         public static BindableProperty<float> SimpleKnifeDamage = new(Player.Default.SimpleKnifeConfig.InitDamage);
         public static BindableProperty<float> SimpleKnifeDuration = new(Player.Default.SimpleKnifeConfig.InitDuration);
         public static BindableProperty<int> SimpleKnifeCount = new(Player.Default.SimpleKnifeConfig.InitCount);
         public static BindableProperty<int> SimpleKnifeAttackCount = new(Player.Default.SimpleKnifeConfig.InitAttackCount);
 
         // ÀºÇò
+        public static BindableProperty<bool> BasketballUnlocked = new(false);
         public static BindableProperty<float> BasketballDamage = new(Player.Default.BasketballConfig.InitDamage);
         public static BindableProperty<float> BasketballSpeed = new(Player.Default.BasketballConfig.InitSpeed);
         public static BindableProperty<int> BasketballCount = new(Player.Default.BasketballConfig.InitCount);
@@ -164,24 +168,28 @@ namespace ProjectSurvivor
             // ÄÜÁ¦Êý¾Ý
             // ¼òµ¥½£
             AbilityConfig simpleSwordConfig = Player.Default.SimpleSwordConfig;
+            SimpleSwordUnlocked.Value = false;
             SimpleSwordDamage.Value = simpleSwordConfig.InitDamage;
             SimpleSwordDuration.Value = simpleSwordConfig.InitDuration;
             SimpleSwordRange.Value = simpleSwordConfig.InitRange;
             SimpleSwordCount.Value = simpleSwordConfig.InitCount;
             // Ðý×ª½£
             AbilityConfig rotateSwordConfig = Player.Default.RotateSwordConfig;
+            RotateSwordUnlocked.Value = false;
             RotateSwordDamage.Value = rotateSwordConfig.InitDamage;
             RotateSwordSpeed.Value = rotateSwordConfig.InitSpeed;
             RotateSwordRange.Value = rotateSwordConfig.InitRange;
             RotateSwordCount.Value = rotateSwordConfig.InitCount;
             // ·Éµ¶
             AbilityConfig simpleKnifeConfig = Player.Default.SimpleKnifeConfig;
+            SimpleKnifeUnlocked.Value = false;
             SimpleKnifeDamage.Value = simpleKnifeConfig.InitDamage;
             SimpleKnifeDuration.Value = simpleKnifeConfig.InitDuration;
             SimpleKnifeCount.Value = simpleKnifeConfig.InitCount;
             SimpleKnifeAttackCount.Value = simpleKnifeConfig.InitAttackCount;
             // ÀºÇò
             AbilityConfig basketballConfig = Player.Default.BasketballConfig;
+            BasketballUnlocked.Value = false;
             BasketballDamage.Value = basketballConfig.InitDamage;
             BasketballSpeed.Value = basketballConfig.InitSpeed;
             BasketballCount.Value = basketballConfig.InitCount;

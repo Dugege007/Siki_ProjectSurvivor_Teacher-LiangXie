@@ -19,15 +19,26 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: ProjectSurvivor.Basketball
-      PathToRoot: Basketball
-      MemberName: Basketball
+    - TypeName: ProjectSurvivor.SimpleSword
+      PathToRoot: SimpleSword
+      MemberName: SimpleSword
+    - TypeName: ProjectSurvivor.RotateSword
+      PathToRoot: RotateSword
+      MemberName: RotateSword
+    - TypeName: ProjectSurvivor.SimpleKnife
+      PathToRoot: SimpleKnife
+      MemberName: SimpleKnife
+    - TypeName: ProjectSurvivor.BasketballAbility
+      PathToRoot: BasketballAbility
+      MemberName: BasketballAbility
     ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: BasketballAbility
+    ClassName: AbilitiesController
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class BasketballAbility : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class AbilitiesController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:226221c7-7e1a-47ae-a321-2fa0808b8f19\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class BasketballAbility\r\n\t{\r\n\r\n\t\tpublic
-      ProjectSurvivor.Basketball Basketball;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:134f4665-6b4f-478c-adfb-80aaa943f995\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class AbilitiesController\r\n\t{\r\n\r\n\t\tpublic
+      ProjectSurvivor.SimpleSword SimpleSword;\r\n\r\n\t\tpublic ProjectSurvivor.RotateSword
+      RotateSword;\r\n\r\n\t\tpublic ProjectSurvivor.SimpleKnife SimpleKnife;\r\n\r\n\t\tpublic
+      ProjectSurvivor.BasketballAbility BasketballAbility;\r\n\r\n\t}\r\n}\r\n"

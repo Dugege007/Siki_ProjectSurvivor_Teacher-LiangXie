@@ -20,4 +20,22 @@ MonoBehaviour:
   InitRange: 3
   InitCount: 3
   InitAttackCount: 1
-  Powers: []
+  Powers:
+  - Lv: 1
+    PowerDatas:
+    - Type: 0
+      Value: 0
+    - Type: 0
+      Value: 0
+  - Lv: 2
+    PowerDatas:
+    - Type: 0
+      Value: 0
+    - Type: 0
+      Value: 0
+  - Lv: 3
+    PowerDatas:
+    - Type: 0
+      Value: 0
+    - Type: 0
+      Value: 0
