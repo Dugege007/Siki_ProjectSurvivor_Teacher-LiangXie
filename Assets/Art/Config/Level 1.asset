@@ -78,14 +78,14 @@ MonoBehaviour:
     - Name: "\u8718\u86DB"
       Active: 1
       GenerateDuration: 0.3
-      EnemyPrefab: {fileID: 3864509263847720790, guid: dba2b07082cc71e4f98e30015ddc88bf, type: 3}
+      EnemyPrefab: {fileID: 4102536248795001508, guid: ef0945f1cd2b1d74d8f00e72ff9ad020, type: 3}
       WaveDurationSeconds: 50
       HPScale: 1.5
       SpeedScale: 1.2
     - Name: "\u5C0FBoss*2"
       Active: 1
       GenerateDuration: 5
-      EnemyPrefab: {fileID: 3704042959404468966, guid: e56382c401c3c3340ad3634e8721206a, type: 3}
+      EnemyPrefab: {fileID: 7796156463793404055, guid: c8e916a74beeff3408ccba27445fb1ad, type: 3}
       WaveDurationSeconds: 11
       HPScale: 1
       SpeedScale: 1

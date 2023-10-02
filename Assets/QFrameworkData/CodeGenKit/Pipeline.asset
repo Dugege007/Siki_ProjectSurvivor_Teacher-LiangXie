@@ -19,22 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: SpriteRenderer
-      PathToRoot: Sprite
-      MemberName: Sprite
-    - TypeName: CircleCollider2D
-      PathToRoot: HurtBox
-      MemberName: HurtBox
-    - TypeName: UnityEngine.UI.Image
-      PathToRoot: Canvas/HPValue
-      MemberName: HPValue
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: Player
+    - TypeName: UnityEngine.BoxCollider2D
+      PathToRoot: Sword
+      MemberName: Sword
+    ScriptsFolder: Assets/Scripts/Game/Ability
+    ClassName: SimpleSword
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class Player : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class SimpleSword : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:56eb19d7-25d6-4fd5-ad70-65ba9b136698\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class Player\r\n\t{\r\n\r\n\t\tpublic
-      SpriteRenderer Sprite;\r\n\r\n\t\tpublic CircleCollider2D HurtBox;\r\n\r\n\t\tpublic
-      UnityEngine.UI.Image HPValue;\r\n\r\n\t\tpublic UnityEngine.Rigidbody2D SelfRigidbody2D;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:889e4967-a0e0-46e8-a17c-ecaacb8cde8e\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class SimpleSword\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.BoxCollider2D Sword;\r\n\r\n\t}\r\n}\r\n"

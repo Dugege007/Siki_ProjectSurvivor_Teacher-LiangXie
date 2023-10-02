@@ -24,15 +24,6 @@ namespace ProjectSurvivor
 
                     }).UnRegisterWhenGameObjectDestroyed(exp);
                 }
-                foreach (var enemyObj in GameObject.FindGameObjectsWithTag("Enemy"))
-                {
-                    Enemy enemy = enemyObj.GetComponent<Enemy>();
-
-                    if (enemy && enemy.gameObject.activeSelf)
-                    {
-                        enemy.Hurt(enemy.HP);
-                    }
-                }
 
                 AudioKit.PlaySound("GetAllExp");
 
