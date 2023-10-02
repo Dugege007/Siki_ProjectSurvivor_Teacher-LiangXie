@@ -89,7 +89,8 @@ namespace ProjectSurvivor
             if (GUILayout.Button("移除最后一个 AbilityPower"))
             {
                 Undo.RecordObject(config, "Remove Last AbilityPower");
-                config.Powers.RemoveAt(config.Powers.Count - 1);
+                if (config.Powers.Count > 0)
+                    config.Powers.RemoveAt(config.Powers.Count - 1);
                 EditorUtility.SetDirty(config);
             }
 

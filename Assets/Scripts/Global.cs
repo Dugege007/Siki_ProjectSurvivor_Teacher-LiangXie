@@ -40,21 +40,9 @@ namespace ProjectSurvivor
         public static BindableProperty<float> CurrentSeconds = new(0);
 
         // ¼òµ¥½£
-        /// <summary>
-        /// ¼òµ¥½£¹¥»÷Á¦
-        /// </summary>
         public static BindableProperty<float> SimpleSwordDamage = new(Player.Default.SimpleSwordConfig.InitDamage);
-        /// <summary>
-        /// ¼òµ¥½£¹¥»÷¼ä¸ô
-        /// </summary>
         public static BindableProperty<float> SimpleSwordDuration = new(Player.Default.SimpleSwordConfig.InitDuration);
-        /// <summary>
-        /// ¼òµ¥½£·¶Î§
-        /// </summary>
         public static BindableProperty<float> SimpleSwordRange = new(Player.Default.SimpleSwordConfig.InitRange);
-        /// <summary>
-        /// ¼òµ¥½£ÊýÁ¿
-        /// </summary>
         public static BindableProperty<int> SimpleSwordCount = new(Player.Default.SimpleSwordConfig.InitCount);
 
         // Ðý×ª½£
@@ -68,6 +56,11 @@ namespace ProjectSurvivor
         public static BindableProperty<float> SimpleKnifeDuration = new(Player.Default.SimpleKnifeConfig.InitDuration);
         public static BindableProperty<int> SimpleKnifeCount = new(Player.Default.SimpleKnifeConfig.InitCount);
         public static BindableProperty<int> SimpleKnifeAttackCount = new(Player.Default.SimpleKnifeConfig.InitAttackCount);
+
+        // ÀºÇò
+        public static BindableProperty<float> BasketballDamage = new(Player.Default.BasketballConfig.InitDamage);
+        public static BindableProperty<float> BasketballSpeed = new(Player.Default.BasketballConfig.InitSpeed);
+        public static BindableProperty<int> BasketballCount = new(Player.Default.BasketballConfig.InitCount);
 
         /// <summary>
         /// ¾­ÑéµôÂÊ
@@ -187,6 +180,11 @@ namespace ProjectSurvivor
             SimpleKnifeDuration.Value = simpleKnifeConfig.InitDuration;
             SimpleKnifeCount.Value = simpleKnifeConfig.InitCount;
             SimpleKnifeAttackCount.Value = simpleKnifeConfig.InitAttackCount;
+            // ÀºÇò
+            AbilityConfig basketballConfig = Player.Default.BasketballConfig;
+            BasketballDamage.Value = basketballConfig.InitDamage;
+            BasketballSpeed.Value = basketballConfig.InitSpeed;
+            BasketballCount.Value = basketballConfig.InitCount;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }

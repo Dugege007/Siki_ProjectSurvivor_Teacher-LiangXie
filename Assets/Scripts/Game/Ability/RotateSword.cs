@@ -36,9 +36,10 @@ namespace ProjectSurvivor
 
                                         if (Random.Range(0, 1.0f) < 0.5f)
                                         {
+                                            // »÷ÍËÐ§¹û
                                             collider.attachedRigidbody.velocity
-                                            = collider.NormalizedDirection2DFrom(self) * 5
-                                            + collider.NormalizedDirection2DFrom(Player.Default) * 10;
+                                            = (collider.transform.position - transform.Position()).normalized * 5
+                                            + (collider.transform.position-Player.Default.Position()).normalized * 10;
                                         }
                                     }
                                 }

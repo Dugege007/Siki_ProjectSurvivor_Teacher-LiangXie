@@ -15,6 +15,7 @@ namespace QAssetBundle
     {
         public const string BundleName = "sfx";
         public const string ABILITYLEVELUP = "AbilityLevelUp";
+        public const string BALL = "Ball";
         public const string BOMB = "Bomb";
         public const string COIN = "Coin";
         public const string DIE = "Die";

@@ -19,15 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: CircleCollider2D
-      PathToRoot: BigSword
-      MemberName: BigSword
+    - TypeName: ProjectSurvivor.Basketball
+      PathToRoot: Basketball
+      MemberName: Basketball
     ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: RotateSword
+    ClassName: BasketballAbility
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class RotateSword : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class BasketballAbility : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:bdf6823e-b4d0-4834-ac73-3d68c0c27df0\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class RotateSword\r\n\t{\r\n\r\n\t\tpublic
-      CircleCollider2D BigSword;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:226221c7-7e1a-47ae-a321-2fa0808b8f19\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class BasketballAbility\r\n\t{\r\n\r\n\t\tpublic
+      ProjectSurvivor.Basketball Basketball;\r\n\r\n\t}\r\n}\r\n"

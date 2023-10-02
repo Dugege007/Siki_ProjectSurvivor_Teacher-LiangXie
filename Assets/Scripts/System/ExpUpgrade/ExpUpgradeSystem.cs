@@ -11,6 +11,11 @@ namespace ProjectSurvivor
 
         public List<ExpUpgradeItem> Items { get; } = new List<ExpUpgradeItem>();
 
+        private AbilityConfig mSimpleSwordConfig;
+        private AbilityConfig mSimpleKnifeConfig;
+        private AbilityConfig mRotateSwordConfig;
+        private AbilityConfig mBasketballConfig;
+
         protected override void OnInit()
         {
             ResetData();
@@ -31,206 +36,143 @@ namespace ProjectSurvivor
         {
             Items.Clear();
 
-            AbilityConfig simpleSwordConfig = Player.Default.SimpleSwordConfig;
-            AbilityConfig simpleKnifeConfig = Player.Default.SimpleKnifeConfig;
-            AbilityConfig rotateSwordConfig = Player.Default.RotateSwordConfig;
+            mSimpleSwordConfig = Player.Default.SimpleSwordConfig;
+            mSimpleKnifeConfig = Player.Default.SimpleKnifeConfig;
+            mRotateSwordConfig = Player.Default.RotateSwordConfig;
+            mBasketballConfig = Player.Default.BasketballConfig;
 
             Add(new ExpUpgradeItem()
                 .WithKey("simple_sword")
                 .WithDescription(lv =>
                 {
-                    if (lv == 1)
-                        return $"{simpleSwordConfig.Name} Lv1：" + simpleSwordConfig.Description;
-
-                    for (int i = 2; i < simpleSwordConfig.Powers.Count + 1; i++)
-                    {
-                        if (lv == i)
-                            return simpleSwordConfig.Powers[lv - 1].GetPowerUpInfo(simpleSwordConfig.Name);
-                    }
-
-                    return "未知等级";
+                    return UpgradeDiscription(lv, mSimpleSwordConfig);
                 })
-                .WithMaxLevel(simpleSwordConfig.Powers.Count)
+                .WithMaxLevel(mSimpleSwordConfig.Powers.Count)
                 .OnUpgrade((_, lv) =>
                 {
-                    for (int i = 1; i < simpleSwordConfig.Powers.Count + 1; i++)
-                    {
-                        if (lv == i)
-                        {
-                            Debug.Log("当前升级：" + simpleSwordConfig.Name + simpleSwordConfig.Powers[lv - 1].Lv);
-
-                            foreach (PowerData powerData in simpleSwordConfig.Powers[lv - 1].PowerDatas)
-                            {
-                                switch (powerData.Type)
-                                {
-                                    case AbilityPower.PowerType.Damage:
-                                        Global.SimpleSwordDamage.Value += powerData.Value;
-                                        Debug.Log("升级攻击力 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Speed:
-                                        Debug.Log("升级速度 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Duration:
-                                        Global.SimpleSwordDuration.Value += powerData.Value;
-                                        Debug.Log("升级间隔 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Range:
-                                        Global.SimpleSwordRange.Value += powerData.Value;
-                                        Debug.Log("升级范围 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Count:
-                                        Global.SimpleSwordCount.Value += (int)powerData.Value;
-                                        Debug.Log("升级数量 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.AttackCount:
-                                        Debug.Log("升级攻击数 " + powerData.Value);
-                                        break;
-
-                                    default:
-                                        break;
-                                }
-                            }
-                        }
-                    }
+                    UpgradePowerValue(lv, mSimpleSwordConfig);
                 }));
 
             Add(new ExpUpgradeItem()
                 .WithKey("simple_knife")
                 .WithDescription(lv =>
                 {
-                    if (lv == 1)
-                        return $"{simpleKnifeConfig.Name} Lv1：" + simpleKnifeConfig.Description;
-
-                    for (int i = 2; i < simpleKnifeConfig.Powers.Count + 1; i++)
-                    {
-                        if (lv == i)
-                            return simpleKnifeConfig.Powers[lv - 1].GetPowerUpInfo(simpleKnifeConfig.Name);
-                    }
-
-                    return "未知等级";
+                    return UpgradeDiscription(lv, mSimpleKnifeConfig);
                 })
-                .WithMaxLevel(simpleKnifeConfig.Powers.Count)
+                .WithMaxLevel(mSimpleKnifeConfig.Powers.Count)
                 .OnUpgrade((_, lv) =>
                 {
-                    for (int i = 1; i < simpleKnifeConfig.Powers.Count + 1; i++)
-                    {
-                        if (lv == i)
-                        {
-                            Debug.Log("当前升级：" + simpleKnifeConfig.Name + simpleKnifeConfig.Powers[lv - 1].Lv);
-
-                            foreach (PowerData powerData in simpleKnifeConfig.Powers[lv - 1].PowerDatas)
-                            {
-                                switch (powerData.Type)
-                                {
-                                    case AbilityPower.PowerType.Damage:
-                                        Global.SimpleKnifeDamage.Value += powerData.Value;
-                                        Debug.Log("升级攻击力 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Speed:
-                                        Debug.Log("升级速度 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Duration:
-                                        Global.SimpleKnifeDuration.Value += powerData.Value;
-                                        Debug.Log("升级间隔 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Range:
-                                        Debug.Log("升级范围 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Count:
-                                        Global.SimpleKnifeCount.Value += (int)powerData.Value;
-                                        Debug.Log("升级数量 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.AttackCount:
-                                        Global.SimpleKnifeAttackCount.Value += (int)powerData.Value;
-                                        Debug.Log("升级攻击数 " + powerData.Value);
-                                        break;
-
-                                    default:
-                                        break;
-                                }
-                            }
-                        }
-                    }
+                    UpgradePowerValue(lv, mSimpleKnifeConfig);
                 }));
 
             Add(new ExpUpgradeItem()
                 .WithKey("rotate_sword")
                 .WithDescription(lv =>
                 {
-                    if (lv == 1)
-                        return $"{rotateSwordConfig.Name} Lv1：" + rotateSwordConfig.Description;
-
-                    for (int i = 2; i < rotateSwordConfig.Powers.Count + 1; i++)
-                    {
-                        if (lv == i)
-                            return rotateSwordConfig.Powers[lv - 1].GetPowerUpInfo(rotateSwordConfig.Name);
-                    }
-
-                    return "未知等级";
+                    return UpgradeDiscription(lv, mRotateSwordConfig);
                 })
-                .WithMaxLevel(rotateSwordConfig.Powers.Count)
+                .WithMaxLevel(mRotateSwordConfig.Powers.Count)
                 .OnUpgrade((_, lv) =>
                 {
-                    for (int i = 1; i < rotateSwordConfig.Powers.Count + 1; i++)
-                    {
-                        if (lv == i)
-                        {
-                            Debug.Log("当前升级：" + rotateSwordConfig.Name + rotateSwordConfig.Powers[lv - 1].Lv);
-
-                            foreach (PowerData powerData in rotateSwordConfig.Powers[lv - 1].PowerDatas)
-                            {
-                                switch (powerData.Type)
-                                {
-                                    case AbilityPower.PowerType.Damage:
-                                        Global.RotateSwordDamage.Value += powerData.Value;
-                                        Debug.Log("升级攻击力 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Speed:
-                                        Global.RotateSwordSpeed.Value += powerData.Value;
-                                        Debug.Log("升级速度 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Duration:
-                                        Debug.Log("升级间隔 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Range:
-                                        Global.RotateSwordRange.Value += powerData.Value;
-                                        Debug.Log("升级范围 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.Count:
-                                        Global.RotateSwordCount.Value += (int)powerData.Value;
-                                        Debug.Log("升级数量 " + powerData.Value);
-                                        break;
-
-                                    case AbilityPower.PowerType.AttackCount:
-                                        Debug.Log("升级攻击数 " + powerData.Value);
-                                        break;
-
-                                    default:
-                                        break;
-                                }
-                            }
-                        }
-                    }
+                    UpgradePowerValue(lv, mRotateSwordConfig);
                 }));
+
+            Add(new ExpUpgradeItem()
+               .WithKey("basketball")
+               .WithDescription(lv =>
+               {
+                   return UpgradeDiscription(lv, mBasketballConfig);
+               })
+               .WithMaxLevel(mBasketballConfig.Powers.Count)
+               .OnUpgrade((_, lv) =>
+               {
+                   UpgradePowerValue(lv, mBasketballConfig);
+               }));
         }
 
-        public void UpgradePowerValue()
+        private string UpgradeDiscription(int lv, AbilityConfig abilityConfig)
         {
+            if (lv == 1)
+                return $"{abilityConfig.Name} Lv1：" + abilityConfig.Description;
 
+            for (int i = 2; i < abilityConfig.Powers.Count + 1; i++)
+            {
+                if (lv == i)
+                    return abilityConfig.Powers[lv - 1].GetPowerUpInfo(abilityConfig.Name);
+            }
+
+            // 不加这行会报错
+            return "未知等级";
+        }
+
+        private void UpgradePowerValue(int lv, AbilityConfig abilityConfig)
+        {
+            for (int i = 1; i < abilityConfig.Powers.Count + 1; i++)
+            {
+                if (lv == i)
+                {
+                    Debug.Log("当前升级：" + abilityConfig.Name + abilityConfig.Powers[lv - 1].Lv);
+
+                    foreach (PowerData powerData in abilityConfig.Powers[lv - 1].PowerDatas)
+                    {
+                        switch (powerData.Type)
+                        {
+                            case AbilityPower.PowerType.Damage:
+                                if (abilityConfig.Name == mSimpleSwordConfig.Name)
+                                    Global.SimpleSwordDamage.Value += powerData.Value;
+                                else if (abilityConfig.Name == mSimpleKnifeConfig.Name)
+                                    Global.SimpleKnifeDamage.Value += powerData.Value;
+                                else if (abilityConfig.Name == mRotateSwordConfig.Name)
+                                    Global.RotateSwordDamage.Value += powerData.Value;
+                                else if (abilityConfig.Name == mBasketballConfig.Name)
+                                    Global.BasketballDamage.Value += powerData.Value;
+                                break;
+
+                            case AbilityPower.PowerType.Speed:
+                                if (abilityConfig.Name == mRotateSwordConfig.Name)
+                                    Global.RotateSwordSpeed.Value += powerData.Value;
+                                else if (abilityConfig.Name == mBasketballConfig.Name)
+                                    Global.BasketballSpeed.Value += powerData.Value;
+                                break;
+
+                            case AbilityPower.PowerType.Duration:
+                                if (abilityConfig.Name == mSimpleSwordConfig.Name)
+                                    Global.SimpleSwordDuration.Value += powerData.Value;
+                                else if (abilityConfig.Name == mSimpleKnifeConfig.Name)
+                                    Global.SimpleKnifeDuration.Value += powerData.Value;
+                                break;
+
+                            case AbilityPower.PowerType.Range:
+                                if (abilityConfig.Name == mSimpleSwordConfig.Name)
+                                    Global.SimpleSwordRange.Value += powerData.Value;
+                                else if (abilityConfig.Name == mRotateSwordConfig.Name)
+                                    Global.RotateSwordRange.Value += powerData.Value;
+                                break;
+
+                            case AbilityPower.PowerType.Count:
+                                if (abilityConfig.Name == mSimpleSwordConfig.Name)
+                                    Global.SimpleSwordCount.Value += (int)powerData.Value;
+                                else if (abilityConfig.Name == mSimpleKnifeConfig.Name)
+                                    Global.SimpleKnifeCount.Value += (int)powerData.Value;
+                                else if (abilityConfig.Name == mRotateSwordConfig.Name)
+                                    Global.RotateSwordCount.Value += (int)powerData.Value;
+                                else if (abilityConfig.Name == mBasketballConfig.Name)
+                                    Global.BasketballCount.Value += (int)powerData.Value;
+                                break;
+
+                            case AbilityPower.PowerType.AttackCount:
+                                if (abilityConfig.Name == mSimpleKnifeConfig.Name)
+                                    Global.SimpleKnifeAttackCount.Value += (int)powerData.Value;
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                        Debug.Log($"升级{powerData.Type} " + powerData.Value);
+                    }
+                }
+            }
         }
 
         public void Roll()
@@ -243,7 +185,7 @@ namespace ProjectSurvivor
                 }
             }
 
-            foreach( ExpUpgradeItem item in Items.Where(item => !item.UpgradeFinish).Take(3))
+            foreach (ExpUpgradeItem item in Items.Where(item => !item.UpgradeFinish).Take(4))
             {
                 if (item == null)
                 {
