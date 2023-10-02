@@ -5,7 +5,7 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	// Generate Id:508facdb-1bc6-48fb-9ec7-5743e67b9621
+	// Generate Id:6e831e5c-6a46-47d9-8551-c9d857383350
 	public partial class UIGamePassPanel
 	{
 		public const string Name = "UIGamePassPanel";

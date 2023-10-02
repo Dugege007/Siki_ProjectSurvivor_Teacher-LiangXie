@@ -25,7 +25,7 @@ namespace ProjectSurvivor
                     if (hitBox.Owner.CompareTag("Enemy"))
                     {
                         Global.HP.Value--;
-                        if (Global.HP.Value<=0)
+                        if (Global.HP.Value <= 0)
                         {
                             AudioKit.PlaySound("Die");
                             // Ïú»ÙÍæ¼Ò
@@ -40,6 +40,23 @@ namespace ProjectSurvivor
                         }
                     }
                 }
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            void UpdateHP()
+            {
+                HPValue.fillAmount = Global.HP.Value / (float)Global.MaxHP.Value;
+            }
+
+            Global.HP.RegisterWithInitValue(hp =>
+            {
+                UpdateHP();
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            Global.MaxHP.RegisterWithInitValue(maxHP =>
+            {
+                UpdateHP();
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
