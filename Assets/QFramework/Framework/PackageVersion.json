@@ -1,6 +1,6 @@
 {
     "Id": "",
-    "Version": "v1.0.92",
+    "Version": "v1.0.95",
     "Type": 0,
     "AccessRight": 0,
     "DownloadUrl": "",
@@ -11,10 +11,10 @@
     ],
     "DocUrl": "https://liangxiegame.com",
     "Readme": {
-        "version": "v1.0.92",
-        "content": "调整一些细节",
+        "version": "v1.0.95",
+        "content": "SingletonKit：增加 PrefabSingleton 和 ScriptableSingleton",
         "author": "liangxie",
-        "date": "2023 年 09 月 15 日 13:46",
+        "date": "2023 年 09 月 30 日 17:59",
         "PackageId": ""
     }
 }

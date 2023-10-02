@@ -52,7 +52,8 @@ namespace ProjectSurvivor
             // 更新经验值UI
             Global.Exp.RegisterWithInitValue(exp =>
             {
-                ExpText.text = "(" + exp + "/" + Global.ExpToNextLevel() + ")";
+                ExpValue.fillAmount = exp / (float)Global.ExpToNextLevel();
+                //ExpText.text = "(" + exp + "/" + Global.ExpToNextLevel() + ")";
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 

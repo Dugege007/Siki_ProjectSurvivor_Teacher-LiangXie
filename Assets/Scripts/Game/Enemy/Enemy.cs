@@ -62,7 +62,7 @@ namespace ProjectSurvivor
             // 变为红色
             Sprite.color = Color.red;
             // 伤害飘字
-            FloatingTextController.Play(transform.position + Vector3.up * 0.4f, hurtValue.ToString());
+            FloatingTextController.Play(transform.position + Vector3.up * 0.4f, hurtValue.ToString("0"));
             // 播放音效
             AudioKit.PlaySound("Hit");
 

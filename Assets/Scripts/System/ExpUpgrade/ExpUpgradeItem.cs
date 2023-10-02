@@ -7,7 +7,7 @@ namespace ProjectSurvivor
     {
         public bool UpgradeFinish { get; set; } = false;
         public string Key { get; private set; }
-        public string Description => mDescriptionFactory(CurrentLevel);
+        public string Description => mDescriptionFactory(CurrentLevel.Value);
 
         public int MaxLevel { get; private set; }
         public BindableProperty<int> CurrentLevel = new(1);
@@ -20,9 +20,9 @@ namespace ProjectSurvivor
         public void Upgrade()
         {
             CurrentLevel.Value++;
-            mOnUpgrade?.Invoke(this, CurrentLevel);
+            mOnUpgrade?.Invoke(this, CurrentLevel.Value);
 
-            if (CurrentLevel > MaxLevel)
+            if (CurrentLevel.Value > MaxLevel)
                 UpgradeFinish = true;
         }
 

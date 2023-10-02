@@ -19,7 +19,7 @@ namespace ProjectSurvivor
                         {
                             // »√ Exp ∑…œÚÕÊº“
                             Vector3 direction = (player.Position() - exp.Position()).normalized;
-                            exp.transform.Translate(direction * 3f * Time.deltaTime);
+                            exp.transform.Translate(direction * 8f * Time.deltaTime);
                         }
 
                     }).UnRegisterWhenGameObjectDestroyed(exp);

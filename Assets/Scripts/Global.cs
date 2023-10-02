@@ -170,7 +170,7 @@ namespace ProjectSurvivor
         public static void GeneratePowerUp(GameObject gameObject)
         {
             float percent = Random.Range(0, 1f);
-            if (percent <= ExpPercent)
+            if (percent <= ExpPercent.Value)
             {
                 // µôÂä¾­ÑéÖµ
                 PowerUpManager.Default.Exp.Instantiate()
@@ -179,7 +179,7 @@ namespace ProjectSurvivor
             }
 
             percent = Random.Range(0, 1f);
-            if (percent <= CoinPercent)
+            if (percent <= CoinPercent.Value)
             {
                 // µôÂä½ð±Ò
                 PowerUpManager.Default.Coin.Instantiate()
@@ -190,7 +190,7 @@ namespace ProjectSurvivor
             }
 
             percent = Random.Range(0, 1f);
-            if (percent <= HPPercent)
+            if (percent <= HPPercent.Value)
             {
                 // µôÂäÉúÃüÖµ
                 PowerUpManager.Default.HP.Instantiate()
@@ -201,7 +201,7 @@ namespace ProjectSurvivor
             }
 
             percent = Random.Range(0, 1f);
-            if (percent <= BombPercent)
+            if (percent <= BombPercent.Value)
             {
                 // µôÂäÕ¨µ¯
                 PowerUpManager.Default.Bomb.Instantiate()
@@ -212,7 +212,7 @@ namespace ProjectSurvivor
             }
 
             percent = Random.Range(0, 1f);
-            if (percent <= GetAllExpPercent)
+            if (percent <= GetAllExpPercent.Value)
             {
                 // µôÂäÎüÊÕ¾­Ñé
                 PowerUpManager.Default.GetAllExp.Instantiate()
