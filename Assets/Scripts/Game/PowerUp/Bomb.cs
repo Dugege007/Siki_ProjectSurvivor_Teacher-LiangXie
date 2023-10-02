@@ -20,6 +20,8 @@ namespace ProjectSurvivor
                 }
 
                 AudioKit.PlaySound("Bomb");
+                // 触发一下闪屏事件
+                UIGamePanel.FlashScreen.Trigger();
                 CameraController.Shake();
 
                 // 销毁自身

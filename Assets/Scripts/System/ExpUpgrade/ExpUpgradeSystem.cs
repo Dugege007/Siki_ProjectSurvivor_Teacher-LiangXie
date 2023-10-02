@@ -15,6 +15,7 @@ namespace ProjectSurvivor
         private AbilityConfig mSimpleKnifeConfig;
         private AbilityConfig mRotateSwordConfig;
         private AbilityConfig mBasketballConfig;
+        private AbilityConfig mSimpleBombConfig;
 
         protected override void OnInit()
         {
@@ -40,8 +41,9 @@ namespace ProjectSurvivor
             mSimpleKnifeConfig = Player.Default.SimpleKnifeConfig;
             mRotateSwordConfig = Player.Default.RotateSwordConfig;
             mBasketballConfig = Player.Default.BasketballConfig;
+            mSimpleBombConfig = Player.Default.SimpleBombConfig;
 
-            Add(new ExpUpgradeItem()
+            Add(new ExpUpgradeItem(true)
                 .WithKey("simple_sword")
                 .WithDescription(lv =>
                 {
@@ -54,6 +56,18 @@ namespace ProjectSurvivor
                 }));
 
             Add(new ExpUpgradeItem()
+                .WithKey("simple_bomb")
+                .WithDescription(lv =>
+                {
+                    return UpgradeDiscription(lv, mSimpleBombConfig);
+                })
+                .WithMaxLevel(mSimpleBombConfig.Powers.Count)
+                .OnUpgrade((_, lv) =>
+                {
+                    UpgradePowerValue(lv, mSimpleBombConfig);
+                }));
+
+            Add(new ExpUpgradeItem(true)
                 .WithKey("simple_knife")
                 .WithDescription(lv =>
                 {
@@ -65,7 +79,7 @@ namespace ProjectSurvivor
                     UpgradePowerValue(lv, mSimpleKnifeConfig);
                 }));
 
-            Add(new ExpUpgradeItem()
+            Add(new ExpUpgradeItem(true)
                 .WithKey("rotate_sword")
                 .WithDescription(lv =>
                 {
@@ -77,7 +91,7 @@ namespace ProjectSurvivor
                     UpgradePowerValue(lv, mRotateSwordConfig);
                 }));
 
-            Add(new ExpUpgradeItem()
+            Add(new ExpUpgradeItem(true)
                .WithKey("basketball")
                .WithDescription(lv =>
                {
@@ -112,6 +126,8 @@ namespace ProjectSurvivor
             {
                 if (abilityConfig.Name == mSimpleSwordConfig.Name)
                     Global.SimpleSwordUnlocked.Value = true;
+                else if (abilityConfig.Name == mSimpleBombConfig.Name)
+                    Global.SimpleBombUnlocked.Value = true;
                 else if (abilityConfig.Name == mSimpleKnifeConfig.Name)
                     Global.SimpleKnifeUnlocked.Value = true;
                 else if (abilityConfig.Name == mRotateSwordConfig.Name)
@@ -140,6 +156,8 @@ namespace ProjectSurvivor
                                     Global.RotateSwordDamage.Value += powerData.Value;
                                 else if (abilityConfig.Name == mBasketballConfig.Name)
                                     Global.BasketballDamage.Value += powerData.Value;
+                                else if (abilityConfig.Name == mSimpleBombConfig.Name)
+                                    Global.SimpleBombDamage.Value += powerData.Value;
                                 break;
 
                             case AbilityPower.PowerType.Speed:
@@ -179,6 +197,11 @@ namespace ProjectSurvivor
                                     Global.SimpleKnifeAttackCount.Value += (int)powerData.Value;
                                 break;
 
+                            case AbilityPower.PowerType.Percent:
+                                if (abilityConfig.Name == mSimpleBombConfig.Name)
+                                    Global.SimpleBombPercent.Value += powerData.Value;
+                                break;
+
                             default:
                                 break;
                         }
@@ -199,7 +222,7 @@ namespace ProjectSurvivor
                 }
             }
 
-            foreach (ExpUpgradeItem item in Items.Where(item => !item.UpgradeFinish).Take(4))
+            foreach (ExpUpgradeItem item in Items.Where(item => !item.UpgradeFinish).Take(5))
             {
                 if (item == null)
                 {

@@ -1,10 +1,11 @@
 using UnityEngine;
 using QFramework;
+using System.Linq;
 
 namespace ProjectSurvivor
 {
-	public partial class AbilitiesController : ViewController, IController
-	{
+    public partial class AbilitiesController : ViewController, IController
+    {
         public IArchitecture GetArchitecture()
         {
             return Global.Interface;
@@ -21,6 +22,11 @@ namespace ProjectSurvivor
             {
                 if (unlocked)
                     SimpleSword.Show();
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            Global.SimpleBombUnlocked.RegisterWithInitValue(unlocked =>
+            {
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
@@ -46,7 +52,11 @@ namespace ProjectSurvivor
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
             // 随机升级一个
-            this.GetSystem<ExpUpgradeSystem>().Items.GetRandomItem().Upgrade();
+            this.GetSystem<ExpUpgradeSystem>().Items
+                .Where(item => item.IsWeapon)
+                .ToList()
+                .GetRandomItem()
+                .Upgrade();
         }
     }
 }

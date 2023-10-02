@@ -20,6 +20,7 @@ MonoBehaviour:
   InitRange: 3
   InitCount: 3
   InitAttackCount: 1
+  InitPercent: 0.1
   Powers:
   - Lv: 1
     PowerDatas:

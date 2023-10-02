@@ -66,6 +66,11 @@ namespace ProjectSurvivor
         public static BindableProperty<float> BasketballSpeed = new(Player.Default.BasketballConfig.InitSpeed);
         public static BindableProperty<int> BasketballCount = new(Player.Default.BasketballConfig.InitCount);
 
+        // 炸弹
+        public static BindableProperty<bool> SimpleBombUnlocked = new(false);
+        public static BindableProperty<float> SimpleBombDamage = new(Player.Default.SimpleBombConfig.InitDamage);
+        public static BindableProperty<float> SimpleBombPercent = new(Player.Default.SimpleBombConfig.InitPercent);
+
         /// <summary>
         /// 经验掉率
         /// </summary>
@@ -79,11 +84,7 @@ namespace ProjectSurvivor
         /// </summary>
         public static BindableProperty<float> HPPercent = new(0.05f);
         /// <summary>
-        /// 炸弹掉率
-        /// </summary>
-        public static BindableProperty<float> BombPercent = new(0.1f);
-        /// <summary>
-        /// 炸弹掉率
+        /// 吸收经验掉率
         /// </summary>
         public static BindableProperty<float> GetAllExpPercent = new(0.1f);
         #endregion
@@ -106,7 +107,7 @@ namespace ProjectSurvivor
             Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(CoinPercent), 0.1f);
             Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
             Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.05f);
-            Global.BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.1f);
+            Global.SimpleBombPercent.Value = PlayerPrefs.GetFloat(nameof(SimpleBombPercent), 0.1f);
             Global.GetAllExpPercent.Value = PlayerPrefs.GetFloat(nameof(GetAllExpPercent), 0.05f);
 
             Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(MaxHP), 3);
@@ -134,9 +135,9 @@ namespace ProjectSurvivor
                 PlayerPrefs.SetFloat(nameof(HPPercent), hpPercent);
             });
 
-            Global.BombPercent.Register(bombPercent =>
+            Global.SimpleBombPercent.Register(bombPercent =>
             {
-                PlayerPrefs.SetFloat(nameof(BombPercent), bombPercent);
+                PlayerPrefs.SetFloat(nameof(SimpleBombPercent), bombPercent);
             });
 
             Global.GetAllExpPercent.Register(getAllExpPercent =>
@@ -193,6 +194,11 @@ namespace ProjectSurvivor
             BasketballDamage.Value = basketballConfig.InitDamage;
             BasketballSpeed.Value = basketballConfig.InitSpeed;
             BasketballCount.Value = basketballConfig.InitCount;
+            // 炸弹
+            AbilityConfig simpleBombConfig = Player.Default.SimpleBombConfig;
+            SimpleBombUnlocked.Value = false;
+            SimpleBombDamage.Value = simpleBombConfig.InitDamage;
+            SimpleBombPercent.Value = simpleBombConfig.InitPercent;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }
@@ -239,15 +245,19 @@ namespace ProjectSurvivor
                 return;
             }
 
-            percent = Random.Range(0, 1f);
-            if (percent <= BombPercent.Value)
+            // 如果炸弹已解锁，且场景中没有其他炸弹
+            if (SimpleBombUnlocked.Value && !Object.FindObjectOfType<Bomb>())
             {
-                // 掉落炸弹
-                PowerUpManager.Default.Bomb.Instantiate()
-                    .Position(gameObject.Position())
-                    .Show();
+                percent = Random.Range(0, 1f);
+                if (percent <= SimpleBombPercent.Value)
+                {
+                    // 掉落炸弹
+                    PowerUpManager.Default.Bomb.Instantiate()
+                        .Position(gameObject.Position())
+                        .Show();
 
-                return;
+                    return;
+                }
             }
 
             percent = Random.Range(0, 1f);

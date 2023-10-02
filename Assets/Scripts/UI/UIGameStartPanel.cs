@@ -72,7 +72,7 @@ namespace ProjectSurvivor
             saveSystem.SaveFloat(nameof(Global.CoinPercent), 0.1f);
             saveSystem.SaveFloat(nameof(Global.ExpPercent), 0.4f);
             saveSystem.SaveFloat(nameof(Global.HPPercent), 0.05f);
-            saveSystem.SaveFloat(nameof(Global.BombPercent), 0.1f);
+            saveSystem.SaveFloat(nameof(Global.SimpleBombPercent), 0.1f);
             saveSystem.SaveFloat(nameof(Global.GetAllExpPercent), 0.05f);
 
             CoinUpgradeSystem coinUpgradeSystem = this.GetSystem<CoinUpgradeSystem>();

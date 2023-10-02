@@ -9,6 +9,7 @@ namespace ProjectSurvivor
         public AbilityConfig RotateSwordConfig;
         public AbilityConfig SimpleKnifeConfig;
         public AbilityConfig BasketballConfig;
+        public AbilityConfig SimpleBombConfig;
 
         public static Player Default;
         public float MovementSpeed = 5f;

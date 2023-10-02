@@ -5,6 +5,7 @@ namespace ProjectSurvivor
 {
     public class ExpUpgradeItem
     {
+        public bool IsWeapon = false;
         public bool UpgradeFinish { get; set; } = false;
         public string Key { get; private set; }
         public string Description => mDescriptionFactory(CurrentLevel.Value);
@@ -16,6 +17,11 @@ namespace ProjectSurvivor
 
         private Action<ExpUpgradeItem, int> mOnUpgrade;
         private Func<int, string> mDescriptionFactory;
+
+        public ExpUpgradeItem(bool isWeapon = false)
+        {
+            IsWeapon = isWeapon;
+        }
 
         public void Upgrade()
         {

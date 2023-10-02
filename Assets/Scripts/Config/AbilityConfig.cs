@@ -20,6 +20,7 @@ namespace ProjectSurvivor
         public float InitRange = 3f;
         public int InitCount = 3;
         public int InitAttackCount = 1;
+        public float InitPercent = 0.1f;
 
         [Header("升级值（调整顺序）")]
         public List<AbilityPower> Powers = new List<AbilityPower>();
@@ -43,6 +44,7 @@ namespace ProjectSurvivor
             Range,
             Count,
             AttackCount,
+            Percent,
         }
 
         public string Lv;
@@ -95,6 +97,9 @@ namespace ProjectSurvivor
                         break;
                     case PowerType.AttackCount:
                         powerType = "攻击数";
+                        break;
+                    case PowerType.Percent:
+                        powerType = "掉落率";
                         break;
                 }
 

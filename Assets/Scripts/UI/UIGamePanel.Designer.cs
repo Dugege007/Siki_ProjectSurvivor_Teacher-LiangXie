@@ -5,7 +5,7 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	// Generate Id:cdedfb30-ec6d-4d40-b681-786b662d3a4c
+	// Generate Id:954403a5-88bf-49c7-8adb-1e168a511925
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
@@ -26,6 +26,8 @@ namespace ProjectSurvivor
 		public UnityEngine.UI.Button ClearEnemyBtn;
 		[SerializeField]
 		public UnityEngine.UI.Button ExpUpTestBtn;
+		[SerializeField]
+		public UnityEngine.UI.Image ScreenColor;
 		
 		private UIGamePanelData mPrivateData = null;
 		
@@ -39,6 +41,7 @@ namespace ProjectSurvivor
 			ExpValue = null;
 			ClearEnemyBtn = null;
 			ExpUpTestBtn = null;
+			ScreenColor = null;
 			
 			mData = null;
 		}
