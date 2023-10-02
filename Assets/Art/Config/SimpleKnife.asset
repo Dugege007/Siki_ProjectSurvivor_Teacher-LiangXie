@@ -13,10 +13,77 @@ MonoBehaviour:
   m_Name: SimpleKnife
   m_EditorClassIdentifier: 
   Name: "\u98DE\u5200"
-  Description: "\u63B7\u51FA\u4E00\u628A\u98DE\u5200"
-  InitDamage: 1
+  Description: "\u5411\u6700\u8FD1\u7684\u654C\u4EBA\u63B7\u51FA\u4E00\u628A\u98DE\u5200"
+  InitDamage: 5
   InitSpeed: 2
   InitDuration: 1.5
   InitRange: 3
-  InitCount: 3
-  Powers: []
+  InitCount: 1
+  InitAttackCount: 1
+  Powers:
+  - Lv: 1
+    PowerDatas:
+    - Type: 0
+      Value: 0
+    - Type: 0
+      Value: 0
+  - Lv: 2
+    PowerDatas:
+    - Type: 0
+      Value: 3
+    - Type: 4
+      Value: 2
+  - Lv: 3
+    PowerDatas:
+    - Type: 0
+      Value: 1
+    - Type: 2
+      Value: -0.1
+    - Type: 4
+      Value: 1
+  - Lv: 4
+    PowerDatas:
+    - Type: 2
+      Value: -0.1
+    - Type: 4
+      Value: 1
+    - Type: 5
+      Value: 1
+  - Lv: 5
+    PowerDatas:
+    - Type: 0
+      Value: 3
+    - Type: 4
+      Value: 1
+  - Lv: 6
+    PowerDatas:
+    - Type: 2
+      Value: -0.1
+    - Type: 4
+      Value: 1
+  - Lv: 7
+    PowerDatas:
+    - Type: 2
+      Value: -0.1
+    - Type: 4
+      Value: 1
+    - Type: 5
+      Value: 1
+  - Lv: 8
+    PowerDatas:
+    - Type: 0
+      Value: 3
+    - Type: 4
+      Value: 1
+  - Lv: 9
+    PowerDatas:
+    - Type: 2
+      Value: -0.1
+    - Type: 4
+      Value: 1
+  - Lv: 10
+    PowerDatas:
+    - Type: 0
+      Value: 3
+    - Type: 4
+      Value: 1

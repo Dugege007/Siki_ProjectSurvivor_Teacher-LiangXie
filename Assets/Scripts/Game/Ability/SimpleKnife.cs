@@ -12,7 +12,7 @@ namespace ProjectSurvivor
         {
             mCurrentSeconds += Time.deltaTime;
 
-            if (mCurrentSeconds >= 1.0f)
+            if (mCurrentSeconds >= Global.SimpleKnifeDuration.Value)
             {
                 mCurrentSeconds = 0;
 
@@ -42,7 +42,7 @@ namespace ProjectSurvivor
                                     // 碰到敌人就对其造成伤害
                                     if (hurtBox.Owner.CompareTag("Enemy"))
                                     {
-                                        hurtBox.Owner.GetComponent<Enemy>().Hurt(5);
+                                        hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.SimpleKnifeDamage.Value);
                                         self.DestroyGameObjGracefully();
                                     }
                                 }

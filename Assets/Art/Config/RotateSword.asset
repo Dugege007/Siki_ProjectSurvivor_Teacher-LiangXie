@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RotateSword
   m_EditorClassIdentifier: 
   Name: "\u5B88\u536B\u5251"
-  Description: "\u56F4\u7ED5\u89D2\u8272\u65CB\u8F6C\u653B\u51FB"
+  Description: "\u56F4\u7ED5\u89D2\u8272\u8EAB\u8FB9\u7684\u5251"
   InitDamage: 5
   InitSpeed: 2
   InitDuration: 1.5
@@ -25,5 +25,57 @@ MonoBehaviour:
     PowerDatas:
     - Type: 0
       Value: 0
-    - Type: 0
+    - Type: 4
       Value: 0
+  - Lv: 2
+    PowerDatas:
+    - Type: 0
+      Value: 1
+    - Type: 4
+      Value: 1
+  - Lv: 3
+    PowerDatas:
+    - Type: 0
+      Value: 2
+    - Type: 1
+      Value: 0.5
+  - Lv: 4
+    PowerDatas:
+    - Type: 1
+      Value: 1.2
+  - Lv: 5
+    PowerDatas:
+    - Type: 0
+      Value: 1
+    - Type: 4
+      Value: 1
+  - Lv: 6
+    PowerDatas:
+    - Type: 0
+      Value: 2
+    - Type: 1
+      Value: 1
+  - Lv: 7
+    PowerDatas:
+    - Type: 0
+      Value: 1
+    - Type: 4
+      Value: 1
+  - Lv: 8
+    PowerDatas:
+    - Type: 0
+      Value: 2
+    - Type: 0
+      Value: 1.2
+  - Lv: 9
+    PowerDatas:
+    - Type: 0
+      Value: 1
+    - Type: 4
+      Value: 1
+  - Lv: 10
+    PowerDatas:
+    - Type: 0
+      Value: 2
+    - Type: 0
+      Value: 1.5

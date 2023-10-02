@@ -19,13 +19,20 @@ namespace ProjectSurvivor
 
         private void FixedUpdate()
         {
-            if (Player.Default)
+            if (mIgnoreHurt == false)
             {
-                // 设置方向朝玩家
-                Vector3 direction = (Player.Default.transform.position - transform.position).normalized;
+                if (Player.Default)
+                {
+                    // 设置方向朝玩家
+                    Vector3 direction = (Player.Default.transform.position - transform.position).normalized;
 
-                // 移动
-                SelfRigidbody2D.velocity = direction * MovementSpeed;
+                    // 移动
+                    SelfRigidbody2D.velocity = direction * MovementSpeed;
+                }
+                else
+                {
+                    SelfRigidbody2D.velocity = Vector3.zero;
+                }
             }
             else
             {
@@ -57,6 +64,8 @@ namespace ProjectSurvivor
         {
             if (mIgnoreHurt && !force) return;
 
+            // 停止移动
+            SelfRigidbody2D.velocity = Vector3.zero;
             // 忽略伤害
             mIgnoreHurt = true;
             // 变为红色

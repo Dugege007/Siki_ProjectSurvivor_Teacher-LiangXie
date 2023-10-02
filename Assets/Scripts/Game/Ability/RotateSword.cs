@@ -11,47 +11,67 @@ namespace ProjectSurvivor
         private void Start()
         {
             // 为 BigSword 注册一个 OnTriggerEnter2D 事件
-            BigSword.OnTriggerEnter2DEvent(collider =>
-            {
-                HurtBox hurtBox = collider.GetComponent<HurtBox>();
-                if (hurtBox)
-                {
-                    if (hurtBox.Owner.CompareTag("Enemy"))
-                    {
-                        hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.RotateSwordDamage.Value);
-                    }
-                }
-
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
             BigSword.Hide();
 
             Global.RotateSwordCount.RegisterWithInitValue(count =>
             {
-                int toAddCount = mBigSwords.Count;
+                int toAddCount = count - mBigSwords.Count;
 
                 for (int i = 0; i < toAddCount; i++)
                 {
-                    mBigSwords.Add(BigSword.InstantiateWithParent(this)
-                         .Show());
+                    mBigSwords.Add(BigSword
+                        .InstantiateWithParent(this)
+                        .Self(self =>   // 拿到自身
+                        {
+                            // 添加碰撞事件
+                            self.OnTriggerEnter2DEvent(collider =>
+                            {
+                                HurtBox hurtBox = collider.GetComponent<HurtBox>();
+                                if (hurtBox)
+                                {
+                                    if (hurtBox.Owner.CompareTag("Enemy"))
+                                    {
+                                        hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.RotateSwordDamage.Value);
+
+                                        if (Random.Range(0, 1.0f) < 0.5f)
+                                        {
+                                            collider.attachedRigidbody.velocity
+                                            = collider.NormalizedDirection2DFrom(self) * 5
+                                            + collider.NormalizedDirection2DFrom(Player.Default) * 10;
+                                        }
+                                    }
+                                }
+
+                            }).UnRegisterWhenGameObjectDestroyed(self);
+                        })
+                        .Show());
                 }
+
+                UpdateCirclePos();
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-            UpdateCirclePos();
+            Global.RotateSwordRange.Register(range =>
+            {
+                UpdateCirclePos();
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
         private void Update()
         {
-            float degree = Time.frameCount;
+            float degree = Time.frameCount * Global.RotateSwordSpeed.Value;
 
             this.LocalEulerAnglesZ(-degree);
         }
 
         private void UpdateCirclePos()
         {
-            float radius = 3f;
-            float durationDegrees = 360 / mBigSwords.Count;
+            float radius = Global.RotateSwordRange.Value;
+            float durationDegrees = 1;
+            if (mBigSwords.Count > 0)
+                durationDegrees = 360 / mBigSwords.Count;
 
             for (int i = 0; i < mBigSwords.Count; i++)
             {

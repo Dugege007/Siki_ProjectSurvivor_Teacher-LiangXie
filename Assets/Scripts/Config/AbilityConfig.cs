@@ -21,7 +21,7 @@ namespace ProjectSurvivor
         public int InitCount = 3;
         public int InitAttackCount = 1;
 
-        [Header("升级值（调整顺序、添加升级项）")]
+        [Header("升级值（调整顺序）")]
         public List<AbilityPower> Powers = new List<AbilityPower>();
     }
 
@@ -48,9 +48,29 @@ namespace ProjectSurvivor
         public string Lv;
         public PowerData[] PowerDatas = new PowerData[2];
 
-        public string GetPowerUpInfo()
+        public void AddNewPowerType()
         {
-            string info = $"Lv{Lv}：\n";
+            List<PowerData> powerDataList = new List<PowerData>(PowerDatas)
+            {
+                new PowerData { Type = PowerType.Damage, Value = 0 }
+            };
+
+            PowerDatas = powerDataList.ToArray();
+        }
+
+        public void RemoveLastPowerType()
+        {
+            if (PowerDatas.Length > 0)
+            {
+                List<PowerData> powerDataList = new List<PowerData>(PowerDatas);
+                powerDataList.RemoveAt(powerDataList.Count - 1);
+                PowerDatas = powerDataList.ToArray();
+            }
+        }
+
+        public string GetPowerUpInfo(string name)
+        {
+            string info = $"{name} Lv{Lv}：\n";
 
             foreach (var data in PowerDatas)
             {
