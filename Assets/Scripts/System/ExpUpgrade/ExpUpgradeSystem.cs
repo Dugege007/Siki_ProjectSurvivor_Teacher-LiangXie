@@ -66,6 +66,9 @@ namespace ProjectSurvivor
                                         Debug.Log("升级攻击力 " + powerData.Value);
                                         break;
 
+                                    case AbilityPower.PowerType.Speed:
+                                        break;
+
                                     case AbilityPower.PowerType.Duration:
                                         Global.SimpleSwordDuration.Value += powerData.Value;
                                         Debug.Log("升级间隔 " + powerData.Value);
@@ -81,6 +84,9 @@ namespace ProjectSurvivor
                                         Debug.Log("升级数量 " + powerData.Value);
                                         break;
 
+                                    case AbilityPower.PowerType.AttackCount:
+                                        break;
+
                                     default:
                                         break;
                                 }
@@ -90,11 +96,19 @@ namespace ProjectSurvivor
                 }));
         }
 
+        public void UpgradePowerValue()
+        {
+
+        }
+
         public void Roll()
         {
-            foreach (ExpUpgradeItem expUpgradeItem in Items)
+            if (Items.Count >= 1)
             {
-                expUpgradeItem.Visible.Value = false;
+                foreach (ExpUpgradeItem expUpgradeItem in Items)
+                {
+                    expUpgradeItem.Visible.Value = false;
+                }
             }
 
             ExpUpgradeItem item = Items.Where(item => item.UpgradeFinish == false)

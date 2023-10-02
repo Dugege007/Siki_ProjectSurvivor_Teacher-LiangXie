@@ -14,10 +14,12 @@ namespace ProjectSurvivor
         public string Description = string.Empty;
 
         [Header("初始值")]
-        public float InitSimpleSwordDamage = 1f;
-        public float InitSimpleSwordDuration = 1.5f;
-        public float InitSimpleSwordRange = 3f;
-        public int InitSimpleSwordCount = 3;
+        public float InitDamage = 1f;
+        public float InitSpeed = 2f;
+        public float InitDuration = 1.5f;
+        public float InitRange = 3f;
+        public int InitCount = 3;
+        public int InitAttackCount = 1;
 
         [Header("升级值（调整顺序、添加升级项）")]
         public List<AbilityPower> Powers = new List<AbilityPower>();
@@ -36,9 +38,11 @@ namespace ProjectSurvivor
         public enum PowerType
         {
             Damage,
+            Speed,
             Duration,
             Range,
             Count,
+            AttackCount,
         }
 
         public string Lv;
@@ -57,6 +61,9 @@ namespace ProjectSurvivor
                     case PowerType.Damage:
                         powerType = "攻击力";
                         break;
+                    case PowerType.Speed:
+                        powerType = "速度";
+                        break;
                     case PowerType.Duration:
                         powerType = "间隔";
                         break;
@@ -65,6 +72,9 @@ namespace ProjectSurvivor
                         break;
                     case PowerType.Count:
                         powerType = "数量";
+                        break;
+                    case PowerType.AttackCount:
+                        powerType = "攻击数";
                         break;
                 }
 

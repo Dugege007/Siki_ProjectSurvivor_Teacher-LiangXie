@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43542c359bd426449088506d6d6206d, type: 3}
+  m_Name: RotateSword
+  m_EditorClassIdentifier: 
+  Name: "\u5B88\u536B\u5251"
+  Description: "\u56F4\u7ED5\u89D2\u8272\u65CB\u8F6C\u653B\u51FB"
+  InitDamage: 5
+  InitSpeed: 2
+  InitDuration: 1.5
+  InitRange: 2
+  InitCount: 1
+  InitAttackCount: 1
+  Powers:
+  - Lv: 1
+    PowerDatas:
+    - Type: 0
+      Value: 0
+    - Type: 0
+      Value: 0

@@ -6,6 +6,8 @@ namespace ProjectSurvivor
     public partial class Player : ViewController
     {
         public AbilityConfig SimpleSwordConfig;
+        public AbilityConfig RotateSwordConfig;
+        public AbilityConfig SimpleKnifeConfig;
 
         public static Player Default;
         public float MovementSpeed = 5f;

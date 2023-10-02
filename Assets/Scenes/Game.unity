@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 34843579}
   - component: {fileID: 34843578}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: BigSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,7 +667,7 @@ SpriteRenderer:
   m_SortingLayerID: 1731470495
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ccc06dc47438544ca6ad004806511d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -986,12 +986,12 @@ GameObject:
   - component: {fileID: 264842492}
   - component: {fileID: 264842493}
   m_Layer: 0
-  m_Name: SimpleCircle
+  m_Name: RotateSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &264842492
 Transform:
   m_ObjectHideFlags: 0
@@ -1021,11 +1021,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Namespace: ProjectSurvivor
-  ScriptName: SimpleCircle
+  ScriptName: RotateSword
   ScriptsFolder: Assets/Scripts/Game/Ability
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
-  Circle: {fileID: 34843579}
+  BigSword: {fileID: 34843579}
 --- !u!1 &283071698
 GameObject:
   m_ObjectHideFlags: 0
@@ -11088,6 +11088,8 @@ MonoBehaviour:
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   SimpleSwordConfig: {fileID: 11400000, guid: 15d18002eacaa1a4fa7fa77974adc7a3, type: 2}
+  RotateSwordConfig: {fileID: 11400000, guid: 959b8c17c147a3344a30f0466a59ae14, type: 2}
+  SimpleKnifeConfig: {fileID: 11400000, guid: afc5b6e4cb6caf142ae877fb746e6b6c, type: 2}
   MovementSpeed: 3.5
   Sprite: {fileID: 1273691981}
   HurtBox: {fileID: 1866986365}
@@ -11601,7 +11603,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.12}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5

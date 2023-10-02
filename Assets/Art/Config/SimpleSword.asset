@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u7B80\u5355\u5251"
   Description: "\u653B\u51FB\u8EAB\u8FB9\u7684\u654C\u4EBA"
-  InitSimpleSwordDamage: 1
-  InitSimpleSwordDuration: 1.5
-  InitSimpleSwordRange: 3
-  InitSimpleSwordCount: 3
+  InitDamage: 1
+  InitSpeed: 2
+  InitDuration: 1.5
+  InitRange: 3
+  InitCount: 3
+  InitAttackCount: 1
   Powers:
   - Lv: 1
     PowerDatas:
@@ -64,7 +66,7 @@ MonoBehaviour:
   - Lv: 8
     PowerDatas:
     - Type: 0
-      Value: 1
+      Value: 2
     - Type: 2
       Value: 1
   - Lv: 9

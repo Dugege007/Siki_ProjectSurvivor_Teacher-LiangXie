@@ -19,15 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: UnityEngine.BoxCollider2D
-      PathToRoot: Sword
-      MemberName: Sword
+    - TypeName: CircleCollider2D
+      PathToRoot: BigSword
+      MemberName: BigSword
     ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: SimpleSword
+    ClassName: RotateSword
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class SimpleSword : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class RotateSword : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:889e4967-a0e0-46e8-a17c-ecaacb8cde8e\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class SimpleSword\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.BoxCollider2D Sword;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:bdf6823e-b4d0-4834-ac73-3d68c0c27df0\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class RotateSword\r\n\t{\r\n\r\n\t\tpublic
+      CircleCollider2D BigSword;\r\n\r\n\t}\r\n}\r\n"

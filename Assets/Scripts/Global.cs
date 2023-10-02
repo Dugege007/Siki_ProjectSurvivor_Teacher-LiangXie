@@ -39,26 +39,35 @@ namespace ProjectSurvivor
         /// </summary>
         public static BindableProperty<float> CurrentSeconds = new(0);
 
+        // 简单剑
         /// <summary>
-        /// 刀攻击力
+        /// 简单剑攻击力
         /// </summary>
-        public static BindableProperty<float> SimpleSwordDamage = 
-            new(Player.Default.SimpleSwordConfig.InitSimpleSwordDamage);
+        public static BindableProperty<float> SimpleSwordDamage = new(Player.Default.SimpleSwordConfig.InitDamage);
         /// <summary>
-        /// 刀攻击间隔
+        /// 简单剑攻击间隔
         /// </summary>
-        public static BindableProperty<float> SimpleSwordDuration =
-            new(Player.Default.SimpleSwordConfig.InitSimpleSwordDuration);
+        public static BindableProperty<float> SimpleSwordDuration = new(Player.Default.SimpleSwordConfig.InitDuration);
         /// <summary>
-        /// 刀范围
+        /// 简单剑范围
         /// </summary>
-        public static BindableProperty<float> SimpleSwordRange = 
-            new(Player.Default.SimpleSwordConfig.InitSimpleSwordRange);
+        public static BindableProperty<float> SimpleSwordRange = new(Player.Default.SimpleSwordConfig.InitRange);
         /// <summary>
-        /// 刀数量
+        /// 简单剑数量
         /// </summary>
-        public static BindableProperty<int> SimpleSwordCount =
-            new(Player.Default.SimpleSwordConfig.InitSimpleSwordCount);
+        public static BindableProperty<int> SimpleSwordCount = new(Player.Default.SimpleSwordConfig.InitCount);
+
+        // 旋转剑
+        public static BindableProperty<float> RotateSwordDamage = new(Player.Default.RotateSwordConfig.InitDamage);
+        public static BindableProperty<float> RotateSwordSpeed = new(Player.Default.RotateSwordConfig.InitSpeed);
+        public static BindableProperty<float> RotateSwordRange = new(Player.Default.RotateSwordConfig.InitRange);
+        public static BindableProperty<int> RotateSwordCount = new(Player.Default.RotateSwordConfig.InitCount);
+
+        // 飞刀
+        public static BindableProperty<float> SimpleKnifeDamage = new(Player.Default.SimpleKnifeConfig.InitDamage);
+        public static BindableProperty<float> SimpleKnifeDuration = new(Player.Default.SimpleKnifeConfig.InitDuration);
+        public static BindableProperty<int> SimpleKnifeCount = new(Player.Default.SimpleKnifeConfig.InitCount);
+        public static BindableProperty<int> SimpleKnifeAttackCount = new(Player.Default.SimpleKnifeConfig.InitAttackCount);
 
         /// <summary>
         /// 经验掉率
@@ -92,7 +101,7 @@ namespace ProjectSurvivor
             // 设置 UI
             UIKit.Root.SetResolution(1920, 1080, 0.5f);
 
-            
+
 
             // 简单的存储功能
             // 读取数据
@@ -160,11 +169,24 @@ namespace ProjectSurvivor
             EnemyGenerator.EnemyCount.Value = 0;
 
             // 能力数据
-            AbilityConfig simpleSwordPower = Player.Default.SimpleSwordConfig;
-            SimpleSwordDamage.Value = simpleSwordPower.InitSimpleSwordDamage;
-            SimpleSwordDuration.Value = simpleSwordPower.InitSimpleSwordDuration;
-            SimpleSwordRange.Value = simpleSwordPower.InitSimpleSwordRange;
-            SimpleSwordCount.Value = simpleSwordPower.InitSimpleSwordCount;
+            // 简单剑
+            AbilityConfig simpleSwordConfig = Player.Default.SimpleSwordConfig;
+            SimpleSwordDamage.Value = simpleSwordConfig.InitDamage;
+            SimpleSwordDuration.Value = simpleSwordConfig.InitDuration;
+            SimpleSwordRange.Value = simpleSwordConfig.InitRange;
+            SimpleSwordCount.Value = simpleSwordConfig.InitCount;
+            // 旋转剑
+            AbilityConfig rotateSwordConfig = Player.Default.RotateSwordConfig;
+            RotateSwordDamage.Value = rotateSwordConfig.InitDamage;
+            RotateSwordSpeed.Value = rotateSwordConfig.InitSpeed;
+            RotateSwordRange.Value = rotateSwordConfig.InitRange;
+            RotateSwordCount.Value = rotateSwordConfig.InitCount;
+            // 飞刀
+            AbilityConfig simpleKnifeConfig = Player.Default.SimpleKnifeConfig;
+            SimpleKnifeDamage.Value = simpleKnifeConfig.InitDamage;
+            SimpleKnifeDuration.Value = simpleKnifeConfig.InitDuration;
+            SimpleKnifeCount.Value = simpleKnifeConfig.InitCount;
+            SimpleKnifeAttackCount.Value = simpleKnifeConfig.InitAttackCount;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }
