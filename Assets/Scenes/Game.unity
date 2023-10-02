@@ -11087,6 +11087,7 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  SimpleSwordConfig: {fileID: 11400000, guid: 15d18002eacaa1a4fa7fa77974adc7a3, type: 2}
   MovementSpeed: 3.5
   Sprite: {fileID: 1273691981}
   HurtBox: {fileID: 1866986365}
@@ -11564,7 +11565,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &1629885917
 BoxCollider2D:
   m_ObjectHideFlags: 0

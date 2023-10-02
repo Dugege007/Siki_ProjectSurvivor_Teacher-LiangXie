@@ -42,19 +42,23 @@ namespace ProjectSurvivor
         /// <summary>
         /// 刀攻击力
         /// </summary>
-        public static BindableProperty<float> SimpleSwordDamage = new(AbilityConfig.InitSimpleSwordDamage);
+        public static BindableProperty<float> SimpleSwordDamage = 
+            new(Player.Default.SimpleSwordConfig.InitSimpleSwordDamage);
         /// <summary>
         /// 刀攻击间隔
         /// </summary>
-        public static BindableProperty<float> SimpleSwordDuration = new(AbilityConfig.InitSimpleSwordDuration);
+        public static BindableProperty<float> SimpleSwordDuration =
+            new(Player.Default.SimpleSwordConfig.InitSimpleSwordDuration);
         /// <summary>
         /// 刀范围
         /// </summary>
-        public static BindableProperty<float> SimpleSwordRange = new(AbilityConfig.InitSimpleSwordRange);
+        public static BindableProperty<float> SimpleSwordRange = 
+            new(Player.Default.SimpleSwordConfig.InitSimpleSwordRange);
         /// <summary>
         /// 刀数量
         /// </summary>
-        public static BindableProperty<int> SimpleSwordCount = new(AbilityConfig.InitSimpleSwordCount);
+        public static BindableProperty<int> SimpleSwordCount =
+            new(Player.Default.SimpleSwordConfig.InitSimpleSwordCount);
 
         /// <summary>
         /// 经验掉率
@@ -85,19 +89,22 @@ namespace ProjectSurvivor
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
         {
+            // 设置 UI
             UIKit.Root.SetResolution(1920, 1080, 0.5f);
 
-            Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(MaxHP), 3);
-            HP.Value = MaxHP.Value;
+            
 
             // 简单的存储功能
-            // 读取金币数据
+            // 读取数据
             Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin), 0);
             Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(CoinPercent), 0.1f);
             Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
             Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.05f);
             Global.BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.1f);
             Global.GetAllExpPercent.Value = PlayerPrefs.GetFloat(nameof(GetAllExpPercent), 0.05f);
+
+            Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(MaxHP), 3);
+            HP.Value = MaxHP.Value;
 
             // 保存金币数据
             Global.Coin.Register(coin =>
@@ -151,12 +158,13 @@ namespace ProjectSurvivor
             Level.Value = 1;
             CurrentSeconds.Value = 0;
             EnemyGenerator.EnemyCount.Value = 0;
-            
+
             // 能力数据
-            SimpleSwordDamage.Value = AbilityConfig.InitSimpleSwordDamage;
-            SimpleSwordDuration.Value = AbilityConfig.InitSimpleSwordDuration;
-            SimpleSwordRange.Value = AbilityConfig.InitSimpleSwordRange;
-            SimpleSwordCount.Value = AbilityConfig.InitSimpleSwordCount;
+            AbilityConfig simpleSwordPower = Player.Default.SimpleSwordConfig;
+            SimpleSwordDamage.Value = simpleSwordPower.InitSimpleSwordDamage;
+            SimpleSwordDuration.Value = simpleSwordPower.InitSimpleSwordDuration;
+            SimpleSwordRange.Value = simpleSwordPower.InitSimpleSwordRange;
+            SimpleSwordCount.Value = simpleSwordPower.InitSimpleSwordCount;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }

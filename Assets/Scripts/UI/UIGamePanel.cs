@@ -40,7 +40,6 @@ namespace ProjectSurvivor
             Global.Exp.RegisterWithInitValue(exp =>
             {
                 ExpValue.fillAmount = exp / (float)Global.ExpToNextLevel();
-                //ExpText.text = "(" + exp + "/" + Global.ExpToNextLevel() + ")";
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
@@ -94,6 +93,31 @@ namespace ProjectSurvivor
                 CoinText.text = coin.ToString();
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            // 用于测试的按钮
+            // 加经验
+            ExpUpTestBtn.onClick.AddListener(() =>
+            {
+                Global.Exp.Value += 5;
+            });
+
+            // 清屏
+            ClearEnemyBtn.onClick.AddListener(() =>
+            {
+                // 与炸弹的代码相同
+                foreach (var enemyObj in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    Enemy enemy = enemyObj.GetComponent<Enemy>();
+
+                    if (enemy && enemy.gameObject.activeSelf)
+                    {
+                        enemy.Hurt(enemy.HP);
+                    }
+                }
+
+                AudioKit.PlaySound("Bomb");
+                CameraController.Shake();
+            });
         }
 
         protected override void OnOpen(IUIData uiData = null)

@@ -49,25 +49,6 @@ namespace ProjectSurvivor
                         }).UnRegisterWhenGameObjectDestroyed(selfCache);
                     });
             }
-
-            //// ×¢²á°´Å¥ÊÂ¼þ
-            //UpgradeBtn.onClick.AddListener(() =>
-            //{
-            //    Time.timeScale = 1;
-            //    Global.SimpleAbilityDamage.Value *= 1.5f;
-            //    UpgradeRoot.Hide();
-
-            //    AudioKit.PlaySound("AbilityLevelUp");
-            //});
-
-            //SimpleDurationUpgradeBtn.onClick.AddListener(() =>
-            //{
-            //    Time.timeScale = 1;
-            //    Global.SimpleAbilityDuration.Value *= 0.8f;
-            //    UpgradeRoot.Hide();
-
-            //    AudioKit.PlaySound("AbilityLevelUp");
-            //});
         }
 
         protected override void OnBeforeDestroy()

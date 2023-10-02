@@ -5,8 +5,9 @@ namespace ProjectSurvivor
 {
     public partial class Player : ViewController
     {
-        public static Player Default;
+        public AbilityConfig SimpleSwordConfig;
 
+        public static Player Default;
         public float MovementSpeed = 5f;
 
         private void Awake()

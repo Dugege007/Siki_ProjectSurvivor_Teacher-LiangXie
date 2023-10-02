@@ -19,8 +19,8 @@ namespace ProjectSurvivor
 
         public void Upgrade()
         {
-            CurrentLevel.Value++;
             mOnUpgrade?.Invoke(this, CurrentLevel.Value);
+            CurrentLevel.Value++;
 
             if (CurrentLevel.Value > MaxLevel)
                 UpgradeFinish = true;
