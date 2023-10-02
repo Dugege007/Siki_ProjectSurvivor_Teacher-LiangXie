@@ -18,62 +18,60 @@ namespace ProjectSurvivor
         /// 玩家生命值
         /// </summary>
         public static BindableProperty<int> HP = new(3);
-
         /// <summary>
         /// 玩家最大生命值
         /// </summary>
         public static BindableProperty<int> MaxHP = new(3);
-
         /// <summary>
         /// 经验值
         /// </summary>
         public static BindableProperty<int> Exp = new(0);
-
         /// <summary>
         /// 金币
         /// </summary>
         public static BindableProperty<int> Coin = new(0);
-
         /// <summary>
         /// 等级
         /// </summary>
         public static BindableProperty<int> Level = new(1);
-
         /// <summary>
         /// 当前时间
         /// </summary>
         public static BindableProperty<float> CurrentSeconds = new(0);
 
         /// <summary>
-        /// 简单能力的攻击力
+        /// 刀攻击力
         /// </summary>
-        public static BindableProperty<float> SimpleAbilityDamage = new(1);
-
+        public static BindableProperty<float> SimpleSwordDamage = new(AbilityConfig.InitSimpleSwordDamage);
         /// <summary>
-        /// 简单能力的攻击间隔
+        /// 刀攻击间隔
         /// </summary>
-        public static BindableProperty<float> SimpleAbilityDuration = new(1.5f);
+        public static BindableProperty<float> SimpleSwordDuration = new(AbilityConfig.InitSimpleSwordDuration);
+        /// <summary>
+        /// 刀范围
+        /// </summary>
+        public static BindableProperty<float> SimpleSwordRange = new(AbilityConfig.InitSimpleSwordRange);
+        /// <summary>
+        /// 刀数量
+        /// </summary>
+        public static BindableProperty<int> SimpleSwordCount = new(AbilityConfig.InitSimpleSwordCount);
 
         /// <summary>
         /// 经验掉率
         /// </summary>
         public static BindableProperty<float> ExpPercent = new(0.4f);
-
         /// <summary>
         /// 金币掉率
         /// </summary>
         public static BindableProperty<float> CoinPercent = new(0.1f);
-
         /// <summary>
         /// 生命值掉率
         /// </summary>
         public static BindableProperty<float> HPPercent = new(0.05f);
-
         /// <summary>
         /// 炸弹掉率
         /// </summary>
         public static BindableProperty<float> BombPercent = new(0.1f);
-
         /// <summary>
         /// 炸弹掉率
         /// </summary>
@@ -147,13 +145,18 @@ namespace ProjectSurvivor
         /// </summary>
         public static void ResetData()
         {
+            // 玩家数据
             HP.Value = MaxHP.Value;
             Exp.Value = 0;
             Level.Value = 1;
             CurrentSeconds.Value = 0;
-            SimpleAbilityDamage.Value = 1;
-            SimpleAbilityDuration.Value = 1.5f;
             EnemyGenerator.EnemyCount.Value = 0;
+            
+            // 能力数据
+            SimpleSwordDamage.Value = AbilityConfig.InitSimpleSwordDamage;
+            SimpleSwordDuration.Value = AbilityConfig.InitSimpleSwordDuration;
+            SimpleSwordRange.Value = AbilityConfig.InitSimpleSwordRange;
+            SimpleSwordCount.Value = AbilityConfig.InitSimpleSwordCount;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }
