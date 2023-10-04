@@ -1108,8 +1108,9 @@ MonoBehaviour:
   Exp: {fileID: 1427696878}
   Coin: {fileID: 1539803058}
   HP: {fileID: 1332708445}
-  Bomb: {fileID: 1635432261}
   GetAllExp: {fileID: 773171033}
+  Bomb: {fileID: 1635432261}
+  TreasureChest: {fileID: 2110723740}
 --- !u!1 &237911062
 GameObject:
   m_ObjectHideFlags: 0
@@ -11251,7 +11252,7 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/PowerUp
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
-  SelfCollider2D: {fileID: 0}
+  SelfCollider2D: {fileID: 1332708443}
 --- !u!114 &1332708446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11331,7 +11332,7 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/PowerUp
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
-  SelfCollider2D: {fileID: 0}
+  SelfCollider2D: {fileID: 1427696882}
 --- !u!114 &1427696879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11753,7 +11754,7 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/PowerUp
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
-  SelfCollider2D: {fileID: 0}
+  SelfCollider2D: {fileID: 1539803056}
 --- !u!114 &1539803059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12902,8 +12903,8 @@ GameObject:
   - component: {fileID: 2110723738}
   - component: {fileID: 2110723737}
   - component: {fileID: 2110723736}
+  - component: {fileID: 2110723739}
   - component: {fileID: 2110723740}
-  - component: {fileID: 2110723741}
   m_Layer: 0
   m_Name: TreasureChest
   m_TagString: Untagged
@@ -12941,7 +12942,7 @@ MonoBehaviour:
   MarkType: 0
   CustomComponentName: HP
   CustomComment: 
-  mComponentName: ProjectSurvivor.GetAllExp
+  mComponentName: ProjectSurvivor.TreasureChest
 --- !u!58 &2110723737
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13029,7 +13030,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2110723740
+--- !u!114 &2110723739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13044,7 +13045,7 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfCollider2D
     Object: {fileID: 2110723737}
---- !u!114 &2110723741
+--- !u!114 &2110723740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

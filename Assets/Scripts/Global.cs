@@ -84,22 +84,17 @@ namespace ProjectSurvivor
         // 拾取范围
         public static BindableProperty<float> CollectableAreaRange = new(Player.Default.CollectableAreaRangeConfig.InitRange);
 
-        /// <summary>
-        /// 经验掉率
-        /// </summary>
+        //public static BindableProperty<float> PowerUpPercent = new(0.5f);
+        // 经验掉率
         public static BindableProperty<float> ExpPercent = new(0.4f);
-        /// <summary>
-        /// 金币掉率
-        /// </summary>
-        public static BindableProperty<float> CoinPercent = new(0.1f);
-        /// <summary>
-        /// 生命值掉率
-        /// </summary>
-        public static BindableProperty<float> HPPercent = new(0.05f);
-        /// <summary>
-        /// 吸收经验掉率
-        /// </summary>
-        public static BindableProperty<float> GetAllExpPercent = new(0.1f);
+        // 金币掉率
+        public static BindableProperty<float> CoinPercent = new(0.05f);
+        // 生命值掉率
+        public static BindableProperty<float> HPPercent = new(0.02f);
+        // 吸收经验掉率
+        public static BindableProperty<float> GetAllExpPercent = new(0.02f);
+        // 宝箱掉率
+        public static BindableProperty<float> TreasureChestPercent = new(0.005f);
         #endregion
 
         /// <summary>
@@ -115,11 +110,11 @@ namespace ProjectSurvivor
             // 简单的存储功能
             // 读取数据
             Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin), 0);
-            Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(CoinPercent), 0.1f);
+            Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(CoinPercent), 0.05f);
             Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
-            Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.05f);
-            Global.SimpleBombChance.Value = PlayerPrefs.GetFloat(nameof(SimpleBombChance), 0.1f);
-            Global.GetAllExpPercent.Value = PlayerPrefs.GetFloat(nameof(GetAllExpPercent), 0.05f);
+            Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.02f);
+            Global.GetAllExpPercent.Value = PlayerPrefs.GetFloat(nameof(GetAllExpPercent), 0.02f);
+            Global.TreasureChestPercent.Value = PlayerPrefs.GetFloat(nameof(TreasureChestPercent), 0.02f);
 
             Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(MaxHP), 3);
             HP.Value = MaxHP.Value;
@@ -131,29 +126,29 @@ namespace ProjectSurvivor
 
             }); // 暂时不考虑注销
 
-            Global.CoinPercent.Register(coinPercent =>
+            Global.CoinPercent.Register(percent =>
             {
-                PlayerPrefs.SetFloat(nameof(CoinPercent), coinPercent);
+                PlayerPrefs.SetFloat(nameof(CoinPercent), percent);
             });
 
-            Global.ExpPercent.Register(expPercent =>
+            Global.ExpPercent.Register(percent =>
             {
-                PlayerPrefs.SetFloat(nameof(ExpPercent), expPercent);
+                PlayerPrefs.SetFloat(nameof(ExpPercent), percent);
             });
 
-            Global.HPPercent.Register(hpPercent =>
+            Global.HPPercent.Register(percent =>
             {
-                PlayerPrefs.SetFloat(nameof(HPPercent), hpPercent);
+                PlayerPrefs.SetFloat(nameof(HPPercent), percent);
             });
 
-            Global.SimpleBombChance.Register(bombPercent =>
+            Global.GetAllExpPercent.Register(percent =>
             {
-                PlayerPrefs.SetFloat(nameof(SimpleBombChance), bombPercent);
+                PlayerPrefs.SetFloat(nameof(GetAllExpPercent), percent);
             });
 
-            Global.GetAllExpPercent.Register(getAllExpPercent =>
+            Global.TreasureChestPercent.Register(percent =>
             {
-                PlayerPrefs.SetFloat(nameof(GetAllExpPercent), getAllExpPercent);
+                PlayerPrefs.SetFloat(nameof(TreasureChestPercent), percent);
             });
 
             Global.MaxHP.Register(maxHp =>
@@ -241,8 +236,18 @@ namespace ProjectSurvivor
         /// 生成掉落物品
         /// </summary>
         /// <param name="gameObject">掉落物品的主体</param>
-        public static void GeneratePowerUp(GameObject gameObject)
+        public static void GeneratePowerUp(GameObject gameObject, bool isTreasureEnemy)
         {
+            if (isTreasureEnemy)
+            {
+                // 掉落宝箱
+                PowerUpManager.Default.TreasureChest.Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+
+                return;
+            }
+
             float percent = Random.Range(0, 1f);
             if (percent <= ExpPercent.Value)
             {
@@ -250,6 +255,8 @@ namespace ProjectSurvivor
                 PowerUpManager.Default.Exp.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
+
+                return;
             }
 
             percent = Random.Range(0, 1f);
@@ -294,6 +301,17 @@ namespace ProjectSurvivor
             {
                 // 掉落吸收经验
                 PowerUpManager.Default.GetAllExp.Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+
+                return;
+            }
+
+            percent = Random.Range(0, 1f);
+            if (percent <= TreasureChestPercent.Value)
+            {
+                // 掉落宝箱
+                PowerUpManager.Default.TreasureChest.Instantiate()
                     .Position(gameObject.Position())
                     .Show();
 

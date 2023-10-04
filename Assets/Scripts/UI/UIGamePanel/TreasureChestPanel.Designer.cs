@@ -10,10 +10,12 @@ namespace ProjectSurvivor
 {
 	public partial class TreasureChestPanel
 	{
+		[SerializeField] public UnityEngine.UI.Text Content;
 		[SerializeField] public UnityEngine.UI.Button OKBtn;
 
 		public void Clear()
 		{
+			Content = null;
 			OKBtn = null;
 		}
 

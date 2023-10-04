@@ -1,18 +1,22 @@
-// Generate Id:20e162c7-3caf-43c4-9357-a0935f094557
+// Generate Id:17b84658-13ea-429e-9a68-f76e9cba1758
 using UnityEngine;
 
 namespace ProjectSurvivor
 {
-    public partial class PowerUpManager
-    {
-        public ProjectSurvivor.Exp Exp;
+	public partial class PowerUpManager
+	{
 
-        public ProjectSurvivor.Coin Coin;
+		public ProjectSurvivor.Exp Exp;
 
-        public ProjectSurvivor.HP HP;
+		public ProjectSurvivor.Coin Coin;
 
-        public ProjectSurvivor.Bomb Bomb;
+		public ProjectSurvivor.HP HP;
 
-        public ProjectSurvivor.GetAllExp GetAllExp;
-    }
+		public ProjectSurvivor.GetAllExp GetAllExp;
+
+		public ProjectSurvivor.Bomb Bomb;
+
+		public ProjectSurvivor.TreasureChest TreasureChest;
+
+	}
 }

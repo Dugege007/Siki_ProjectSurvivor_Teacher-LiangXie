@@ -787,6 +787,7 @@ GameObject:
   - component: {fileID: 3609986369578051012}
   - component: {fileID: 8327166859370268318}
   - component: {fileID: 6175172647931911225}
+  - component: {fileID: 3613448820360070622}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -855,6 +856,22 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
   m_Text: "\u606D\u559C\uFF01\uFF01\uFF01\n\u83B7\u5F97\u5B9D\u7BB1\n\u9009\u53D6\u80FD\u529B\u5427~~~"
+--- !u!114 &3613448820360070622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241900360340319419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Content
+  CustomComment: 
+  mComponentName: UnityEngine.UI.Text
 --- !u!1 &2592574048639583468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,6 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e10dd5ee1b791042aad0cac98d1adc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Content: {fileID: 6175172647931911225}
   OKBtn: {fileID: 8411139107120422338}
 --- !u!1 &4762645543783141102
 GameObject:

@@ -1,4 +1,4 @@
-// Generate Id:187296b2-0c45-4dc0-ad7b-f7f261203c17
+// Generate Id:4ee6ea0c-26f2-449b-a962-a994c7eb0b8c
 using UnityEngine;
 
 namespace ProjectSurvivor

@@ -21,8 +21,8 @@ MonoBehaviour:
   InitRange: 2
   InitCount: 1
   InitAttackCount: 1
+  InitChance: 0.1
   InitRate: 0
-  InitPercent: 0.1
   Powers:
   - Lv: 1
     PowerDatas: []
@@ -42,6 +42,8 @@ MonoBehaviour:
     PowerDatas:
     - Type: 1
       Value: 1.2
+    - Type: 3
+      Value: 0.5
   - Lv: 5
     PowerDatas:
     - Type: 0
@@ -65,11 +67,13 @@ MonoBehaviour:
     - Type: 0
       Value: 2
     - Type: 1
-      Value: 1.2
+      Value: 1.5
+    - Type: 0
+      Value: 0.5
   - Lv: 9
     PowerDatas:
     - Type: 0
-      Value: 1
+      Value: 2
     - Type: 4
       Value: 1
   - Lv: 10
@@ -77,4 +81,4 @@ MonoBehaviour:
     - Type: 0
       Value: 2
     - Type: 1
-      Value: 1.5
+      Value: 3

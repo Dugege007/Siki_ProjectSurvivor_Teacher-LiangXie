@@ -230,6 +230,7 @@ MonoBehaviour:
   HP: 700
   MovementSpeed: 2.8
   DissolveColor: {r: 1, g: 0.92549026, b: 0.015686275, a: 1}
+  IsTreasureEnemy: 1
   Sprite: {fileID: 1665058488255498302}
   SelfRigidbody2D: {fileID: 5376978547847711835}
 --- !u!50 &5376978547847711835

@@ -15,10 +15,10 @@ MonoBehaviour:
   Name: "\u5251"
   IsWeapon: 1
   Description: "\u653B\u51FB\u8EAB\u8FB9\u7684\u654C\u4EBA"
-  InitDamage: 1
+  InitDamage: 2
   InitSpeed: 2
   InitDuration: 1.5
-  InitRange: 3
+  InitRange: 2.5
   InitCount: 3
   InitAttackCount: 1
   InitChance: 0.1
@@ -30,53 +30,53 @@ MonoBehaviour:
     PowerDatas:
     - Type: 0
       Value: 2
-    - Type: 1
+    - Type: 2
       Value: -0.25
   - Lv: 3
     PowerDatas:
     - Type: 0
       Value: 3
     - Type: 3
-      Value: 2
+      Value: 1.25
   - Lv: 4
     PowerDatas:
     - Type: 0
       Value: 2
-    - Type: 1
+    - Type: 2
       Value: -0.25
   - Lv: 5
     PowerDatas:
     - Type: 0
       Value: 3
-    - Type: 3
-      Value: 2
+    - Type: 4
+      Value: 1
   - Lv: 6
     PowerDatas:
     - Type: 2
       Value: 1
-    - Type: 1
+    - Type: 2
       Value: -0.25
   - Lv: 7
     PowerDatas:
     - Type: 0
       Value: 3
     - Type: 3
-      Value: 2
+      Value: 1.25
   - Lv: 8
     PowerDatas:
     - Type: 0
-      Value: 2
-    - Type: 2
+      Value: 3
+    - Type: 4
       Value: 1
   - Lv: 9
     PowerDatas:
     - Type: 0
-      Value: 3
-    - Type: 1
+      Value: 4
+    - Type: 2
       Value: -0.25
   - Lv: 10
     PowerDatas:
     - Type: 0
-      Value: 3
+      Value: 5
     - Type: 3
-      Value: 2
+      Value: 1.5

@@ -29,7 +29,7 @@ namespace ProjectSurvivor
                 // Take() 取前几个
                 {
                     Sword.Instantiate()
-                        .Position(enemy.Position() + Vector3.left * 0.25f)
+                        .Position(enemy.Position() + Vector3.left * 0.3f)
                         .Show()
                         .Self(self =>
                         {

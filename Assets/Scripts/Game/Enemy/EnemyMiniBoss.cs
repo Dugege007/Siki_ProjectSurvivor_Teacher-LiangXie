@@ -118,7 +118,7 @@ namespace ProjectSurvivor
             if (HP <= 0)
             {
                 // 掉落道具
-                Global.GeneratePowerUp(gameObject);
+                Global.GeneratePowerUp(gameObject, true);
                 // 销毁自己
                 this.DestroyGameObjGracefully();
             }

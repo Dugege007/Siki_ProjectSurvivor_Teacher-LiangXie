@@ -9,8 +9,10 @@ namespace ProjectSurvivor
         public float HP = 3;
         public float MovementSpeed = 2f;
         private bool mIgnoreHurt = false;
-
         public Color DissolveColor = Color.yellow;
+
+        // 是否为携带宝箱的敌人
+        public bool IsTreasureEnemy = false;
 
         private void Start()
         {
@@ -45,7 +47,7 @@ namespace ProjectSurvivor
             if (HP <= 0)
             {
                 // 掉落道具
-                Global.GeneratePowerUp(gameObject);
+                Global.GeneratePowerUp(gameObject, IsTreasureEnemy);
                 // 播放音效
                 AudioKit.PlaySound(Sfx.ENEMYDIE);
                 // 播放溶解特效
