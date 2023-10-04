@@ -21,8 +21,8 @@ namespace ProjectSurvivor
                 {
                     if (hurtBox.Owner.CompareTag("Enemy"))
                     {
-                        IEnemy enemy = hurtBox.Owner.GetComponent<IEnemy>();
-                        enemy.Hurt(Global.BasketballDamage.Value);
+                        IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
+                        DamageSystem.CalculateDamage(Global.BasketballDamage.Value, e);
 
                         if (Random.Range(0, 1.0f) < 0.5f)
                         {

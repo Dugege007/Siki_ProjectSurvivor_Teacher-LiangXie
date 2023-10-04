@@ -19,7 +19,7 @@ namespace ProjectSurvivor
 
         }
 
-        public static void Play(Vector2 position, string text)
+        public static void Play(Vector2 position, string text, bool critical = false)
         {
             mDefault.FloatingText.InstantiateWithParent(mDefault.transform)
                 .PositionX(position.x)
@@ -29,6 +29,11 @@ namespace ProjectSurvivor
                     Transform textTrans = f.transform.Find("Text");
                     Text textComp = textTrans.GetComponent<Text>();
                     textComp.text = text;
+
+                    if (critical)
+                    {
+                        textComp.color = Color.red;
+                    }
 
                     float positionY = position.y;
 

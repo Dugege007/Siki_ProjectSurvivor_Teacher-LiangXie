@@ -130,7 +130,7 @@ namespace ProjectSurvivor
             FSM.FixedUpdate();
         }
 
-        public void Hurt(float hurtValue, bool force = false)
+        public void Hurt(float hurtValue, bool force = false, bool critical = false)
         {
             if (mIgnoreHurt && !force) return;
 
@@ -139,7 +139,7 @@ namespace ProjectSurvivor
             // 变为红色
             Sprite.color = Color.red;
             // 伤害飘字
-            FloatingTextController.Play(transform.position + Vector3.up * 0.4f, hurtValue.ToString("0"));
+            FloatingTextController.Play(transform.position + Vector3.up * 0.4f, hurtValue.ToString("0"), critical);
             // 播放音效
             AudioKit.PlaySound("Hit");
 

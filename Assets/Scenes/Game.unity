@@ -11479,6 +11479,8 @@ MonoBehaviour:
   RotateSwordConfig: {fileID: 11400000, guid: 959b8c17c147a3344a30f0466a59ae14, type: 2}
   SimpleKnifeConfig: {fileID: 11400000, guid: afc5b6e4cb6caf142ae877fb746e6b6c, type: 2}
   BasketballConfig: {fileID: 11400000, guid: 47abd98d37af2f747a9ec3271d6297c1, type: 2}
+  SimpleBombConfig: {fileID: 11400000, guid: 687234178889a8449aaaa63adaac8dd6, type: 2}
+  CriticalRateConfig: {fileID: 11400000, guid: 4be9063363d7faa459c9ca1b86b6258d, type: 2}
   MovementSpeed: 3.5
   Sprite: {fileID: 1273691981}
   HurtBox: {fileID: 1866986365}

@@ -8,6 +8,12 @@ namespace ProjectSurvivor
     {
         private float mCurrentSeconds = 0;
 
+        public bool Unlocked;
+        public float Damage;
+        public float Duration;
+        public float Range;
+        public int Count;
+
         private void Update()
         {
             mCurrentSeconds += Time.deltaTime;
@@ -41,7 +47,8 @@ namespace ProjectSurvivor
                                 {
                                     if (hurtBox.Owner.CompareTag("Enemy"))
                                     {
-                                        enemy.Hurt(Global.SimpleSwordDamage.Value);
+                                        IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
+                                        DamageSystem.CalculateDamage(Global.SimpleSwordDamage.Value, e);
                                     }
                                 }
 

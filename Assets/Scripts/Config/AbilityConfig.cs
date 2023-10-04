@@ -99,7 +99,7 @@ namespace ProjectSurvivor
                         powerType = "攻击数";
                         break;
                     case PowerType.Percent:
-                        powerType = "掉落率";
+                        powerType = "概率";
                         break;
                 }
 

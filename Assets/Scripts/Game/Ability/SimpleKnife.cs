@@ -42,7 +42,9 @@ namespace ProjectSurvivor
                                     // 碰到敌人就对其造成伤害
                                     if (hurtBox.Owner.CompareTag("Enemy"))
                                     {
-                                        hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.SimpleKnifeDamage.Value);
+                                        IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
+                                        DamageSystem.CalculateDamage(Global.SimpleKnifeDamage.Value, e);
+
                                         self.DestroyGameObjGracefully();
                                     }
                                 }

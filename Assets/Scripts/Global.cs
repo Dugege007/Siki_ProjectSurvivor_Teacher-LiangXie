@@ -71,6 +71,9 @@ namespace ProjectSurvivor
         public static BindableProperty<float> SimpleBombDamage = new(Player.Default.SimpleBombConfig.InitDamage);
         public static BindableProperty<float> SimpleBombPercent = new(Player.Default.SimpleBombConfig.InitPercent);
 
+        // 暴击率
+        public static BindableProperty<float> CriticalRate = new(Player.Default.CriticalRateConfig.InitPercent);
+
         /// <summary>
         /// 经验掉率
         /// </summary>
@@ -199,6 +202,9 @@ namespace ProjectSurvivor
             SimpleBombUnlocked.Value = false;
             SimpleBombDamage.Value = simpleBombConfig.InitDamage;
             SimpleBombPercent.Value = simpleBombConfig.InitPercent;
+            // 暴击率
+            AbilityConfig criticalRateConfig = Player.Default.CriticalRateConfig;
+            CriticalRate.Value = criticalRateConfig.InitPercent;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }
