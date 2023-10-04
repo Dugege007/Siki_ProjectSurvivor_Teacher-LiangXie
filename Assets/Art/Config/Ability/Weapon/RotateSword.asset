@@ -37,7 +37,7 @@ MonoBehaviour:
     - Type: 0
       Value: 2
     - Type: 1
-      Value: 0.5
+      Value: 1
   - Lv: 4
     PowerDatas:
     - Type: 1
@@ -81,4 +81,4 @@ MonoBehaviour:
     - Type: 0
       Value: 2
     - Type: 1
-      Value: 3
+      Value: 2

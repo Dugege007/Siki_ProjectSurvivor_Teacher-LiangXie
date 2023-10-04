@@ -7,6 +7,7 @@ namespace ProjectSurvivor
     public partial class SimpleSword : ViewController
     {
         private float mCurrentSeconds = 0;
+        public BindableProperty<bool> SuperSimpleSword = new(true);
 
         private void Update()
         {
@@ -16,12 +17,16 @@ namespace ProjectSurvivor
             {
                 mCurrentSeconds = 0;
 
+                int countTimes = SuperSimpleSword.Value ? 2 : 1;
+                int damageTimes = SuperSimpleSword.Value ? Random.Range(1, 2) + 1 : 1;
+                int rangeTimes = SuperSimpleSword.Value ? 2 : 1;
+
                 Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
 
                 foreach (Enemy enemy in enemies
                     .OrderBy(e => e.Direction2DFrom(Player.Default).magnitude)
-                    .Where(e => Vector2.Distance(Player.Default.Position(), e.transform.position) <= Global.SimpleSwordRange.Value)
-                    .Take(Global.SimpleSwordCount.Value + Global.AdditionalFlyThingCount.Value))
+                    .Where(e => Vector2.Distance(Player.Default.Position(), e.transform.position) <= Global.SimpleSwordRange.Value * rangeTimes)
+                    .Take((Global.SimpleSwordCount.Value + Global.AdditionalFlyThingCount.Value) * countTimes))
                 // OrderBy() 从小到大排序
                 // Direction2DFrom() 获取二维向量
                 // Where() 筛选
@@ -42,7 +47,7 @@ namespace ProjectSurvivor
                                     if (hurtBox.Owner.CompareTag("Enemy"))
                                     {
                                         IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
-                                        DamageSystem.CalculateDamage(Global.SimpleSwordDamage.Value, e);
+                                        DamageSystem.CalculateDamage(Global.SimpleSwordDamage.Value * damageTimes, e);
                                     }
                                 }
 

@@ -8,6 +8,8 @@ namespace ProjectSurvivor
     {
         private List<Collider2D> mBigSwords = new List<Collider2D>();
 
+        public BindableProperty<bool> SuperRotateSword = new(true);
+
         private void Start()
         {
             // 开始时生成一次守卫剑
@@ -23,11 +25,22 @@ namespace ProjectSurvivor
                 UpdateCirclePos();
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            SuperRotateSword.RegisterWithInitValue(unlocked =>
+            {
+                if (unlocked)
+                    this.LocalScale(1.5f);
+                else
+                    this.LocalScale(1);
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
         private void Update()
         {
-            float degree = Time.frameCount * Global.RotateSwordSpeed.Value;
+            float speedTimes = SuperRotateSword.Value ? 1.5f : 1;
+
+            float degree = Time.frameCount * Global.RotateSwordSpeed.Value * speedTimes;
 
             this.LocalEulerAnglesZ(-degree);
         }
@@ -50,6 +63,8 @@ namespace ProjectSurvivor
                             {
                                 if (hurtBox.Owner.CompareTag("Enemy"))
                                 {
+                                    int damageTimes = SuperRotateSword.Value ? 2 : 1;
+
                                     if (Random.Range(0, 1.0f) < 0.5f)
                                     {
                                         // 击退效果
@@ -59,7 +74,7 @@ namespace ProjectSurvivor
                                     }
 
                                     IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
-                                    DamageSystem.CalculateDamage(Global.RotateSwordDamage.Value, e);
+                                    DamageSystem.CalculateDamage(Global.RotateSwordDamage.Value * damageTimes, e);
                                 }
                             }
 
@@ -73,7 +88,9 @@ namespace ProjectSurvivor
 
         private void UpdateCirclePos()
         {
-            float radius = Global.RotateSwordRange.Value;
+            float rangeTimes = SuperRotateSword.Value ? 1.2f : 1;
+
+            float radius = Global.RotateSwordRange.Value * rangeTimes;
             float durationDegrees = 1;
             if (mBigSwords.Count > 0)
                 durationDegrees = 360 / mBigSwords.Count;

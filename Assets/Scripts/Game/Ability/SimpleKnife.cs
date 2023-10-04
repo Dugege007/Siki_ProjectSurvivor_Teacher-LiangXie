@@ -9,6 +9,20 @@ namespace ProjectSurvivor
     {
         private float mCurrentSeconds = 0;
 
+        public BindableProperty<bool> SuperKnife = new(true);
+
+        private void Start()
+        {
+            SuperKnife.RegisterWithInitValue(unlocked =>
+            {
+                if (unlocked)
+                    this.LocalScale(2);
+                else
+                    this.LocalScale(1);
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+        }
+
         private void Update()
         {
             mCurrentSeconds += Time.deltaTime;
@@ -48,6 +62,7 @@ namespace ProjectSurvivor
                                     Rigidbody2D rigidbody2D = self.GetComponent<Rigidbody2D>();
                                     rigidbody2D.velocity = direction * 10;
 
+                                    int attackCount = 0;
                                     // 添加碰撞事件
                                     self.OnTriggerEnter2DEvent(collider =>
                                     {
@@ -57,10 +72,18 @@ namespace ProjectSurvivor
                                             // 碰到敌人就对其造成伤害
                                             if (hurtBox.Owner.CompareTag("Enemy"))
                                             {
-                                                IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
-                                                DamageSystem.CalculateDamage(Global.SimpleKnifeDamage.Value, e);
+                                                int damageTimes = SuperKnife.Value ? Random.Range(1, 2) + 1 : 1;
 
-                                                selfCache.DestroyGameObjGracefully();
+                                                IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
+                                                DamageSystem.CalculateDamage(Global.SimpleKnifeDamage.Value * damageTimes, e);
+                                                attackCount++;
+
+                                                int additionalAttackCount = SuperKnife.Value ? 3 : 0;
+
+                                                if (attackCount >= Global.SimpleKnifeAttackCount.Value + additionalAttackCount)
+                                                {
+                                                    selfCache.DestroyGameObjGracefully();
+                                                }
                                             }
                                         }
 
