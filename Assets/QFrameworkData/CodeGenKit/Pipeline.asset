@@ -25,6 +25,6 @@ MonoBehaviour:
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
       partial class GetAllExp : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:6fe90a21-c75c-419a-86f1-c0fac06551bc\r\nusing UnityEngine;\r\n\r\nnamespace
+    DesignerCode: "// Generate Id:a369f77e-2629-4d44-96e7-5e3b58a5a4e0\r\nusing UnityEngine;\r\n\r\nnamespace
       ProjectSurvivor\r\n{\r\n\tpublic partial class GetAllExp\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.CircleCollider2D selfCollider2D;\r\n\r\n\t}\r\n}\r\n"
+      UnityEngine.CircleCollider2D SelfCollider2D;\r\n\r\n\t}\r\n}\r\n"

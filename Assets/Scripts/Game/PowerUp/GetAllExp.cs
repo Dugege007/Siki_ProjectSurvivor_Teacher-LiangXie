@@ -1,11 +1,12 @@
 using UnityEngine;
 using QFramework;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
     public partial class GetAllExp : GameplayObj
     {
-        protected override Collider2D Collider2D => selfCollider2D;
+        protected override Collider2D Collider2D => SelfCollider2D;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -27,7 +28,7 @@ namespace ProjectSurvivor
                     }).UnRegisterWhenGameObjectDestroyed(exp);
                 }
 
-                AudioKit.PlaySound("GetAllExp");
+                AudioKit.PlaySound(Sfx.GETALLEXP);
 
                 // Ïú»Ù×ÔÉí
                 this.DestroyGameObjGracefully();

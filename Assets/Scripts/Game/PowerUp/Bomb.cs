@@ -1,5 +1,6 @@
 using UnityEngine;
 using QFramework;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -19,7 +20,7 @@ namespace ProjectSurvivor
                     }
                 }
 
-                AudioKit.PlaySound("Bomb");
+                AudioKit.PlaySound(Sfx.BOMB);
                 // 触发一下闪屏事件
                 UIGamePanel.FlashScreen.Trigger();
                 CameraController.Shake();

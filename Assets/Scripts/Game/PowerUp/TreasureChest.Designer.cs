@@ -1,9 +1,9 @@
-// Generate Id:f36e697d-1062-46f6-95a2-aff64e3dbb6a
+// Generate Id:b514adf3-8332-476d-bbb5-71c6e0be86bb
 using UnityEngine;
 
 namespace ProjectSurvivor
 {
-	public partial class HP
+	public partial class TreasureChest
 	{
 
 		public UnityEngine.CircleCollider2D SelfCollider2D;

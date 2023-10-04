@@ -4,7 +4,7 @@ using QAssetBundle;
 
 namespace ProjectSurvivor
 {
-    public partial class Exp : GameplayObj
+    public partial class TreasureChest : GameplayObj
     {
         protected override Collider2D Collider2D => SelfCollider2D;
 
@@ -12,9 +12,10 @@ namespace ProjectSurvivor
         {
             if (collision.GetComponent<CollectableArea>())
             {
-                AudioKit.PlaySound(Sfx.EXP);
-
-                Global.Exp.Value += 1 + Global.AdditionalExpRate.Value;
+                // 播放音效
+                AudioKit.PlaySound(Sfx.TREASUERCHEST);
+                // 发送事件
+                UIGamePanel.OpenTreasurePanel.Trigger();
 
                 this.DestroyGameObjGracefully();
             }

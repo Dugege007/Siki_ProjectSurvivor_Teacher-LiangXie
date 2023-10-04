@@ -1,4 +1,4 @@
-// Generate Id:412cf8dd-2f4c-4454-8461-fed2468fed8d
+// Generate Id:187296b2-0c45-4dc0-ad7b-f7f261203c17
 using UnityEngine;
 
 namespace ProjectSurvivor
@@ -6,7 +6,7 @@ namespace ProjectSurvivor
 	public partial class Coin
 	{
 
-		public UnityEngine.CircleCollider2D selfCollider2D;
+		public UnityEngine.CircleCollider2D SelfCollider2D;
 
 	}
 }

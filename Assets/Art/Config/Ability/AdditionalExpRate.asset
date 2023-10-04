@@ -27,20 +27,20 @@ MonoBehaviour:
   - Lv: 1
     PowerDatas:
     - Type: 7
-      Value: 0.05
+      Value: 0.1
   - Lv: 2
     PowerDatas:
     - Type: 7
-      Value: 0.05
+      Value: 0.1
   - Lv: 3
     PowerDatas:
     - Type: 7
-      Value: 0.05
+      Value: 0.1
   - Lv: 4
     PowerDatas:
     - Type: 7
-      Value: 0.05
+      Value: 0.1
   - Lv: 5
     PowerDatas:
     - Type: 7
-      Value: 0.05
+      Value: 0.1

@@ -1,4 +1,4 @@
-// Generate Id:dec38fca-2398-44e5-b1e7-0ec26b589f47
+// Generate Id:3074f9d4-3f56-4ccb-be0b-f3cf39ffb7cd
 using UnityEngine;
 
 namespace ProjectSurvivor
@@ -6,7 +6,7 @@ namespace ProjectSurvivor
 	public partial class Exp
 	{
 
-		public UnityEngine.CircleCollider2D selfCollider2D;
+		public UnityEngine.CircleCollider2D SelfCollider2D;
 
 	}
 }

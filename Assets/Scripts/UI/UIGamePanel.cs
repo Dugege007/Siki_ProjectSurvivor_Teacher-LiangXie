@@ -11,6 +11,7 @@ namespace ProjectSurvivor
     public partial class UIGamePanel : UIPanel
     {
         public static EasyEvent FlashScreen = new EasyEvent();
+        public static EasyEvent OpenTreasurePanel = new EasyEvent();
 
         protected override void OnInit(IUIData uiData = null)
         {
@@ -59,7 +60,7 @@ namespace ProjectSurvivor
             {
                 Time.timeScale = 0;
                 ExpUpgradePanel.Show();
-                AudioKit.PlaySound("LevelUp");
+                AudioKit.PlaySound(Sfx.LEVELUP);
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
@@ -97,8 +98,6 @@ namespace ProjectSurvivor
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-
-
             // 用于测试的按钮
             // 加经验
             ExpUpTestBtn.onClick.AddListener(() =>
@@ -121,7 +120,7 @@ namespace ProjectSurvivor
                     }
                 }
 
-                AudioKit.PlaySound("Bomb");
+                AudioKit.PlaySound(Sfx.BOMB);
                 CameraController.Shake();
             });
 
@@ -133,6 +132,14 @@ namespace ProjectSurvivor
                     .Lerp(0.5f, 0, 0.2f, alpha => ScreenColor.ColorAlpha(alpha),
                     () => ScreenColor.ColorAlpha(0))
                     .Start(this);
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+            // 注册宝箱面板
+            OpenTreasurePanel.Register(() =>
+            {
+                Time.timeScale = 0f;
+                TreasureChestPanel.Show();
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
