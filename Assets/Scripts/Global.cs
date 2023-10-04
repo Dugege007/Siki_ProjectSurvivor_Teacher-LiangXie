@@ -73,6 +73,8 @@ namespace ProjectSurvivor
 
         // 暴击率
         public static BindableProperty<float> CriticalRate = new(Player.Default.CriticalRateConfig.InitPercent);
+        // 伤害附加值
+        public static BindableProperty<float> DamageRate = new(Player.Default.DamageRateConfig.InitPercent);
 
         /// <summary>
         /// 经验掉率
@@ -101,8 +103,6 @@ namespace ProjectSurvivor
         {
             // 设置 UI
             UIKit.Root.SetResolution(1920, 1080, 0.5f);
-
-
 
             // 简单的存储功能
             // 读取数据
@@ -205,6 +205,9 @@ namespace ProjectSurvivor
             // 暴击率
             AbilityConfig criticalRateConfig = Player.Default.CriticalRateConfig;
             CriticalRate.Value = criticalRateConfig.InitPercent;
+            // 伤害附加值
+            AbilityConfig damageRateConfig = Player.Default.DamageRateConfig;
+            DamageRate.Value = damageRateConfig.InitPercent;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }

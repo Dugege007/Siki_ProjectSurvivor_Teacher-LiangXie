@@ -11,13 +11,6 @@ namespace ProjectSurvivor
 
         public List<ExpUpgradeItem> Items { get; } = new List<ExpUpgradeItem>();
 
-        private AbilityConfig mSimpleSwordConfig;
-        private AbilityConfig mSimpleKnifeConfig;
-        private AbilityConfig mRotateSwordConfig;
-        private AbilityConfig mBasketballConfig;
-        private AbilityConfig mSimpleBombConfig;
-        private AbilityConfig mCriticalRateConfig;
-
         protected override void OnInit()
         {
             ResetData();
@@ -38,90 +31,35 @@ namespace ProjectSurvivor
         {
             Items.Clear();
 
-            mSimpleSwordConfig = Player.Default.SimpleSwordConfig;
-            mSimpleKnifeConfig = Player.Default.SimpleKnifeConfig;
-            mRotateSwordConfig = Player.Default.RotateSwordConfig;
-            mBasketballConfig = Player.Default.BasketballConfig;
-            mSimpleBombConfig = Player.Default.SimpleBombConfig;
-            mCriticalRateConfig = Player.Default.CriticalRateConfig;
-
             // 剑
-            Add(new ExpUpgradeItem(true)
-                .WithKey("simple_sword")
-                .WithDescription(lv =>
-                {
-                    return UpgradeDiscription(lv, mSimpleSwordConfig);
-                })
-                .WithMaxLevel(mSimpleSwordConfig.Powers.Count)
-                .OnUpgrade((_, lv) =>
-                {
-                    UpgradePowerValue(lv, mSimpleSwordConfig);
-                }));
-
+            AddNewExpUpgradeItem("simple_sword", Player.Default.SimpleSwordConfig);
             // 炸弹
-            Add(new ExpUpgradeItem()
-                .WithKey("simple_bomb")
-                .WithDescription(lv =>
-                {
-                    return UpgradeDiscription(lv, mSimpleBombConfig);
-                })
-                .WithMaxLevel(mSimpleBombConfig.Powers.Count)
-                .OnUpgrade((_, lv) =>
-                {
-                    UpgradePowerValue(lv, mSimpleBombConfig);
-                }));
-
+            AddNewExpUpgradeItem("simple_bomb", Player.Default.SimpleBombConfig);
             // 飞刀
-            Add(new ExpUpgradeItem(true)
-                .WithKey("simple_knife")
-                .WithDescription(lv =>
-                {
-                    return UpgradeDiscription(lv, mSimpleKnifeConfig);
-                })
-                .WithMaxLevel(mSimpleKnifeConfig.Powers.Count)
-                .OnUpgrade((_, lv) =>
-                {
-                    UpgradePowerValue(lv, mSimpleKnifeConfig);
-                }));
-
+            AddNewExpUpgradeItem("simple_knife", Player.Default.SimpleKnifeConfig);
             // 守卫剑
+            AddNewExpUpgradeItem("rotate_sword", Player.Default.RotateSwordConfig);
+            // 篮球
+            AddNewExpUpgradeItem("basketball", Player.Default.BasketballConfig);
+            // 暴击率
+            AddNewExpUpgradeItem("critical_rate", Player.Default.CriticalRateConfig);
+            // 伤害附加值
+            AddNewExpUpgradeItem("damage_rate", Player.Default.DamageRateConfig);
+        }
+
+        private void AddNewExpUpgradeItem(string key, AbilityConfig abilityConfig)
+        {
             Add(new ExpUpgradeItem(true)
-                .WithKey("rotate_sword")
+                .WithKey(key)
                 .WithDescription(lv =>
                 {
-                    return UpgradeDiscription(lv, mRotateSwordConfig);
+                    return UpgradeDiscription(lv, abilityConfig);
                 })
-                .WithMaxLevel(mRotateSwordConfig.Powers.Count)
+                .WithMaxLevel(abilityConfig.Powers.Count)
                 .OnUpgrade((_, lv) =>
                 {
-                    UpgradePowerValue(lv, mRotateSwordConfig);
+                    UpgradePowerValue(lv, abilityConfig);
                 }));
-
-            // 篮球
-            Add(new ExpUpgradeItem(true)
-               .WithKey("basketball")
-               .WithDescription(lv =>
-               {
-                   return UpgradeDiscription(lv, mBasketballConfig);
-               })
-               .WithMaxLevel(mBasketballConfig.Powers.Count)
-               .OnUpgrade((_, lv) =>
-               {
-                   UpgradePowerValue(lv, mBasketballConfig);
-               }));
-
-            // 暴击率
-            Add(new ExpUpgradeItem()
-               .WithKey("simple_critical")
-               .WithDescription(lv =>
-               {
-                   return UpgradeDiscription(lv, mCriticalRateConfig);
-               })
-               .WithMaxLevel(mCriticalRateConfig.Powers.Count)
-               .OnUpgrade((_, lv) =>
-               {
-                   UpgradePowerValue(lv, mCriticalRateConfig);
-               }));
         }
 
         private string UpgradeDiscription(int lv, AbilityConfig abilityConfig)
@@ -144,15 +82,15 @@ namespace ProjectSurvivor
             // 解锁
             if (lv == 1)
             {
-                if (abilityConfig.Name == mSimpleSwordConfig.Name)
+                if (abilityConfig.Name == Player.Default.SimpleSwordConfig.Name)
                     Global.SimpleSwordUnlocked.Value = true;
-                else if (abilityConfig.Name == mSimpleBombConfig.Name)
+                else if (abilityConfig.Name == Player.Default.SimpleBombConfig.Name)
                     Global.SimpleBombUnlocked.Value = true;
-                else if (abilityConfig.Name == mSimpleKnifeConfig.Name)
+                else if (abilityConfig.Name == Player.Default.SimpleKnifeConfig.Name)
                     Global.SimpleKnifeUnlocked.Value = true;
-                else if (abilityConfig.Name == mRotateSwordConfig.Name)
+                else if (abilityConfig.Name == Player.Default.RotateSwordConfig.Name)
                     Global.RotateSwordUnlocked.Value = true;
-                else if (abilityConfig.Name == mBasketballConfig.Name)
+                else if (abilityConfig.Name == Player.Default.BasketballConfig.Name)
                     Global.BasketballUnlocked.Value = true;
             }
 
@@ -166,7 +104,7 @@ namespace ProjectSurvivor
                     foreach (PowerData powerData in abilityConfig.Powers[lv - 1].PowerDatas)
                     {
                         // 剑
-                        if (abilityConfig.Name == mSimpleSwordConfig.Name)
+                        if (abilityConfig.Name == Player.Default.SimpleSwordConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -188,7 +126,7 @@ namespace ProjectSurvivor
                         }
 
                         // 炸弹
-                        if (abilityConfig.Name == mSimpleBombConfig.Name)
+                        if (abilityConfig.Name == Player.Default.SimpleBombConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -204,7 +142,7 @@ namespace ProjectSurvivor
                         }
 
                         // 飞刀
-                        if (abilityConfig.Name == mSimpleKnifeConfig.Name)
+                        if (abilityConfig.Name == Player.Default.SimpleKnifeConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -226,7 +164,7 @@ namespace ProjectSurvivor
                         }
 
                         // 守卫剑
-                        if (abilityConfig.Name == mRotateSwordConfig.Name)
+                        if (abilityConfig.Name == Player.Default.RotateSwordConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -248,7 +186,7 @@ namespace ProjectSurvivor
                         }
 
                         // 篮球
-                        if (abilityConfig.Name == mBasketballConfig.Name)
+                        if (abilityConfig.Name == Player.Default.BasketballConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -267,12 +205,25 @@ namespace ProjectSurvivor
                         }
 
                         // 暴击率
-                        if (abilityConfig.Name == mCriticalRateConfig.Name)
+                        if (abilityConfig.Name == Player.Default.CriticalRateConfig.Name)
                         {
                             switch (powerData.Type)
                             {
                                 case AbilityPower.PowerType.Percent:
                                     Global.CriticalRate.Value += powerData.Value;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        // 伤害附加值
+                        if (abilityConfig.Name == Player.Default.DamageRateConfig.Name)
+                        {
+                            switch (powerData.Type)
+                            {
+                                case AbilityPower.PowerType.Percent:
+                                    Global.DamageRate.Value += powerData.Value;
                                     break;
                                 default:
                                     break;

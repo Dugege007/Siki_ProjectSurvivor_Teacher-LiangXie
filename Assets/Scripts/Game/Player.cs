@@ -11,9 +11,12 @@ namespace ProjectSurvivor
         public AbilityConfig BasketballConfig;
         public AbilityConfig SimpleBombConfig;
         public AbilityConfig CriticalRateConfig;
+        public AbilityConfig DamageRateConfig;
 
         public static Player Default;
         public float MovementSpeed = 5f;
+        public Color DissolveColor = Color.red;
+        public bool IsDead = false;
 
         private void Awake()
         {
@@ -22,10 +25,13 @@ namespace ProjectSurvivor
 
         private void Start()
         {
+            IsDead = false;
+
             // 为 HurtBox 添加一个事件
             HurtBox.OnTriggerEnter2DEvent(collider2D =>
             {
                 HitBox hitBox = collider2D.GetComponent<HitBox>();
+
                 if (hitBox != null)
                 {
                     if (hitBox.Owner.CompareTag("Enemy"))
@@ -33,10 +39,14 @@ namespace ProjectSurvivor
                         Global.HP.Value--;
                         if (Global.HP.Value <= 0)
                         {
-                            AudioKit.PlaySound("Die");
-                            // 销毁玩家
-                            this.DestroyGameObjGracefully();
+                            IsDead = true;
+                            HurtBox.enabled = false;
+                            SelfRigidbody2D.velocity = Vector2.zero;
+                            SelfRigidbody2D.isKinematic = true;
 
+                            AudioKit.PlaySound("Die");
+                            // 播放溶解特效
+                            FxController.Play(Sprite, DissolveColor);
                             // 打开 游戏结束面板
                             UIKit.OpenPanel<UIGameOverPanel>();
                         }
@@ -69,6 +79,9 @@ namespace ProjectSurvivor
 
         private void Update()
         {
+            if (IsDead)
+                return;
+
             float horizontal = Input.GetAxisRaw("Horizontal");  // Input.GetAxisRaw() 比较生硬的变换
             float vertical = Input.GetAxisRaw("Vertical");
             Vector2 targetVelocity = new Vector2(horizontal, vertical).normalized * MovementSpeed;

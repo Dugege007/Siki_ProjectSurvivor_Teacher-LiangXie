@@ -8,12 +8,6 @@ namespace ProjectSurvivor
     {
         private float mCurrentSeconds = 0;
 
-        public bool Unlocked;
-        public float Damage;
-        public float Duration;
-        public float Range;
-        public int Count;
-
         private void Update()
         {
             mCurrentSeconds += Time.deltaTime;

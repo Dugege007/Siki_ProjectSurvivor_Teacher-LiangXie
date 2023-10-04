@@ -13,10 +13,7 @@ namespace ProjectSurvivor
 
         private void Start()
         {
-            SimpleSword.Hide();
-            RotateSword.Hide();
-            SimpleKnife.Hide();
-            BasketballAbility.Hide();
+            HideAllAbilities();
 
             Global.SimpleSwordUnlocked.RegisterWithInitValue(unlocked =>
             {
@@ -57,6 +54,20 @@ namespace ProjectSurvivor
                 .ToList()
                 .GetRandomItem()
                 .Upgrade();
+        }
+
+        private void Update()
+        {
+            if (Player.Default.IsDead)
+                HideAllAbilities();
+        }
+
+        private void HideAllAbilities()
+        {
+            SimpleSword.Hide();
+            RotateSword.Hide();
+            SimpleKnife.Hide();
+            BasketballAbility.Hide();
         }
     }
 }

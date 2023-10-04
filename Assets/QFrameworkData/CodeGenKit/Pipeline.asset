@@ -18,27 +18,12 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: ProjectSurvivor.SimpleSword
-      PathToRoot: SimpleSword
-      MemberName: SimpleSword
-    - TypeName: ProjectSurvivor.RotateSword
-      PathToRoot: RotateSword
-      MemberName: RotateSword
-    - TypeName: ProjectSurvivor.SimpleKnife
-      PathToRoot: SimpleKnife
-      MemberName: SimpleKnife
-    - TypeName: ProjectSurvivor.BasketballAbility
-      PathToRoot: BasketballAbility
-      MemberName: BasketballAbility
-    ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: AbilitiesController
+    BindInfos: []
+    ScriptsFolder: Assets/Scripts/Game/PowerUp
+    ClassName: Exp
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class AbilitiesController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Exp : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:134f4665-6b4f-478c-adfb-80aaa943f995\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class AbilitiesController\r\n\t{\r\n\r\n\t\tpublic
-      ProjectSurvivor.SimpleSword SimpleSword;\r\n\r\n\t\tpublic ProjectSurvivor.RotateSword
-      RotateSword;\r\n\r\n\t\tpublic ProjectSurvivor.SimpleKnife SimpleKnife;\r\n\r\n\t\tpublic
-      ProjectSurvivor.BasketballAbility BasketballAbility;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:24272e67-6bf5-449b-a701-dbab302317e0\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class Exp\r\n\t{\r\n\r\n\t}\r\n}\r\n"

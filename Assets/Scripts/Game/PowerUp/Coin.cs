@@ -3,15 +3,15 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-    public partial class Exp : ViewController
+    public partial class Coin : ViewController
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.GetComponent<CollectableArea>())
             {
-                AudioKit.PlaySound("Exp");
-                // 经验增加
-                Global.Exp.Value++;
+                AudioKit.PlaySound("Coin");
+                // 金币增加
+                Global.Coin.Value++;
                 // 销毁自身
                 this.DestroyGameObjGracefully();
             }

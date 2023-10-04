@@ -76,34 +76,49 @@ namespace ProjectSurvivor
 
             foreach (var data in PowerDatas)
             {
-                string powerType = "";
+                string powerTypeStr = "";
 
                 switch (data.Type)
                 {
                     case PowerType.Damage:
-                        powerType = "攻击力";
+                        powerTypeStr = "攻击力";
                         break;
                     case PowerType.Speed:
-                        powerType = "速度";
+                        powerTypeStr = "速度";
                         break;
                     case PowerType.Duration:
-                        powerType = "间隔";
+                        powerTypeStr = "间隔";
                         break;
                     case PowerType.Range:
-                        powerType = "范围";
+                        powerTypeStr = "范围";
                         break;
                     case PowerType.Count:
-                        powerType = "数量";
+                        powerTypeStr = "数量";
                         break;
                     case PowerType.AttackCount:
-                        powerType = "攻击数";
+                        powerTypeStr = "攻击数";
                         break;
                     case PowerType.Percent:
-                        powerType = "概率";
+                        powerTypeStr = "概率/附加值";
                         break;
                 }
 
-                info += $"{powerType}+{data.Value} ";
+                switch (data.Type)
+                {
+                    case PowerType.Damage:
+                    case PowerType.Speed:
+                    case PowerType.Duration:
+                    case PowerType.Range:
+                    case PowerType.Count:
+                    case PowerType.AttackCount:
+                        info += $"{powerTypeStr}+{data.Value} ";
+                        break;
+                    case PowerType.Percent:
+                        info += powerTypeStr + "+" + (data.Value * 100).ToString("0") + "% ";
+                        break;
+                    default:
+                        break;
+                }
             }
 
             return info.Trim();

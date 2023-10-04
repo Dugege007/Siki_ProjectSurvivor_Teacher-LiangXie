@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43542c359bd426449088506d6d6206d, type: 3}
+  m_Name: DamageRate
+  m_EditorClassIdentifier: 
+  Name: "\u4F24\u5BB3\u9644\u52A0\u503C"
+  Description: "\u9644\u52A0\u4F24\u5BB3\u63D0\u5347"
+  InitDamage: 1
+  InitSpeed: 2
+  InitDuration: 1.5
+  InitRange: 3
+  InitCount: 3
+  InitAttackCount: 1
+  InitPercent: 0
+  Powers:
+  - Lv: 1
+    PowerDatas:
+    - Type: 6
+      Value: 0.2
+  - Lv: 2
+    PowerDatas:
+    - Type: 6
+      Value: 0.2
+  - Lv: 3
+    PowerDatas:
+    - Type: 6
+      Value: 0.2
+  - Lv: 4
+    PowerDatas:
+    - Type: 6
+      Value: 0.2
+  - Lv: 5
+    PowerDatas:
+    - Type: 6
+      Value: 0.2

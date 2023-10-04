@@ -5,8 +5,10 @@ namespace ProjectSurvivor
 {
     public class DamageSystem
     {
-        public static void CalculateDamage(float baseDamage,IEnemy enemy, int maxNormalDamage = 2,float criticalDamageTimes = 3)
+        public static void CalculateDamage(float baseDamage, IEnemy enemy, int maxNormalDamage = 2, float criticalDamageTimes = 3)
         {
+            baseDamage += baseDamage * Global.DamageRate.Value;
+
             if (Random.Range(0, 1.0f) < Global.CriticalRate.Value)
             {
                 enemy.Hurt(baseDamage * Random.Range(2f, criticalDamageTimes), false, true);

@@ -12,7 +12,7 @@ namespace ProjectSurvivor
             mDefault = this;
         }
 
-        public static void Play(SpriteRenderer sprite,Color dissolveColor)
+        public static void Play(SpriteRenderer sprite, Color dissolveColor)
         {
             mDefault.EnemyDieFx.Instantiate()
                 .Position(sprite.Position())

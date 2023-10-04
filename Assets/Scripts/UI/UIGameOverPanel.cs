@@ -15,25 +15,12 @@ namespace ProjectSurvivor
             mData = uiData as UIGameOverPanelData ?? new UIGameOverPanelData();
             // please add init code here
 
-            // ActionKit 动作序列工具（时序异步）
-            // 获得全局的 Update 周期
-            ActionKit.OnUpdate.Register(() =>
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    // 关掉当前面板
-                    this.CloseSelf();
-                    // 重置数据
-                    Global.ResetData();
-                    // 加载游戏场景
-                    SceneManager.LoadScene("Game");
-                }
-
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            Time.timeScale = 0;
 
             BackToStartBtn.onClick.AddListener(() =>
             {
                 this.CloseSelf();
+                Player.Default.DestroyGameObjGracefully();
                 Global.ResetData();
                 SceneManager.LoadScene("GameStart");
             });
@@ -41,6 +28,7 @@ namespace ProjectSurvivor
             RestartGameBtn.onClick.AddListener(() =>
             {
                 this.CloseSelf();
+                Player.Default.DestroyGameObjGracefully();
                 Global.ResetData();
                 SceneManager.LoadScene("Game");
             });
