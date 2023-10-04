@@ -1306,6 +1306,7 @@ MonoBehaviour:
   RotateSword: {fileID: 264842493}
   SimpleKnife: {fileID: 2112546098}
   BasketballAbility: {fileID: 1958345238}
+  SuperBomb: {fileID: 669984524}
 --- !u!1 &286925312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 669984523}
   - component: {fileID: 669984524}
+  - component: {fileID: 669984525}
   m_Layer: 0
   m_Name: SuperBomb
   m_TagString: Untagged
@@ -2039,6 +2041,22 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/Ability
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+--- !u!114 &669984525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669984522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: SuperBomb
+  CustomComment: 
+  mComponentName: ProjectSurvivor.SuperBomb
 --- !u!4 &719772822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3266713123511298260, guid: ef0945f1cd2b1d74d8f00e72ff9ad020, type: 3}

@@ -6,8 +6,6 @@ namespace ProjectSurvivor
 {
     public partial class Basketball : ViewController
     {
-        public BindableProperty<bool> SuperBasketball = new(true);
-
         private void Start()
         {
             SelfRigidbody2D.velocity =
@@ -16,7 +14,7 @@ namespace ProjectSurvivor
                     Random.Range(Global.BasketballSpeed.Value - 2,
                     Global.BasketballSpeed.Value + 2));
 
-            SuperBasketball.RegisterWithInitValue(unlocked =>
+            Global.SuperBasketball.RegisterWithInitValue(unlocked =>
             {
                 if (unlocked)
                     this.LocalScale(3);
@@ -32,7 +30,7 @@ namespace ProjectSurvivor
                 {
                     if (hurtBox.Owner.CompareTag("Enemy"))
                     {
-                        int damageTimes = SuperBasketball.Value ? Random.Range(1, 2) + 1 : 1;
+                        int damageTimes = Global.SuperBasketball.Value ? Random.Range(1, 2) + 1 : 1;
 
                         if (Random.Range(0, 1.0f) < 0.5f)
                         {

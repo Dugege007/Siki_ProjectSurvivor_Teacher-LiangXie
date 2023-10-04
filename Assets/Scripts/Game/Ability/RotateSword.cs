@@ -8,8 +8,6 @@ namespace ProjectSurvivor
     {
         private List<Collider2D> mBigSwords = new List<Collider2D>();
 
-        public BindableProperty<bool> SuperRotateSword = new(true);
-
         private void Start()
         {
             // 开始时生成一次守卫剑
@@ -26,7 +24,7 @@ namespace ProjectSurvivor
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-            SuperRotateSword.RegisterWithInitValue(unlocked =>
+            Global.SuperRotateSword.RegisterWithInitValue(unlocked =>
             {
                 if (unlocked)
                     this.LocalScale(1.5f);
@@ -38,7 +36,7 @@ namespace ProjectSurvivor
 
         private void Update()
         {
-            float speedTimes = SuperRotateSword.Value ? 1.5f : 1;
+            float speedTimes = Global.SuperRotateSword.Value ? 1.5f : 1;
 
             float degree = Time.frameCount * Global.RotateSwordSpeed.Value * speedTimes;
 
@@ -63,7 +61,7 @@ namespace ProjectSurvivor
                             {
                                 if (hurtBox.Owner.CompareTag("Enemy"))
                                 {
-                                    int damageTimes = SuperRotateSword.Value ? 2 : 1;
+                                    int damageTimes = Global.SuperRotateSword.Value ? 2 : 1;
 
                                     if (Random.Range(0, 1.0f) < 0.5f)
                                     {
@@ -88,7 +86,7 @@ namespace ProjectSurvivor
 
         private void UpdateCirclePos()
         {
-            float rangeTimes = SuperRotateSword.Value ? 1.2f : 1;
+            float rangeTimes = Global.SuperRotateSword.Value ? 1.2f : 1;
 
             float radius = Global.RotateSwordRange.Value * rangeTimes;
             float durationDegrees = 1;

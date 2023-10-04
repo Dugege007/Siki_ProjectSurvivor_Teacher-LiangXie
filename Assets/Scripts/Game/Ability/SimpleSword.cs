@@ -7,7 +7,6 @@ namespace ProjectSurvivor
     public partial class SimpleSword : ViewController
     {
         private float mCurrentSeconds = 0;
-        public BindableProperty<bool> SuperSimpleSword = new(true);
 
         private void Update()
         {
@@ -17,9 +16,9 @@ namespace ProjectSurvivor
             {
                 mCurrentSeconds = 0;
 
-                int countTimes = SuperSimpleSword.Value ? 2 : 1;
-                int damageTimes = SuperSimpleSword.Value ? Random.Range(1, 2) + 1 : 1;
-                int rangeTimes = SuperSimpleSword.Value ? 2 : 1;
+                int countTimes = Global.SuperSimpleSword.Value ? 2 : 1;
+                int damageTimes = Global.SuperSimpleSword.Value ? Random.Range(1, 2) + 1 : 1;
+                int rangeTimes = Global.SuperSimpleSword.Value ? 2 : 1;
 
                 Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
 

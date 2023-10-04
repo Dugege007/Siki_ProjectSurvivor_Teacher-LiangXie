@@ -18,12 +18,31 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: ProjectSurvivor.SimpleSword
+      PathToRoot: SimpleSword
+      MemberName: SimpleSword
+    - TypeName: ProjectSurvivor.RotateSword
+      PathToRoot: RotateSword
+      MemberName: RotateSword
+    - TypeName: ProjectSurvivor.SimpleKnife
+      PathToRoot: SimpleKnife
+      MemberName: SimpleKnife
+    - TypeName: ProjectSurvivor.BasketballAbility
+      PathToRoot: BasketballAbility
+      MemberName: BasketballAbility
+    - TypeName: ProjectSurvivor.SuperBomb
+      PathToRoot: SuperBomb
+      MemberName: SuperBomb
     ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: SuperBomb
+    ClassName: AbilitiesController
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class SuperBomb : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class AbilitiesController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:10ed473a-e296-40af-99ad-8072ac85b80a\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class SuperBomb\r\n\t{\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:148222a6-280a-4ca7-b2e9-eadd5b20ebe0\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class AbilitiesController\r\n\t{\r\n\r\n\t\tpublic
+      ProjectSurvivor.SimpleSword SimpleSword;\r\n\r\n\t\tpublic ProjectSurvivor.RotateSword
+      RotateSword;\r\n\r\n\t\tpublic ProjectSurvivor.SimpleKnife SimpleKnife;\r\n\r\n\t\tpublic
+      ProjectSurvivor.BasketballAbility BasketballAbility;\r\n\r\n\t\tpublic ProjectSurvivor.SuperBomb
+      SuperBomb;\r\n\r\n\t}\r\n}\r\n"

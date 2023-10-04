@@ -84,6 +84,13 @@ namespace ProjectSurvivor
         // 拾取范围
         public static BindableProperty<float> CollectableAreaRange = new(Player.Default.CollectableAreaRangeConfig.InitRange);
 
+        // 超级武器 开关
+        public static BindableProperty<bool> SuperKnife = new(false);
+        public static BindableProperty<bool> SuperSimpleSword = new(false);
+        public static BindableProperty<bool> SuperRotateSword = new(false);
+        public static BindableProperty<bool> SuperBasketball = new(false);
+        public static BindableProperty<bool> SuperBomb = new(false);
+
         //public static BindableProperty<float> PowerUpPercent = new(0.5f);
         // 经验掉率
         public static BindableProperty<float> ExpPercent = new(0.4f);
@@ -223,6 +230,13 @@ namespace ProjectSurvivor
             // 拾取范围
             abilityConfig = Player.Default.CollectableAreaRangeConfig;
             CollectableAreaRange.Value = abilityConfig.InitRange;
+
+            // 超级武器 关
+            SuperSimpleSword.Value = false;
+            SuperRotateSword.Value = false;
+            SuperKnife.Value = false;
+            SuperBasketball.Value = false;
+            SuperBomb.Value = false;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }

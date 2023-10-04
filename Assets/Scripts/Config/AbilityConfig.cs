@@ -75,7 +75,7 @@ namespace ProjectSurvivor
 
         public string GetPowerUpInfo(string name)
         {
-            string info = $"{name} Lv{Lv}：\n";
+            string info = $"{name} Lv{Lv}\n";
 
             foreach (var data in PowerDatas)
             {

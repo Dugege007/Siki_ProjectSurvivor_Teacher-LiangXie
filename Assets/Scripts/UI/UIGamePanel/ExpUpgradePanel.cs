@@ -10,10 +10,12 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-    public partial class ExpUpgradePanel : UIElement,IController
+    public partial class ExpUpgradePanel : UIElement, IController
     {
         private void Awake()
         {
+            ExpUpgradeItemTempleteBtn.Hide();
+
             ExpUpgradeSystem expUpgradeSystem = this.GetSystem<ExpUpgradeSystem>();
 
             foreach (ExpUpgradeItem expUpgradeItem in expUpgradeSystem.Items)
@@ -36,9 +38,35 @@ namespace ProjectSurvivor
                         itemCache.Visible.RegisterWithInitValue(visible =>
                         {
                             if (visible)
+                            {
                                 selfCache.Show();
+
+                                Text pairInfoText = selfCache.transform.Find("PairedName").GetComponent<Text>();
+
+                                if (expUpgradeSystem.Pairs.TryGetValue(itemCache.Key, out string pairedName))
+                                {
+                                    ExpUpgradeItem pairedItem = expUpgradeSystem.ExpUpgradeDict[pairedName];
+
+                                    if (pairedItem.CurrentLevel.Value > 1 && itemCache.CurrentLevel.Value == 1)
+                                    {
+                                        pairInfoText.text = "Åä¶Ô¼¼ÄÜ\n" + pairedItem.Key;
+                                        pairInfoText.Show();
+                                    }
+                                    else
+                                    {
+                                        pairInfoText.Hide();
+                                    }
+                                }
+                                else
+                                {
+                                    pairInfoText.Hide();
+                                }
+
+                            }
                             else
+                            {
                                 selfCache.Hide();
+                            }
 
                         }).UnRegisterWhenGameObjectDestroyed(selfCache);
 

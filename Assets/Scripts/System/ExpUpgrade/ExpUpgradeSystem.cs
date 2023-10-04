@@ -9,7 +9,33 @@ namespace ProjectSurvivor
     {
         public static EasyEvent OnCoinUpgradeSystemChanged = new EasyEvent();
 
-        public List<ExpUpgradeItem> Items { get; } = new List<ExpUpgradeItem>();
+        public List<ExpUpgradeItem> Items { get; } = new();
+
+        public Dictionary<string, ExpUpgradeItem> ExpUpgradeDict = new();
+
+        public Dictionary<string, string> Pairs = new()
+        {
+            { "simple_sword", "critical_chance" },
+            { "simple_bomb", "additional_damage" },
+            { "simple_knife", "additional_fly_thing" },
+            { "basketball", "additional_movement_speed" },
+            { "rotate_sword", "additional_exp_rate" },
+            // 反向
+            { "critical_chance", "simple_sword" },
+            { "additional_damage", "simple_bomb" },
+            { "additional_fly_thing", "simple_knife" },
+            { "additional_movement_speed", "basketball" },
+            { "additional_exp_rate", "rotate_sword" },
+        };
+
+        public Dictionary<string, BindableProperty<bool>> PairedProperties = new()
+        {
+            { "simple_sword", Global.SuperSimpleSword },
+            { "simple_bomb", Global.SuperBomb },
+            { "simple_knife", Global.SuperKnife },
+            { "basketball", Global.SuperBasketball },
+            { "rotate_sword", Global.SuperRotateSword },
+        };
 
         protected override void OnInit()
         {
@@ -55,6 +81,8 @@ namespace ProjectSurvivor
             AddNewExpUpgradeItem("additional_fly_thing", Player.Default.AdditionalFlyThingCountConfig);
             // 拾取范围
             AddNewExpUpgradeItem("collectable_area_range", Player.Default.CollectableAreaRangeConfig);
+
+            ExpUpgradeDict = Items.ToDictionary(i => i.Key);
         }
 
         private void AddNewExpUpgradeItem(string key, AbilityConfig abilityConfig)
@@ -76,7 +104,7 @@ namespace ProjectSurvivor
         {
             if (lv == 1 && abilityConfig.IsWeapon)
             {
-                return $"{abilityConfig.Name} Lv1:" + "\n" + abilityConfig.Description;
+                return $"{abilityConfig.Name} Lv1" + "\n" + abilityConfig.Description;
             }
 
             for (int i = 1; i < abilityConfig.Powers.Count + 1; i++)
@@ -328,7 +356,7 @@ namespace ProjectSurvivor
             }
             else
             {
-                Debug.LogError("没有可用的升级项");
+                Debug.Log("没有可用的升级项");
                 return;
             }
         }
