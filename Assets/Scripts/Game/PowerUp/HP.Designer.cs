@@ -1,10 +1,12 @@
-// Generate Id:48dfba8e-30a5-42b9-88c9-04f369088b90
+// Generate Id:e5fcb197-b52f-4e21-8616-9dbfb15e381c
 using UnityEngine;
 
 namespace ProjectSurvivor
 {
 	public partial class HP
 	{
+
+		public UnityEngine.CircleCollider2D selfCollider2D;
 
 	}
 }

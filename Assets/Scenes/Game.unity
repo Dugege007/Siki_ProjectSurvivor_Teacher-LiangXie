@@ -1083,8 +1083,8 @@ Transform:
   - {fileID: 1427696881}
   - {fileID: 1539803053}
   - {fileID: 1332708440}
-  - {fileID: 1635432265}
   - {fileID: 773171028}
+  - {fileID: 1635432265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &228316401
@@ -2053,6 +2053,7 @@ GameObject:
   - component: {fileID: 773171031}
   - component: {fileID: 773171030}
   - component: {fileID: 773171033}
+  - component: {fileID: 773171034}
   m_Layer: 0
   m_Name: GetAllExp
   m_TagString: Untagged
@@ -2195,6 +2196,22 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/PowerUp
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  selfCollider2D: {fileID: 773171031}
+--- !u!114 &773171034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773171027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: selfCollider2D
+    Object: {fileID: 773171031}
 --- !u!4 &801198977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 713171616704606085, guid: 58be839d436fb9143a4a4531c03fb453, type: 3}
@@ -11106,6 +11123,7 @@ GameObject:
   - component: {fileID: 1332708443}
   - component: {fileID: 1332708445}
   - component: {fileID: 1332708446}
+  - component: {fileID: 1332708447}
   m_Layer: 0
   m_Name: HP
   m_TagString: Untagged
@@ -11232,6 +11250,7 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/PowerUp
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  selfCollider2D: {fileID: 1332708443}
 --- !u!114 &1332708446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11248,6 +11267,21 @@ MonoBehaviour:
   CustomComponentName: HP
   CustomComment: 
   mComponentName: ProjectSurvivor.HP
+--- !u!114 &1332708447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332708439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: selfCollider2D
+    Object: {fileID: 1332708443}
 --- !u!4 &1373615802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6709832935071173383, guid: c8e916a74beeff3408ccba27445fb1ad, type: 3}
@@ -11271,6 +11305,7 @@ GameObject:
   - component: {fileID: 1427696882}
   - component: {fileID: 1427696878}
   - component: {fileID: 1427696879}
+  - component: {fileID: 1427696883}
   m_Layer: 0
   m_Name: Exp
   m_TagString: Untagged
@@ -11295,6 +11330,7 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/PowerUp
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  selfCollider2D: {fileID: 1427696882}
 --- !u!114 &1427696879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11413,6 +11449,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &1427696883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427696877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: selfCollider2D
+    Object: {fileID: 1427696882}
 --- !u!4 &1451180195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3263902819470087034, guid: a50e088fe6adac449bfb087b964f2cd3, type: 3}
@@ -11558,6 +11609,7 @@ GameObject:
   - component: {fileID: 1539803056}
   - component: {fileID: 1539803054}
   - component: {fileID: 1539803058}
+  - component: {fileID: 1539803059}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -11700,6 +11752,22 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/PowerUp
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  selfCollider2D: {fileID: 1539803056}
+--- !u!114 &1539803059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539803052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: selfCollider2D
+    Object: {fileID: 1539803056}
 --- !u!1 &1597386331
 GameObject:
   m_ObjectHideFlags: 0

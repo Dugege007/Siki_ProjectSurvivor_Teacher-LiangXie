@@ -3,8 +3,10 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-    public partial class GetAllExp : ViewController
+    public partial class GetAllExp : GameplayObj
     {
+        protected override Collider2D Collider2D => selfCollider2D;
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.GetComponent<CollectableArea>())
