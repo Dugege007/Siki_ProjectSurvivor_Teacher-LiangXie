@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SimpleSword
   m_EditorClassIdentifier: 
   Name: "\u5251"
+  IsWeapon: 1
   Description: "\u653B\u51FB\u8EAB\u8FB9\u7684\u654C\u4EBA"
   InitDamage: 1
   InitSpeed: 2

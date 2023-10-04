@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TestAbilityConfig
   m_EditorClassIdentifier: 
   Name: "\u6D4B\u8BD5\u7528"
+  IsWeapon: 0
   Description: "\u6D4B\u8BD5\u6D4B\u8BD5\u6D4B\u8BD5"
   InitDamage: 1
   InitSpeed: 2

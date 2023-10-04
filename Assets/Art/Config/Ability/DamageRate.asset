@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DamageRate
   m_EditorClassIdentifier: 
   Name: "\u4F24\u5BB3\u9644\u52A0\u503C"
+  IsWeapon: 0
   Description: "\u9644\u52A0\u4F24\u5BB3\u63D0\u5347"
   InitDamage: 1
   InitSpeed: 2

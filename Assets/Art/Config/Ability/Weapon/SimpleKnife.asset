@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SimpleKnife
   m_EditorClassIdentifier: 
   Name: "\u98DE\u5200"
+  IsWeapon: 1
   Description: "\u5411\u6700\u8FD1\u7684\u654C\u4EBA\u63B7\u51FA\u4E00\u628A\u98DE\u5200"
   InitDamage: 5
   InitSpeed: 2

@@ -12,6 +12,7 @@ namespace ProjectSurvivor
         public AbilityConfig SimpleBombConfig;
         public AbilityConfig CriticalRateConfig;
         public AbilityConfig DamageRateConfig;
+        public AbilityConfig AdditionalFlyThingCountConfig;
 
         public static Player Default;
         public float MovementSpeed = 5f;

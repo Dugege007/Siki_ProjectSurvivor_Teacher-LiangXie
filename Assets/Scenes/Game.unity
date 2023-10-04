@@ -1104,11 +1104,11 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  Exp: {fileID: 1427696878}
   Coin: {fileID: 1539803058}
   HP: {fileID: 1332708445}
   Bomb: {fileID: 1635432261}
   GetAllExp: {fileID: 773171033}
-  Exp: {fileID: 1427696878}
 --- !u!1 &237911062
 GameObject:
   m_ObjectHideFlags: 0
@@ -11482,7 +11482,10 @@ MonoBehaviour:
   SimpleBombConfig: {fileID: 11400000, guid: 687234178889a8449aaaa63adaac8dd6, type: 2}
   CriticalRateConfig: {fileID: 11400000, guid: 4be9063363d7faa459c9ca1b86b6258d, type: 2}
   DamageRateConfig: {fileID: 11400000, guid: f731e493a2db5b744b9112df19db6e60, type: 2}
+  AdditionalFlyThingCountConfig: {fileID: 11400000, guid: f59367cb84b79dd43a36c6fdd4fc0f33, type: 2}
   MovementSpeed: 3.5
+  DissolveColor: {r: 1, g: 0, b: 0, a: 1}
+  IsDead: 0
   Sprite: {fileID: 1273691981}
   HurtBox: {fileID: 1866986365}
   HPValue: {fileID: 1885238045}

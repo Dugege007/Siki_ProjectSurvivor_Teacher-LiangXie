@@ -13,23 +13,24 @@ MonoBehaviour:
   m_Name: CriticalRate
   m_EditorClassIdentifier: 
   Name: "\u66B4\u51FB\u7387"
-  Description: "\u521D\u59CB\u66B4\u51FB\u7387\u4E3A0.05"
+  IsWeapon: 0
+  Description: "\u589E\u52A0\u66B4\u51FB\u7387"
   InitDamage: 1
   InitSpeed: 2
   InitDuration: 1.5
   InitRange: 3
   InitCount: 3
   InitAttackCount: 1
-  InitPercent: 0.05
+  InitPercent: 0
   Powers:
   - Lv: 1
     PowerDatas:
     - Type: 6
-      Value: 0.1
+      Value: 0.05
   - Lv: 2
     PowerDatas:
     - Type: 6
-      Value: 0.13
+      Value: 0.1
   - Lv: 3
     PowerDatas:
     - Type: 6
@@ -37,8 +38,8 @@ MonoBehaviour:
   - Lv: 4
     PowerDatas:
     - Type: 6
-      Value: 0.17
+      Value: 0.2
   - Lv: 5
     PowerDatas:
     - Type: 6
-      Value: 0.2
+      Value: 0.25

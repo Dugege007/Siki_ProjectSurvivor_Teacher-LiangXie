@@ -75,6 +75,8 @@ namespace ProjectSurvivor
         public static BindableProperty<float> CriticalRate = new(Player.Default.CriticalRateConfig.InitPercent);
         // 伤害附加值
         public static BindableProperty<float> DamageRate = new(Player.Default.DamageRateConfig.InitPercent);
+        // 附加飞射物
+        public static BindableProperty<int> AdditionalFlyThingCount = new(Player.Default.AdditionalFlyThingCountConfig.InitCount);
 
         /// <summary>
         /// 经验掉率
@@ -171,43 +173,46 @@ namespace ProjectSurvivor
 
             // 能力数据
             // 简单剑
-            AbilityConfig simpleSwordConfig = Player.Default.SimpleSwordConfig;
+            AbilityConfig abilityConfig = Player.Default.SimpleSwordConfig;
             SimpleSwordUnlocked.Value = false;
-            SimpleSwordDamage.Value = simpleSwordConfig.InitDamage;
-            SimpleSwordDuration.Value = simpleSwordConfig.InitDuration;
-            SimpleSwordRange.Value = simpleSwordConfig.InitRange;
-            SimpleSwordCount.Value = simpleSwordConfig.InitCount;
+            SimpleSwordDamage.Value = abilityConfig.InitDamage;
+            SimpleSwordDuration.Value = abilityConfig.InitDuration;
+            SimpleSwordRange.Value = abilityConfig.InitRange;
+            SimpleSwordCount.Value = abilityConfig.InitCount;
             // 旋转剑
-            AbilityConfig rotateSwordConfig = Player.Default.RotateSwordConfig;
+            abilityConfig = Player.Default.RotateSwordConfig;
             RotateSwordUnlocked.Value = false;
-            RotateSwordDamage.Value = rotateSwordConfig.InitDamage;
-            RotateSwordSpeed.Value = rotateSwordConfig.InitSpeed;
-            RotateSwordRange.Value = rotateSwordConfig.InitRange;
-            RotateSwordCount.Value = rotateSwordConfig.InitCount;
+            RotateSwordDamage.Value = abilityConfig.InitDamage;
+            RotateSwordSpeed.Value = abilityConfig.InitSpeed;
+            RotateSwordRange.Value = abilityConfig.InitRange;
+            RotateSwordCount.Value = abilityConfig.InitCount;
             // 飞刀
-            AbilityConfig simpleKnifeConfig = Player.Default.SimpleKnifeConfig;
+            abilityConfig = Player.Default.SimpleKnifeConfig;
             SimpleKnifeUnlocked.Value = false;
-            SimpleKnifeDamage.Value = simpleKnifeConfig.InitDamage;
-            SimpleKnifeDuration.Value = simpleKnifeConfig.InitDuration;
-            SimpleKnifeCount.Value = simpleKnifeConfig.InitCount;
-            SimpleKnifeAttackCount.Value = simpleKnifeConfig.InitAttackCount;
+            SimpleKnifeDamage.Value = abilityConfig.InitDamage;
+            SimpleKnifeDuration.Value = abilityConfig.InitDuration;
+            SimpleKnifeCount.Value = abilityConfig.InitCount;
+            SimpleKnifeAttackCount.Value = abilityConfig.InitAttackCount;
             // 篮球
-            AbilityConfig basketballConfig = Player.Default.BasketballConfig;
+            abilityConfig = Player.Default.BasketballConfig;
             BasketballUnlocked.Value = false;
-            BasketballDamage.Value = basketballConfig.InitDamage;
-            BasketballSpeed.Value = basketballConfig.InitSpeed;
-            BasketballCount.Value = basketballConfig.InitCount;
+            BasketballDamage.Value = abilityConfig.InitDamage;
+            BasketballSpeed.Value = abilityConfig.InitSpeed;
+            BasketballCount.Value = abilityConfig.InitCount;
             // 炸弹
-            AbilityConfig simpleBombConfig = Player.Default.SimpleBombConfig;
+            abilityConfig = Player.Default.SimpleBombConfig;
             SimpleBombUnlocked.Value = false;
-            SimpleBombDamage.Value = simpleBombConfig.InitDamage;
-            SimpleBombPercent.Value = simpleBombConfig.InitPercent;
+            SimpleBombDamage.Value = abilityConfig.InitDamage;
+            SimpleBombPercent.Value = abilityConfig.InitPercent;
             // 暴击率
-            AbilityConfig criticalRateConfig = Player.Default.CriticalRateConfig;
-            CriticalRate.Value = criticalRateConfig.InitPercent;
+            abilityConfig = Player.Default.CriticalRateConfig;
+            CriticalRate.Value = abilityConfig.InitPercent;
             // 伤害附加值
-            AbilityConfig damageRateConfig = Player.Default.DamageRateConfig;
-            DamageRate.Value = damageRateConfig.InitPercent;
+            abilityConfig = Player.Default.DamageRateConfig;
+            DamageRate.Value = abilityConfig.InitPercent;
+            // 附加飞射物
+            abilityConfig = Player.Default.AdditionalFlyThingCountConfig;
+            AdditionalFlyThingCount.Value = abilityConfig.InitCount;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }

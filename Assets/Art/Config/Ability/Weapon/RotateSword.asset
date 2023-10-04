@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RotateSword
   m_EditorClassIdentifier: 
   Name: "\u5B88\u536B\u5251"
+  IsWeapon: 1
   Description: "\u56F4\u7ED5\u89D2\u8272\u8EAB\u8FB9\u7684\u5251"
   InitDamage: 5
   InitSpeed: 2

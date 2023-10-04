@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SimpleBomb
   m_EditorClassIdentifier: 
   Name: "\u70B8\u5F39"
+  IsWeapon: 0
   Description: "\u653B\u51FB\u5168\u90E8\u654C\u4EBA\uFF08\u602A\u7269\u6389\u843D\uFF09"
   InitDamage: 1
   InitSpeed: 2

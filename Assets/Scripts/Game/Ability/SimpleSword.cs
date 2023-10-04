@@ -21,7 +21,7 @@ namespace ProjectSurvivor
                 foreach (Enemy enemy in enemies
                     .OrderBy(e => e.Direction2DFrom(Player.Default).magnitude)
                     .Where(e => Vector2.Distance(Player.Default.Position(), e.transform.position) <= Global.SimpleSwordRange.Value)
-                    .Take(Global.SimpleSwordCount.Value))
+                    .Take(Global.SimpleSwordCount.Value + Global.AdditionalFlyThingCount.Value))
                 // OrderBy() 从小到大排序
                 // Direction2DFrom() 获取二维向量
                 // Where() 筛选

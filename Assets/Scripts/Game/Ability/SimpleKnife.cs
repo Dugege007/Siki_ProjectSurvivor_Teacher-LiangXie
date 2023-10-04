@@ -1,6 +1,7 @@
 using UnityEngine;
 using QFramework;
 using System.Linq;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -16,54 +17,70 @@ namespace ProjectSurvivor
             {
                 mCurrentSeconds = 0;
 
-                // 获取当前存在的敌人列表
-                Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-                // 获取最近的敌人
-                Enemy enemy = enemies.OrderBy(e => Vector3.Distance(Player.Default.transform.position, e.transform.position)).FirstOrDefault();
-
-                if (enemy)
+                if (Player.Default.IsDead == false)
                 {
-                    Knife.Instantiate()
-                        .Position(this.Position())
-                        .Show()
-                        .Self(self =>
+                    // 获取当前存在的敌人列表
+                    var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
+                        .OrderBy(e => Player.Default.Distance2D(e))
+                        .Take(Global.SimpleKnifeCount.Value + Global.AdditionalFlyThingCount.Value);
+
+                    int i = 0;
+                    foreach (Enemy enemy in enemies)
+                    {
+                        if (i < 4)
                         {
-                            // 设置运动方向
-                            Rigidbody2D rigidbody2D = self.GetComponent<Rigidbody2D>();
-                            Vector3 direction = (enemy.Position() - Player.Default.Position()).normalized;
-                            rigidbody2D.velocity = direction * 10;
+                            ActionKit.DelayFrame(10 * i, () => AudioKit.PlaySound(Sfx.KNIFE)).StartGlobal();
+                            i++;
+                        }
 
-                            // 添加碰撞事件
-                            self.OnTriggerEnter2DEvent(collider =>
-                            {
-                                HurtBox hurtBox = collider.GetComponent<HurtBox>();
-                                if (hurtBox)
+                        if (enemy)
+                        {
+                            Knife.Instantiate()
+                                .Position(this.Position())
+                                .Show()
+                                .Self(self =>
                                 {
-                                    // 碰到敌人就对其造成伤害
-                                    if (hurtBox.Owner.CompareTag("Enemy"))
+                                    CircleCollider2D selfCache = self;
+
+                                    // 设置运动方向
+                                    Vector2 direction = (enemy.Position() - Player.Default.Position()).normalized;
+                                    self.transform.up = direction;
+                                    Rigidbody2D rigidbody2D = self.GetComponent<Rigidbody2D>();
+                                    rigidbody2D.velocity = direction * 10;
+
+                                    // 添加碰撞事件
+                                    self.OnTriggerEnter2DEvent(collider =>
                                     {
-                                        IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
-                                        DamageSystem.CalculateDamage(Global.SimpleKnifeDamage.Value, e);
+                                        HurtBox hurtBox = collider.GetComponent<HurtBox>();
+                                        if (hurtBox)
+                                        {
+                                            // 碰到敌人就对其造成伤害
+                                            if (hurtBox.Owner.CompareTag("Enemy"))
+                                            {
+                                                IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
+                                                DamageSystem.CalculateDamage(Global.SimpleKnifeDamage.Value, e);
 
-                                        self.DestroyGameObjGracefully();
-                                    }
-                                }
+                                                selfCache.DestroyGameObjGracefully();
+                                            }
+                                        }
 
-                            }).UnRegisterWhenGameObjectDestroyed(self);
+                                    }).UnRegisterWhenGameObjectDestroyed(self);
 
-                            // 注册距离过远销毁自身事件
-                            ActionKit.OnUpdate.Register(() =>
-                            {
-                                if (Player.Default)
-                                {
-                                    if (Vector3.Distance(Player.Default.Position(), self.Position()) > 20)
+                                    // 注册距离过远销毁自身事件
+                                    ActionKit.OnUpdate.Register(() =>
                                     {
-                                        self.DestroyGameObjGracefully();
-                                    }
-                                }
+                                        if (Player.Default)
+                                        {
+                                            if (Vector3.Distance(Player.Default.Position(), selfCache.Position()) > 20)
+                                            {
+                                                selfCache.DestroyGameObjGracefully();
+                                            }
+                                        }
 
-                            }).UnRegisterWhenGameObjectDestroyed(self);
-                        });
+                                    }).UnRegisterWhenGameObjectDestroyed(self);
+                                });
+                        }
+                    }
                 }
             }
         }

@@ -8,6 +8,7 @@ namespace ProjectSurvivor
     public class AbilityConfig : ScriptableObject
     {
         public string Name;
+        public bool IsWeapon = true;
 
         [TextArea]
         [Header("说明")]
@@ -99,7 +100,7 @@ namespace ProjectSurvivor
                         powerTypeStr = "攻击数";
                         break;
                     case PowerType.Percent:
-                        powerTypeStr = "概率/附加值";
+                        powerTypeStr = "";
                         break;
                 }
 

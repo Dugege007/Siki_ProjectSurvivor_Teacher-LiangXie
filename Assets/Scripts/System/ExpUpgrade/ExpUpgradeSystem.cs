@@ -32,24 +32,26 @@ namespace ProjectSurvivor
             Items.Clear();
 
             // 剑
-            AddNewExpUpgradeItem("simple_sword", Player.Default.SimpleSwordConfig);
+            AddNewExpUpgradeItem("simple_sword", Player.Default.SimpleSwordConfig, true);
             // 炸弹
             AddNewExpUpgradeItem("simple_bomb", Player.Default.SimpleBombConfig);
             // 飞刀
-            AddNewExpUpgradeItem("simple_knife", Player.Default.SimpleKnifeConfig);
+            AddNewExpUpgradeItem("simple_knife", Player.Default.SimpleKnifeConfig, true);
             // 守卫剑
-            AddNewExpUpgradeItem("rotate_sword", Player.Default.RotateSwordConfig);
+            AddNewExpUpgradeItem("rotate_sword", Player.Default.RotateSwordConfig, true);
             // 篮球
-            AddNewExpUpgradeItem("basketball", Player.Default.BasketballConfig);
+            AddNewExpUpgradeItem("basketball", Player.Default.BasketballConfig, true);
             // 暴击率
             AddNewExpUpgradeItem("critical_rate", Player.Default.CriticalRateConfig);
             // 伤害附加值
             AddNewExpUpgradeItem("damage_rate", Player.Default.DamageRateConfig);
+            // 附加飞射物
+            AddNewExpUpgradeItem("additional_fly_thing", Player.Default.AdditionalFlyThingCountConfig);
         }
 
-        private void AddNewExpUpgradeItem(string key, AbilityConfig abilityConfig)
+        private void AddNewExpUpgradeItem(string key, AbilityConfig abilityConfig, bool isWeapon = false)
         {
-            Add(new ExpUpgradeItem(true)
+            Add(new ExpUpgradeItem(isWeapon)
                 .WithKey(key)
                 .WithDescription(lv =>
                 {
@@ -65,9 +67,12 @@ namespace ProjectSurvivor
         private string UpgradeDiscription(int lv, AbilityConfig abilityConfig)
         {
             if (lv == 1)
-                return $"{abilityConfig.Name} Lv1:" + "\n" + abilityConfig.Description;
+            {
+                if (abilityConfig.IsWeapon)
+                    return $"{abilityConfig.Name} Lv1:" + "\n" + abilityConfig.Description;
+            }
 
-            for (int i = 2; i < abilityConfig.Powers.Count + 1; i++)
+            for (int i = 1; i < abilityConfig.Powers.Count + 1; i++)
             {
                 if (lv == i)
                     return abilityConfig.Powers[lv - 1].GetPowerUpInfo(abilityConfig.Name);
@@ -224,6 +229,19 @@ namespace ProjectSurvivor
                             {
                                 case AbilityPower.PowerType.Percent:
                                     Global.DamageRate.Value += powerData.Value;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        // 伤害附加值
+                        if (abilityConfig.Name == Player.Default.AdditionalFlyThingCountConfig.Name)
+                        {
+                            switch (powerData.Type)
+                            {
+                                case AbilityPower.PowerType.Count:
+                                    Global.AdditionalFlyThingCount.Value += (int)powerData.Value;
                                     break;
                                 default:
                                     break;
