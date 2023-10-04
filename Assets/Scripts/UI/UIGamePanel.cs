@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -96,13 +97,14 @@ namespace ProjectSurvivor
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-            
+
 
             // 用于测试的按钮
             // 加经验
             ExpUpTestBtn.onClick.AddListener(() =>
             {
-                Global.Exp.Value += 5;
+                Global.Exp.Value += 10 * (1 + Global.AdditionalExpRate.Value);
+                AudioKit.PlaySound(Sfx.GETALLEXP);
             });
 
             // 清屏
@@ -123,6 +125,7 @@ namespace ProjectSurvivor
                 CameraController.Shake();
             });
 
+            // 闪屏效果
             FlashScreen.Register(() =>
             {
                 ActionKit.Sequence()
