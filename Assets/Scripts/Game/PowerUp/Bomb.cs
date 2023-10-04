@@ -15,7 +15,7 @@ namespace ProjectSurvivor
 
                     if (enemy && enemy.gameObject.activeSelf)
                     {
-                        enemy.Hurt(enemy.HP);
+                        enemy.Hurt(Global.SimpleBombDamage.Value);
                     }
                 }
 

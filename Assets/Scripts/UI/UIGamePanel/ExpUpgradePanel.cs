@@ -51,6 +51,15 @@ namespace ProjectSurvivor
             }
         }
 
+        private void Start()
+        {
+            SkipBtn.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1.0f;
+                this.Hide();
+            });
+        }
+
         protected override void OnBeforeDestroy()
         {
         }

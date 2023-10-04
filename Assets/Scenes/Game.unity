@@ -11480,9 +11480,12 @@ MonoBehaviour:
   SimpleKnifeConfig: {fileID: 11400000, guid: afc5b6e4cb6caf142ae877fb746e6b6c, type: 2}
   BasketballConfig: {fileID: 11400000, guid: 47abd98d37af2f747a9ec3271d6297c1, type: 2}
   SimpleBombConfig: {fileID: 11400000, guid: 687234178889a8449aaaa63adaac8dd6, type: 2}
-  CriticalRateConfig: {fileID: 11400000, guid: 4be9063363d7faa459c9ca1b86b6258d, type: 2}
-  DamageRateConfig: {fileID: 11400000, guid: f731e493a2db5b744b9112df19db6e60, type: 2}
+  CriticalChanceConfig: {fileID: 11400000, guid: 4be9063363d7faa459c9ca1b86b6258d, type: 2}
+  AdditionalExpRateConfig: {fileID: 11400000, guid: b02bebdb1c1c0a247bd6b02e46fe334d, type: 2}
+  AdditionalDamageConfig: {fileID: 11400000, guid: f731e493a2db5b744b9112df19db6e60, type: 2}
+  AdditionalMovementSpeedConfig: {fileID: 11400000, guid: d63782dde954d2e41ad6532089eaf571, type: 2}
   AdditionalFlyThingCountConfig: {fileID: 11400000, guid: f59367cb84b79dd43a36c6fdd4fc0f33, type: 2}
+  CollectableAreaRangeConfig: {fileID: 11400000, guid: 8aa31714759319b438855813f5da6bb8, type: 2}
   MovementSpeed: 3.5
   DissolveColor: {r: 1, g: 0, b: 0, a: 1}
   IsDead: 0

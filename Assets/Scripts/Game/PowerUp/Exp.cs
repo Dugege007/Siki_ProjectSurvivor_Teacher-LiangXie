@@ -11,7 +11,7 @@ namespace ProjectSurvivor
             {
                 AudioKit.PlaySound("Exp");
 
-                Global.Exp.Value++;
+                Global.Exp.Value += 1 + Global.AdditionalExpRate.Value;
 
                 this.DestroyGameObjGracefully();
             }

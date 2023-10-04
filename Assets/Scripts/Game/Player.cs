@@ -10,9 +10,12 @@ namespace ProjectSurvivor
         public AbilityConfig SimpleKnifeConfig;
         public AbilityConfig BasketballConfig;
         public AbilityConfig SimpleBombConfig;
-        public AbilityConfig CriticalRateConfig;
-        public AbilityConfig DamageRateConfig;
+        public AbilityConfig CriticalChanceConfig;
+        public AbilityConfig AdditionalExpRateConfig;
+        public AbilityConfig AdditionalDamageConfig;
+        public AbilityConfig AdditionalMovementSpeedConfig;
         public AbilityConfig AdditionalFlyThingCountConfig;
+        public AbilityConfig CollectableAreaRangeConfig;
 
         public static Player Default;
         public float MovementSpeed = 5f;
@@ -85,8 +88,8 @@ namespace ProjectSurvivor
 
             float horizontal = Input.GetAxisRaw("Horizontal");  // Input.GetAxisRaw() 比较生硬的变换
             float vertical = Input.GetAxisRaw("Vertical");
-            Vector2 targetVelocity = new Vector2(horizontal, vertical).normalized * MovementSpeed;
 
+            Vector2 targetVelocity = new Vector2(horizontal, vertical).normalized * (MovementSpeed * (1 + Global.AdditionalMovementSpeed.Value)); // float 先相乘，再乘向量，这样性能更高
             SelfRigidbody2D.velocity = Vector2.Lerp(SelfRigidbody2D.velocity, targetVelocity, 1 - Mathf.Exp(-Time.deltaTime * 5));
         }
 

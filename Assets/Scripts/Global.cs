@@ -25,7 +25,7 @@ namespace ProjectSurvivor
         /// <summary>
         /// 经验值
         /// </summary>
-        public static BindableProperty<int> Exp = new(0);
+        public static BindableProperty<float> Exp = new(0);
         /// <summary>
         /// 金币
         /// </summary>
@@ -69,14 +69,20 @@ namespace ProjectSurvivor
         // 炸弹
         public static BindableProperty<bool> SimpleBombUnlocked = new(false);
         public static BindableProperty<float> SimpleBombDamage = new(Player.Default.SimpleBombConfig.InitDamage);
-        public static BindableProperty<float> SimpleBombPercent = new(Player.Default.SimpleBombConfig.InitPercent);
+        public static BindableProperty<float> SimpleBombChance = new(Player.Default.SimpleBombConfig.InitChance);
 
         // 暴击率
-        public static BindableProperty<float> CriticalRate = new(Player.Default.CriticalRateConfig.InitPercent);
-        // 伤害附加值
-        public static BindableProperty<float> DamageRate = new(Player.Default.DamageRateConfig.InitPercent);
+        public static BindableProperty<float> CriticalChance = new(Player.Default.CriticalChanceConfig.InitChance);
+        // 附加伤害值
+        public static BindableProperty<float> AdditionalDamage = new(Player.Default.AdditionalDamageConfig.InitRate);
+        // 附加移动速度
+        public static BindableProperty<float> AdditionalMovementSpeed = new(Player.Default.AdditionalMovementSpeedConfig.InitRate);
+        // 附加经验值
+        public static BindableProperty<float> AdditionalExpRate = new(Player.Default.AdditionalExpRateConfig.InitRate);
         // 附加飞射物
         public static BindableProperty<int> AdditionalFlyThingCount = new(Player.Default.AdditionalFlyThingCountConfig.InitCount);
+        // 拾取范围
+        public static BindableProperty<float> CollectableAreaRange = new(Player.Default.CollectableAreaRangeConfig.InitRange);
 
         /// <summary>
         /// 经验掉率
@@ -112,7 +118,7 @@ namespace ProjectSurvivor
             Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(CoinPercent), 0.1f);
             Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.4f);
             Global.HPPercent.Value = PlayerPrefs.GetFloat(nameof(HPPercent), 0.05f);
-            Global.SimpleBombPercent.Value = PlayerPrefs.GetFloat(nameof(SimpleBombPercent), 0.1f);
+            Global.SimpleBombChance.Value = PlayerPrefs.GetFloat(nameof(SimpleBombChance), 0.1f);
             Global.GetAllExpPercent.Value = PlayerPrefs.GetFloat(nameof(GetAllExpPercent), 0.05f);
 
             Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(MaxHP), 3);
@@ -140,9 +146,9 @@ namespace ProjectSurvivor
                 PlayerPrefs.SetFloat(nameof(HPPercent), hpPercent);
             });
 
-            Global.SimpleBombPercent.Register(bombPercent =>
+            Global.SimpleBombChance.Register(bombPercent =>
             {
-                PlayerPrefs.SetFloat(nameof(SimpleBombPercent), bombPercent);
+                PlayerPrefs.SetFloat(nameof(SimpleBombChance), bombPercent);
             });
 
             Global.GetAllExpPercent.Register(getAllExpPercent =>
@@ -203,16 +209,25 @@ namespace ProjectSurvivor
             abilityConfig = Player.Default.SimpleBombConfig;
             SimpleBombUnlocked.Value = false;
             SimpleBombDamage.Value = abilityConfig.InitDamage;
-            SimpleBombPercent.Value = abilityConfig.InitPercent;
+            SimpleBombChance.Value = abilityConfig.InitRate;
             // 暴击率
-            abilityConfig = Player.Default.CriticalRateConfig;
-            CriticalRate.Value = abilityConfig.InitPercent;
-            // 伤害附加值
-            abilityConfig = Player.Default.DamageRateConfig;
-            DamageRate.Value = abilityConfig.InitPercent;
+            abilityConfig = Player.Default.CriticalChanceConfig;
+            CriticalChance.Value = abilityConfig.InitRate;
+            // 附加伤害值
+            abilityConfig = Player.Default.AdditionalDamageConfig;
+            AdditionalDamage.Value = abilityConfig.InitChance;
+            // 附加移动速度
+            abilityConfig = Player.Default.AdditionalMovementSpeedConfig;
+            AdditionalMovementSpeed.Value = abilityConfig.InitChance;
+            // 附加经验值
+            abilityConfig = Player.Default.AdditionalExpRateConfig;
+            AdditionalExpRate.Value = abilityConfig.InitChance;
             // 附加飞射物
             abilityConfig = Player.Default.AdditionalFlyThingCountConfig;
             AdditionalFlyThingCount.Value = abilityConfig.InitCount;
+            // 拾取范围
+            abilityConfig = Player.Default.CollectableAreaRangeConfig;
+            CollectableAreaRange.Value = abilityConfig.InitRange;
 
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }
@@ -263,7 +278,7 @@ namespace ProjectSurvivor
             if (SimpleBombUnlocked.Value && !Object.FindObjectOfType<Bomb>())
             {
                 percent = Random.Range(0, 1f);
-                if (percent <= SimpleBombPercent.Value)
+                if (percent <= SimpleBombChance.Value)
                 {
                     // 掉落炸弹
                     PowerUpManager.Default.Bomb.Instantiate()

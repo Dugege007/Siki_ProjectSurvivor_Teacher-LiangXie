@@ -3,11 +3,15 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	public partial class CollectableArea : ViewController
-	{
-		void Start()
-		{
-			// Code Here
-		}
-	}
+    public partial class CollectableArea : ViewController
+    {
+        private void Start()
+        {
+            Global.CollectableAreaRange.RegisterWithInitValue(range =>
+            {
+                GetComponent<CircleCollider2D>().radius = range;
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+        }
+    }
 }

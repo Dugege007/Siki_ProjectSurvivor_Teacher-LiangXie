@@ -96,6 +96,8 @@ namespace ProjectSurvivor
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
+            
+
             // 用于测试的按钮
             // 加经验
             ExpUpTestBtn.onClick.AddListener(() =>

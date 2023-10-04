@@ -10,36 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f43542c359bd426449088506d6d6206d, type: 3}
-  m_Name: CriticalRate
+  m_Name: AdditionalMovementSpeed
   m_EditorClassIdentifier: 
-  Name: "\u66B4\u51FB\u7387"
+  Name: "\u79FB\u52A8\u901F\u5EA6"
   IsWeapon: 0
-  Description: "\u589E\u52A0\u66B4\u51FB\u7387"
+  Description: "\u589E\u52A0\u79FB\u52A8\u901F\u5EA6"
   InitDamage: 1
   InitSpeed: 2
   InitDuration: 1.5
   InitRange: 3
   InitCount: 3
   InitAttackCount: 1
-  InitPercent: 0
+  InitChance: 0.1
+  InitRate: 0
   Powers:
   - Lv: 1
     PowerDatas:
-    - Type: 6
-      Value: 0.05
+    - Type: 7
+      Value: 0.15
   - Lv: 2
     PowerDatas:
-    - Type: 6
-      Value: 0.1
+    - Type: 7
+      Value: 0.15
   - Lv: 3
     PowerDatas:
-    - Type: 6
+    - Type: 7
       Value: 0.15
   - Lv: 4
     PowerDatas:
-    - Type: 6
-      Value: 0.2
+    - Type: 7
+      Value: 0.15
   - Lv: 5
     PowerDatas:
-    - Type: 6
-      Value: 0.25
+    - Type: 7
+      Value: 0.15

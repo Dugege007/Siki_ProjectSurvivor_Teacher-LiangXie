@@ -12,11 +12,13 @@ namespace ProjectSurvivor
 	{
 		[SerializeField] public UnityEngine.UI.Button ExpUpgradeItemTempleteBtn;
 		[SerializeField] public RectTransform UpgradeRoot;
+		[SerializeField] public UnityEngine.UI.Button SkipBtn;
 
 		public void Clear()
 		{
 			ExpUpgradeItemTempleteBtn = null;
 			UpgradeRoot = null;
+			SkipBtn = null;
 		}
 
 		public override string ComponentName

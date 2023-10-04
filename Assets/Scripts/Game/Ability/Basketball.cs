@@ -21,16 +21,16 @@ namespace ProjectSurvivor
                 {
                     if (hurtBox.Owner.CompareTag("Enemy"))
                     {
-                        IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
-                        DamageSystem.CalculateDamage(Global.BasketballDamage.Value, e);
-
                         if (Random.Range(0, 1.0f) < 0.5f)
                         {
                             // »÷ÍËÐ§¹û
-                            collider.attachedRigidbody.velocity
-                            = collider.NormalizedDirection2DFrom(this) * 5
-                            + collider.NormalizedDirection2DFrom(Player.Default) * 10;
+                            collider.attachedRigidbody.AddForce(
+                                (collider.transform.position - transform.Position()).normalized * 500 +
+                                (collider.transform.position - Player.Default.Position()).normalized * 1000);
                         }
+
+                        IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
+                        DamageSystem.CalculateDamage(Global.BasketballDamage.Value, e);
                     }
                 }
 

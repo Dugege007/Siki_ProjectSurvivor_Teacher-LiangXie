@@ -8,7 +8,7 @@ namespace ProjectSurvivor
     public class AbilityConfig : ScriptableObject
     {
         public string Name;
-        public bool IsWeapon = true;
+        public bool IsWeapon;
 
         [TextArea]
         [Header("说明")]
@@ -21,7 +21,8 @@ namespace ProjectSurvivor
         public float InitRange = 3f;
         public int InitCount = 3;
         public int InitAttackCount = 1;
-        public float InitPercent = 0.1f;
+        public float InitChance = 0.1f;
+        public float InitRate = 0f;
 
         [Header("升级值（调整顺序）")]
         public List<AbilityPower> Powers = new List<AbilityPower>();
@@ -39,13 +40,14 @@ namespace ProjectSurvivor
     {
         public enum PowerType
         {
-            Damage,
-            Speed,
-            Duration,
-            Range,
-            Count,
-            AttackCount,
-            Percent,
+            Damage,         // 伤害
+            Speed,          // 速度
+            Duration,       // 持续时间、间隔
+            Range,          // 范围
+            Count,          // 数量
+            AttackCount,    // 攻击数量
+            Chance,         // 概率
+            Rate,           // 比率
         }
 
         public string Lv;
@@ -99,8 +101,11 @@ namespace ProjectSurvivor
                     case PowerType.AttackCount:
                         powerTypeStr = "攻击数";
                         break;
-                    case PowerType.Percent:
-                        powerTypeStr = "";
+                    case PowerType.Chance:
+                        powerTypeStr = "概率";
+                        break;
+                    case PowerType.Rate:
+                        powerTypeStr = "增加";
                         break;
                 }
 
@@ -114,7 +119,8 @@ namespace ProjectSurvivor
                     case PowerType.AttackCount:
                         info += $"{powerTypeStr}+{data.Value} ";
                         break;
-                    case PowerType.Percent:
+                    case PowerType.Chance:
+                    case PowerType.Rate:
                         info += powerTypeStr + "+" + (data.Value * 100).ToString("0") + "% ";
                         break;
                     default:

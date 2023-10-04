@@ -32,26 +32,34 @@ namespace ProjectSurvivor
             Items.Clear();
 
             // 剑
-            AddNewExpUpgradeItem("simple_sword", Player.Default.SimpleSwordConfig, true);
+            AddNewExpUpgradeItem("simple_sword", Player.Default.SimpleSwordConfig);
+            // 飞刀
+            AddNewExpUpgradeItem("simple_knife", Player.Default.SimpleKnifeConfig);
+            // 守卫剑
+            AddNewExpUpgradeItem("rotate_sword", Player.Default.RotateSwordConfig);
+            // 篮球
+            AddNewExpUpgradeItem("basketball", Player.Default.BasketballConfig);
+
             // 炸弹
             AddNewExpUpgradeItem("simple_bomb", Player.Default.SimpleBombConfig);
-            // 飞刀
-            AddNewExpUpgradeItem("simple_knife", Player.Default.SimpleKnifeConfig, true);
-            // 守卫剑
-            AddNewExpUpgradeItem("rotate_sword", Player.Default.RotateSwordConfig, true);
-            // 篮球
-            AddNewExpUpgradeItem("basketball", Player.Default.BasketballConfig, true);
+
             // 暴击率
-            AddNewExpUpgradeItem("critical_rate", Player.Default.CriticalRateConfig);
-            // 伤害附加值
-            AddNewExpUpgradeItem("damage_rate", Player.Default.DamageRateConfig);
+            AddNewExpUpgradeItem("critical_chance", Player.Default.CriticalChanceConfig);
+            // 附加伤害值
+            AddNewExpUpgradeItem("additional_damage", Player.Default.AdditionalDamageConfig);
+            // 附加移动速度
+            AddNewExpUpgradeItem("additional_movement_speed", Player.Default.AdditionalMovementSpeedConfig);
+            // 附加经验值
+            AddNewExpUpgradeItem("additional_exp_rate", Player.Default.AdditionalExpRateConfig);
             // 附加飞射物
             AddNewExpUpgradeItem("additional_fly_thing", Player.Default.AdditionalFlyThingCountConfig);
+            // 拾取范围
+            AddNewExpUpgradeItem("collectable_area_range", Player.Default.CollectableAreaRangeConfig);
         }
 
-        private void AddNewExpUpgradeItem(string key, AbilityConfig abilityConfig, bool isWeapon = false)
+        private void AddNewExpUpgradeItem(string key, AbilityConfig abilityConfig)
         {
-            Add(new ExpUpgradeItem(isWeapon)
+            Add(new ExpUpgradeItem(abilityConfig.IsWeapon)
                 .WithKey(key)
                 .WithDescription(lv =>
                 {
@@ -66,10 +74,9 @@ namespace ProjectSurvivor
 
         private string UpgradeDiscription(int lv, AbilityConfig abilityConfig)
         {
-            if (lv == 1)
+            if (lv == 1 && abilityConfig.IsWeapon)
             {
-                if (abilityConfig.IsWeapon)
-                    return $"{abilityConfig.Name} Lv1:" + "\n" + abilityConfig.Description;
+                return $"{abilityConfig.Name} Lv1:" + "\n" + abilityConfig.Description;
             }
 
             for (int i = 1; i < abilityConfig.Powers.Count + 1; i++)
@@ -84,7 +91,7 @@ namespace ProjectSurvivor
 
         private void UpgradePowerValue(int lv, AbilityConfig abilityConfig)
         {
-            // 解锁
+            // 解锁武器
             if (lv == 1)
             {
                 if (abilityConfig.Name == Player.Default.SimpleSwordConfig.Name)
@@ -99,7 +106,7 @@ namespace ProjectSurvivor
                     Global.BasketballUnlocked.Value = true;
             }
 
-            // 升级
+            // 升级能力
             for (int i = 1; i < abilityConfig.Powers.Count + 1; i++)
             {
                 if (lv == i)
@@ -124,22 +131,6 @@ namespace ProjectSurvivor
                                     break;
                                 case AbilityPower.PowerType.Count:
                                     Global.SimpleSwordCount.Value += (int)powerData.Value;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-
-                        // 炸弹
-                        if (abilityConfig.Name == Player.Default.SimpleBombConfig.Name)
-                        {
-                            switch (powerData.Type)
-                            {
-                                case AbilityPower.PowerType.Damage:
-                                    Global.SimpleBombDamage.Value += powerData.Value;
-                                    break;
-                                case AbilityPower.PowerType.Percent:
-                                    Global.SimpleBombPercent.Value += powerData.Value;
                                     break;
                                 default:
                                     break;
@@ -209,39 +200,94 @@ namespace ProjectSurvivor
                             }
                         }
 
+                        // 炸弹
+                        if (abilityConfig.Name == Player.Default.SimpleBombConfig.Name)
+                        {
+                            switch (powerData.Type)
+                            {
+                                case AbilityPower.PowerType.Damage:
+                                    Global.SimpleBombDamage.Value += powerData.Value;
+                                    break;
+                                case AbilityPower.PowerType.Chance:
+                                    Global.SimpleBombChance.Value += powerData.Value;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
                         // 暴击率
-                        if (abilityConfig.Name == Player.Default.CriticalRateConfig.Name)
+                        if (abilityConfig.Name == Player.Default.CriticalChanceConfig.Name)
                         {
                             switch (powerData.Type)
                             {
-                                case AbilityPower.PowerType.Percent:
-                                    Global.CriticalRate.Value += powerData.Value;
+                                case AbilityPower.PowerType.Chance:
+                                    Global.CriticalChance.Value += powerData.Value;
                                     break;
                                 default:
                                     break;
                             }
                         }
 
-                        // 伤害附加值
-                        if (abilityConfig.Name == Player.Default.DamageRateConfig.Name)
+                        // 附加伤害值
+                        if (abilityConfig.Name == Player.Default.AdditionalDamageConfig.Name)
                         {
                             switch (powerData.Type)
                             {
-                                case AbilityPower.PowerType.Percent:
-                                    Global.DamageRate.Value += powerData.Value;
+                                case AbilityPower.PowerType.Rate:
+                                    Global.AdditionalDamage.Value += powerData.Value;
                                     break;
                                 default:
                                     break;
                             }
                         }
 
-                        // 伤害附加值
+                        // 附加移动速度
+                        if (abilityConfig.Name == Player.Default.AdditionalMovementSpeedConfig.Name)
+                        {
+                            switch (powerData.Type)
+                            {
+                                case AbilityPower.PowerType.Rate:
+                                    Global.AdditionalMovementSpeed.Value += powerData.Value;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        // 附加经验值
+                        if (abilityConfig.Name == Player.Default.AdditionalExpRateConfig.Name)
+                        {
+                            switch (powerData.Type)
+                            {
+                                case AbilityPower.PowerType.Rate:
+                                    Global.AdditionalExpRate.Value += powerData.Value;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        // 附加飞射物
                         if (abilityConfig.Name == Player.Default.AdditionalFlyThingCountConfig.Name)
                         {
                             switch (powerData.Type)
                             {
                                 case AbilityPower.PowerType.Count:
                                     Global.AdditionalFlyThingCount.Value += (int)powerData.Value;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        // 拾取范围
+                        if (abilityConfig.Name == Player.Default.CollectableAreaRangeConfig.Name)
+                        {
+                            switch (powerData.Type)
+                            {
+                                case AbilityPower.PowerType.Range:
+                                    Global.CollectableAreaRange.Value += powerData.Value;
                                     break;
                                 default:
                                     break;

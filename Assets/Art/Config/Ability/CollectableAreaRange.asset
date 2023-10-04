@@ -10,36 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f43542c359bd426449088506d6d6206d, type: 3}
-  m_Name: DamageRate
+  m_Name: CollectableAreaRange
   m_EditorClassIdentifier: 
-  Name: "\u4F24\u5BB3\u9644\u52A0\u503C"
+  Name: "\u62FE\u53D6\u8303\u56F4"
   IsWeapon: 0
-  Description: "\u9644\u52A0\u4F24\u5BB3\u63D0\u5347"
+  Description: "\u589E\u52A0\u53EF\u62FE\u53D6\u7269\u54C1\u8303\u56F4"
   InitDamage: 1
   InitSpeed: 2
   InitDuration: 1.5
-  InitRange: 3
+  InitRange: 2
   InitCount: 3
   InitAttackCount: 1
-  InitPercent: 0
+  InitChance: 0.1
+  InitRate: 0
   Powers:
   - Lv: 1
     PowerDatas:
-    - Type: 6
-      Value: 0.2
+    - Type: 3
+      Value: 2
   - Lv: 2
     PowerDatas:
-    - Type: 6
-      Value: 0.2
+    - Type: 3
+      Value: 2
   - Lv: 3
     PowerDatas:
-    - Type: 6
-      Value: 0.2
-  - Lv: 4
-    PowerDatas:
-    - Type: 6
-      Value: 0.2
-  - Lv: 5
-    PowerDatas:
-    - Type: 6
-      Value: 0.2
+    - Type: 3
+      Value: 2

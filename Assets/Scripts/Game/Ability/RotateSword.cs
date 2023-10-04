@@ -53,9 +53,9 @@ namespace ProjectSurvivor
                                     if (Random.Range(0, 1.0f) < 0.5f)
                                     {
                                         // »÷ÍËÐ§¹û
-                                        collider.attachedRigidbody.velocity =
-                                            (collider.transform.position - transform.Position()).normalized * 5 +
-                                            (collider.transform.position - Player.Default.Position()).normalized * 10;
+                                        collider.attachedRigidbody.AddForce(
+                                            (collider.transform.position - transform.Position()).normalized * 500 +
+                                            (collider.transform.position - Player.Default.Position()).normalized * 1000);
                                     }
 
                                     IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
