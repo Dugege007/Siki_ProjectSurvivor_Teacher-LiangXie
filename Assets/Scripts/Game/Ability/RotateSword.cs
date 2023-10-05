@@ -36,9 +36,7 @@ namespace ProjectSurvivor
 
         private void Update()
         {
-            float speedTimes = Global.SuperRotateSword.Value ? 1.5f : 1;
-
-            float degree = Time.frameCount * Global.RotateSwordSpeed.Value * speedTimes;
+            float degree = Time.frameCount * Global.RotateSwordSpeed.Value;
 
             this.LocalEulerAnglesZ(-degree);
         }

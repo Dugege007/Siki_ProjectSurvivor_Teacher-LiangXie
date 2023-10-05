@@ -19,15 +19,23 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: UnityEngine.Tilemaps.Tilemap
-      PathToRoot: Tilemap
-      MemberName: Tilemap
+    - TypeName: UnityEngine.Animator
+      PathToRoot: Sprite
+      MemberName: Sprite
+    - TypeName: UnityEngine.CapsuleCollider2D
+      PathToRoot: HurtBox
+      MemberName: HurtBox
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Canvas/HPValue
+      MemberName: HPValue
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: RepeatTileController
+    ClassName: Player
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class RepeatTileController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Player : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:5b6ad259-131f-46cb-a7dd-2aca3cf33600\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class RepeatTileController\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.Tilemaps.Tilemap Tilemap;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:84dc9df2-c0e9-4bf2-a82f-82e0dd015ded\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class Player\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.Animator Sprite;\r\n\r\n\t\tpublic UnityEngine.CapsuleCollider2D
+      HurtBox;\r\n\r\n\t\tpublic UnityEngine.UI.Image HPValue;\r\n\r\n\t\tpublic
+      UnityEngine.Rigidbody2D SelfRigidbody2D;\r\n\r\n\t}\r\n}\r\n"

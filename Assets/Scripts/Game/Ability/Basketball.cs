@@ -17,7 +17,7 @@ namespace ProjectSurvivor
             Global.SuperBasketball.RegisterWithInitValue(unlocked =>
             {
                 if (unlocked)
-                    this.LocalScale(3);
+                    this.LocalScale(2.5f);
                 else
                     this.LocalScale(1);
 
@@ -30,7 +30,7 @@ namespace ProjectSurvivor
                 {
                     if (hurtBox.Owner.CompareTag("Enemy"))
                     {
-                        int damageTimes = Global.SuperBasketball.Value ? Random.Range(1, 2) + 1 : 1;
+                        float damageTimes = Global.SuperBasketball.Value ? Random.Range(0.5f, 1) + 1 : 1;
 
                         if (Random.Range(0, 1.0f) < 0.5f)
                         {

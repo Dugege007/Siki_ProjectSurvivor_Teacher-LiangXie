@@ -1,5 +1,6 @@
 using UnityEngine;
 using QFramework;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -21,6 +22,9 @@ namespace ProjectSurvivor
         public float MovementSpeed = 5f;
         public Color DissolveColor = Color.red;
         public bool IsDead = false;
+
+        private bool mFaceRight;
+        private AudioPlayer mWalkSfx;
 
         private void Awake()
         {
@@ -49,8 +53,6 @@ namespace ProjectSurvivor
                             SelfRigidbody2D.isKinematic = true;
 
                             AudioKit.PlaySound("Die");
-                            // 播放溶解特效
-                            FxController.Play(Sprite, DissolveColor);
                             // 打开 游戏结束面板
                             UIKit.OpenPanel<UIGameOverPanel>();
                         }
@@ -90,7 +92,42 @@ namespace ProjectSurvivor
             float vertical = Input.GetAxisRaw("Vertical");
 
             Vector2 targetVelocity = new Vector2(horizontal, vertical).normalized * (MovementSpeed * (1 + Global.AdditionalMovementSpeed.Value)); // float 先相乘，再乘向量，这样性能更高
+
+            if (horizontal > 0)
+                mFaceRight = true;
+            else if (horizontal < 0)
+                mFaceRight = false;
+
+            if (horizontal == 0 && vertical == 0)
+            {
+                if (mFaceRight)
+                    Sprite.Play("PlayerIdleRight");
+                else
+                    Sprite.Play("PlayerIdleLeft");
+
+                if (mWalkSfx != null)
+                {
+                    mWalkSfx.Stop();
+                    mWalkSfx = null;
+                }
+            }
+            else
+            {
+                if (mFaceRight)
+                    Sprite.Play("PlayerWalkRight");
+                else
+                    Sprite.Play("PlayerWalkLeft");
+
+                if (mWalkSfx == null)
+                    mWalkSfx = AudioKit.PlaySound(Sfx.WALK, true);
+            }
+
             SelfRigidbody2D.velocity = Vector2.Lerp(SelfRigidbody2D.velocity, targetVelocity, 1 - Mathf.Exp(-Time.deltaTime * 5));
+        }
+
+        public void PlayWalkSFX()
+        {
+            AudioKit.PlaySound(Sfx.WALK);
         }
 
         private void OnDestroy()

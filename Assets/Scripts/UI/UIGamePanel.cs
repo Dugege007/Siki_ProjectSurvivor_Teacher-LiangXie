@@ -102,7 +102,7 @@ namespace ProjectSurvivor
             // ¼Ó¾­Ñé
             ExpUpTestBtn.onClick.AddListener(() =>
             {
-                Global.Exp.Value += 10 * (1 + Global.AdditionalExpRate.Value);
+                Global.Exp.Value += Global.ExpToNextLevel() - Global.Exp.Value;
                 AudioKit.PlaySound(Sfx.GETALLEXP);
             });
 

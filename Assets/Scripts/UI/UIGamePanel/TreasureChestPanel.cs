@@ -30,7 +30,7 @@ namespace ProjectSurvivor
             var matchedPairedItems = expUpgradeSystem.Items.Where(item =>
             {
                 // 如果当前能力大于 7 级
-                if (item.CurrentLevel.Value >= 7)
+                if (item.CurrentLevel.Value >= 9)
                 {
                     // 字典中是否存在匹配项
                     bool containsInPair = expUpgradeSystem.Pairs.ContainsKey(item.Key);

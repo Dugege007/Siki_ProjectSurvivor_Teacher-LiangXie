@@ -17,8 +17,8 @@ namespace ProjectSurvivor
                 mCurrentSeconds = 0;
 
                 int countTimes = Global.SuperSimpleSword.Value ? 2 : 1;
-                int damageTimes = Global.SuperSimpleSword.Value ? Random.Range(1, 2) + 1 : 1;
-                int rangeTimes = Global.SuperSimpleSword.Value ? 2 : 1;
+                float damageTimes = Global.SuperSimpleSword.Value ? Random.Range(0.5f, 1) + 1 : 1;
+                float rangeTimes = Global.SuperSimpleSword.Value ? 1.5f : 1;
 
                 Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
 

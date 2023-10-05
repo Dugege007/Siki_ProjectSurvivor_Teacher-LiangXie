@@ -70,7 +70,7 @@ namespace ProjectSurvivor
                                             // 碰到敌人就对其造成伤害
                                             if (hurtBox.Owner.CompareTag("Enemy"))
                                             {
-                                                int damageTimes = Global.SuperKnife.Value ? Random.Range(1, 2) + 1 : 1;
+                                                float damageTimes = Global.SuperKnife.Value ? Random.Range(0.5f, 1) + 1 : 1;
 
                                                 IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
                                                 DamageSystem.CalculateDamage(Global.SimpleKnifeDamage.Value * damageTimes, e);

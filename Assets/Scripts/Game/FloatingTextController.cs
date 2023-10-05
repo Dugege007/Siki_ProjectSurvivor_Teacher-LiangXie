@@ -31,9 +31,7 @@ namespace ProjectSurvivor
                     textComp.text = text;
 
                     if (critical)
-                    {
                         textComp.color = Color.red;
-                    }
 
                     float positionY = position.y;
 
@@ -52,7 +50,7 @@ namespace ProjectSurvivor
 
                     }, () =>    // Lerp 完成之后的回调
                     {
-                        textTrans.DestroyGameObjGracefully();
+                        textTrans.parent.DestroyGameObjGracefully();
                         // 目前统一销毁就好，后面会进行优化
                     })
                     .Start(textComp);   // 将其生命周期 Start 绑定给 textComp

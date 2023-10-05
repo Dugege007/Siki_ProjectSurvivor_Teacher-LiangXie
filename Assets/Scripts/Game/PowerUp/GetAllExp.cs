@@ -12,6 +12,8 @@ namespace ProjectSurvivor
         {
             if (collision.GetComponent<CollectableArea>())
             {
+                Global.Exp.Value++;
+
                 foreach (var exp in FindObjectsByType<Exp>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
                 {
                     // 给 exp 注册一个 Update 事件，相当于给它挂一个任务
