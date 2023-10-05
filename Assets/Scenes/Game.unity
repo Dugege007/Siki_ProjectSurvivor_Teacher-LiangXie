@@ -867,7 +867,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
 --- !u!50 &137060744
 Rigidbody2D:
   serializedVersion: 4
@@ -2336,7 +2336,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 12e728a94037b424e8b423d1643ba8da, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11601,7 +11601,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 923d08f971ce24144b69041b387e17b6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11738,20 +11738,8 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
-  SimpleSwordConfig: {fileID: 11400000, guid: 15d18002eacaa1a4fa7fa77974adc7a3, type: 2}
-  RotateSwordConfig: {fileID: 11400000, guid: 959b8c17c147a3344a30f0466a59ae14, type: 2}
-  SimpleKnifeConfig: {fileID: 11400000, guid: afc5b6e4cb6caf142ae877fb746e6b6c, type: 2}
-  BasketballConfig: {fileID: 11400000, guid: 47abd98d37af2f747a9ec3271d6297c1, type: 2}
-  SimpleBombConfig: {fileID: 11400000, guid: 687234178889a8449aaaa63adaac8dd6, type: 2}
-  CriticalChanceConfig: {fileID: 11400000, guid: 4be9063363d7faa459c9ca1b86b6258d, type: 2}
-  AdditionalExpRateConfig: {fileID: 11400000, guid: b02bebdb1c1c0a247bd6b02e46fe334d, type: 2}
-  AdditionalDamageConfig: {fileID: 11400000, guid: f731e493a2db5b744b9112df19db6e60, type: 2}
-  AdditionalMovementSpeedConfig: {fileID: 11400000, guid: d63782dde954d2e41ad6532089eaf571, type: 2}
-  AdditionalFlyThingCountConfig: {fileID: 11400000, guid: f59367cb84b79dd43a36c6fdd4fc0f33, type: 2}
-  CollectableAreaRangeConfig: {fileID: 11400000, guid: 8aa31714759319b438855813f5da6bb8, type: 2}
   MovementSpeed: 3.5
   DissolveColor: {r: 1, g: 0, b: 0, a: 1}
-  IsDead: 0
   Sprite: {fileID: 1273691984}
   HurtBox: {fileID: 1866986367}
   HPValue: {fileID: 1885238045}
@@ -11808,6 +11796,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 526604356374149777, guid: 853edf3bb005b42409b86965487114bb, type: 3}
   m_PrefabInstance: {fileID: 9177219348751360255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1525442705
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 503177507759059083, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_Name
+      value: ConfigManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803944098127170045, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06c2592217968514aa9e34f05b7a72d7, type: 3}
 --- !u!1 &1539803052
 GameObject:
   m_ObjectHideFlags: 0
@@ -12320,6 +12365,7 @@ GameObject:
   - component: {fileID: 1635432263}
   - component: {fileID: 1635432262}
   - component: {fileID: 1635432261}
+  - component: {fileID: 1635432266}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -12344,6 +12390,7 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/PowerUp
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
+  SelfCollider2D: {fileID: 1635432263}
 --- !u!114 &1635432262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12462,6 +12509,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 228316400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1635432266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635432260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfCollider2D
+    Object: {fileID: 1635432263}
 --- !u!1 &1751320193
 GameObject:
   m_ObjectHideFlags: 0
@@ -12759,9 +12821,9 @@ MonoBehaviour:
   MarkType: 0
   CustomComponentName: HurtBox
   CustomComment: 
-  mComponentName: UnityEngine.CapsuleCollider2D
---- !u!70 &1866986367
-CapsuleCollider2D:
+  mComponentName: UnityEngine.CircleCollider2D
+--- !u!58 &1866986367
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12792,9 +12854,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &1885238043
 GameObject:
   m_ObjectHideFlags: 0
@@ -14507,3 +14569,4 @@ SceneRoots:
   - {fileID: 228316400}
   - {fileID: 1267589655}
   - {fileID: 2114890531}
+  - {fileID: 1525442705}

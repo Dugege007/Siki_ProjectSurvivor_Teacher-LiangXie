@@ -33,7 +33,8 @@ namespace ProjectSurvivor
             var matchedPairedItems = expUpgradeSystem.Items.Where(item =>
             {
                 // 如果当前能力大于 9 级，配对技能的名字不是空的
-                if (item.CurrentLevel.Value >= 9 && item.PairedName.IsNotNullAndEmpty())
+                if (item.CurrentLevel.Value >= 9)
+                //if (item.CurrentLevel.Value >= 1 && item.PairedName.IsNotNullAndEmpty())
                 {
                     // 字典中是否存在匹配项
                     bool containsInPair = expUpgradeSystem.Pairs.ContainsKey(item.Key);

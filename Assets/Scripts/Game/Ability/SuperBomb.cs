@@ -14,7 +14,7 @@ namespace ProjectSurvivor
             if (mCurrentSeconds > 15f)
             {
                 mCurrentSeconds = 0;
-                Bomb.Excute();
+                Bomb.GetExcute();
             }
         }
     }

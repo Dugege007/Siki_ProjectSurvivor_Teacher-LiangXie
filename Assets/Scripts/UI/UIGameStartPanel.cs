@@ -35,6 +35,7 @@ namespace ProjectSurvivor
             ResetUpgradeBtn.onClick.AddListener(() =>
             {
                 // 重置已升级的数据
+                Global.MaxHP.Value = 3;
                 ResetUpgrade();
             });
         }

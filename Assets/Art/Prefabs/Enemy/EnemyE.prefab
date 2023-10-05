@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1436558850023217805}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.24, z: 0}
   m_LocalScale: {x: 0.75, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142,6 +142,7 @@ MonoBehaviour:
   HP: 150
   MovementSpeed: 1.8
   DissolveColor: {r: 0, g: 0.9686275, b: 0.9960785, a: 1}
+  IsTreasureEnemy: 0
   Sprite: {fileID: 7252137463534684197}
   SelfRigidbody2D: {fileID: 4263880107364273702}
 --- !u!50 &4263880107364273702
@@ -213,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 5746863656380801775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -356,7 +357,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &8520941456019245553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +401,7 @@ Transform:
   m_GameObject: {fileID: 9200804396201113001}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

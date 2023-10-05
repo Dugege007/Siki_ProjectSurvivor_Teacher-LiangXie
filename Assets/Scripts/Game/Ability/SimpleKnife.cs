@@ -29,7 +29,7 @@ namespace ProjectSurvivor
             {
                 mCurrentSeconds = 0;
 
-                if (Player.Default.IsDead == false)
+                if (Player.Default)
                 {
                     // 获取当前存在的敌人列表
                     var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)

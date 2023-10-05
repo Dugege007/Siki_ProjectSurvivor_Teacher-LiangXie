@@ -4,7 +4,7 @@ using QAssetBundle;
 
 namespace ProjectSurvivor
 {
-    public partial class Exp : GameplayObj
+    public partial class Exp : PowerUp
     {
         protected override Collider2D Collider2D => SelfCollider2D;
 
@@ -12,12 +12,18 @@ namespace ProjectSurvivor
         {
             if (collision.GetComponent<CollectableArea>())
             {
-                AudioKit.PlaySound(Sfx.EXP);
-
-                Global.Exp.Value += 1 + Global.AdditionalExpRate.Value;
-
-                this.DestroyGameObjGracefully();
+                FlyingToPlayer = true;
             }
+        }
+
+        protected override void Excute()
+        {
+            AudioKit.PlaySound(Sfx.EXP);
+
+            Global.Exp.Value += 1 + Global.AdditionalExpRate.Value;
+
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
+            this.DestroyGameObjGracefully();
         }
     }
 }

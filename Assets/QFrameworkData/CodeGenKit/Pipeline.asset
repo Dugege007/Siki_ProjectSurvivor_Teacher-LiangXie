@@ -22,7 +22,7 @@ MonoBehaviour:
     - TypeName: UnityEngine.Animator
       PathToRoot: Sprite
       MemberName: Sprite
-    - TypeName: UnityEngine.CapsuleCollider2D
+    - TypeName: UnityEngine.CircleCollider2D
       PathToRoot: HurtBox
       MemberName: HurtBox
     - TypeName: UnityEngine.UI.Image
@@ -34,8 +34,8 @@ MonoBehaviour:
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
       partial class Player : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:84dc9df2-c0e9-4bf2-a82f-82e0dd015ded\r\nusing UnityEngine;\r\n\r\nnamespace
+    DesignerCode: "// Generate Id:3e9aca6b-fbff-48ac-acef-268753840445\r\nusing UnityEngine;\r\n\r\nnamespace
       ProjectSurvivor\r\n{\r\n\tpublic partial class Player\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.Animator Sprite;\r\n\r\n\t\tpublic UnityEngine.CapsuleCollider2D
+      UnityEngine.Animator Sprite;\r\n\r\n\t\tpublic UnityEngine.CircleCollider2D
       HurtBox;\r\n\r\n\t\tpublic UnityEngine.UI.Image HPValue;\r\n\r\n\t\tpublic
       UnityEngine.Rigidbody2D SelfRigidbody2D;\r\n\r\n\t}\r\n}\r\n"

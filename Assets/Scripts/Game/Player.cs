@@ -6,22 +6,10 @@ namespace ProjectSurvivor
 {
     public partial class Player : ViewController
     {
-        public AbilityConfig SimpleSwordConfig;
-        public AbilityConfig RotateSwordConfig;
-        public AbilityConfig SimpleKnifeConfig;
-        public AbilityConfig BasketballConfig;
-        public AbilityConfig SimpleBombConfig;
-        public AbilityConfig CriticalChanceConfig;
-        public AbilityConfig AdditionalExpRateConfig;
-        public AbilityConfig AdditionalDamageConfig;
-        public AbilityConfig AdditionalMovementSpeedConfig;
-        public AbilityConfig AdditionalFlyThingCountConfig;
-        public AbilityConfig CollectableAreaRangeConfig;
-
         public static Player Default;
         public float MovementSpeed = 5f;
         public Color DissolveColor = Color.red;
-        public bool IsDead = false;
+        //public bool IsDead = false;
 
         private bool mFaceRight;
         private AudioPlayer mWalkSfx;
@@ -33,8 +21,6 @@ namespace ProjectSurvivor
 
         private void Start()
         {
-            IsDead = false;
-
             // 为 HurtBox 添加一个事件
             HurtBox.OnTriggerEnter2DEvent(collider2D =>
             {
@@ -47,12 +33,23 @@ namespace ProjectSurvivor
                         Global.HP.Value--;
                         if (Global.HP.Value <= 0)
                         {
-                            IsDead = true;
-                            HurtBox.enabled = false;
-                            SelfRigidbody2D.velocity = Vector2.zero;
-                            SelfRigidbody2D.isKinematic = true;
+                            //IsDead = true;
+                            //HurtBox.enabled = false;
+                            //SelfRigidbody2D.velocity = Vector2.zero;
+                            //SelfRigidbody2D.isKinematic = true;
 
+                            // 关脚步声
+                            if (mWalkSfx != null)
+                            {
+                                mWalkSfx.Stop();
+                                mWalkSfx = null;
+                            }
+
+                            // 播放死亡音效
                             AudioKit.PlaySound("Die");
+                            // 销毁自身
+                            this.DestroyGameObjGracefully();
+
                             // 打开 游戏结束面板
                             UIKit.OpenPanel<UIGameOverPanel>();
                         }
@@ -85,8 +82,16 @@ namespace ProjectSurvivor
 
         private void Update()
         {
-            if (IsDead)
-                return;
+            //if (IsDead)
+            //{
+            //    if (mWalkSfx != null)
+            //    {
+            //        mWalkSfx.Stop();
+            //        mWalkSfx = null;
+            //    }
+
+            //    return;
+            //}
 
             float horizontal = Input.GetAxisRaw("Horizontal");  // Input.GetAxisRaw() 比较生硬的变换
             float vertical = Input.GetAxisRaw("Vertical");

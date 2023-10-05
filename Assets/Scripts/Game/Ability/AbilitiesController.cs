@@ -65,12 +65,6 @@ namespace ProjectSurvivor
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
-        private void Update()
-        {
-            if (Player.Default.IsDead)
-                HideAllAbilities();
-        }
-
         private void HideAllAbilities()
         {
             SimpleSword.Hide();

@@ -58,29 +58,29 @@ namespace ProjectSurvivor
             Items.Clear();
 
             // 剑
-            AddNewExpUpgradeItem("simple_sword", Player.Default.SimpleSwordConfig);
+            AddNewExpUpgradeItem("simple_sword", ConfigManager.Instance.SimpleSwordConfig);
             // 飞刀
-            AddNewExpUpgradeItem("simple_knife", Player.Default.SimpleKnifeConfig);
+            AddNewExpUpgradeItem("simple_knife", ConfigManager.Instance.SimpleKnifeConfig);
             // 守卫剑
-            AddNewExpUpgradeItem("rotate_sword", Player.Default.RotateSwordConfig);
+            AddNewExpUpgradeItem("rotate_sword", ConfigManager.Instance.RotateSwordConfig);
             // 篮球
-            AddNewExpUpgradeItem("basketball", Player.Default.BasketballConfig);
+            AddNewExpUpgradeItem("basketball", ConfigManager.Instance.BasketballConfig);
 
             // 炸弹
-            AddNewExpUpgradeItem("simple_bomb", Player.Default.SimpleBombConfig);
+            AddNewExpUpgradeItem("simple_bomb", ConfigManager.Instance.SimpleBombConfig);
 
             // 暴击率
-            AddNewExpUpgradeItem("critical_chance", Player.Default.CriticalChanceConfig);
+            AddNewExpUpgradeItem("critical_chance", ConfigManager.Instance.CriticalChanceConfig);
             // 附加伤害值
-            AddNewExpUpgradeItem("additional_damage", Player.Default.AdditionalDamageConfig);
+            AddNewExpUpgradeItem("additional_damage", ConfigManager.Instance.AdditionalDamageConfig);
             // 附加移动速度
-            AddNewExpUpgradeItem("additional_movement_speed", Player.Default.AdditionalMovementSpeedConfig);
+            AddNewExpUpgradeItem("additional_movement_speed", ConfigManager.Instance.AdditionalMovementSpeedConfig);
             // 附加经验值
-            AddNewExpUpgradeItem("additional_exp_rate", Player.Default.AdditionalExpRateConfig);
+            AddNewExpUpgradeItem("additional_exp_rate", ConfigManager.Instance.AdditionalExpRateConfig);
             // 附加飞射物
-            AddNewExpUpgradeItem("additional_fly_thing", Player.Default.AdditionalFlyThingCountConfig);
+            AddNewExpUpgradeItem("additional_fly_thing", ConfigManager.Instance.AdditionalFlyThingCountConfig);
             // 拾取范围
-            AddNewExpUpgradeItem("collectable_area_range", Player.Default.CollectableAreaRangeConfig);
+            AddNewExpUpgradeItem("collectable_area_range", ConfigManager.Instance.CollectableAreaRangeConfig);
 
             ExpUpgradeDict = Items.ToDictionary(i => i.Key);
         }
@@ -127,15 +127,15 @@ namespace ProjectSurvivor
             // 解锁武器
             if (lv == 1)
             {
-                if (abilityConfig.Name == Player.Default.SimpleSwordConfig.Name)
+                if (abilityConfig.Name == ConfigManager.Instance.SimpleSwordConfig.Name)
                     Global.SimpleSwordUnlocked.Value = true;
-                else if (abilityConfig.Name == Player.Default.SimpleBombConfig.Name)
+                else if (abilityConfig.Name == ConfigManager.Instance.SimpleBombConfig.Name)
                     Global.SimpleBombUnlocked.Value = true;
-                else if (abilityConfig.Name == Player.Default.SimpleKnifeConfig.Name)
+                else if (abilityConfig.Name == ConfigManager.Instance.SimpleKnifeConfig.Name)
                     Global.SimpleKnifeUnlocked.Value = true;
-                else if (abilityConfig.Name == Player.Default.RotateSwordConfig.Name)
+                else if (abilityConfig.Name == ConfigManager.Instance.RotateSwordConfig.Name)
                     Global.RotateSwordUnlocked.Value = true;
-                else if (abilityConfig.Name == Player.Default.BasketballConfig.Name)
+                else if (abilityConfig.Name == ConfigManager.Instance.BasketballConfig.Name)
                     Global.BasketballUnlocked.Value = true;
             }
 
@@ -149,7 +149,7 @@ namespace ProjectSurvivor
                     foreach (PowerData powerData in abilityConfig.Powers[lv - 1].PowerDatas)
                     {
                         // 剑
-                        if (abilityConfig.Name == Player.Default.SimpleSwordConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.SimpleSwordConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -171,7 +171,7 @@ namespace ProjectSurvivor
                         }
 
                         // 飞刀
-                        if (abilityConfig.Name == Player.Default.SimpleKnifeConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.SimpleKnifeConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -193,7 +193,7 @@ namespace ProjectSurvivor
                         }
 
                         // 守卫剑
-                        if (abilityConfig.Name == Player.Default.RotateSwordConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.RotateSwordConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -215,7 +215,7 @@ namespace ProjectSurvivor
                         }
 
                         // 篮球
-                        if (abilityConfig.Name == Player.Default.BasketballConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.BasketballConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -234,7 +234,7 @@ namespace ProjectSurvivor
                         }
 
                         // 炸弹
-                        if (abilityConfig.Name == Player.Default.SimpleBombConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.SimpleBombConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -250,7 +250,7 @@ namespace ProjectSurvivor
                         }
 
                         // 暴击率
-                        if (abilityConfig.Name == Player.Default.CriticalChanceConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.CriticalChanceConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -263,7 +263,7 @@ namespace ProjectSurvivor
                         }
 
                         // 附加伤害值
-                        if (abilityConfig.Name == Player.Default.AdditionalDamageConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.AdditionalDamageConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -276,7 +276,7 @@ namespace ProjectSurvivor
                         }
 
                         // 附加移动速度
-                        if (abilityConfig.Name == Player.Default.AdditionalMovementSpeedConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.AdditionalMovementSpeedConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -289,7 +289,7 @@ namespace ProjectSurvivor
                         }
 
                         // 附加经验值
-                        if (abilityConfig.Name == Player.Default.AdditionalExpRateConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.AdditionalExpRateConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -302,7 +302,7 @@ namespace ProjectSurvivor
                         }
 
                         // 附加飞射物
-                        if (abilityConfig.Name == Player.Default.AdditionalFlyThingCountConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.AdditionalFlyThingCountConfig.Name)
                         {
                             switch (powerData.Type)
                             {
@@ -315,7 +315,7 @@ namespace ProjectSurvivor
                         }
 
                         // 拾取范围
-                        if (abilityConfig.Name == Player.Default.CollectableAreaRangeConfig.Name)
+                        if (abilityConfig.Name == ConfigManager.Instance.CollectableAreaRangeConfig.Name)
                         {
                             switch (powerData.Type)
                             {

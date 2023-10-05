@@ -1,4 +1,4 @@
-// Generate Id:84dc9df2-c0e9-4bf2-a82f-82e0dd015ded
+// Generate Id:3e9aca6b-fbff-48ac-acef-268753840445
 using UnityEngine;
 
 namespace ProjectSurvivor
@@ -8,7 +8,7 @@ namespace ProjectSurvivor
 
 		public UnityEngine.Animator Sprite;
 
-		public UnityEngine.CapsuleCollider2D HurtBox;
+		public UnityEngine.CircleCollider2D HurtBox;
 
 		public UnityEngine.UI.Image HPValue;
 

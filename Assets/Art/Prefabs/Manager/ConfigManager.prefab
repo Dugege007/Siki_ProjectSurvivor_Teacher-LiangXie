@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &503177507759059083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6803944098127170045}
+  - component: {fileID: 1978801146404062053}
+  m_Layer: 0
+  m_Name: ConfigManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6803944098127170045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503177507759059083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978801146404062053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503177507759059083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2227381a376ef594e88a73e90c57ab74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleSwordConfig: {fileID: 11400000, guid: 15d18002eacaa1a4fa7fa77974adc7a3, type: 2}
+  RotateSwordConfig: {fileID: 11400000, guid: 959b8c17c147a3344a30f0466a59ae14, type: 2}
+  SimpleKnifeConfig: {fileID: 11400000, guid: afc5b6e4cb6caf142ae877fb746e6b6c, type: 2}
+  BasketballConfig: {fileID: 11400000, guid: 47abd98d37af2f747a9ec3271d6297c1, type: 2}
+  SimpleBombConfig: {fileID: 11400000, guid: 687234178889a8449aaaa63adaac8dd6, type: 2}
+  CriticalChanceConfig: {fileID: 11400000, guid: 4be9063363d7faa459c9ca1b86b6258d, type: 2}
+  AdditionalExpRateConfig: {fileID: 11400000, guid: b02bebdb1c1c0a247bd6b02e46fe334d, type: 2}
+  AdditionalDamageConfig: {fileID: 11400000, guid: f731e493a2db5b744b9112df19db6e60, type: 2}
+  AdditionalMovementSpeedConfig: {fileID: 11400000, guid: d63782dde954d2e41ad6532089eaf571, type: 2}
+  AdditionalFlyThingCountConfig: {fileID: 11400000, guid: f59367cb84b79dd43a36c6fdd4fc0f33, type: 2}
+  CollectableAreaRangeConfig: {fileID: 11400000, guid: 8aa31714759319b438855813f5da6bb8, type: 2}

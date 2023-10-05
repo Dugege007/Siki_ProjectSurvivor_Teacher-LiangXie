@@ -4,7 +4,7 @@ using QAssetBundle;
 
 namespace ProjectSurvivor
 {
-    public partial class Coin : GameplayObj
+    public partial class Coin : PowerUp
     {
         protected override Collider2D Collider2D => SelfCollider2D;
 
@@ -12,12 +12,19 @@ namespace ProjectSurvivor
         {
             if (collision.GetComponent<CollectableArea>())
             {
-                AudioKit.PlaySound(Sfx.COIN);
-                // 金币增加
-                Global.Coin.Value++;
-                // 销毁自身
-                this.DestroyGameObjGracefully();
+                FlyingToPlayer = true;
             }
+        }
+
+        protected override void Excute()
+        {
+            AudioKit.PlaySound(Sfx.COIN);
+            // 金币增加
+            Global.Coin.Value++;
+
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
+            // 销毁自身
+            this.DestroyGameObjGracefully();
         }
     }
 }

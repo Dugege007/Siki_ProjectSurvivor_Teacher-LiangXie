@@ -5,6 +5,7 @@ namespace ProjectSurvivor
 {
     public class Global : Architecture<Global>
     {
+
         protected override void Init()
         {
             // 注册模块
@@ -41,48 +42,48 @@ namespace ProjectSurvivor
 
         // 简单剑
         public static BindableProperty<bool> SimpleSwordUnlocked = new(false);
-        public static BindableProperty<float> SimpleSwordDamage = new(Player.Default.SimpleSwordConfig.InitDamage);
-        public static BindableProperty<float> SimpleSwordDuration = new(Player.Default.SimpleSwordConfig.InitDuration);
-        public static BindableProperty<float> SimpleSwordRange = new(Player.Default.SimpleSwordConfig.InitRange);
-        public static BindableProperty<int> SimpleSwordCount = new(Player.Default.SimpleSwordConfig.InitCount);
+        public static BindableProperty<float> SimpleSwordDamage = new(ConfigManager.Instance.SimpleSwordConfig.InitDamage);
+        public static BindableProperty<float> SimpleSwordDuration = new(ConfigManager.Instance.SimpleSwordConfig.InitDuration);
+        public static BindableProperty<float> SimpleSwordRange = new(ConfigManager.Instance.SimpleSwordConfig.InitRange);
+        public static BindableProperty<int> SimpleSwordCount = new(ConfigManager.Instance.SimpleSwordConfig.InitCount);
 
         // 旋转剑
         public static BindableProperty<bool> RotateSwordUnlocked = new(false);
-        public static BindableProperty<float> RotateSwordDamage = new(Player.Default.RotateSwordConfig.InitDamage);
-        public static BindableProperty<float> RotateSwordSpeed = new(Player.Default.RotateSwordConfig.InitSpeed);
-        public static BindableProperty<float> RotateSwordRange = new(Player.Default.RotateSwordConfig.InitRange);
-        public static BindableProperty<int> RotateSwordCount = new(Player.Default.RotateSwordConfig.InitCount);
+        public static BindableProperty<float> RotateSwordDamage = new(ConfigManager.Instance.RotateSwordConfig.InitDamage);
+        public static BindableProperty<float> RotateSwordSpeed = new(ConfigManager.Instance.RotateSwordConfig.InitSpeed);
+        public static BindableProperty<float> RotateSwordRange = new(ConfigManager.Instance.RotateSwordConfig.InitRange);
+        public static BindableProperty<int> RotateSwordCount = new(ConfigManager.Instance.RotateSwordConfig.InitCount);
 
         // 飞刀
         public static BindableProperty<bool> SimpleKnifeUnlocked = new(false);
-        public static BindableProperty<float> SimpleKnifeDamage = new(Player.Default.SimpleKnifeConfig.InitDamage);
-        public static BindableProperty<float> SimpleKnifeDuration = new(Player.Default.SimpleKnifeConfig.InitDuration);
-        public static BindableProperty<int> SimpleKnifeCount = new(Player.Default.SimpleKnifeConfig.InitCount);
-        public static BindableProperty<int> SimpleKnifeAttackCount = new(Player.Default.SimpleKnifeConfig.InitAttackCount);
+        public static BindableProperty<float> SimpleKnifeDamage = new(ConfigManager.Instance.SimpleKnifeConfig.InitDamage);
+        public static BindableProperty<float> SimpleKnifeDuration = new(ConfigManager.Instance.SimpleKnifeConfig.InitDuration);
+        public static BindableProperty<int> SimpleKnifeCount = new(ConfigManager.Instance.SimpleKnifeConfig.InitCount);
+        public static BindableProperty<int> SimpleKnifeAttackCount = new(ConfigManager.Instance.SimpleKnifeConfig.InitAttackCount);
 
         // 篮球
         public static BindableProperty<bool> BasketballUnlocked = new(false);
-        public static BindableProperty<float> BasketballDamage = new(Player.Default.BasketballConfig.InitDamage);
-        public static BindableProperty<float> BasketballSpeed = new(Player.Default.BasketballConfig.InitSpeed);
-        public static BindableProperty<int> BasketballCount = new(Player.Default.BasketballConfig.InitCount);
+        public static BindableProperty<float> BasketballDamage = new(ConfigManager.Instance.BasketballConfig.InitDamage);
+        public static BindableProperty<float> BasketballSpeed = new(ConfigManager.Instance.BasketballConfig.InitSpeed);
+        public static BindableProperty<int> BasketballCount = new(ConfigManager.Instance.BasketballConfig.InitCount);
 
         // 炸弹
         public static BindableProperty<bool> SimpleBombUnlocked = new(false);
-        public static BindableProperty<float> SimpleBombDamage = new(Player.Default.SimpleBombConfig.InitDamage);
-        public static BindableProperty<float> SimpleBombChance = new(Player.Default.SimpleBombConfig.InitChance);
+        public static BindableProperty<float> SimpleBombDamage = new(ConfigManager.Instance.SimpleBombConfig.InitDamage);
+        public static BindableProperty<float> SimpleBombChance = new(ConfigManager.Instance.SimpleBombConfig.InitChance);
 
         // 暴击率
-        public static BindableProperty<float> CriticalChance = new(Player.Default.CriticalChanceConfig.InitChance);
+        public static BindableProperty<float> CriticalChance = new(ConfigManager.Instance.CriticalChanceConfig.InitChance);
         // 附加伤害值
-        public static BindableProperty<float> AdditionalDamage = new(Player.Default.AdditionalDamageConfig.InitRate);
+        public static BindableProperty<float> AdditionalDamage = new(ConfigManager.Instance.AdditionalDamageConfig.InitRate);
         // 附加移动速度
-        public static BindableProperty<float> AdditionalMovementSpeed = new(Player.Default.AdditionalMovementSpeedConfig.InitRate);
+        public static BindableProperty<float> AdditionalMovementSpeed = new(ConfigManager.Instance.AdditionalMovementSpeedConfig.InitRate);
         // 附加经验值
-        public static BindableProperty<float> AdditionalExpRate = new(Player.Default.AdditionalExpRateConfig.InitRate);
+        public static BindableProperty<float> AdditionalExpRate = new(ConfigManager.Instance.AdditionalExpRateConfig.InitRate);
         // 附加飞射物
-        public static BindableProperty<int> AdditionalFlyThingCount = new(Player.Default.AdditionalFlyThingCountConfig.InitCount);
+        public static BindableProperty<int> AdditionalFlyThingCount = new(ConfigManager.Instance.AdditionalFlyThingCountConfig.InitCount);
         // 拾取范围
-        public static BindableProperty<float> CollectableAreaRange = new(Player.Default.CollectableAreaRangeConfig.InitRange);
+        public static BindableProperty<float> CollectableAreaRange = new(ConfigManager.Instance.CollectableAreaRangeConfig.InitRange);
 
         // 超级武器 开关
         public static BindableProperty<bool> SuperKnife = new(false);
@@ -181,54 +182,54 @@ namespace ProjectSurvivor
 
             // 能力数据
             // 简单剑
-            AbilityConfig abilityConfig = Player.Default.SimpleSwordConfig;
+            AbilityConfig abilityConfig = ConfigManager.Instance.SimpleSwordConfig;
             SimpleSwordUnlocked.Value = false;
             SimpleSwordDamage.Value = abilityConfig.InitDamage;
             SimpleSwordDuration.Value = abilityConfig.InitDuration;
             SimpleSwordRange.Value = abilityConfig.InitRange;
             SimpleSwordCount.Value = abilityConfig.InitCount;
             // 旋转剑
-            abilityConfig = Player.Default.RotateSwordConfig;
+            abilityConfig = ConfigManager.Instance.RotateSwordConfig;
             RotateSwordUnlocked.Value = false;
             RotateSwordDamage.Value = abilityConfig.InitDamage;
             RotateSwordSpeed.Value = abilityConfig.InitSpeed;
             RotateSwordRange.Value = abilityConfig.InitRange;
             RotateSwordCount.Value = abilityConfig.InitCount;
             // 飞刀
-            abilityConfig = Player.Default.SimpleKnifeConfig;
+            abilityConfig = ConfigManager.Instance.SimpleKnifeConfig;
             SimpleKnifeUnlocked.Value = false;
             SimpleKnifeDamage.Value = abilityConfig.InitDamage;
             SimpleKnifeDuration.Value = abilityConfig.InitDuration;
             SimpleKnifeCount.Value = abilityConfig.InitCount;
             SimpleKnifeAttackCount.Value = abilityConfig.InitAttackCount;
             // 篮球
-            abilityConfig = Player.Default.BasketballConfig;
+            abilityConfig = ConfigManager.Instance.BasketballConfig;
             BasketballUnlocked.Value = false;
             BasketballDamage.Value = abilityConfig.InitDamage;
             BasketballSpeed.Value = abilityConfig.InitSpeed;
             BasketballCount.Value = abilityConfig.InitCount;
             // 炸弹
-            abilityConfig = Player.Default.SimpleBombConfig;
+            abilityConfig = ConfigManager.Instance.SimpleBombConfig;
             SimpleBombUnlocked.Value = false;
             SimpleBombDamage.Value = abilityConfig.InitDamage;
             SimpleBombChance.Value = abilityConfig.InitRate;
             // 暴击率
-            abilityConfig = Player.Default.CriticalChanceConfig;
+            abilityConfig = ConfigManager.Instance.CriticalChanceConfig;
             CriticalChance.Value = abilityConfig.InitRate;
             // 附加伤害值
-            abilityConfig = Player.Default.AdditionalDamageConfig;
+            abilityConfig = ConfigManager.Instance.AdditionalDamageConfig;
             AdditionalDamage.Value = abilityConfig.InitChance;
             // 附加移动速度
-            abilityConfig = Player.Default.AdditionalMovementSpeedConfig;
+            abilityConfig = ConfigManager.Instance.AdditionalMovementSpeedConfig;
             AdditionalMovementSpeed.Value = abilityConfig.InitChance;
             // 附加经验值
-            abilityConfig = Player.Default.AdditionalExpRateConfig;
+            abilityConfig = ConfigManager.Instance.AdditionalExpRateConfig;
             AdditionalExpRate.Value = abilityConfig.InitChance;
             // 附加飞射物
-            abilityConfig = Player.Default.AdditionalFlyThingCountConfig;
+            abilityConfig = ConfigManager.Instance.AdditionalFlyThingCountConfig;
             AdditionalFlyThingCount.Value = abilityConfig.InitCount;
             // 拾取范围
-            abilityConfig = Player.Default.CollectableAreaRangeConfig;
+            abilityConfig = ConfigManager.Instance.CollectableAreaRangeConfig;
             CollectableAreaRange.Value = abilityConfig.InitRange;
 
             // 超级武器 关
