@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using UnityEngine.U2D;
 
 namespace ProjectSurvivor
 {
@@ -14,6 +15,13 @@ namespace ProjectSurvivor
     {
         private void Awake()
         {
+            // 获取所有资源
+            ResLoader loader = ResLoader.Allocate();
+            // 加载 Icon 的 SpriteAtlas 资源
+            SpriteAtlas iconAtlas = loader.LoadSync<SpriteAtlas>("icon");
+            // 可以根据 Sprite 的名称获取 Sprite
+            Sprite simpleKnifeIcon = iconAtlas.GetSprite("simple_knife_icon");
+
             ExpUpgradeItemTempleteBtn.Hide();
 
             ExpUpgradeSystem expUpgradeSystem = this.GetSystem<ExpUpgradeSystem>();
@@ -24,6 +32,9 @@ namespace ProjectSurvivor
                     .Self(self =>
                     {
                         ExpUpgradeItem itemCache = expUpgradeItem;
+
+                        self.transform.Find("Icon").GetComponent<Image>().sprite = simpleKnifeIcon;
+
                         self.onClick.AddListener(() =>
                         {
                             Time.timeScale = 1.0f;

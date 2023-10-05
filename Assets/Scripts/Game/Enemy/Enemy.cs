@@ -66,6 +66,8 @@ namespace ProjectSurvivor
         {
             if (mIgnoreHurt && !force) return;
 
+            Color cacheColor = Sprite.color;
+
             // 停止移动
             SelfRigidbody2D.velocity = Vector3.zero;
             // 忽略伤害
@@ -83,7 +85,7 @@ namespace ProjectSurvivor
                 // 减血
                 HP -= hurtValue;
                 // 变回白色
-                Sprite.color = Color.white;
+                Sprite.color = cacheColor;
                 // 在受伤期间不再受到伤害，避免冲突
                 mIgnoreHurt = false;
 
