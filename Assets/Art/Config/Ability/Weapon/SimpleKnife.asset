@@ -20,7 +20,7 @@ MonoBehaviour:
   InitDuration: 1.5
   InitRange: 3
   InitCount: 1
-  InitAttackCount: 1
+  InitAttackCount: 0
   InitChance: 0.1
   InitRate: 0
   Powers:
@@ -35,18 +35,16 @@ MonoBehaviour:
   - Lv: 3
     PowerDatas:
     - Type: 0
-      Value: 1
+      Value: 2
     - Type: 2
       Value: -0.1
-    - Type: 4
+    - Type: 5
       Value: 1
   - Lv: 4
     PowerDatas:
     - Type: 2
       Value: -0.1
     - Type: 4
-      Value: 1
-    - Type: 5
       Value: 1
   - Lv: 5
     PowerDatas:
@@ -85,4 +83,6 @@ MonoBehaviour:
     - Type: 0
       Value: 3
     - Type: 4
+      Value: 1
+    - Type: 5
       Value: 1

@@ -29,19 +29,19 @@ MonoBehaviour:
   - Lv: 2
     PowerDatas:
     - Type: 0
-      Value: 1
+      Value: 2
     - Type: 4
       Value: 1
   - Lv: 3
     PowerDatas:
     - Type: 0
-      Value: 2
+      Value: 1
     - Type: 1
       Value: 1
   - Lv: 4
     PowerDatas:
     - Type: 1
-      Value: 1.2
+      Value: 1
     - Type: 3
       Value: 0.5
   - Lv: 5
@@ -60,25 +60,25 @@ MonoBehaviour:
     PowerDatas:
     - Type: 0
       Value: 1
-    - Type: 4
-      Value: 1
+    - Type: 3
+      Value: 0.5
   - Lv: 8
     PowerDatas:
     - Type: 0
       Value: 2
     - Type: 1
-      Value: 1.5
-    - Type: 0
-      Value: 0.5
+      Value: 1
   - Lv: 9
     PowerDatas:
     - Type: 0
-      Value: 2
-    - Type: 4
+      Value: 3
+    - Type: 1
       Value: 1
   - Lv: 10
     PowerDatas:
     - Type: 0
       Value: 2
     - Type: 1
-      Value: 2
+      Value: 1
+    - Type: 4
+      Value: 1

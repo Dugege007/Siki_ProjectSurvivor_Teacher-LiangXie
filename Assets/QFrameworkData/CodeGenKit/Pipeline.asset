@@ -19,30 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: ProjectSurvivor.SimpleSword
-      PathToRoot: SimpleSword
-      MemberName: SimpleSword
-    - TypeName: ProjectSurvivor.RotateSword
-      PathToRoot: RotateSword
-      MemberName: RotateSword
-    - TypeName: ProjectSurvivor.SimpleKnife
-      PathToRoot: SimpleKnife
-      MemberName: SimpleKnife
-    - TypeName: ProjectSurvivor.BasketballAbility
-      PathToRoot: BasketballAbility
-      MemberName: BasketballAbility
-    - TypeName: ProjectSurvivor.SuperBomb
-      PathToRoot: SuperBomb
-      MemberName: SuperBomb
-    ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: AbilitiesController
+    - TypeName: UnityEngine.Tilemaps.Tilemap
+      PathToRoot: Tilemap
+      MemberName: Tilemap
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: RepeatTileController
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class AbilitiesController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class RepeatTileController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:148222a6-280a-4ca7-b2e9-eadd5b20ebe0\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class AbilitiesController\r\n\t{\r\n\r\n\t\tpublic
-      ProjectSurvivor.SimpleSword SimpleSword;\r\n\r\n\t\tpublic ProjectSurvivor.RotateSword
-      RotateSword;\r\n\r\n\t\tpublic ProjectSurvivor.SimpleKnife SimpleKnife;\r\n\r\n\t\tpublic
-      ProjectSurvivor.BasketballAbility BasketballAbility;\r\n\r\n\t\tpublic ProjectSurvivor.SuperBomb
-      SuperBomb;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:5b6ad259-131f-46cb-a7dd-2aca3cf33600\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class RepeatTileController\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.Tilemap Tilemap;\r\n\r\n\t}\r\n}\r\n"

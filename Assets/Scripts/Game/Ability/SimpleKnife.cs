@@ -9,11 +9,9 @@ namespace ProjectSurvivor
     {
         private float mCurrentSeconds = 0;
 
-        public BindableProperty<bool> SuperKnife = new(true);
-
         private void Start()
         {
-            SuperKnife.RegisterWithInitValue(unlocked =>
+            Global.SuperKnife.RegisterWithInitValue(unlocked =>
             {
                 if (unlocked)
                     this.LocalScale(2);
@@ -72,13 +70,13 @@ namespace ProjectSurvivor
                                             // 碰到敌人就对其造成伤害
                                             if (hurtBox.Owner.CompareTag("Enemy"))
                                             {
-                                                int damageTimes = SuperKnife.Value ? Random.Range(1, 2) + 1 : 1;
+                                                int damageTimes = Global.SuperKnife.Value ? Random.Range(1, 2) + 1 : 1;
 
                                                 IEnemy e = hurtBox.Owner.GetComponent<IEnemy>();
                                                 DamageSystem.CalculateDamage(Global.SimpleKnifeDamage.Value * damageTimes, e);
                                                 attackCount++;
 
-                                                int additionalAttackCount = SuperKnife.Value ? 3 : 0;
+                                                int additionalAttackCount = Global.SuperKnife.Value ? 3 : 0;
 
                                                 if (attackCount >= Global.SimpleKnifeAttackCount.Value + additionalAttackCount)
                                                 {
