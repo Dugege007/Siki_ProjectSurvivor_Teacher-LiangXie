@@ -15,12 +15,13 @@ MonoBehaviour:
   Name: "\u98DE\u5200"
   IsWeapon: 1
   Description: "\u5411\u6700\u8FD1\u7684\u654C\u4EBA\u63B7\u51FA\u4E00\u628A\u98DE\u5200"
+  PairedDescription: "\u653B\u51FB\u529B\u3001\u7A7F\u900F\u80FD\u529B \u5927\u5E45\u589E\u52A0"
   InitDamage: 5
   InitSpeed: 2
   InitDuration: 1.5
   InitRange: 3
   InitCount: 1
-  InitAttackCount: 0
+  InitAttackCount: 1
   InitChance: 0.1
   InitRate: 0
   Powers:

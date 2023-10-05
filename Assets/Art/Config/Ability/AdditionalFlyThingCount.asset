@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43542c359bd426449088506d6d6206d, type: 3}
   m_Name: AdditionalFlyThingCount
   m_EditorClassIdentifier: 
-  Name: "\u9644\u52A0\u98DE\u5C04\u7269"
+  Name: "+\u98DE\u5C04\u7269"
   IsWeapon: 0
   Description: "\u4E3A\u6240\u6709\u53EF\u98DE\u5C04\u7269\u4F53\u589E\u52A0\u6570\u91CF"
+  PairedDescription: 
   InitDamage: 1
   InitSpeed: 2
   InitDuration: 1.5

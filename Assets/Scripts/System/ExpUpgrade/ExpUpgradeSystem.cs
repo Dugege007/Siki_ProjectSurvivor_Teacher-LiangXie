@@ -89,6 +89,11 @@ namespace ProjectSurvivor
         {
             Add(new ExpUpgradeItem(abilityConfig.IsWeapon)
                 .WithKey(key)
+                .WithName(abilityConfig.Name)
+                .WithIconName(key + "_icon")
+                .WithPairedName("合成的" + abilityConfig.Name)
+                .WithPairedIconName("paired_" + key + "_icon")
+                .WithPairedDescription(abilityConfig.PairedDescription)
                 .WithDescription(lv =>
                 {
                     return UpgradeDiscription(lv, abilityConfig);

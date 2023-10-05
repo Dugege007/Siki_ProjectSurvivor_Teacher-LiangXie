@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43542c359bd426449088506d6d6206d, type: 3}
   m_Name: AdditionalExpRate
   m_EditorClassIdentifier: 
-  Name: "\u9644\u52A0\u7ECF\u9A8C\u503C"
+  Name: "+\u7ECF\u9A8C\u503C"
   IsWeapon: 0
   Description: "\u83B7\u5F97\u989D\u5916\u7684\u7ECF\u9A8C\u503C"
+  PairedDescription: 
   InitDamage: 1
   InitSpeed: 2
   InitDuration: 1.5

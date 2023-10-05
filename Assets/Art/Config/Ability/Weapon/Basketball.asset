@@ -15,6 +15,7 @@ MonoBehaviour:
   Name: "\u7BEE\u7403"
   IsWeapon: 1
   Description: "\u5728\u5C4F\u5E55\u5185\u53CD\u5F39\u7684\u7BEE\u7403"
+  PairedDescription: "\u653B\u51FB\u529B\u3001\u4F53\u79EF \u5927\u5E45\u589E\u52A0"
   InitDamage: 5
   InitSpeed: 10
   InitDuration: 1.5

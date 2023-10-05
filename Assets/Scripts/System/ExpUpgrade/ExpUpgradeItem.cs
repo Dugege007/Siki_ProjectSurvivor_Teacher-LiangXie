@@ -8,10 +8,16 @@ namespace ProjectSurvivor
         public bool IsWeapon = false;
         public bool UpgradeFinish { get; set; } = false;
         public string Key { get; private set; }
+        public string Name {  get; private set; }
         public string Description => mDescriptionFactory(CurrentLevel.Value);
 
         public int MaxLevel { get; private set; }
         public BindableProperty<int> CurrentLevel = new(1);
+
+        public string IconName { get; private set; }
+        public string PairedName { get; private set; }
+        public string PairedDescription {  get; private set; }
+        public string PairedIconName { get; private set; }
 
         public BindableProperty<bool> Visible = new(false);
 
@@ -35,6 +41,36 @@ namespace ProjectSurvivor
         public ExpUpgradeItem WithKey(string key)
         {
             Key = key;
+            return this;
+        }
+
+        public ExpUpgradeItem WithName(string name)
+        {
+            Name = name;
+            return this;
+        }
+
+        public ExpUpgradeItem WithIconName(string iconName)
+        {
+            IconName = iconName;
+            return this;
+        }
+
+        public ExpUpgradeItem WithPairedName(string pairedName)
+        {
+            PairedName = pairedName;
+            return this;
+        }
+
+        public ExpUpgradeItem WithPairedIconName(string pairedIconName)
+        {
+            PairedIconName = pairedIconName;
+            return this;
+        }
+
+        public ExpUpgradeItem WithPairedDescription(string pairedDescription)
+        {
+            PairedDescription = pairedDescription;
             return this;
         }
 

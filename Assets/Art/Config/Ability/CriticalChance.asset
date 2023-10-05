@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43542c359bd426449088506d6d6206d, type: 3}
   m_Name: CriticalChance
   m_EditorClassIdentifier: 
-  Name: "\u66B4\u51FB\u7387"
+  Name: "+\u66B4\u51FB\u7387"
   IsWeapon: 0
   Description: "\u589E\u52A0\u66B4\u51FB\u7387"
+  PairedDescription: 
   InitDamage: 1
   InitSpeed: 2
   InitDuration: 1.5

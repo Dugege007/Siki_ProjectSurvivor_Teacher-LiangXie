@@ -7,12 +7,16 @@ namespace ProjectSurvivor
     [CreateAssetMenu]
     public class AbilityConfig : ScriptableObject
     {
+        [Header("名称")]
         public string Name;
+        [Header("是否为武器")]
         public bool IsWeapon;
 
-        [TextArea]
         [Header("说明")]
         public string Description = string.Empty;
+
+        [Header("合成后的说明")]
+        public string PairedDescription = string.Empty;
 
         [Header("初始值")]
         public float InitDamage = 1f;

@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: c2eff336f3622df4aae50e8308ea6760, type: 3}
     m_FontSize: 24
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 48
@@ -2182,8 +2182,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExpUpgradeItemTempleteBtn: {fileID: 316290468214519452}
-  PairedName: {fileID: 6262043322560544774}
+  PairedUpgradeName: {fileID: 6262043322560544774}
+  Icon: {fileID: 5571963982490419554}
   UpgradeRoot: {fileID: 9216433843612066003}
+  Tips: {fileID: 4204828825887263657}
   SkipBtn: {fileID: 196293534331817916}
 --- !u!1 &6292622612805280238
 GameObject:

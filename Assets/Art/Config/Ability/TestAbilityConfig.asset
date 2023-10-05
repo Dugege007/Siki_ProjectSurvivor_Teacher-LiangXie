@@ -15,6 +15,7 @@ MonoBehaviour:
   Name: "\u6D4B\u8BD5\u7528"
   IsWeapon: 0
   Description: "\u6D4B\u8BD5\u6D4B\u8BD5\u6D4B\u8BD5"
+  PairedDescription: 
   InitDamage: 1
   InitSpeed: 2
   InitDuration: 1.5

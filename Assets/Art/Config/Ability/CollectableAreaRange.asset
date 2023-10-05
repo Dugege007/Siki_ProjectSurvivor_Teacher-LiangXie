@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43542c359bd426449088506d6d6206d, type: 3}
   m_Name: CollectableAreaRange
   m_EditorClassIdentifier: 
-  Name: "\u62FE\u53D6\u8303\u56F4"
+  Name: "+\u62FE\u53D6\u8303\u56F4"
   IsWeapon: 0
   Description: "\u589E\u52A0\u53EF\u62FE\u53D6\u7269\u54C1\u8303\u56F4"
+  PairedDescription: 
   InitDamage: 1
   InitSpeed: 2
   InitDuration: 1.5

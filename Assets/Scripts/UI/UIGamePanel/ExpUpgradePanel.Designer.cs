@@ -11,15 +11,19 @@ namespace ProjectSurvivor
 	public partial class ExpUpgradePanel
 	{
 		[SerializeField] public UnityEngine.UI.Button ExpUpgradeItemTempleteBtn;
-		[SerializeField] public UnityEngine.UI.Text PairedName;
+		[SerializeField] public UnityEngine.UI.Text PairedUpgradeName;
+		[SerializeField] public UnityEngine.UI.Image Icon;
 		[SerializeField] public RectTransform UpgradeRoot;
+		[SerializeField] public UnityEngine.UI.Text Tips;
 		[SerializeField] public UnityEngine.UI.Button SkipBtn;
 
 		public void Clear()
 		{
 			ExpUpgradeItemTempleteBtn = null;
-			PairedName = null;
+			PairedUpgradeName = null;
+			Icon = null;
 			UpgradeRoot = null;
+			Tips = null;
 			SkipBtn = null;
 		}
 

@@ -13,14 +13,16 @@ namespace ProjectSurvivor
 {
     public partial class ExpUpgradePanel : UIElement, IController
     {
+        private ResLoader mResLoader;
+
         private void Awake()
         {
             // 获取所有资源
-            ResLoader loader = ResLoader.Allocate();
+            mResLoader = ResLoader.Allocate();
             // 加载 Icon 的 SpriteAtlas 资源
-            SpriteAtlas iconAtlas = loader.LoadSync<SpriteAtlas>("icon");
+            SpriteAtlas iconAtlas = mResLoader.LoadSync<SpriteAtlas>("icon");
             // 可以根据 Sprite 的名称获取 Sprite
-            Sprite simpleKnifeIcon = iconAtlas.GetSprite("simple_knife_icon");
+            //Sprite simpleKnifeIcon = iconAtlas.GetSprite("simple_knife_icon");
 
             ExpUpgradeItemTempleteBtn.Hide();
 
@@ -33,7 +35,7 @@ namespace ProjectSurvivor
                     {
                         ExpUpgradeItem itemCache = expUpgradeItem;
 
-                        self.transform.Find("Icon").GetComponent<Image>().sprite = simpleKnifeIcon;
+                        self.transform.Find("Icon").GetComponent<Image>().sprite = iconAtlas.GetSprite(itemCache.IconName);
 
                         self.onClick.AddListener(() =>
                         {
@@ -50,27 +52,27 @@ namespace ProjectSurvivor
                         {
                             if (visible)
                             {
+                                self.GetComponentInChildren<Text>().text = expUpgradeItem.Description;
                                 selfCache.Show();
 
-                                Text pairInfoText = selfCache.transform.Find("PairedName").GetComponent<Text>();
-
+                                Transform pairedUpgradeName = selfCache.transform.Find("PairedUpgradeName");
                                 if (expUpgradeSystem.Pairs.TryGetValue(itemCache.Key, out string pairedName))
                                 {
                                     ExpUpgradeItem pairedItem = expUpgradeSystem.ExpUpgradeDict[pairedName];
 
                                     if (pairedItem.CurrentLevel.Value > 1 && itemCache.CurrentLevel.Value == 1)
                                     {
-                                        pairInfoText.text = "配对技能\n" + pairedItem.Key;
-                                        pairInfoText.Show();
+                                        pairedUpgradeName.transform.Find("Icon").GetComponent<Image>().sprite = iconAtlas.GetSprite(pairedItem.IconName);
+                                        pairedUpgradeName.Show();
                                     }
                                     else
                                     {
-                                        pairInfoText.Hide();
+                                        pairedUpgradeName.Hide();
                                     }
                                 }
                                 else
                                 {
-                                    pairInfoText.Hide();
+                                    pairedUpgradeName.Hide();
                                 }
 
                             }
@@ -101,6 +103,8 @@ namespace ProjectSurvivor
 
         protected override void OnBeforeDestroy()
         {
+            mResLoader.Recycle2Cache();
+            mResLoader = null;
         }
 
         public IArchitecture GetArchitecture()
