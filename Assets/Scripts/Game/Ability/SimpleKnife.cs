@@ -14,7 +14,7 @@ namespace ProjectSurvivor
             Global.SuperKnife.RegisterWithInitValue(unlocked =>
             {
                 if (unlocked)
-                    this.LocalScale(2);
+                    this.LocalScale(3);
                 else
                     this.LocalScale(1);
 

@@ -252,17 +252,22 @@ namespace ProjectSurvivor
         /// <param name="gameObject">µôÂäÎïÆ·µÄÖ÷Ìå</param>
         public static void GeneratePowerUp(GameObject gameObject, bool isTreasureEnemy)
         {
+            float percent = Random.Range(0, 1f);
             if (isTreasureEnemy)
             {
-                // µôÂä±¦Ïä
-                PowerUpManager.Default.TreasureChest.Instantiate()
-                    .Position(gameObject.Position())
-                    .Show();
+                if (percent <= 0.5f)
+                {
+                    // µôÂä±¦Ïä
+                    PowerUpManager.Default.TreasureChest
+                        .Instantiate()
+                        .Position(gameObject.Position())
+                        .Show();
 
-                return;
+                    return;
+                }
             }
 
-            float percent = Random.Range(0, 1f);
+            percent = Random.Range(0, 1f);
             if (percent <= ExpPercent.Value)
             {
                 // µôÂä¾­ÑéÖµ
@@ -322,7 +327,7 @@ namespace ProjectSurvivor
             }
 
             percent = Random.Range(0, 1f);
-            if (percent <= TreasureChestPercent.Value)
+            if (percent < TreasureChestPercent.Value && Level.Value > 9)
             {
                 // µôÂä±¦Ïä
                 PowerUpManager.Default.TreasureChest.Instantiate()

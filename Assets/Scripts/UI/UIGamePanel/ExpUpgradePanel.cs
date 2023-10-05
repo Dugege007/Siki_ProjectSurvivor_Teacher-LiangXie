@@ -63,6 +63,7 @@ namespace ProjectSurvivor
                                     if (pairedItem.CurrentLevel.Value > 1 && itemCache.CurrentLevel.Value == 1)
                                     {
                                         pairedUpgradeName.transform.Find("Icon").GetComponent<Image>().sprite = iconAtlas.GetSprite(pairedItem.IconName);
+
                                         pairedUpgradeName.Show();
                                     }
                                     else

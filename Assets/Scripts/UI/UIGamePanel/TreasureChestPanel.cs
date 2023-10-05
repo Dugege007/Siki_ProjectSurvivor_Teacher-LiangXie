@@ -7,11 +7,14 @@ using QFramework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.U2D;
 
 namespace ProjectSurvivor
 {
     public partial class TreasureChestPanel : UIElement, IController
     {
+        ResLoader mResLoader = ResLoader.Allocate();
+
         private void Awake()
         {
             OKBtn.onClick.AddListener(() =>
@@ -29,8 +32,8 @@ namespace ProjectSurvivor
 
             var matchedPairedItems = expUpgradeSystem.Items.Where(item =>
             {
-                // 如果当前能力大于 7 级
-                if (item.CurrentLevel.Value >= 9)
+                // 如果当前能力大于 9 级，配对技能的名字不是空的
+                if (item.CurrentLevel.Value >= 9 && item.PairedName.IsNotNullAndEmpty())
                 {
                     // 字典中是否存在匹配项
                     bool containsInPair = expUpgradeSystem.Pairs.ContainsKey(item.Key);
@@ -51,12 +54,17 @@ namespace ProjectSurvivor
             if (matchedPairedItems.Any())
             {
                 ExpUpgradeItem item = matchedPairedItems.ToList().GetRandomItem();
-                Content.text = "<b>" + "合成后的" + item.Key + "<b>\n";
+                Content.text = "<b>" + item.PairedName + "</b>\n" + item.PairedDescription;
 
                 while (!item.UpgradeFinish)
                 {
                     item.Upgrade();
                 }
+
+                Icon.sprite = mResLoader.LoadSync<SpriteAtlas>("icon")
+                    .GetSprite(item.PairedIconName);
+
+                Icon.Show();
 
                 expUpgradeSystem.PairedProperties[item.Key].Value = true;
             }
@@ -73,10 +81,19 @@ namespace ProjectSurvivor
                 {
                     ExpUpgradeItem item = expUpgradeItems.GetRandomItem();
                     Content.text = item.Description;
+
+                    Icon.sprite = mResLoader.LoadSync<SpriteAtlas>("icon")
+                        .GetSprite(item.IconName);
+
+                    Icon.Show();
+
+
                     item.Upgrade();
                 }
                 else
                 {
+                    Icon.Hide();
+
                     if (Random.Range(0, 1.0f) < 0.2f)
                     {
                         Content.text = "生命值和上限 + 1";
@@ -95,6 +112,8 @@ namespace ProjectSurvivor
 
         protected override void OnBeforeDestroy()
         {
+            mResLoader.Recycle2Cache();
+            mResLoader = null;
         }
 
         public IArchitecture GetArchitecture()

@@ -8,22 +8,22 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	public partial class TreasureChestPanel
+	public partial class UnlockedIconPanel
 	{
-		[SerializeField] public UnityEngine.UI.Text Content;
-		[SerializeField] public UnityEngine.UI.Button OKBtn;
-		[SerializeField] public UnityEngine.UI.Image Icon;
+		[SerializeField] public RectTransform UnlockedIconRoot;
+		[SerializeField] public UnityEngine.UI.Image UnlockedIconTemplate;
+		[SerializeField] public UnityEngine.UI.Text LevelInfoText;
 
 		public void Clear()
 		{
-			Content = null;
-			OKBtn = null;
-			Icon = null;
+			UnlockedIconRoot = null;
+			UnlockedIconTemplate = null;
+			LevelInfoText = null;
 		}
 
 		public override string ComponentName
 		{
-			get { return "TreasureChestPanel";}
+			get { return "UnlockedIconPanel";}
 		}
 	}
 }
