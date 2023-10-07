@@ -10,7 +10,7 @@ namespace ProjectSurvivor
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Player") && collision.GetComponent<HurtBox>())
+            if (collision.GetComponent<CollectableArea>())
             {
                 FlyingToPlayer = true;
             }

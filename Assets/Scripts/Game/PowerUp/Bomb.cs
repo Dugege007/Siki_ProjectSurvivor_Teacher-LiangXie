@@ -13,10 +13,6 @@ namespace ProjectSurvivor
             if (collision.GetComponent<CollectableArea>())
             {
                 FlyingToPlayer = true;
-
-                GetComponent<SpriteRenderer>().sortingOrder = 1;
-                // 销毁自身
-                this.DestroyGameObjGracefully();
             }
         }
 
@@ -32,10 +28,14 @@ namespace ProjectSurvivor
                 }
             }
 
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
             AudioKit.PlaySound(Sfx.BOMB);
             // 触发一下闪屏事件
             UIGamePanel.FlashScreen.Trigger();
             CameraController.Shake();
+
+            // 销毁自身
+            this.DestroyGameObjGracefully();
         }
 
         // 和 Excute() 代码一样，提供给外部使用

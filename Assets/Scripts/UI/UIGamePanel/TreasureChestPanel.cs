@@ -98,9 +98,8 @@ namespace ProjectSurvivor
 
                     if (Random.Range(0, 1.0f) < 0.2f)
                     {
-                        Content.text = "生命值和上限 + 1";
+                        Content.text = "生命值 + 1";
                         AudioKit.PlaySound(Sfx.HP);
-                        Global.MaxHP.Value++;
                         Global.HP.Value++;
 
                         return;

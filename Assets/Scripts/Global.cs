@@ -303,7 +303,7 @@ namespace ProjectSurvivor
             }
 
             percent = Random.Range(0, 1f);
-            if (percent <= HPPercent.Value)
+            if (percent <= HPPercent.Value && !Object.FindObjectOfType<HP>())
             {
                 // 掉落生命值
                 PowerUpManager.Default.HP.Instantiate()
@@ -329,7 +329,7 @@ namespace ProjectSurvivor
             }
 
             percent = Random.Range(0, 1f);
-            if (percent <= GetAllExpPercent.Value)
+            if (percent <= GetAllExpPercent.Value && !Object.FindObjectOfType<GetAllExp>())
             {
                 // 掉落吸收经验
                 PowerUpManager.Default.GetAllExp.Instantiate()
