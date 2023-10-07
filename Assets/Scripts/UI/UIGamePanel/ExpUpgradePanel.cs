@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using UnityEngine.U2D;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -39,6 +40,7 @@ namespace ProjectSurvivor
 
                         self.onClick.AddListener(() =>
                         {
+                            AudioKit.PlaySound(Sfx.BUTTONCLICK);
                             Time.timeScale = 1.0f;
                             itemCache.Upgrade();
                             this.Hide();
@@ -97,6 +99,7 @@ namespace ProjectSurvivor
         {
             SkipBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 Time.timeScale = 1.0f;
                 this.Hide();
             });

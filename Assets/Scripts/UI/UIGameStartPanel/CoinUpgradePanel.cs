@@ -1,6 +1,7 @@
 using UnityEngine.UI;
 using QFramework;
 using System.Linq;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -59,6 +60,7 @@ namespace ProjectSurvivor
             // ¼àÌý¹Ø±Õ°´Å¥
             CloseBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 this.Hide();
             });
         }

@@ -2,6 +2,7 @@
  * 2023.10 MSI
  ****************************************************************************/
 
+using QAssetBundle;
 using QFramework;
 using System.Linq;
 using UnityEngine;
@@ -47,6 +48,7 @@ namespace ProjectSurvivor
 
             CloseBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 this.Hide();
             });
         }

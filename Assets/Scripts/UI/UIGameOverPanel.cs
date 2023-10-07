@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using UnityEngine.SceneManagement;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -19,6 +20,7 @@ namespace ProjectSurvivor
 
             BackToStartBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 this.CloseSelf();
                 Player.Default.DestroyGameObjGracefully();
                 Global.ResetData();
@@ -27,6 +29,7 @@ namespace ProjectSurvivor
 
             RestartGameBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 this.CloseSelf();
                 Player.Default.DestroyGameObjGracefully();
                 Global.ResetData();

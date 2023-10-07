@@ -1,6 +1,7 @@
 using UnityEngine;
 using QFramework;
 using UnityEngine.SceneManagement;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -22,6 +23,7 @@ namespace ProjectSurvivor
 
             StartGameBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 this.CloseSelf();
                 // 重置数据
                 Global.ResetData();
@@ -30,16 +32,19 @@ namespace ProjectSurvivor
 
             CoinUpgradeBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 CoinUpgradePanel.Show();
             });
 
             AchievementBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 AchievementPanel.Show();
             });
 
             ResetUpgradeBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 // 重置已升级的数据
                 Global.MaxHP.Value = 3;
                 ResetUpgrade();

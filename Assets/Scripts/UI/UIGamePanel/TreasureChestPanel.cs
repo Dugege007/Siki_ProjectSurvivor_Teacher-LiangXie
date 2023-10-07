@@ -19,6 +19,7 @@ namespace ProjectSurvivor
         {
             OKBtn.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 Time.timeScale = 1.0f;
                 this.Hide();
             });

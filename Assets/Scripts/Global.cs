@@ -5,6 +5,14 @@ namespace ProjectSurvivor
 {
     public class Global : Architecture<Global>
     {
+#if UNITY_EDITOR
+        [UnityEditor.MenuItem("Tool/Clear All Data")]
+        public static void ClearAllData()
+        {
+            PlayerPrefs.DeleteAll();
+        }
+#endif
+
         protected override void Init()
         {
             // ×¢²áÄ£¿é
