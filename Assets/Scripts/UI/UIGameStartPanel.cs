@@ -12,6 +12,9 @@ namespace ProjectSurvivor
     {
         protected override void OnInit(IUIData uiData = null)
         {
+            CoinUpgradePanel.Hide();
+            AchievementPanel.Hide();
+
             mData = uiData as UIGameStartPanelData ?? new UIGameStartPanelData();
             // please add init code here
 
@@ -28,6 +31,11 @@ namespace ProjectSurvivor
             CoinUpgradeBtn.onClick.AddListener(() =>
             {
                 CoinUpgradePanel.Show();
+            });
+
+            AchievementBtn.onClick.AddListener(() =>
+            {
+                AchievementPanel.Show();
             });
 
             ResetUpgradeBtn.onClick.AddListener(() =>
@@ -68,11 +76,12 @@ namespace ProjectSurvivor
         {
             SaveSystem saveSystem = this.GetSystem<SaveSystem>();
 
-            saveSystem.SaveFloat(nameof(Global.CoinPercent), 0.1f);
+            saveSystem.SaveFloat(nameof(Global.CoinPercent), 0.05f);
             saveSystem.SaveFloat(nameof(Global.ExpPercent), 0.4f);
-            saveSystem.SaveFloat(nameof(Global.HPPercent), 0.05f);
-            saveSystem.SaveFloat(nameof(Global.SimpleBombChance), 0.1f);
-            saveSystem.SaveFloat(nameof(Global.GetAllExpPercent), 0.05f);
+            saveSystem.SaveFloat(nameof(Global.HPPercent), 0.02f);
+            saveSystem.SaveFloat(nameof(Global.SimpleBombChance), ConfigManager.Instance.SimpleBombConfig.InitChance);
+            saveSystem.SaveFloat(nameof(Global.GetAllExpPercent), 0.02f);
+            saveSystem.SaveFloat(nameof(Global.TreasureChestPercent), 0.001f);
 
             CoinUpgradeSystem coinUpgradeSystem = this.GetSystem<CoinUpgradeSystem>();
 

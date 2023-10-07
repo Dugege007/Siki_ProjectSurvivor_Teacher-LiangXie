@@ -11,6 +11,11 @@
 namespace QAssetBundle
 {
     
+    public class Icon_spriteatlasv2
+    {
+        public const string BundleName = "icon_spriteatlasv2";
+        public const string ICON = "Icon";
+    }
     public class Sfx
     {
         public const string BundleName = "sfx";

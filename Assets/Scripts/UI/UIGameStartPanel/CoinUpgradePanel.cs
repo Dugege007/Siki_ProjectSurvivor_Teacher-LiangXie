@@ -52,7 +52,7 @@ namespace ProjectSurvivor
                                 selfCache.interactable = false;
                             }
 
-                        }).UnRegisterWhenGameObjectDestroyed(self);
+                        }).UnRegisterWhenGameObjectDestroyed(selfCache);
                     });
             }
 
