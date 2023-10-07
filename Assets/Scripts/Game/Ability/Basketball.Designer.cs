@@ -6,7 +6,7 @@ namespace ProjectSurvivor
 	public partial class Basketball
 	{
 
-		public CircleCollider2D HurtBox;
+		public CircleCollider2D HitHurtBox;
 
 		public UnityEngine.Rigidbody2D SelfRigidbody2D;
 

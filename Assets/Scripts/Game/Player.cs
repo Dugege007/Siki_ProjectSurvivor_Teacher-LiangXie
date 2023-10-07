@@ -24,7 +24,7 @@ namespace ProjectSurvivor
             // 为 HurtBox 添加一个事件
             HurtBox.OnTriggerEnter2DEvent(collider2D =>
             {
-                HitBox hitBox = collider2D.GetComponent<HitBox>();
+                HitHurtBox hitBox = collider2D.GetComponent<HitHurtBox>();
 
                 if (hitBox != null)
                 {

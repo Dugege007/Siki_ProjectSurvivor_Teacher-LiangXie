@@ -23,9 +23,9 @@ namespace ProjectSurvivor
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-            HurtBox.OnTriggerEnter2DEvent(collider =>
+            HitHurtBox.OnTriggerEnter2DEvent(collider =>
             {
-                HurtBox hurtBox = collider.GetComponent<HurtBox>();
+                HitHurtBox hurtBox = collider.GetComponent<HitHurtBox>();
                 if (hurtBox)
                 {
                     if (hurtBox.Owner.CompareTag("Enemy"))

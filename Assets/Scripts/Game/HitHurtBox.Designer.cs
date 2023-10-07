@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProjectSurvivor
 {
-	public partial class HitBox
+	public partial class HitHurtBox
 	{
 
 	}

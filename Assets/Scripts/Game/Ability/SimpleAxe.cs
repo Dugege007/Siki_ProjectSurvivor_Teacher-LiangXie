@@ -27,7 +27,7 @@ namespace ProjectSurvivor
                         // 为斧头添加碰撞事件
                         self.OnTriggerEnter2DEvent(collider =>
                         {
-                            HurtBox hurtBox = collider.GetComponent<HurtBox>();
+                            HitHurtBox hurtBox = collider.GetComponent<HitHurtBox>();
                             if (hurtBox)
                             {
                                 if (hurtBox.Owner.CompareTag("Enemy"))
