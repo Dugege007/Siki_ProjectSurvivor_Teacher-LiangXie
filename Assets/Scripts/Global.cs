@@ -5,13 +5,13 @@ namespace ProjectSurvivor
 {
     public class Global : Architecture<Global>
     {
-
         protected override void Init()
         {
             // 注册模块
             this.RegisterSystem(new SaveSystem());
             this.RegisterSystem(new CoinUpgradeSystem());
             this.RegisterSystem(new ExpUpgradeSystem());
+            this.RegisterSystem(new AchievementSystem());
         }
 
         #region Model
@@ -102,7 +102,7 @@ namespace ProjectSurvivor
         // 吸收经验掉率
         public static BindableProperty<float> GetAllExpPercent = new(0.02f);
         // 宝箱掉率
-        public static BindableProperty<float> TreasureChestPercent = new(0.005f);
+        public static BindableProperty<float> TreasureChestPercent = new(0.001f);
         #endregion
 
         /// <summary>
@@ -112,6 +112,10 @@ namespace ProjectSurvivor
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
         {
+            // 设置音频播放模式为：相同音频在 10 帧内不重复播放
+            AudioKit.PlaySoundMode = AudioKit.PlaySoundModes.IgnoreSameSoundInGlobalFrames;
+            // 开始时加载一次资源
+            ResKit.Init();
             // 设置 UI
             UIKit.Root.SetResolution(1920, 1080, 0.5f);
 

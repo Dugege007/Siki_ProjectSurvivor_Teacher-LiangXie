@@ -12,67 +12,210 @@ namespace ProjectSurvivor
 
         protected override void OnInit()
         {
-            CoinUpgradeItem coinPercentLv1 = Add(new CoinUpgradeItem()
+            Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv1")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(20)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                }))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv2")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(200)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv3")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(500)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv4")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(1000)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv5")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(3000)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv6")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(5000)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv7")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(7500)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv8")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(10000)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv9")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(15000)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("exp_percent_lv10")
+                .WithDescription("经验值 掉落概率 +2%")
+                .WithPrice(20000)
+                .OnUpgrade(item =>
+                {
+                    Global.ExpPercent.Value += 0.02f;
+                    Global.Coin.Value -= item.Price;
+                })));
+
+
+            Add(new CoinUpgradeItem()
                 .WithKey("coin_percent_lv1")
-                .WithDescription("金币掉落概率提升 LV1")
-                .WithPrice(5)
+                .WithDescription("金币 掉落概率 +5%")
+                .WithPrice(100)
                 .OnUpgrade(item =>
                 {
-                    Global.CoinPercent.Value *= 0.1f;
+                    Global.CoinPercent.Value += 0.05f;
                     Global.Coin.Value -= item.Price;
-                }));
-
-            CoinUpgradeItem coinPercentLv2 = Add(new CoinUpgradeItem()
+                }))
+                .Next(Add(new CoinUpgradeItem()
                 .WithKey("coin_percent_lv2")
-                .WithDescription("金币掉落概率提升 LV2")
-                .WithPrice(7)
-                .Condition((_) => coinPercentLv1.UpgradeFinish)
+                .WithDescription("金币 掉落概率 +5%")
+                .WithPrice(600)
                 .OnUpgrade(item =>
                 {
-                    Global.CoinPercent.Value *= 0.1f;
+                    Global.CoinPercent.Value += 0.05f;
                     Global.Coin.Value -= item.Price;
-                }));
-
-            coinPercentLv1.OnChanged.Register(() =>
-            {
-                coinPercentLv2.OnChanged.Trigger();
-            });
-
-            CoinUpgradeItem coinPercentLv3 = Add(new CoinUpgradeItem()
+                })))
+                .Next(Add(new CoinUpgradeItem()
                 .WithKey("coin_percent_lv3")
-                .WithDescription("金币掉落概率提升 LV3")
-                .WithPrice(10)
-                .Condition((_) => coinPercentLv2.UpgradeFinish)
+                .WithDescription("金币 掉落概率 +5%")
+                .WithPrice(2000)
                 .OnUpgrade(item =>
                 {
-                    Global.CoinPercent.Value *= 0.1f;
+                    Global.CoinPercent.Value *= 0.05f;
                     Global.Coin.Value -= item.Price;
-                }));
-
-            coinPercentLv2.OnChanged.Register(() =>
-            {
-                coinPercentLv3.OnChanged.Trigger();
-            });
-
-            Items.Add(new CoinUpgradeItem()
-                .WithKey("exp_percent")
-                .WithDescription("经验值掉落概率提升")
-                .WithPrice(5)
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("coin_percent_lv4")
+                .WithDescription("金币 掉落概率 +5%")
+                .WithPrice(6000)
                 .OnUpgrade(item =>
                 {
-                    Global.ExpPercent.Value *= 0.1f;
+                    Global.CoinPercent.Value *= 0.05f;
                     Global.Coin.Value -= item.Price;
-                }));
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("coin_percent_lv5")
+                .WithDescription("金币 掉落概率 +5%")
+                .WithPrice(15000)
+                .OnUpgrade(item =>
+                {
+                    Global.CoinPercent.Value *= 0.05f;
+                    Global.Coin.Value -= item.Price;
+                })));
 
-            Items.Add(new CoinUpgradeItem()
-                .WithKey("max_hp")
-                .WithDescription("主角的最大血量+1")
-                .WithPrice(30)
+
+            Add(new CoinUpgradeItem()
+                .WithKey("max_hp_lv1")
+                .WithDescription("最大生命值+1")
+                .WithPrice(900)
                 .OnUpgrade(item =>
                 {
                     Global.MaxHP.Value++;
                     Global.Coin.Value -= item.Price;
-                }));
+                }))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp_lv2")
+                .WithDescription("最大生命值+1")
+                .WithPrice(2000)
+                .OnUpgrade(item =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp_lv3")
+                .WithDescription("最大生命值+1")
+                .WithPrice(5000)
+                .OnUpgrade(item =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp_lv4")
+                .WithDescription("最大生命值+1")
+                .WithPrice(12000)
+                .OnUpgrade(item =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp_lv5")
+                .WithDescription("最大生命值+1")
+                .WithPrice(25000)
+                .OnUpgrade(item =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })));
+
+
+            Add(new CoinUpgradeItem()
+                .WithKey("treasure_chest_percent_lv1")
+                .WithDescription("宝箱 掉落概率 +0.2%")
+                .WithPrice(18000)
+                .OnUpgrade(item =>
+                {
+                    Global.TreasureChestPercent.Value += 0.002f;
+                    Global.Coin.Value -= item.Price;
+                }))
+                .Next(Add(new CoinUpgradeItem()
+                .WithKey("treasure_chest_percent_lv2")
+                .WithDescription("宝箱 掉落概率 +0.2%")
+                .WithPrice(30000)
+                .OnUpgrade(item =>
+                {
+                    Global.TreasureChestPercent.Value += 0.002f;
+                    Global.Coin.Value -= item.Price;
+                })));
 
             Load();
 

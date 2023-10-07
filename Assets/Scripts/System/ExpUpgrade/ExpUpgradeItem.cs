@@ -6,7 +6,7 @@ namespace ProjectSurvivor
     public class ExpUpgradeItem
     {
         public bool IsWeapon = false;
-        public bool UpgradeFinish { get; set; } = false;
+        public bool UpgradeFinish => CurrentLevel.Value >= MaxLevel;
         public string Key { get; private set; }
         public string Name {  get; private set; }
         public string Description => mDescriptionFactory(CurrentLevel.Value);
@@ -34,8 +34,7 @@ namespace ProjectSurvivor
             mOnUpgrade?.Invoke(this, CurrentLevel.Value);
             CurrentLevel.Value++;
 
-            if (CurrentLevel.Value > MaxLevel)
-                UpgradeFinish = true;
+            ExpUpgradeSystem.CheckAllUnlockedFinish();
         }
 
         public ExpUpgradeItem WithKey(string key)

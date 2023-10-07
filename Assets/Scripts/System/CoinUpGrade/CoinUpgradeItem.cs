@@ -7,6 +7,8 @@ namespace ProjectSurvivor
     {
         public EasyEvent OnChanged = new EasyEvent();
 
+        private CoinUpgradeItem mNext = null;
+
         public bool UpgradeFinish { get; set; } = false;
         public string Key { get; private set; }
         public string Description { get; private set; }
@@ -19,8 +21,14 @@ namespace ProjectSurvivor
         {
             mOnUpgrade?.Invoke(this);
             UpgradeFinish = true;
-            OnChanged.Trigger();
+            TriggerOnChanged();
             CoinUpgradeSystem.OnCoinUpgradeSystemChanged.Trigger(); // .Trigger() 触发一下这个事件
+        }
+
+        public void TriggerOnChanged()
+        {
+            OnChanged.Trigger();
+            mNext?.TriggerOnChanged();
         }
 
         /// <summary>
@@ -68,6 +76,13 @@ namespace ProjectSurvivor
         {
             mCondition = condition;
             return this;
+        }
+
+        public CoinUpgradeItem Next(CoinUpgradeItem next)
+        {
+            mNext = next;
+            mNext.Condition(_ => UpgradeFinish);
+            return mNext;
         }
     }
 }

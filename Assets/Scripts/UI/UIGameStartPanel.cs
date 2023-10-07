@@ -1,8 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using QFramework;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Progress;
 
 namespace ProjectSurvivor
 {

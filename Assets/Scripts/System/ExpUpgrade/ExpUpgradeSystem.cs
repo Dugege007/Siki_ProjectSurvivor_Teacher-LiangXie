@@ -9,6 +9,8 @@ namespace ProjectSurvivor
     {
         public static EasyEvent OnCoinUpgradeSystemChanged = new EasyEvent();
 
+        public static bool AllUnlockedFinish = false;
+
         public List<ExpUpgradeItem> Items { get; } = new();
 
         public Dictionary<string, ExpUpgradeItem> ExpUpgradeDict = new();
@@ -118,8 +120,7 @@ namespace ProjectSurvivor
                     return abilityConfig.Powers[lv - 1].GetPowerUpInfo(abilityConfig.Name);
             }
 
-            // 不加这行会报错
-            return "未知等级";
+            return "未知等级";   // 不加这行会报错
         }
 
         private void UpgradePowerValue(int lv, AbilityConfig abilityConfig)
@@ -364,6 +365,13 @@ namespace ProjectSurvivor
                 Debug.Log("没有可用的升级项");
                 return;
             }
+        }
+
+        public static void CheckAllUnlockedFinish()
+        {
+            AllUnlockedFinish = 
+                Global.Interface.GetSystem<ExpUpgradeSystem>()
+                .Items.All(i => i.UpgradeFinish);
         }
     }
 }
