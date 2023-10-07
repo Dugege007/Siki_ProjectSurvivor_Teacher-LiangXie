@@ -16,61 +16,42 @@ namespace ProjectSurvivor
             // 找到所有的 PowerUp 包括 Exp 和 Coin
             IEnumerable<PowerUp> exps = FindObjectsByType<Exp>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             IEnumerable<PowerUp> coins = FindObjectsByType<Coin>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+            int count = 0;
             // 将他们拼接，使两种物品能自由顺序飞向玩家，而不是先飞完一种再飞另一种
-            foreach (var powerUp in exps.Concat(coins).OrderByDescending(e => e.InScreen))
+            foreach (var powerUp in exps.Concat(coins)
+                .OrderByDescending(e => e.InScreen)
+                .ThenBy(e => e.Distance2D(Player.Default)))
             {
-                
-            }
-
-            // 目前的代码还有问题
-            // 会先收集全部 Exp
-            foreach (var exp in FindObjectsByType<Exp>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
-                .OrderByDescending(e => e.InScreen))
-            {
-                if (exp.InScreen)
+                if (powerUp.InScreen)
                 {
-                    // 给 exp 注册一个 Update 事件，相当于给它挂一个任务
-                    ActionKit.OnUpdate.Register(() =>
+                    if (count > 8)
                     {
-                        Player player = Player.Default;
-                        if (player)
-                        {
-                            // 让 Exp 飞向玩家
-                            Vector3 direction = (player.Position() - exp.Position()).normalized;
-                            exp.transform.Translate(direction * 12f * Time.deltaTime);
-                        }
-
-                    }).UnRegisterWhenGameObjectDestroyed(exp);
+                        count = 0;
+                        yield return new WaitForEndOfFrame();
+                    }
                 }
                 else
                 {
-                    yield return new WaitForEndOfFrame();
-                }
-            }
-
-            // 再收集 Coin
-            foreach (var coin in FindObjectsByType<Coin>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
-                .OrderByDescending(e => e.InScreen))
-            {
-                if (coin.InScreen)
-                {
-                    // 给 Coin 注册一个 Update 事件，相当于给它挂一个任务
-                    ActionKit.OnUpdate.Register(() =>
+                    if (count > 2)
                     {
-                        Player player = Player.Default;
-                        if (player)
-                        {
-                            // 让 Coin 飞向玩家
-                            Vector3 direction = (player.Position() - coin.Position()).normalized;
-                            coin.transform.Translate(direction * 8f * Time.deltaTime);
-                        }
+                        count = 0;
+                        yield return new WaitForEndOfFrame();
+                    }
+                }
 
-                    }).UnRegisterWhenGameObjectDestroyed(coin);
-                }
-                else
+                count++;
+                ActionKit.OnUpdate.Register(() =>
                 {
-                    yield return new WaitForEndOfFrame();
-                }
+                    Player player = Player.Default;
+                    if (player)
+                    {
+                        // 让 Exp 飞向玩家
+                        Vector3 direction = (player.Position() - powerUp.Position()).normalized;
+                        powerUp.transform.Translate(direction * 12f * Time.deltaTime);
+                    }
+
+                }).UnRegisterWhenGameObjectDestroyed(powerUp);
             }
         }
 
