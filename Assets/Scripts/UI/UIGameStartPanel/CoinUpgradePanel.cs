@@ -11,6 +11,13 @@ namespace ProjectSurvivor
         {
             CoinUpgradeItemTempleteBtn.Hide();
 
+            // 注册监听金币 UI 变更
+            Global.Coin.RegisterWithInitValue(coin =>
+            {
+                CoinText.text = "金币：" + coin;
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
             foreach (CoinUpgradeItem coinUpgradeItem in this.GetSystem<CoinUpgradeSystem>().Items.Where(item => item.UpgradeFinish == false))
             {
                 CoinUpgradeItemTempleteBtn.InstantiateWithParent(CoinUpgradeItemRoot)
@@ -39,21 +46,15 @@ namespace ProjectSurvivor
                         else
                             selfCache.Hide();
 
-                        // 注册监听金币变更
+                        // 注册监听金币变更，决定是否解锁按键
                         Global.Coin.RegisterWithInitValue(coin =>
                         {
-                            CoinText.text = "金币：" + coin;
-
                             if (coin >= itemCache.Price)
-                            {
                                 selfCache.interactable = true;
-                            }
                             else
-                            {
                                 selfCache.interactable = false;
-                            }
 
-                        }).UnRegisterWhenGameObjectDestroyed(selfCache);
+                        }).UnRegisterWhenGameObjectDestroyed(self);
                     });
             }
 

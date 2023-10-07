@@ -21,7 +21,7 @@ namespace ProjectSurvivor
 
             SpriteAtlas iconAtlas = mResloader.LoadSync<SpriteAtlas>("icon");
             foreach (var achievementItem in this.GetSystem<AchievementSystem>().Items.OrderByDescending(item => item.Unlocked))
-            // OrderByDescending(item => item.Unlocked) 未完成的排在前面
+            // OrderByDescending(item => item.Unlocked) 已完成的排在前面
             {
                 AchievementItemTempleteBtn.InstantiateWithParent(AchievementItemRoot)
                     .Self(self =>
