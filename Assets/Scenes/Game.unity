@@ -912,7 +912,7 @@ MonoBehaviour:
   ScriptsFolder: Assets/Scripts/Game/Ability
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
-  HurtBox: {fileID: 910590185}
+  HitHurtBox: {fileID: 0}
   SelfRigidbody2D: {fileID: 137060744}
 --- !u!114 &137060746
 MonoBehaviour:
